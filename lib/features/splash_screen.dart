@@ -2,11 +2,9 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared.dart'
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
-import 'package:final_graduation_project/features/login/presentation/manager/login_cubit.dart';
-import 'package:final_graduation_project/features/login/presentation/pages/login_screen.dart';
-import 'package:final_graduation_project/features/main_screen/main_screen.dart';
+import 'package:final_graduation_project/features/user/login/presentation/pages/login_screen.dart';
+import 'package:final_graduation_project/features/user/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SplashScreen extends StatefulWidget {

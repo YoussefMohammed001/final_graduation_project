@@ -1,7 +1,9 @@
 import 'package:final_graduation_project/core/api/my_dio.dart';
 import 'package:final_graduation_project/core/cubits/language/language_cubit.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
+import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/features/splash_screen.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,7 @@ Future main() async {
   await MyShared.init();
   AppDio.init();
   EasyLoading.init();
+  safePrint(MyShared.getString(key: MySharedKeys.apiToken));
   runApp(const MyApp());
 }
 

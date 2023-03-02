@@ -4,6 +4,7 @@ import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/features/login/presentation/manager/login_cubit.dart';
 import 'package:final_graduation_project/features/login/presentation/pages/login_screen.dart';
+import 'package:final_graduation_project/features/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -21,17 +22,17 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Future.delayed(const Duration(milliseconds: 2500)).then((value) {
-      if (MyShared.isFirstOpen()) {
-        // pushReplacement(context, OnBoardingScreen());
-        pushReplacement(context, BlocProvider(
-          create: (context) => LoginCubit(),
-          child: const LoginScreen(),
-        ));
-        return;
-      }
+      // if (MyShared.isFirstOpen()) {
+      //   // pushReplacement(context, OnBoardingScreen());
+      //   pushReplacement(context, BlocProvider(
+      //     create: (context) => LoginCubit(),
+      //     child: const LoginScreen(),
+      //   ));
+      //   return;
+      // }
 
       if (MyShared.isLoggedIn()) {
-        //  pushReplacement(context, const MainScreen());
+          pushReplacement(context, const MainScreen());
       } else {
         pushReplacement(context, const LoginScreen());
       }

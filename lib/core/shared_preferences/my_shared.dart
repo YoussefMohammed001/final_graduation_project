@@ -35,8 +35,7 @@ class MyShared {
   }
 
   static bool isLoggedIn() {
-    return (_preferences?.getString(MySharedKeys.apiToken.name) ?? "")
-        .isNotEmpty;
+    return (_preferences?.getString(MySharedKeys.apiToken.name) ?? "").isNotEmpty;
   }
 
   static bool isEnglish() => getCurrentLanguage() == "en";

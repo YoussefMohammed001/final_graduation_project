@@ -1,3 +1,5 @@
+import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
@@ -45,13 +47,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 textInputAction: TextInputAction.next,
                 title: "Name"),
             MyTextFormField(
-                hint: "YoussefMohamed@gmail.com",
+                hint: MyShared.getString(key: MySharedKeys.apiToken),
                 icon: Icons.person_outline_outlined,
                 controller: emailController,
                 isPassword: false,
                 textInputType: TextInputType.text,
                 textInputAction: TextInputAction.next,
-                title: "Name"),
+                title: "Email"),
             MyTextFormField(
               hint: "@1223@12",
               icon: Icons.lock_outline_rounded,

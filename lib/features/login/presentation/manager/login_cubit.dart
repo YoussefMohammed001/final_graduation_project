@@ -22,6 +22,7 @@ class LoginCubit extends Cubit<LoginState> {
       "email":email,
           "password":password,
 
+
         });
     loginRequestModel = LoginRequestModel.fromJson(response!.data);
     if(loginRequestModel.apiStatus ==true){
@@ -29,7 +30,7 @@ class LoginCubit extends Cubit<LoginState> {
       safePrint(response);
       await saveUserData();
       emit(LoginSucsess(loginRequestModel.message,loginRequestModel.data.userData.isverified));
-    } else{
+    } if(loginRequestModel.apiStatus == false){
       emit(LoginFailure(loginRequestModel.message));
       safePrint(response);
 

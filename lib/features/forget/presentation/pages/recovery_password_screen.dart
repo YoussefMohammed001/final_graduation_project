@@ -89,12 +89,10 @@ class RecoveryPasswordScreen extends StatelessWidget {
                       return null;
                     },
                     hint: "Enter Code",
-                    icon: Icons.code,
                     controller: codeController,
                     isPassword: false,
                     textInputAction: TextInputAction.next,
                     textInputType: TextInputType.text,
-                    title: 'Reset Code',
                   ),
                   MyTextFormField(
                     validators: (value) {
@@ -109,12 +107,10 @@ class RecoveryPasswordScreen extends StatelessWidget {
                       return null;
                     },
                     hint: "Enter Password",
-                    icon: Icons.lock_outline_rounded,
                     controller: passwordController,
                     isPassword: true,
                     textInputAction: TextInputAction.next,
                     textInputType: TextInputType.text,
-                    title: 'Password',
                   ),
                   MyTextFormField(
                     validators: (value) {
@@ -133,12 +129,10 @@ class RecoveryPasswordScreen extends StatelessWidget {
                       return null;
                     },
                     hint: "Enter Password",
-                    icon: Icons.lock_outline_rounded,
                     controller: passwordConfirmationController,
                     isPassword: true,
                     textInputAction: TextInputAction.done,
                     textInputType: TextInputType.text,
-                    title: 'Re - Password',
                   ),
                   AppButton(
                     onPressed: () {

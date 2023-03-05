@@ -10,19 +10,20 @@ class MyTextFormField extends StatefulWidget {
     this.borderRadius,
     this.margin,
     this.padding,
-    this.textColor = Colors.black, required this.icon, required this.controller, required this.isPassword, this.validators, required this.textInputAction, required this.textInputType, required this.title,
+    this.textColor = Colors.black,
+    required this.controller,
+    required this.isPassword,
+    this.validators,
+    required this.textInputAction,
+    required this.textInputType,
   }) : super(key: key);
   final Color textColor;
   final String hint;
-
-
   final bool isPassword;
   final FormFieldValidator<dynamic>? validators;
   final TextEditingController controller;
   final TextInputAction textInputAction;
   final TextInputType textInputType;
-  final String title;
-  final IconData icon;
   BorderRadius? borderRadius;
   EdgeInsetsGeometry? margin;
   EdgeInsetsGeometry? padding;
@@ -36,18 +37,10 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
-      margin: EdgeInsets.all(20.sp),
+      margin: widget.margin,
       child: Column(
         children: [
-          Row(
-            children: [
-              Icon(widget.icon,color: AppColors.primary,size: 17.sp,),
-              SizedBox(width: 2.w,),
-              Text(widget.title,style: TextStyle(fontSize: 15.sp,color: AppColors.primary),)
-            ],
-          ),
           TextFormField(
             validator: widget.validators,
             obscureText: obscureText,
@@ -55,27 +48,48 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
             keyboardType: widget.textInputType,
             textInputAction: widget.textInputAction,
             decoration: InputDecoration(
-
-            suffixIcon: Visibility(
-            visible: widget.isPassword,
-    child: InkWell(
-    onTap: () {
-    setState(() {
-    obscureText = !obscureText;
-    });
-    },
-    child: Icon(
-    obscureText ? Icons.visibility_off : Icons.visibility,
-    color: AppColors.primary,
-    ),
-    ),
-    ),
-              enabledBorder: UnderlineInputBorder( //<-- SEE HERE
-                borderSide: BorderSide(
-                    width: 3, color: Colors.grey.shade200),
+              suffixIcon: Visibility(
+                visible: widget.isPassword,
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      obscureText = !obscureText;
+                    });
+                  },
+                  child: Icon(
+                    obscureText ? Icons.visibility_off : Icons.visibility,
+                    color: Colors.grey,
+                  ),
+                ),
               ),
               hintText: widget.hint,
+              focusColor: Colors.grey.shade200,
+              fillColor: Colors.grey.shade200,
+              filled: true,
+
+
+              disabledBorder:OutlineInputBorder(
+                borderSide:  BorderSide(color: Colors.grey.shade200, width: 2.0),
+                borderRadius: BorderRadius.circular(13.0),
+              ) ,
+              focusedBorder: OutlineInputBorder(
+                borderSide:  BorderSide(color: Colors.grey.shade200, width: 2.0),
+                borderRadius: BorderRadius.circular(13.0),
+              ),
+
+
+                border: OutlineInputBorder(
+                borderSide:  BorderSide(color: Colors.grey.shade200, width: 2.0),
+                borderRadius: BorderRadius.circular(13.0),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide:  BorderSide(color: Colors.grey.shade200, width: 2.0),
+                borderRadius: BorderRadius.circular(13.0),
+              ),
+
             ),
+
+
           ),
         ],
       ),

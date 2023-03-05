@@ -1,4 +1,4 @@
-
+import 'package:final_graduation_project/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:final_graduation_project/features/profile/presentation/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,11 +11,27 @@ class MainCubit extends Cubit<MainState> {
   int index = 0;
 
   List<Widget> screens = [
-  ProfileScreen(),
-  ProfileScreen(),
-  ProfileScreen(),
-  ProfileScreen(),
-  ProfileScreen(),
+    BlocProvider(
+      create: (context) => ProfileCubit(),
+      child: const ProfileScreen(),
+    ),
+    BlocProvider(
+      create: (context) => ProfileCubit(),
+      child: const ProfileScreen(),
+    ),
+    BlocProvider(
+      create: (context) => ProfileCubit(),
+      child: const ProfileScreen(),
+    ),
+    BlocProvider(
+      create: (context) => ProfileCubit(),
+      child: const ProfileScreen(),
+    ),
+    BlocProvider(
+      create: (context) => ProfileCubit(),
+      child: const ProfileScreen(),
+    ),
+
   ];
 
   void backToHome() {
@@ -23,16 +39,13 @@ class MainCubit extends Cubit<MainState> {
     emit(BackHomeState());
   }
 
-  void switchToAppointmentScreen(){
+  void switchToAppointmentScreen() {
     index = 4;
     emit(SwitchToAppointmentScreen());
   }
 
 
-
-
-
-  void switchToProfileScreen(){
+  void switchToProfileScreen() {
     index = 3;
     emit(SwitchToProfileScreen());
   }

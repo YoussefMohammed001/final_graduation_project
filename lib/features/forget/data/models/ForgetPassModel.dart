@@ -2,8 +2,8 @@
 /// data : {"acknowledged":true,"modifiedCount":1,"upsertedId":null,"upsertedCount":0,"matchedCount":1}
 /// message : "check your inbox of mail and reset your password."
 
-class ForgotPassModel {
-  ForgotPassModel({
+class ForgetPassModel {
+  ForgetPassModel({
       bool? apiStatus, 
       Data? data, 
       String? message,}){
@@ -12,7 +12,7 @@ class ForgotPassModel {
     _message = message;
 }
 
-  ForgotPassModel.fromJson(dynamic json) {
+  ForgetPassModel.fromJson(dynamic json) {
     _apiStatus = json['apiStatus'];
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
     _message = json['message'];
@@ -20,16 +20,16 @@ class ForgotPassModel {
   bool? _apiStatus;
   Data? _data;
   String? _message;
-ForgotPassModel copyWith({  bool? apiStatus,
+ForgetPassModel copyWith({  bool? apiStatus,
   Data? data,
   String? message,
-}) => ForgotPassModel(  apiStatus: apiStatus ?? _apiStatus,
+}) => ForgetPassModel(  apiStatus: apiStatus ?? _apiStatus,
   data: data ?? _data,
   message: message ?? _message,
 );
   bool get apiStatus => _apiStatus ?? false;
-  Data get data => _data?? data;
-  String get message => _message??"";
+  Data? get data => _data ?? data;
+  String get message => _message ?? "";
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -86,11 +86,11 @@ Data copyWith({  bool? acknowledged,
   upsertedCount: upsertedCount ?? _upsertedCount,
   matchedCount: matchedCount ?? _matchedCount,
 );
-  bool get acknowledged => _acknowledged ?? false;
-  num get modifiedCount => _modifiedCount ?? 0;
+  bool? get acknowledged => _acknowledged;
+  num? get modifiedCount => _modifiedCount;
   dynamic get upsertedId => _upsertedId;
-  num get upsertedCount => _upsertedCount ?? 0;
-  num get matchedCount => _matchedCount ?? 0;
+  num? get upsertedCount => _upsertedCount;
+  num? get matchedCount => _matchedCount;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

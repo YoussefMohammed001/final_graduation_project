@@ -7,7 +7,7 @@ import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
-import 'package:final_graduation_project/features/forget/presentation/manager/forgot_pass/forgot_password_cubit.dart';
+import 'package:final_graduation_project/features/forget/presentation/manager/forget_pass_cubit/forget_pass_cubit.dart';
 import 'package:final_graduation_project/features/forget/presentation/pages/forget_password_screen.dart';
 import 'package:final_graduation_project/features/login/presentation/manager/login_cubit.dart';
 import 'package:final_graduation_project/features/main_screen/main_screen.dart';
@@ -117,9 +117,9 @@ class LoginScreenPassword extends StatelessWidget {
                       child: InkWell(
                         onTap: () {
                           push(context, BlocProvider(
-                            create: (context) => ForgotPasswordCubit(),
+                            create: (context) => ForgetPassCubit(),
                             child: ForgetPasswordScreen(),
-                          ));
+                          ),);
                         },
                         child: Row(
                           children: const [

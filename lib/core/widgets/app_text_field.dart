@@ -66,7 +66,10 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
               focusColor: Colors.grey.shade200,
               fillColor: Colors.grey.shade200,
               filled: true,
-
+              hintStyle: TextStyle(
+                fontSize: 16.sp,
+                color: Colors.grey
+              ),
 
               disabledBorder:OutlineInputBorder(
                 borderSide:  BorderSide(color: Colors.grey.shade200, width: 2.0),

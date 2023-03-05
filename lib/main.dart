@@ -4,6 +4,7 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared.dart'
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
+import 'package:final_graduation_project/features/forget/presentation/pages/new_password.dart';
 import 'package:final_graduation_project/features/splash_screen.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
                     ],
                     color: AppColors.primary,
                     builder: EasyLoading.init(),
-                    home:  const SplashScreen(),
+                    home:   NewPassword(),
 
                   );
                 },

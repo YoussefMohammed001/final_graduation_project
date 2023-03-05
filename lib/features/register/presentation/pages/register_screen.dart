@@ -207,7 +207,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       AppButton(
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
-
+                            context.read<RegisterCubit>().userRegister(name: nameController.text, email: emailController.text
+                                , password: passwordController.text, confirmPassword: confirmPasswordController.text
+                                , city: cityController.text, from:fromController.text );
                           }
                         },
                         label: "Join now",

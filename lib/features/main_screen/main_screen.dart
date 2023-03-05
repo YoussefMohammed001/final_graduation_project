@@ -1,6 +1,7 @@
 
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
+import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/features/main_screen/manager/main_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,30 +25,10 @@ class _MainScreenState extends State<MainScreen> {
       child: BlocBuilder<MainCubit, MainState>(
         builder: (context, state) {
           safePrint("Main");
-          return SafeArea(
-            child: Scaffold(
-              resizeToAvoidBottomInset: false,
-              floatingActionButton: FloatingActionButton(
-                backgroundColor: Colors.white,
-                //Floating action button on Scaffold
-                onPressed: () {
-                  cubit.index = 0;
-                  setState(() {});
-                  //code to execute on button press
-                },
-                child: const Icon(
-                  Icons.home,
-                  color: AppColors.primary,
-                ), //icon inside button
-              ),
-
-              floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-              //floating action button position to center
-
-              bottomNavigationBar: bottomNavBar(),
-              body: cubit.screens[cubit.index],
-            ),
+          return Scaffold(
+            //floating action button position to center
+            bottomNavigationBar: bottomNavBar(),
+            body: cubit.screens[cubit.index],
           );
         },
       ),
@@ -55,69 +36,32 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Widget bottomNavBar() {
-    return BottomAppBar(
-      //bottom navigation bar on scaffold
-      color: Colors.white,
-      shape: const CircularNotchedRectangle(),
-      //shape of notch
-      notchMargin: 10.sp,
-      //notch margin between floating button and bottom appbar
 
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20.sp),
-              topRight: Radius.circular(20.sp),
-            )),
-        child: Row(
-          //children inside bottom appbar
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.shopping_bag_outlined,
-                color: cubit.index == 4 ? AppColors.primary : Colors.grey,
-              ),
-              onPressed: () {
-                cubit.index = 4;
-                setState(() {});
-              },
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.search,
-                color: cubit.index == 1 ? AppColors.primary : Colors.grey,
-              ),
-              onPressed: () {
-                cubit.index = 1;
-                setState(() {});
-              },
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.favorite_border_rounded,
-                color: cubit.index == 2 ? AppColors.primary : Colors.grey,
-              ),
-              onPressed: () {
-                cubit.index = 2;
-                setState(() {});
-              },
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.person_outline_outlined,
-                color: cubit.index == 3 ? AppColors.primary : Colors.grey,
-              ),
-              onPressed: () {
-                cubit.index = 3;
-                setState(() {});
-              },
-            ),
-          ],
+    return BottomNavigationBar(
+      selectedItemColor: AppColors.text,
+      onTap: (value) {
+        cubit.index = value;
+        setState(() {});
+      },
+      currentIndex: cubit.index,
+      items:  [
+        BottomNavigationBarItem(
+          label:"Home",
+            icon: AppSVG(assetName:cubit.index== 0 ?'ic_tabs_ic_homepage':"ic_tabs_ic_homepage_inactive",)
         ),
-      ),
+        BottomNavigationBarItem(
+          label:"Appointment",
+          icon: AppSVG(assetName: 'group',)
+        ),
+        BottomNavigationBarItem(
+          label:"profile",
+            icon: AppSVG(assetName:cubit.index== 2 ?'ic_tabs_ic_account_active':"profile_inactive",)
+        ),
+
+
+    ],
+
+
     );
   }
 }

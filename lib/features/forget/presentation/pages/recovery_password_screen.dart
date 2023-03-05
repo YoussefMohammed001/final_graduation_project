@@ -3,8 +3,7 @@ import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
-import 'package:final_graduation_project/features/forget/presentation/manager/change_password/change_pass_cubit.dart';
-import 'package:final_graduation_project/features/forget/presentation/pages/congrant_screen.dart';
+import 'package:final_graduation_project/features/forget/presentation/widgets/otp_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -20,138 +19,99 @@ class RecoveryPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<ChangePassCubit, ChangePassState>(
-      listener: (context, state) {
-        if (state is ChangePassLoading) {
-          showLoading();
-        }
-        if (state is ChangePassSucsess) {
-          hideLoading();
-          push(context, const CongratsScreen());
-          // Alerts.showErrorDialog(context: context, errorMessage: state.sucssesMessage);
-        }
-        if (state is ChangePassFailure) {
-          hideLoading();
-          showError(state.failureMessage);
-          // Alerts.showErrorDialog(context: context, errorMessage: state.errorMessage);
-        }
-      },
-      child: SafeArea(
-        child: Scaffold(
-          body: Form(
-            key: _formKey,
-            child: Container(
-              margin: EdgeInsets.all(15.sp),
-              child: ListView(
+    return Form(
+      key: _formKey,
+      child: Scaffold(
+          backgroundColor: Colors.white,
+          body: Stack(
+            alignment: AlignmentDirectional.bottomCenter,
+            children: [
+              Image.asset(
+                "assets/images/bk.jpg",
+                width: double.infinity,
+                fit: BoxFit.cover,
+                height: double.infinity,
+              ),
+              ListView(
                 children: [
-                  Row(
+                  SizedBox(
+                    height: 50.h,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      InkWell(
-                        onTap: () {
-                          pop(context);
-                        },
-                        child: Container(
-                            padding: EdgeInsets.all(10.sp),
-                            alignment: AlignmentDirectional.center,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(13.sp),
-                                border: Border.all(color: Colors.grey)),
-                            child: Center(
-                                child: Icon(
-                                  Icons.arrow_back,
-                                  size: 20.sp,
-                                ))),
+                      Text(
+                        "Forget your password?",
+                        style: TextStyle(
+                            color: AppColors.primary,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.sp),
+                      ),
+                      Text(
+                        "Don’t worry",
+                        style: TextStyle(
+                            color: AppColors.primary,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.sp),
                       ),
                       SizedBox(
-                        width: 3.w,
+                        height: 3.5.h,
                       ),
-                      Expanded(
-                          child: Text("Recovery Password",
-                              style: TextStyle(fontSize: 20.sp)))
+                      Text(
+                        "Enter otp sent to your email",
+                        style: TextStyle(
+                            color: AppColors.text,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.sp),
+                      ),
                     ],
                   ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(10.sp),
-                    child: Text("We have sent an code to you please check your mail",
-                        style: TextStyle(fontSize: 17.sp)),
-                  ),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  MyTextFormField(
-                    validators: (value) {
-                      if (value!.isEmpty) {
-                        return "please enter the code";
-                      }
-                      return null;
-                    },
-                    hint: "Enter Code",
-                    controller: codeController,
-                    isPassword: false,
-                    textInputAction: TextInputAction.next,
-                    textInputType: TextInputType.text,
-                  ),
-                  MyTextFormField(
-                    validators: (value) {
-                      if (value!.isEmpty) {
-                        return "please enter password";
-                      }
-                      if (value
-                          .toString()
-                          .length < 6) {
-                        return "password must me more than 6 digits";
-                      }
-                      return null;
-                    },
-                    hint: "Enter Password",
-                    controller: passwordController,
-                    isPassword: true,
-                    textInputAction: TextInputAction.next,
-                    textInputType: TextInputType.text,
-                  ),
-                  MyTextFormField(
-                    validators: (value) {
-                      if (value!.isEmpty) {
-                        return "please confirm password";
-                      }
-                      if (value
-                          .toString()
-                          .length < 6) {
-                        return "password must me more than 6 digits";
-                      }
 
-                      if (passwordController.text != passwordConfirmationController.text) {
-                        return "doesn't match";
-                      }
-                      return null;
-                    },
-                    hint: "Enter Password",
-                    controller: passwordConfirmationController,
-                    isPassword: true,
-                    textInputAction: TextInputAction.done,
-                    textInputType: TextInputType.text,
+                  SizedBox(
+                    height: 3.5.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                    OTPItem(first: true, last: false,),
+                    OTPItem(first: false, last: false,),
+                    OTPItem(first: false, last: false,),
+                    OTPItem(first: false, last: true,),
+
+                  ],),
+                  SizedBox(
+                    height: 3.h,
                   ),
                   AppButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        context.read<ChangePassCubit>().userChangePass(code: codeController.text, password: passwordController.text);
                       }
-                      //
+                      push(context, RecoveryPasswordScreen());
                     },
+                    label: "Activate",
+                    padding: EdgeInsets.symmetric(vertical: 18.sp),
                     bgColor: AppColors.primary,
-                    label: "Send Code",
-                    borderRadius: BorderRadius.circular(13.sp),
-                    margin: EdgeInsets.all(13.sp),
-                  )
+                    margin: EdgeInsets.symmetric(horizontal: 17.sp),
+                    borderRadius: BorderRadius.circular(15.sp),
+                  ),
+
+                  Container(
+                    alignment: AlignmentDirectional.center,
+                    margin: EdgeInsets.all(20.sp),
+                    child: Text(
+                      "Send OTP again",
+                      style: TextStyle(
+                          color: AppColors.primary,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.sp),
+                    ),
+
+                  ),
+
                 ],
               ),
-            ),
-          ),
-        ),
-      ),
+            ],
+          )),
     );
   }
 }

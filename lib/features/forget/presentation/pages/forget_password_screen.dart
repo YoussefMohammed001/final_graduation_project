@@ -3,8 +3,7 @@ import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
-import 'package:final_graduation_project/features/forget/presentation/manager/change_password/change_pass_cubit.dart';
-import 'package:final_graduation_project/features/forget/presentation/manager/forgot_pass/forgot_password_cubit.dart';
+import 'package:final_graduation_project/features/forget/presentation/manager/forget_pass_cubit/forget_pass_cubit.dart';
 import 'package:final_graduation_project/features/forget/presentation/pages/recovery_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,107 +13,116 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class ForgetPasswordScreen extends StatelessWidget {
   ForgetPasswordScreen({Key? key}) : super(key: key);
   TextEditingController emailController = TextEditingController();
-
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> emailFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
+    return BlocConsumer<ForgetPassCubit, ForgetPassState>(
       listener: (context, state) {
-        if (state is ForgotPasswordLoading) {
+        if(state is ForgetPassLoading){
           showLoading();
         }
-        if (state is ForgotPasswordSucsess) {
+        if(state is ForgetPassSendCodeSucsess){
           hideLoading();
-          push(context, BlocProvider(
-            create: (context) => ChangePassCubit(),
-            child: RecoveryPasswordScreen(),
-          ));
-          // Alerts.showErrorDialog(context: context, errorMessage: state.sucssesMessage);
-        }
-        if (state is ForgotPasswordFailure) {
+          push(context, RecoveryPasswordScreen());
+        //  showSuccess(state.sucsessMessage);
+        } if(state is ForgetPassSendCodeFailure){
           hideLoading();
-          showError(state.errorMessage);
-          // Alerts.showErrorDialog(context: context, errorMessage: state.errorMessage);
+        //  showError(state.failureMessage);
+          showError(state.failureMessage);
         }
       },
-      child: SafeArea(
-        child: Scaffold(
-          body: Form(
-            key: _formKey,
-            child: Container(
-              margin: EdgeInsets.all(15.sp),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+      builder: (context, state) {
+        return Form(
+
+          key: emailFormKey,
+          child: Scaffold(
+              backgroundColor: Colors.white,
+              body: Stack(
+                alignment: AlignmentDirectional.bottomCenter,
                 children: [
-                  Row(
+                  Image.asset(
+                    "assets/images/bk.png",
+                    width: double.infinity,
+                    fit: BoxFit.fitWidth,
+                    height: double.infinity,
+                  ),
+                  ListView(
                     children: [
-                      InkWell(
-                        onTap: () {
-                          pop(context);
+                      SizedBox(
+                        height: 50.h,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Forget your password?",
+                            style: TextStyle(
+                                color: AppColors.primary,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.sp),
+                          ),
+                          Text(
+                            "Don’t worry",
+                            style: TextStyle(
+                                color: AppColors.primary,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.sp),
+                          ),
+                          SizedBox(
+                            height: 3.5.h,
+                          ),
+                          Text(
+                            "Enter your email",
+                            style: TextStyle(
+                                color: AppColors.text,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16.sp),
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(
+                        height: 3.5.h,
+                      ),
+                      MyTextFormField(
+                          validators: (value) {
+                            if (value.isEmpty) {
+                              return "Enter your email";
+                            }
+                          },
+                          margin: EdgeInsets.symmetric(horizontal: 17.sp),
+                          borderRadius: BorderRadius.circular(13.sp),
+                          hint: "email",
+                          controller: emailController,
+                          isPassword: false,
+                          textInputAction: TextInputAction.done,
+                          textInputType: TextInputType.emailAddress),
+                      SizedBox(
+                        height: 3.h,
+                      ),
+                      AppButton(
+                        onPressed: () {
+                          if (emailFormKey.currentState!.validate()) {
+                            context.read<ForgetPassCubit>()
+                              ..sendCode(email: emailController.text);
+                          }
                         },
-                        child: Container(
-                            padding: EdgeInsets.all(10.sp),
-                            alignment: AlignmentDirectional.center,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(13.sp),
-                                border: Border.all(color: Colors.grey)),
-                            child: Center(
-                                child: Icon(
-                                  Icons.arrow_back,
-                                  size: 20.sp,
-                                ))),
+                        label: "Send Code",
+                        padding: EdgeInsets.symmetric(vertical: 18.sp),
+                        bgColor: AppColors.primary,
+                        margin: EdgeInsets.symmetric(horizontal: 17.sp),
+                        borderRadius: BorderRadius.circular(15.sp),
                       ),
                       SizedBox(
-                        width: 3.w,
+                        height: 4.h,
                       ),
-                      Expanded(
-                          child: Text("Forget Password",
-                              style: TextStyle(fontSize: 20.sp)))
                     ],
                   ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(10.sp),
-                    child: Text("Please Enter Your Email Below",
-                        style: TextStyle(fontSize: 17.sp)),
-                  ),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  MyTextFormField(
-                    validators: (value) {
-                      if (value!.isEmpty) {
-                        return "Please Enter Your Email";
-                      }
-                      return null;
-                    },
-                    hint: "Email@gmail.com",
-                    controller: emailController,
-                    isPassword: false,
-                    textInputAction: TextInputAction.done,
-                    textInputType: TextInputType.emailAddress,
-                  ),
-                  AppButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        context.read<ForgotPasswordCubit>().userForgotPass(
-                            email: emailController.text.trim());
-                      }
-                    },
-                    bgColor: AppColors.primary,
-                    label: "Send Code",
-                    borderRadius: BorderRadius.circular(13.sp),
-                    margin: EdgeInsets.all(13.sp),
-                  )
                 ],
-              ),
-            ),
-          ),
-        ),
-      ),
+              )),
+        );
+      },
     );
   }
 }

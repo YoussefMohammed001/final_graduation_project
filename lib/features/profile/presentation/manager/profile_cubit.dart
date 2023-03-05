@@ -15,7 +15,6 @@ class ProfileCubit extends Cubit<ProfileState> {
   LogoutModel logoutModel = LogoutModel();
 
   userLogout() async {
-
     emit(ProfileLoading());
     var response = await AppDio.get(endPoint: "logout",);
     logoutModel = LogoutModel.fromJson(response!.data);

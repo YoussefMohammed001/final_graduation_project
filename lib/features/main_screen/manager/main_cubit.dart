@@ -1,3 +1,5 @@
+import 'package:final_graduation_project/features/appoinntment/presentation/pages/appointment_screem.dart';
+import 'package:final_graduation_project/features/home/presentation/pages/home_screen.dart';
 import 'package:final_graduation_project/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:final_graduation_project/features/profile/presentation/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,22 +13,8 @@ class MainCubit extends Cubit<MainState> {
   int index = 0;
 
   List<Widget> screens = [
-    BlocProvider(
-      create: (context) => ProfileCubit(),
-      child: const ProfileScreen(),
-    ),
-    BlocProvider(
-      create: (context) => ProfileCubit(),
-      child: const ProfileScreen(),
-    ),
-    BlocProvider(
-      create: (context) => ProfileCubit(),
-      child: const ProfileScreen(),
-    ),
-    BlocProvider(
-      create: (context) => ProfileCubit(),
-      child: const ProfileScreen(),
-    ),
+    HomeScreen(),
+    AppointmentScreen(),
     BlocProvider(
       create: (context) => ProfileCubit(),
       child: const ProfileScreen(),

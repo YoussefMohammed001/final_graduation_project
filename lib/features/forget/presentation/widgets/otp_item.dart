@@ -22,7 +22,7 @@ final bool last;
               FocusScope.of(context).previousFocus();
             }
           },
-          showCursor: false,
+          showCursor: true,
           readOnly: false,
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),

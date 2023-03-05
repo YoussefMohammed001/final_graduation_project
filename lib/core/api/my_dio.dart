@@ -7,8 +7,12 @@ class AppDio {
   static late Dio _dio;
 
   static void init() {
+
     BaseOptions baseOptions = BaseOptions(
         baseUrl: EndPoints.baseUrl,
+        followRedirects: false,
+        // will not throw errors
+        validateStatus: (status) => true,
         receiveDataWhenStatusError: true,
         connectTimeout: 60 * 1000, // 60 seconds
         receiveTimeout: 60 * 1000 // 60 seconds
@@ -23,7 +27,7 @@ class AppDio {
     _dio.options.headers = {
       // "lang": MyShared.getCurrentLanguage(),
       // "Accept": "application/json",
-      // "Authorization": MyShared.getString(key: MySharedKeys.apiToken),
+      "Authorization": MyShared.getString(key: MySharedKeys.apiToken),
     };
 
     return await _dio.get(
@@ -36,10 +40,9 @@ class AppDio {
     Map<String, dynamic>? data,
   }) async {
     _dio.options.headers = {
-      "lang": MyShared.getCurrentLanguage(),
-      "Accept": "application/json",
-      "Authorization":
-          "bearer ${MyShared.getString(key: MySharedKeys.apiToken)}",
+      //"lang": MyShared.getCurrentLanguage(),
+      //"Accept": "application/json",
+      "Authorization": "bearer ${MyShared.getString(key: MySharedKeys.apiToken)}",
     };
     return await _dio.post(endPoint, data: data);
   }

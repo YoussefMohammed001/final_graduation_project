@@ -70,12 +70,11 @@ class VerifyAccountScreen extends StatelessWidget {
 
                 MyTextFormField(
                     hint: "******",
-                    icon: Icons.code,
                     controller: codeController,
                     isPassword: false,
                     textInputAction: TextInputAction.done,
                     textInputType: TextInputType.number,
-                    title: "Enter the OTP"),
+                   ),
                 SizedBox(height: 2.h,),
                 AppButton(onPressed: () {
                   int code = int.parse(codeController.text);

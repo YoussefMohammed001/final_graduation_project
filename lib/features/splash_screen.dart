@@ -32,9 +32,12 @@ class _SplashScreenState extends State<SplashScreen> {
       // }
 
       if (MyShared.isLoggedIn()) {
-          pushReplacement(context, const MainScreen());
+        pushReplacement(context, const MainScreen());
       } else {
-        pushReplacement(context, const LoginScreen());
+        pushReplacement(context, BlocProvider(
+          create: (context) => LoginCubit(),
+          child: const LoginScreen(),
+        ));
       }
     });
 

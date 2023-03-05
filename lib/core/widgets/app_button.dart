@@ -47,7 +47,7 @@ class AppButton extends StatelessWidget {
             style: TextStyle(
               color: textColor,
               fontWeight: FontWeight.w500,
-              fontSize: 18.sp,
+              fontSize: 15.sp,
             ),
           ),
         ),

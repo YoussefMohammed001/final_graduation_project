@@ -1,9 +1,15 @@
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
+import 'package:final_graduation_project/core/utils/easy_loading.dart';
+import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
+import 'package:final_graduation_project/features/login/presentation/manager/login_cubit.dart';
+import 'package:final_graduation_project/features/login/presentation/pages/login_screen.dart';
+import 'package:final_graduation_project/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -24,83 +30,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Container(
-        margin: EdgeInsets.only(left: 15.sp, right: 15.sp, top: 20.sp),
-        child: ListView(
-          children: [
-            SizedBox(
-              width: 3.h,
-            ),
+    return BlocListener<ProfileCubit, ProfileState>(
 
-            SizedBox(
-              height: 2.h,
-            ),
-
-            MyTextFormField(
-                hint: "Youssef Mohamed",
-                icon: Icons.person_outline_outlined,
-                controller: nameController,
-                isPassword: false,
-                textInputType: TextInputType.text,
-                textInputAction: TextInputAction.next,
-                title: "Name"),
-            MyTextFormField(
-                hint: MyShared.getString(key: MySharedKeys.apiToken),
-                icon: Icons.person_outline_outlined,
-                controller: emailController,
-                isPassword: false,
-                textInputType: TextInputType.text,
-                textInputAction: TextInputAction.next,
-                title: "Email"),
-            MyTextFormField(
-              hint: "@1223@12",
-              icon: Icons.lock_outline_rounded,
-              controller: passwordController,
-              isPassword: true,
-              textInputAction: TextInputAction.next,
-              title: "Password",
-              textInputType: TextInputType.text,
-            ),
-
-            MyTextFormField(
-                hint: "Cairo Egypt",
-                icon: Icons.location_on_outlined,
-                controller: cityController,
-                isPassword: false,
-                textInputAction: TextInputAction.next,
-                textInputType: TextInputType.text,
-                title: "City"),
-            MyTextFormField(
-                hint: "El Shourok",
-                icon: Icons.location_on_outlined,
-                controller: addressController,
-                isPassword: false,
-                textInputAction: TextInputAction.next,
-                textInputType: TextInputType.text,
-                title: "Address"),
-            AppButton(
-              onPressed: () {
-
-
-              },
-              label: "Logout",
-              margin: EdgeInsets.all(10.sp),
-              borderRadius: BorderRadius.circular(13.sp),
-              bgColor: AppColors.primary,
-            ),  AppButton(
-              onPressed: () {
-              },
-              label: "Delete Account",
-              margin: EdgeInsets.all(10.sp),
-              borderRadius: BorderRadius.circular(13.sp),
-              bgColor: AppColors.red,
-            ),
-            SizedBox(
-              height: 4.h,
-            ),
-          ],
+      listener: (context, state) {
+        if (state is ProfileLoading) {
+          showLoading();
+        }
+        if (state is ProfileLogoutSucsess) {
+          pushReplacement(context, BlocProvider(
+            create: (context) => LoginCubit(),
+            child: const LoginScreen(),
+          ));
+          showSuccess(state.sucsessMessage);
+        }
+        if (state is ProfileLogoutFailure) {
+          showError(state.failureMessage);
+        }
+      },
+      child: Form(
+        key: _formKey,
+        child: Container(
+          margin: EdgeInsets.only(left: 15.sp, right: 15.sp, top: 20.sp),
         ),
       ),
     );

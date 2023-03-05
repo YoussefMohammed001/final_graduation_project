@@ -92,12 +92,10 @@ class ForgetPasswordScreen extends StatelessWidget {
                       return null;
                     },
                     hint: "Email@gmail.com",
-                    icon: Icons.email_outlined,
                     controller: emailController,
                     isPassword: false,
                     textInputAction: TextInputAction.done,
                     textInputType: TextInputType.emailAddress,
-                    title: 'Email',
                   ),
                   AppButton(
                     onPressed: () {

@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
         pushReplacement(context, const LoginScreen());
       }
     });
-
+//.
     Future.delayed(
       const Duration(milliseconds: 500),
           () {

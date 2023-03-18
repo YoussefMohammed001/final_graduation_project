@@ -35,6 +35,14 @@ class AppDio {
     );
   }
 
+
+
+
+
+
+
+
+
   static Future<Response?> post({
     required String endPoint,
     Map<String, dynamic>? data,
@@ -46,4 +54,34 @@ class AppDio {
     };
     return await _dio.post(endPoint, data: data);
   }
+
+  static Future<Response?> delete({
+    required String endPoint,
+    Map<String, dynamic>? data,
+  }) async {
+    _dio.options.headers = {
+      //"lang": MyShared.getCurrentLanguage(),
+      //"Accept": "application/json",
+      "Authorization": "bearer ${MyShared.getString(key: MySharedKeys.apiToken)}",
+    };
+    return await _dio.delete(endPoint, data: data);
+  }
+
+
+
+  static Future<Response?> patch({
+    required String endPoint,
+    Map<String, dynamic>? data,
+  }) async {
+    _dio.options.headers = {
+      //"lang": MyShared.getCurrentLanguage(),
+      //"Accept": "application/json",
+      "Authorization": "bearer ${MyShared.getString(key: MySharedKeys.apiToken)}",
+    };
+    return await _dio.patch(endPoint, data: data);
+  }
+
+
+
+
 }

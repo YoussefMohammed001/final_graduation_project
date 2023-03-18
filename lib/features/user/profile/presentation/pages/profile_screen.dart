@@ -1,7 +1,12 @@
 
+import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
+import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
-import 'package:final_graduation_project/features/user/login/presentation/pages/login_screen.dart';
+import 'package:final_graduation_project/core/widgets/app_button.dart';
+import 'package:final_graduation_project/core/widgets/app_text_field.dart';
+import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
 import 'package:final_graduation_project/features/user/profile/presentation/manager/profile_cubit.dart';
 import 'package:final_graduation_project/features/user/profile/presentation/widgets/profile_app_bar.dart';
 import 'package:final_graduation_project/features/user/profile/presentation/widgets/profile_item.dart';
@@ -18,20 +23,20 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
+TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BlocListener<ProfileCubit, ProfileState>(
       listener: (context, state) {
         if(state is ProfileLoading){
           showLoading();
+          
         } if(state is ProfileLogoutSucsess){
           hideLoading();
           showSuccess(state.sucsessMessage);
-          pushReplacement(context,const LoginScreen());
+          pushAndRemoveUntil(context,const LoginScreen());
         }if(state is ProfileLogoutFailure){
           hideLoading();
-
         }
       },
       child: ListView(
@@ -46,10 +51,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ProfileItem(text: 'Language', icon: 'ic_ic_lang', onTap: () {
 
           },),
-          ProfileItem(
-            text: 'Terms and Conditions', icon: 'ic_ic_terms', onTap: () {},),
+          ProfileItem(text: 'Terms and Conditions', icon: 'ic_ic_terms', onTap: () {},),
           ProfileItem(text: 'Contact Us', icon: 'ic_ic_contact', onTap: () {},),
-          ProfileItem(text: 'Share App', icon: 'ic_ic_share', onTap: () {},),
+          ProfileItem(text: 'Share App', icon: 'ic_ic_share', onTap: () {
+
+
+
+
+
+
+
+
+          },),
         ],
       ),
     );

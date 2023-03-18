@@ -16,6 +16,5 @@ class ProfileLogoutFailure extends ProfileState {
 
   ProfileLogoutFailure(this.failureMessage);
 }
-class ProfileDeleteSucsess extends ProfileState {}
-class ProfileDeleteFailure extends ProfileState {}
+
 

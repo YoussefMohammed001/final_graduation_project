@@ -1,3 +1,5 @@
+import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
@@ -34,7 +36,7 @@ class HomeAppBar extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children:  [
-                        Text("Hello $user,",style: TextStyle(color: Colors.grey),),
+                        Text("Hello ${MyShared.getString(key: MySharedKeys.username)},",style: TextStyle(color: Colors.grey),),
                         const Text("Hope you are ok!",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                       ],
                     ),

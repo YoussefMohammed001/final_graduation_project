@@ -18,6 +18,7 @@ Future main() async {
   AppDio.init();
   EasyLoading.init();
   safePrint(MyShared.getString(key: MySharedKeys.apiToken));
+  safePrint(MyShared.getString(key: MySharedKeys.username));
   runApp(const MyApp());
 }
 

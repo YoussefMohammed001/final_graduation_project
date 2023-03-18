@@ -37,7 +37,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget bottomNavBar() {
 
     return BottomNavigationBar(
-      selectedItemColor: AppColors.text,
+      selectedItemColor: AppColors.primary,
       onTap: (value) {
         cubit.index = value;
         setState(() {});

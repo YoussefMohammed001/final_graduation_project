@@ -2,7 +2,6 @@ import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/home_app_bar.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/latest_doctor_tem.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/predict_diseases_item.dart';
-import 'package:final_graduation_project/features/user/home/presentation/widgets/prediction_item.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/sepcialest_item.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -88,9 +87,9 @@ class HomeScreen extends StatelessWidget {
                             itemCount: 8,
                             itemBuilder: (BuildContext context, int index) {
                               return const SpecialistItem(
-                                icon: "fieldImg",
-                                title: "specialists.fieldDtname",
-                                doctorsNumber: "doctorCount.toString()",
+                                icon: "heart",
+                                title: "Heart Issue",
+                                doctorsNumber: "20 Doctors",
                               );
                             },
                           ),
@@ -131,6 +130,7 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                         ),
+                        SizedBox(height: 1.h,),
                       ],
                     ),
                   ),

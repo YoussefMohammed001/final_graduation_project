@@ -1,5 +1,7 @@
 import 'package:final_graduation_project/core/styles/colors.dart';
-import 'package:final_graduation_project/core/widgets/app_image.dart';
+import 'package:final_graduation_project/core/utils/navigators.dart';
+import 'package:final_graduation_project/core/utils/svg.dart';
+import 'package:final_graduation_project/features/user/specialist_doctors/presentation/screens/specialist_doctors.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -33,14 +35,15 @@ class SpecialistItem extends StatelessWidget {
           color: Colors.white),
       child: InkWell(
         onTap: () {
-          print("x");
+
+          push(context, SpecialistDoctors());
         },
         child: Column(
           children: [
-            AppImage(
+            AppSVG(
               height: 35.sp,
               width: 35.sp,
-              imageUrl: icon,
+               assetName: icon,
 
             ),
             SizedBox(height: 10.sp),
@@ -51,14 +54,14 @@ class SpecialistItem extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: AppColors.text,
-                  fontSize: 12.sp,
+                  fontSize: 15.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ),
             ),
             SizedBox(height: 10.sp),
             Text(
-              "$doctorsNumber doctors",
+              doctorsNumber,
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.grey, fontSize: 12.sp),
             ),

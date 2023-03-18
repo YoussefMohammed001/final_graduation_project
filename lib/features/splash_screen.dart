@@ -1,5 +1,4 @@
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
-import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
@@ -79,7 +78,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     AnimatedContainer(
                       height: logoHeight,
                       width: logoWidth,
-                      duration: const Duration(milliseconds: 1000),
+                      duration: const Duration(milliseconds: 200),
                       curve: Curves.bounceOut,
                       child: AppSVG(
 
@@ -89,42 +88,19 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                     SizedBox(width: 5.w,),
                     AnimatedOpacity(
-                        duration:  Duration(milliseconds: 500),
+                        duration:  Duration(milliseconds: 200),
                         curve: Curves.bounceInOut,
                         opacity: buttonOpacity,
-                        child: Text("HSPC",style: TextStyle(fontSize: 25.sp,color: AppColors.primary,fontWeight: FontWeight.bold),))
+                        child: Text("HSPC",style: TextStyle(fontSize: 35.sp,color: AppColors.primary,fontWeight: FontWeight.bold),))
 
                   ],
                 ),
               ),
             ],
           ),
-          AnimatedContainer(
-              height: bottomHeight,
-              width: bottomWidth,
-              curve: Curves.bounceOut,
-              duration: const Duration(milliseconds: 1000),
-              child: const AppSVG(
-                boxFit: BoxFit.fill,
-                assetName: "splash_corner",
-              ))
         ],
       ),
     );
   }
 
-  void navigate() {
-    if (MyShared.isFirstOpen()) {
-      // pushAndRemoveUntil(context, const OnBoardingScreen());
-      return;
-    }
-
-    if (MyShared
-        .getString(key: MySharedKeys.apiToken)
-        .isEmpty) {
-      // pushAndRemoveUntil(context, const SignInScreen());
-    } else {
-      // pushAndRemoveUntil(context, const MainScreen());
-    }
-  }
 }

@@ -8,13 +8,16 @@ class ApppointmentAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      padding: EdgeInsets.only(top:30.sp,right: 30.sp,left: 30.sp,bottom: 20.sp),
-      width: double.infinity,
+      padding: EdgeInsets.only(top: 30.sp,bottom: 20.sp,left: 15.sp,right: 15.sp),
       color: AppColors.primary,
-      child: Container(
-          alignment: AlignmentDirectional.bottomStart,
-          child: const Text("Appointment",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+      child: Row(
 
+        children: const [
+          Text("Appointments",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+          Spacer(),
+        ],
+
+      ),
     );
   }
 }

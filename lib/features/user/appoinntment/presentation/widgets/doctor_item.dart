@@ -10,7 +10,7 @@ class DoctorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 35.sp,vertical: 10.sp),
+      margin: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 10.sp),
       padding: EdgeInsets.all(20.sp),
       width: double.infinity,
       decoration: BoxDecoration(
@@ -20,6 +20,7 @@ class DoctorItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Icon(

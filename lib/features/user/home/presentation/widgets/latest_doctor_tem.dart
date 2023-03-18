@@ -1,7 +1,9 @@
 import 'package:final_graduation_project/core/styles/colors.dart';
+import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_image.dart';
+import 'package:final_graduation_project/features/user/single_doctor/presentation/pages/single_doctor.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -10,33 +12,30 @@ class LatestDoctorItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return InkWell(
+      onTap: (){
+        push(context, SingleDoctor());
+      },
+      child: Container(
 
-      margin: EdgeInsets.all(13.sp),
-      width: 34.w,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.sp),
-          border: Border.all(color: Colors.grey.shade200)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: AppImage(
-                  imageUrl:
-                      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZG9jdG9yfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60",
-                  width: 34.w,
-                  height: 15.h,
-                  topRightRadius: 15.sp,
-                  topLeftRadius: 15.sp,
-                ),
-              ),
-            ],
-          ),
-          Container(
-            padding: EdgeInsets.all(8.sp),
-            child: Column(
+        margin: EdgeInsets.symmetric(horizontal: 13.sp),
+        width: 37.w,
+        height: 70.h,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.sp),
+            border: Border.all(color: Colors.grey.shade200)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AppImage(
+              imageUrl:
+                  "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZG9jdG9yfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60",
+              width: double.infinity,
+              height: 13.h,
+              topRightRadius: 15.sp,
+              topLeftRadius: 15.sp,
+            ),
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
@@ -95,14 +94,20 @@ class LatestDoctorItem extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 1.h,
+
+                AppButton(onPressed: (){
+
+
+                }, label: "Book now",
+                  bgColor: AppColors.primary
+                ,margin: EdgeInsets.only(left:15.sp,right:15.sp,top: 0,bottom: 0),
+                  padding: const EdgeInsets.all(0),
                 ),
-                // AppButton(bgColor: AppColors.primary,onPressed: (){}, label: "Book Now",margin: EdgeInsets.all(0),),
+
               ],
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

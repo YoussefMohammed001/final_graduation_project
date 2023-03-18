@@ -1,5 +1,6 @@
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
+import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
@@ -15,11 +16,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  double buttonOpacity = 0;
   @override
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(milliseconds: 2500)).then((value) {
+    Future.delayed(const Duration(milliseconds: 3000)).then((value) {
       // if (MyShared.isFirstOpen()) {
       //   // pushReplacement(context, OnBoardingScreen());
       //   pushReplacement(context, BlocProvider(
@@ -36,11 +38,14 @@ class _SplashScreenState extends State<SplashScreen> {
       }
     });
 //.
+
     Future.delayed(
-      const Duration(milliseconds: 500),
+      const Duration(milliseconds: 1500),
           () {
-        logoHeight = 50.h;
-        logoWidth = 100.w;
+            buttonOpacity = 1;
+            setState(() {});
+        logoHeight = 30.h;
+        logoWidth = 30.w;
 
         bottomHeight = 50.h;
         bottomWidth = 40.w;
@@ -50,8 +55,8 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  double logoHeight = 25.h;
-  double logoWidth = 75.w;
+  double logoHeight = 5.h;
+  double logoWidth = 10.w;
 
   double bottomHeight = 35.h;
   double bottomWidth = 25.w;
@@ -68,16 +73,28 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                child: AnimatedContainer(
-                  height: logoHeight,
-                  width: logoWidth,
-                  duration: const Duration(milliseconds: 1000),
-                  curve: Curves.bounceOut,
-                  child: Image.asset(
-                    "assets/images/bdg_logo.png",
-                    height: logoHeight,
-                    width: logoWidth,
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AnimatedContainer(
+                      height: logoHeight,
+                      width: logoWidth,
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.bounceOut,
+                      child: AppSVG(
+
+                        height: logoHeight,
+                        width: logoWidth, assetName: 'splash',
+                      ),
+                    ),
+                    SizedBox(width: 5.w,),
+                    AnimatedOpacity(
+                        duration:  Duration(milliseconds: 500),
+                        curve: Curves.bounceInOut,
+                        opacity: buttonOpacity,
+                        child: Text("HSPC",style: TextStyle(fontSize: 25.sp,color: AppColors.primary,fontWeight: FontWeight.bold),))
+
+                  ],
                 ),
               ),
             ],

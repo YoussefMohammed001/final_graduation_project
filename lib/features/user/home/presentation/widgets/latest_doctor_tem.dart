@@ -11,6 +11,7 @@ class LatestDoctorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       margin: EdgeInsets.all(13.sp),
       width: 34.w,
       decoration: BoxDecoration(
@@ -19,13 +20,19 @@ class LatestDoctorItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AppImage(
-            imageUrl:
-                "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZG9jdG9yfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60",
-            width: 34.w,
-            height: 15.h,
-            topRightRadius: 15.sp,
-            topLeftRadius: 15.sp,
+          Row(
+            children: [
+              Expanded(
+                child: AppImage(
+                  imageUrl:
+                      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZG9jdG9yfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60",
+                  width: 34.w,
+                  height: 15.h,
+                  topRightRadius: 15.sp,
+                  topLeftRadius: 15.sp,
+                ),
+              ),
+            ],
           ),
           Container(
             padding: EdgeInsets.all(8.sp),

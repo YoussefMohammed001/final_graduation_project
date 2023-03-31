@@ -2,7 +2,6 @@ import 'package:final_graduation_project/features/user/appoinntment/presentation
 import 'package:final_graduation_project/features/user/appoinntment/presentation/widgets/doctor_item.dart';
 import 'package:final_graduation_project/features/user/appoinntment/presentation/widgets/switch.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AppointmentScreen extends StatelessWidget {
   const AppointmentScreen({Key? key}) : super(key: key);
@@ -12,14 +11,13 @@ class AppointmentScreen extends StatelessWidget {
     return Scaffold(
       body:  Column(
             children: [
-              ApppointmentAppBar(),
+              const ApppointmentAppBar(),
               SwitchAppointment(),
               Expanded(
                 child: ListView.builder(
-
                   shrinkWrap: false,
                   itemBuilder: (BuildContext context, int index) {
-                  return DoctorItem();
+                  return const DoctorItem();
 
                 },
                 itemCount: 10,

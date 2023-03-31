@@ -20,10 +20,10 @@ class SpecialistItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 41.sp,
+      width: 45.sp,
       padding: EdgeInsets.symmetric(
         horizontal: 15.sp,
-        vertical: 10.sp,
+        vertical: 15.sp,
       ),
       margin: EdgeInsets.symmetric(
         horizontal: 10.sp,
@@ -41,31 +41,27 @@ class SpecialistItem extends StatelessWidget {
         child: Column(
           children: [
             AppSVG(
-              height: 35.sp,
-              width: 35.sp,
+              height: 32.sp,
+              width: 32.sp,
                assetName: icon,
 
             ),
-            SizedBox(height: 10.sp),
-            Expanded(
-              child: Text(
-                title,
+            Text(
+              title,
 
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: AppColors.text,
-                  fontSize: 15.sp,
-                  fontWeight: FontWeight.w500,
-                ),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: AppColors.text,
+                fontSize: 15.sp,
+                fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(height: 10.sp),
+            SizedBox(height: 1.h,),
             Text(
               doctorsNumber,
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.grey, fontSize: 12.sp),
             ),
-            SizedBox(height: 10.sp),
           ],
         ),
       ),

@@ -31,7 +31,9 @@ class AppButton extends StatelessWidget {
       margin: margin,
       width: double.infinity,
       child: ElevatedButton(
+
         style: ButtonStyle(
+
           backgroundColor: MaterialStatePropertyAll(bgColor),
           shape: MaterialStateProperty.all<OutlinedBorder>(
             RoundedRectangleBorder(

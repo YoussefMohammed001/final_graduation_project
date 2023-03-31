@@ -1,5 +1,6 @@
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class DrProfile extends StatelessWidget {
@@ -18,30 +19,18 @@ class DrProfile extends StatelessWidget {
               const Spacer(),
               Row(
                 children: [
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow[800],
-                    size: 16.sp,
+                  RatingBarIndicator(
+                    rating: 2.5,
+                    itemBuilder: (context, index) => Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    itemCount: 5,
+                    itemSize: 16.sp,
+                    direction: Axis.horizontal,
                   ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow[800],
-                    size: 16.sp,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow[800],
-                    size: 16.sp,
-                  ),
-                  Icon(
-                    Icons.star_border,
-                    color: Colors.grey,
-                    size: 16.sp,
-                  ),
-                  Text(
-                    "(4/5)",
-                    style: TextStyle(fontSize: 15.sp),
-                  ),
+
+                  Text("(2.5/5)",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold),)
                 ],
               ),
 

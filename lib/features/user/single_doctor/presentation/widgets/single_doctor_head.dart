@@ -33,6 +33,7 @@ class SingleDoctorHead extends StatelessWidget {
             enlargeCenterPage: true,
           ),
         ),
+
         Container(
           margin: EdgeInsets.only(top: 25.sp,left: 10.sp,right: 10.sp),
           child: InkWell(

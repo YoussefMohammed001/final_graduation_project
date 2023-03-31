@@ -30,6 +30,7 @@ class AppSVG extends StatelessWidget {
       height: height,
       width: width,
       color: color,
+      matchTextDirection: true,
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared.dart'
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
-import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
 import 'package:final_graduation_project/features/user/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -21,19 +20,16 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Future.delayed(const Duration(milliseconds: 3000)).then((value) {
-      // if (MyShared.isFirstOpen()) {
+      // if (!MyShared.isLoggedIn()) {
       //   // pushReplacement(context, OnBoardingScreen());
-      //   pushReplacement(context, BlocProvider(
-      //     create: (context) => LoginCubit(),
-      //     child: const LoginScreen(),
-      //   ));
+      //   pushReplacement(context,OnBoardingScreen());
       //   return;
       // }
 
       if (MyShared.isLoggedIn()) {
           pushReplacement(context, const MainScreen());
       } else {
-        pushReplacement(context, const LoginScreen());
+        pushReplacement(context, const MainScreen());
       }
     });
 //.
@@ -88,7 +84,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                     SizedBox(width: 5.w,),
                     AnimatedOpacity(
-                        duration:  Duration(milliseconds: 200),
+                        duration:  const Duration(milliseconds: 200),
                         curve: Curves.bounceInOut,
                         opacity: buttonOpacity,
                         child: Text("HSPC",style: TextStyle(fontSize: 35.sp,color: AppColors.primary,fontWeight: FontWeight.bold),))

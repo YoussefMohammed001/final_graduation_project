@@ -1,8 +1,12 @@
 import 'package:final_graduation_project/core/styles/colors.dart';
+import 'package:final_graduation_project/core/utils/navigators.dart';
+import 'package:final_graduation_project/features/user/diabetes_prediction/presentation/screens/diabetesPprediction_screen.dart';
+import 'package:final_graduation_project/features/user/heart_rediction/presentation/screens/heart_rediction_screen.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/home_app_bar.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/latest_doctor_tem.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/predict_diseases_item.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/sepcialest_item.dart';
+import 'package:final_graduation_project/features/user/skin_cancer_prediction/presentation/screens/skin_cancer_prediction_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -45,16 +49,38 @@ class HomeScreen extends StatelessWidget {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: const [
-                            PredictDiseases(),
-                            PredictDiseases(),
+                          children: [
+                            PredictDiseases(
+                              image: 'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                              title: 'Heart Disease',
+                              onTap: () {
+                                push(context, HeartPredictionScreen());
+                              },
+                            ),
+                            PredictDiseases(
+                              image: 'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                              title: 'Diabetes',
+                              onTap: () {
+                                push(context, DiabetesPredictionScreen());
+                              },
+                            ),
                           ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: const [
-                            PredictDiseases(),
-                            PredictDiseases(),
+                          children: [
+                            PredictDiseases(
+                              image: 'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                              title: 'Skin Cancer',
+                              onTap: () {
+                                push(context, SkinCancerScreen());
+                              },
+                            ),
+                            PredictDiseases(
+                              image: 'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                              title: '',
+                              onTap: () {},
+                            ),
                           ],
                         ),
                         Container(
@@ -81,7 +107,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: 55.sp,
+                          height: 51.sp,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: 8,
@@ -118,7 +144,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: 30.h,
+                          height: 29.h,
                           child: ListView(
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
@@ -130,7 +156,9 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(height: 1.h,),
+                        SizedBox(
+                          height: 1.h,
+                        ),
                       ],
                     ),
                   ),

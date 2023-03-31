@@ -42,88 +42,103 @@ class NewPassword extends StatelessWidget {
           key: _formKey,
           child: Scaffold(
               backgroundColor: Colors.white,
-              body: Stack(
-                alignment: AlignmentDirectional.bottomCenter,
-                children: [
-                  Image.asset(
-                    "assets/images/bk.jpg",
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    height: double.infinity,
-                  ),
-                  ListView(
-                    children: [
-                      SizedBox(
-                        height: 50.h,
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            "Update your password",
-                            style: TextStyle(
-                                color: AppColors.primary,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20.sp),
-                          ),
-                          SizedBox(height: 5.h,),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 1.5.h,
-                      ),
-                      MyTextFormField(
-                          validators: (value) {
-                            if (value.isEmpty) {
-                              return "Enter a password";
-                            }
-                            return null;
-                          },
-                          margin: EdgeInsets.symmetric(horizontal: 17.sp),
-                          borderRadius: BorderRadius.circular(13.sp),
-                          hint: "Password",
-                          controller: passwordController,
-                          isPassword: true,
-                          textInputAction: TextInputAction.done,
-                          textInputType: TextInputType.emailAddress),
-                      SizedBox(height: 2.h,),
-                      MyTextFormField(
-                          validators: (value) {
-                            if (value.isEmpty) {
-                              return "Enter a password";
-                            }
-                            return null;
-                          },
-                          margin: EdgeInsets.symmetric(horizontal: 17.sp),
-                          borderRadius: BorderRadius.circular(13.sp),
-                          hint: "Re-Password",
-                          controller: confirmPasswordController,
-                          isPassword: true,
-                          textInputAction: TextInputAction.done,
-                          textInputType: TextInputType.emailAddress),
-                      SizedBox(
-                        height: 3.h,
-                      ),
-                      AppButton(
-                        onPressed: () {
-                          cubit.changePass(otp: MyShared.getInt(key: MySharedKeys.otp).toString(), password: passwordController.text);
-                        },
-                        label: "Save",
+              body: LayoutBuilder(
+    builder: (context, constrains) => SingleChildScrollView(
 
-                        padding: EdgeInsets.symmetric(vertical: 18.sp),
-                        bgColor: AppColors.primary,
-                        margin: EdgeInsets.symmetric(horizontal: 17.sp),
-                        borderRadius: BorderRadius.circular(15.sp),
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-
-                    ],
+    child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: constrains.maxHeight,
                   ),
-                ],
+                  child: IntrinsicHeight(
+                    child: Column(
+                      children: [
+                        Stack(
+                          alignment: AlignmentDirectional.bottomCenter,
+                          children: [
+                            Image.asset(
+                              "assets/images/bk.jpg",
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                              height: double.infinity,
+                            ),
+                            Column(
+                              children: [
+                                SizedBox(
+                                  height: 50.h,
+                                ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      "Update your password",
+                                      style: TextStyle(
+                                          color: AppColors.primary,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20.sp),
+                                    ),
+                                    SizedBox(height: 5.h,),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 1.5.h,
+                                ),
+                                MyTextFormField(
+                                    validators: (value) {
+                                      if (value.isEmpty) {
+                                        return "Enter a password";
+                                      }
+                                      return null;
+                                    },
+                                    margin: EdgeInsets.symmetric(horizontal: 17.sp),
+                                    borderRadius: BorderRadius.circular(13.sp),
+                                    hint: "Password",
+                                    controller: passwordController,
+                                    isPassword: true,
+                                    textInputAction: TextInputAction.done,
+                                    textInputType: TextInputType.emailAddress),
+                                SizedBox(height: 2.h,),
+                                MyTextFormField(
+                                    validators: (value) {
+                                      if (value.isEmpty) {
+                                        return "Enter a password";
+                                      }
+                                      return null;
+                                    },
+                                    margin: EdgeInsets.symmetric(horizontal: 17.sp),
+                                    borderRadius: BorderRadius.circular(13.sp),
+                                    hint: "Re-Password",
+                                    controller: confirmPasswordController,
+                                    isPassword: true,
+                                    textInputAction: TextInputAction.done,
+                                    textInputType: TextInputType.emailAddress),
+                                SizedBox(
+                                  height: 3.h,
+                                ),
+                                AppButton(
+                                  onPressed: () {
+                                    cubit.changePass(otp: MyShared.getInt(key: MySharedKeys.otp).toString(), password: passwordController.text);
+                                  },
+                                  label: "Save",
+
+                                  padding: EdgeInsets.symmetric(vertical: 18.sp),
+                                  bgColor: AppColors.primary,
+                                  margin: EdgeInsets.symmetric(horizontal: 17.sp),
+                                  borderRadius: BorderRadius.circular(15.sp),
+                                ),
+                                SizedBox(
+                                  height: 2.h,
+                                ),
+
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               )),
         ),
       ),
-    );
+    ));
   }
 }

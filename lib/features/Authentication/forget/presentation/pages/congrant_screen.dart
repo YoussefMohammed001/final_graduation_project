@@ -1,4 +1,3 @@
-
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
@@ -15,8 +14,8 @@ class CongratsScreen extends StatefulWidget {
 }
 
 class _CongratsScreenState extends State<CongratsScreen> {
-  double logoHeight = 15.h;
-  double logoWidth = 30.w;
+  double logoHeight = 10.h;
+  double logoWidth = 5.w;
 
   double buttonOpacity = 0;
 
@@ -27,8 +26,8 @@ class _CongratsScreenState extends State<CongratsScreen> {
     Future.delayed(
       const Duration(milliseconds: 500),
       () {
-        logoHeight = 30.h;
-        logoWidth = 60.w;
+        logoHeight = 20.h;
+        logoWidth = 40.w;
 
         setState(() {});
       },
@@ -64,16 +63,19 @@ class _CongratsScreenState extends State<CongratsScreen> {
                       duration: const Duration(milliseconds: 1500),
                       curve: Curves.bounceOut,
                       child: Image.asset(
-                        "assets/images/shield.png",
+                        "assets/images/checked.png",
                         height: logoHeight,
                         width: logoWidth,
                       ),
+                    ),
+                    SizedBox(
+                      height: 2.h,
                     ),
                     Text(
                       "Congrats!",
                       style: TextStyle(
                         color: AppColors.primary,
-                        fontSize: 20.sp,
+                        fontSize: 23.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

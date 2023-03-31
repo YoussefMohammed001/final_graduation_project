@@ -1,5 +1,7 @@
 import 'package:final_graduation_project/core/styles/colors.dart';
+import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
+import 'package:final_graduation_project/features/user/book_appointment/preseentation/screens/book_appointment_screen.dart';
 import 'package:final_graduation_project/features/user/single_doctor/presentation/widgets/dr_description.dart';
 import 'package:final_graduation_project/features/user/single_doctor/presentation/widgets/dr_location.dart';
 import 'package:final_graduation_project/features/user/single_doctor/presentation/widgets/dr_profile.dart';
@@ -58,7 +60,7 @@ class SingleDoctor extends StatelessWidget {
                 child: AppButton(
                   bgColor: AppColors.primary,
                   onPressed: () {
-
+                    push(context, BookAppointmentScreen());
                 }, label: 'Book Now',),
               ),
             ],

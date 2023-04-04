@@ -2,6 +2,8 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared.dart'
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
+import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
+import 'package:final_graduation_project/features/Authentication/on_boarding/presentaion/pages/on_boarding_screen.dart';
 import 'package:final_graduation_project/features/user/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -20,16 +22,16 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Future.delayed(const Duration(milliseconds: 3000)).then((value) {
-      // if (!MyShared.isLoggedIn()) {
-      //   // pushReplacement(context, OnBoardingScreen());
-      //   pushReplacement(context,OnBoardingScreen());
-      //   return;
-      // }
+      if (!MyShared.isLoggedIn()) {
+        // pushReplacement(context, OnBoardingScreen());
+        pushReplacement(context,OnBoardingScreen());
+        return;
+      }
 
       if (MyShared.isLoggedIn()) {
           pushReplacement(context, const MainScreen());
       } else {
-        pushReplacement(context, const MainScreen());
+        pushReplacement(context, const LoginScreen());
       }
     });
 //.
@@ -87,7 +89,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         duration:  const Duration(milliseconds: 200),
                         curve: Curves.bounceInOut,
                         opacity: buttonOpacity,
-                        child: Text("HSPC",style: TextStyle(fontSize: 35.sp,color: AppColors.primary,fontWeight: FontWeight.bold),))
+                        child: Text("PHCP",style: TextStyle(fontSize: 35.sp,color: AppColors.primary,fontWeight: FontWeight.bold),))
 
                   ],
                 ),

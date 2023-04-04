@@ -42,6 +42,7 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
       child: Column(
         children: [
           TextFormField(
+
             validator: widget.validators,
             obscureText: obscureText,
             controller: widget.controller,

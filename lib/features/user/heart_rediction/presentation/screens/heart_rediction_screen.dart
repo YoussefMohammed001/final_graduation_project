@@ -6,6 +6,7 @@ import 'package:final_graduation_project/core/widgets/prediction_text_form_field
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
 import 'package:final_graduation_project/core/widgets/spinner_text_form_field.dart';
 import 'package:final_graduation_project/features/user/prediction_result/presentation/screens/prediction_result_screen.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -28,8 +29,8 @@ class HeartPredictionScreen extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            const CustomAppBar(
-              title: 'Heart disease Prediction',
+             CustomAppBar(
+              title: S().heartDiseases,
             ),
             Expanded(
               child: LayoutBuilder(
@@ -48,44 +49,44 @@ class HeartPredictionScreen extends StatelessWidget {
                                     height: 3.h,
                                   ),
                                   Text(
-                                    "Choose the gender",
+                                  S().chooseTheGender,
                                     style: TextStyle(
                                         color: Colors.black, fontSize: 16.sp),
                                   ),
                                   SizedBox(
                                     height: 2.h,
                                   ),
-                                  SpinnerTextFormField(
+                                  DropDownTextFormField(
                                     validators: (value) {
                                       if (value.toString().isEmpty) {
                                         return "this field is required";
                                       }
                                     },
                                     textColor: Colors.black,
-                                    hint: 'male',
+                                    hint: S().maleHint,
                                     controller: gender,
                                     textInputAction: TextInputAction.next,
                                     textInputType: TextInputType.name,
                                     enabled: false,
-                                    dropDownList: const [
+                                    dropDownList:  [
                                       DropDownValueModel(
-                                          name: "Male", value: "Male"),
+                                          name: S().male, value: S().male),
                                       DropDownValueModel(
-                                          name: "Female", value: "Female"),
+                                          name: S().female, value: S().female),
                                     ],
                                   ),
                                   SizedBox(
                                     height: 2.h,
                                   ),
                                   Text(
-                                    "Chest pain type",
+                                    S().chestPainType,
                                     style: TextStyle(
                                         color: Colors.black, fontSize: 16.sp),
                                   ),
                                   SizedBox(
                                     height: 2.h,
                                   ),
-                                  SpinnerTextFormField(
+                                  DropDownTextFormField(
                                     validators: (value) {
                                       if (value.toString().isEmpty) {
                                         return "this field is required";
@@ -97,9 +98,12 @@ class HeartPredictionScreen extends StatelessWidget {
                                     textInputAction: TextInputAction.next,
                                     textInputType: TextInputType.name,
                                     enabled: false,
-                                    dropDownList: const [
-                                      DropDownValueModel(name: "1", value: "1"),
-                                      DropDownValueModel(name: "2", value: "2"),
+                                    dropDownList:  [
+                                      DropDownValueModel(name: S().typicalAngina, value: S().typicalAngina),
+                                      DropDownValueModel(name: S().aTypicalAngina, value: S().typicalAngina),
+                                      DropDownValueModel(name: S().nonAnginalPain, value: S().nonAnginalPain),
+                                      DropDownValueModel(name: S().asymptomatic, value: S().asymptomatic),
+
                                     ],
                                   ),
                                   SizedBox(
@@ -111,7 +115,7 @@ class HeartPredictionScreen extends StatelessWidget {
                                         return "This field is required";
                                       }
                                     },
-                                    hint: 'Blood pressure',
+                                    hint: S().bloodPressure,
                                     controller: bloodPressure,
                                     textInputAction: TextInputAction.next,
                                     suffixText: 'mg/di',
@@ -125,7 +129,7 @@ class HeartPredictionScreen extends StatelessWidget {
                                         return "This field is required";
                                       }
                                     },
-                                    hint: 'Cholesterol',
+                                    hint: S().cholesterol,
                                     controller: cholesterol,
                                     textInputAction: TextInputAction.next,
                                     suffixText: 'mg/di',
@@ -141,25 +145,29 @@ class HeartPredictionScreen extends StatelessWidget {
                                   SizedBox(
                                     height: 2.h,
                                   ),
-                                  SpinnerTextFormField(
+                                  DropDownTextFormField(
                                     validators: (value) {
                                       if (value.toString().isEmpty) {
                                         return "this field is required";
                                       }
                                     },
                                     textColor: Colors.black,
-                                    hint: 'higher than 120',
+                                    hint: S().higherThan120Hint,
                                     controller: fPS,
                                     textInputAction: TextInputAction.next,
                                     textInputType: TextInputType.name,
                                     enabled: false,
-                                    dropDownList: const [
+                                    dropDownList:  [
                                       DropDownValueModel(
-                                          name: "higher than 120",
-                                          value: "higher than 120"),
+                                          name: S().higherThan120,
+                                          value:  S().higherThan120,
+                                      ),
+
                                       DropDownValueModel(
-                                          name: "lower than 120",
-                                          value: "lower than 120"),
+                                          name: S().lowerThan120,
+                                          value:  S().lowerThan120,
+                                      ),
+
                                     ],
                                   ),
                                   SizedBox(
@@ -171,7 +179,7 @@ class HeartPredictionScreen extends StatelessWidget {
                                         return "This field is required";
                                       }
                                     },
-                                    hint: 'Electrocardio graph',
+                                    hint: S().electrocardioGraphic,
                                     controller: electrocardio,
                                     textInputAction: TextInputAction.next,
                                     suffixText: '',
@@ -179,15 +187,18 @@ class HeartPredictionScreen extends StatelessWidget {
                                   SizedBox(
                                     height: 4.h,
                                   ),
+                                  Spacer(),
+
                                   AppButton(
                                     onPressed: () {
                                       if (_formKey.currentState!.validate()) {
                                         push(
                                             context,
-                                            const PredictionResultScreen(
+                                             PredictionResultScreen(
                                                 appBarTitle:
-                                                    "Heart disease prediction result",
+                                                    S().heartDiseases,
                                                 result: "Infected",
+
                                                 description:
                                                     " description description description description description description description description description v description description description description description description description "));
                                       }
@@ -195,7 +206,7 @@ class HeartPredictionScreen extends StatelessWidget {
                                     margin:
                                         EdgeInsets.symmetric(horizontal: 17.sp),
                                     padding: EdgeInsets.all(17.sp),
-                                    label: "Predict",
+                                    label: S().predict,
                                     bgColor: AppColors.primary,
                                     borderRadius: BorderRadius.circular(15.sp),
                                   )

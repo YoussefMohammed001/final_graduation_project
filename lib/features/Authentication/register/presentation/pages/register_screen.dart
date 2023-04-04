@@ -9,6 +9,7 @@ import 'package:final_graduation_project/features/Authentication/login/presentat
 import 'package:final_graduation_project/features/Authentication/register/presentation/manager/register/register_cubit.dart';
 import 'package:final_graduation_project/features/Authentication/verifyAccount/presentation/manager/verify_cubit.dart';
 import 'package:final_graduation_project/features/Authentication/verifyAccount/presentation/pages/verify_account_screen.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -91,14 +92,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               height: 50.h,
                             ),
                             Text(
-                              "Welcome to HSBC!",
+                              S().welcomeToHSPC,
                               style: TextStyle(
                                   color: AppColors.primary,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20.sp),
                             ),
                             Text(
-                              "Join us now",
+                              S().joinUsNow,
                               style: TextStyle(
                                   color: AppColors.primary,
                                   fontWeight: FontWeight.bold,
@@ -116,7 +117,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 return null;
                               },
                               textInputAction: TextInputAction.next,
-                              hint: "Enter your username",
+                              hint: S().enterYourName,
                               isPassword: false,
                               controller: nameController,
 
@@ -138,7 +139,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               textInputType: TextInputType.emailAddress,
                               textInputAction: TextInputAction.next,
                               controller: emailController,
-                              hint: "Enter Your Email",
+                              hint: S().enterYourEmail,
                               isPassword: false,
 
                             ),
@@ -160,7 +161,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               textInputType: TextInputType.emailAddress,
                               textInputAction: TextInputAction.next,
                               controller: MobileController,
-                              hint: "Enter Your Mobile number",
+                              hint: S().enterYourEmail,
                               isPassword: false,
 
                             ),
@@ -180,7 +181,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               textInputType: TextInputType.visiblePassword,
                               textInputAction: TextInputAction.done,
                               controller: passwordController,
-                              hint: "Enter a Password",
+                              hint: S().password,
                               isPassword: true,
 
                             ),
@@ -199,7 +200,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               textInputType: TextInputType.text,
                               textInputAction: TextInputAction.next,
                               controller: confirmPasswordController,
-                              hint: "Re-password",
+                              hint: S().rePassword,
                               isPassword: true,
 
                             ),
@@ -212,7 +213,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       , city: MobileController.text, from:fromController.text );
                                 }
                               },
-                              label: "Join now",
+                              label: S().joinNow,
                               bgColor: AppColors.primary,
                               margin: EdgeInsets.symmetric(horizontal:17.sp),
                               padding: EdgeInsets.all(17.sp),
@@ -222,7 +223,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
 
-                                const Text("Already have account? "),
+                                 Text(S().alreadyHaveAccount),
                                 InkWell(
                                   onTap: () {
                                     push(context, BlocProvider(
@@ -230,8 +231,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       child: const LoginScreen(),
                                     ));
                                   },
-                                  child: const Text(
-                                    "Sign in now",
+                                  child:  Text(
+                                   S().signIn,
                                     style: TextStyle(
                                         color: AppColors.primary,
                                         fontWeight: FontWeight.bold),

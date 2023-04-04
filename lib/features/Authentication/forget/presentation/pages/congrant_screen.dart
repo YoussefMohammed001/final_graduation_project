@@ -3,6 +3,7 @@ import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -14,8 +15,8 @@ class CongratsScreen extends StatefulWidget {
 }
 
 class _CongratsScreenState extends State<CongratsScreen> {
-  double logoHeight = 10.h;
-  double logoWidth = 5.w;
+  double logoHeight = 5.h;
+  double logoWidth = 2.5.w;
 
   double buttonOpacity = 0;
 
@@ -26,8 +27,8 @@ class _CongratsScreenState extends State<CongratsScreen> {
     Future.delayed(
       const Duration(milliseconds: 500),
       () {
-        logoHeight = 20.h;
-        logoWidth = 40.w;
+        logoHeight = 10.h;
+        logoWidth = 20.w;
 
         setState(() {});
       },
@@ -45,6 +46,7 @@ class _CongratsScreenState extends State<CongratsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.primary,
       body: Stack(
         alignment: AlignmentDirectional.bottomStart,
         children: [
@@ -62,17 +64,16 @@ class _CongratsScreenState extends State<CongratsScreen> {
                       width: logoWidth,
                       duration: const Duration(milliseconds: 1500),
                       curve: Curves.bounceOut,
-                      child: Image.asset(
-                        "assets/images/checked.png",
+                      child: AppSVG(
                         height: logoHeight,
-                        width: logoWidth,
+                        width: logoWidth, assetName: 'done',
                       ),
                     ),
                     SizedBox(
                       height: 2.h,
                     ),
                     Text(
-                      "Congrats!",
+                      S().congrats,
                       style: TextStyle(
                         color: AppColors.primary,
                         fontSize: 23.sp,
@@ -82,13 +83,13 @@ class _CongratsScreenState extends State<CongratsScreen> {
                     SizedBox(
                       height: 2.h,
                     ),
-                    const Text(
-                      "You have successfully change password",
-                      style: TextStyle(color: Colors.grey),
+                     Text(
+                      S().pleaseUseTheNewPasswordWhenLoggingIn,
+                      style: const TextStyle(color: Colors.grey),
                     ),
-                    const Text(
-                      "Please use the new password when logging in",
-                      style: TextStyle(color: Colors.grey),
+                     Text(
+                      S().pleaseUseTheNewPasswordWhenLoggingIn,
+                      style: const TextStyle(color: Colors.grey),
                     ),
                     SizedBox(
                       height: 3.h,
@@ -98,14 +99,15 @@ class _CongratsScreenState extends State<CongratsScreen> {
                       curve: Curves.bounceOut,
                       opacity: buttonOpacity,
                       child: AppButton(
-                        bgColor: AppColors.primary,
+                        textColor: AppColors.primary,
+                        bgColor: Colors.white,
                           borderRadius: BorderRadius.circular(15.sp),
                           margin: EdgeInsets.symmetric(horizontal: 38.sp),
                           onPressed: () {
                             pushReplacement(context, const LoginScreen());
                           },
 
-                          label: "Back To Login",),
+                          label: S().backToLogin,),
                     )
                   ],
                 ),

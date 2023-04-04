@@ -25,6 +25,7 @@ class AppSVG extends StatelessWidget {
     }
 
     return SvgPicture.asset(
+
       assetPath,
       fit: boxFit,
       height: height,

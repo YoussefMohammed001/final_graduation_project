@@ -3,6 +3,7 @@ import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/features/user/main_screen/manager/main_cubit.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -45,15 +46,15 @@ class _MainScreenState extends State<MainScreen> {
       currentIndex: cubit.index,
       items:  [
         BottomNavigationBarItem(
-          label:"Home",
+          label:S().home,
             icon: AppSVG(assetName:'ic_tabs_ic_homepage',color: cubit.index ==0 ? AppColors.primary: Colors.grey,)
         ),
          BottomNavigationBarItem(
-          label:"Appointments",
+          label:S().appointments,
           icon: AppSVG(assetName: 'group', color: cubit.index ==1 ? AppColors.primary: Colors.grey,)
         ),
         BottomNavigationBarItem(
-          label:"profile",
+          label:S().profile,
             icon: AppSVG(assetName:cubit.index== 2 ?'ic_tabs_ic_account_active':"profile_inactive",
               color: cubit.index ==2 ? AppColors.primary: Colors.grey,)
         ),

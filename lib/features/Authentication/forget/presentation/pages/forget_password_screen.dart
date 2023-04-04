@@ -5,6 +5,7 @@ import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
 import 'package:final_graduation_project/features/Authentication/forget/presentation/manager/forget_pass_cubit/forget_pass_cubit.dart';
 import 'package:final_graduation_project/features/Authentication/forget/presentation/pages/recovery_password_screen.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -53,7 +54,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Stack(
-                            alignment: AlignmentDirectional.bottomCenter,
+                            alignment: AlignmentDirectional.topCenter,
                             children: [
                               Image.asset(
                                 "assets/images/bk.png",
@@ -69,14 +70,14 @@ class ForgetPasswordScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        "Forget your password?",
+                                        S().forgetYourPass,
                                         style: TextStyle(
                                             color: AppColors.primary,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 20.sp),
                                       ),
                                       Text(
-                                        "Don’t worry",
+                                        S().doNotWorry,
                                         style: TextStyle(
                                             color: AppColors.primary,
                                             fontWeight: FontWeight.bold,
@@ -85,8 +86,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                                       SizedBox(
                                         height: 3.5.h,
                                       ),
-                                      Text(
-                                        "Enter your email",
+                                      Text(S().enterYourEmail,
                                         style: TextStyle(
                                             color: AppColors.text,
                                             fontWeight: FontWeight.bold,
@@ -106,7 +106,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                                       },
                                       margin: EdgeInsets.symmetric(horizontal: 17.sp),
                                       borderRadius: BorderRadius.circular(13.sp),
-                                      hint: "email",
+                                      hint: S().email,
                                       controller: emailController,
                                       isPassword: false,
                                       textInputAction: TextInputAction.done,
@@ -121,7 +121,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                                             .sendCode(email: emailController.text);
                                       }
                                     },
-                                    label: "Send Code",
+                                    label: S().sendCode,
                                     padding: EdgeInsets.symmetric(vertical: 18.sp),
                                     bgColor: AppColors.primary,
                                     margin: EdgeInsets.symmetric(horizontal: 17.sp),

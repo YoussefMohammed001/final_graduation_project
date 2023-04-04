@@ -1,5 +1,6 @@
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
 import 'package:final_graduation_project/features/user/FAQS/presentation/widgets/faq_item.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class UserFAQS extends StatelessWidget {
@@ -11,7 +12,7 @@ class UserFAQS extends StatelessWidget {
       backgroundColor: Colors.grey[200],
       body: Column(
         children: [
-          const CustomAppBar(title: 'FAQS',),
+           CustomAppBar(title: S().faqs,),
           Expanded(
             child: LayoutBuilder(
                 builder: (context, constrains) => SingleChildScrollView(

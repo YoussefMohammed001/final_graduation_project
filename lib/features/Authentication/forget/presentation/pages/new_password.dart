@@ -53,13 +53,13 @@ class NewPassword extends StatelessWidget {
                     child: Column(
                       children: [
                         Stack(
-                          alignment: AlignmentDirectional.bottomCenter,
+                          alignment: AlignmentDirectional.topCenter,
                           children: [
                             Image.asset(
-                              "assets/images/bk.jpg",
+                              "assets/images/bk.png",
                               width: double.infinity,
+
                               fit: BoxFit.cover,
-                              height: double.infinity,
                             ),
                             Column(
                               children: [

@@ -12,6 +12,7 @@ import 'package:final_graduation_project/features/Authentication/login/presentat
 import 'package:final_graduation_project/features/Authentication/verifyAccount/presentation/manager/verify_cubit.dart';
 import 'package:final_graduation_project/features/Authentication/verifyAccount/presentation/pages/verify_account_screen.dart';
 import 'package:final_graduation_project/features/user/main_screen/main_screen.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -85,14 +86,14 @@ class LoginScreenPassword extends StatelessWidget {
                                 Column(
                                   children: [
                                     Text(
-                                      "Welcome to HSBC!",
+                                      S().welcomeToHSPC,
                                       style: TextStyle(
                                           color: AppColors.primary,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20.sp),
                                     ),
                                     Text(
-                                      "Join us now",
+                                      S().joinUsNow,
                                       style: TextStyle(
                                           color: AppColors.primary,
                                           fontWeight: FontWeight.bold,
@@ -115,7 +116,7 @@ class LoginScreenPassword extends StatelessWidget {
                                     }
                                     return null;
                                   },
-                                  hint: "password",
+                                  hint: S().password,
                                   controller: passwordController,
                                   isPassword: true,
                                   textInputAction: TextInputAction.done,
@@ -133,9 +134,9 @@ class LoginScreenPassword extends StatelessWidget {
                                       push(context, ForgetPasswordScreen(),);
                                     },
                                     child: Row(
-                                      children: const [
-                                        AppSVG(assetName: "ic_ic_password"),
-                                        Text("Forget Password", style: TextStyle(
+                                      children:  [
+                                        const AppSVG(assetName: "ic_ic_password"),
+                                        Text(S().forgetPassword, style: const TextStyle(
                                             color: Colors.grey),),
                                       ],
                                     ),
@@ -155,7 +156,7 @@ class LoginScreenPassword extends StatelessWidget {
                                           .text);
                                     }
                                   },
-                                  label: "Join now",
+                                  label: S().joinNow,
                                   bgColor: AppColors.primary,
                                   margin: EdgeInsets.symmetric(horizontal:17.sp),
                                   padding: EdgeInsets.all(17.sp),

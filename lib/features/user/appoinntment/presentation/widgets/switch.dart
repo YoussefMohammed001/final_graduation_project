@@ -1,4 +1,5 @@
 import 'package:final_graduation_project/core/styles/colors.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -34,7 +35,7 @@ class _SwitchAppointmentState extends State<SwitchAppointment> {
                 padding: EdgeInsets.all(17.sp),
 
                 child: Text(
-            "Currnet",
+            S().ccurrent,
             style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: current == true ? AppColors.primary : Colors.grey),
@@ -50,7 +51,7 @@ class _SwitchAppointmentState extends State<SwitchAppointment> {
               child: Container(
                 padding: EdgeInsets.all(17.sp),
                 child: Text(
-            "Previous",
+            S().previous,
             style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: current == false ? AppColors.primary : Colors.grey),

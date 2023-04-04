@@ -1,4 +1,5 @@
 import 'package:final_graduation_project/core/utils/svg.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -47,7 +48,7 @@ class DrProfile extends StatelessWidget {
                 width: 0.5.w,
               ),
               Text(
-                "Specialization:",
+                S().specialization,
                 style: TextStyle(fontSize: 17.sp),
               ),
               SizedBox(
@@ -70,7 +71,7 @@ class DrProfile extends StatelessWidget {
                 width: 0.5.w,
               ),
               Text(
-                "Consultation price:",
+                S().consultingPrice,
                 style: TextStyle(fontSize: 17.sp),
               ),
               SizedBox(

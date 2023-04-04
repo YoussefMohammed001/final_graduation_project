@@ -4,6 +4,7 @@ import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/prediction_text_form_field.dart';
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
 import 'package:final_graduation_project/features/user/prediction_result/presentation/screens/prediction_result_screen.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -26,8 +27,8 @@ class DiabetesPredictionScreen extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            const CustomAppBar(
-              title: 'Diabetes Prediction',
+             CustomAppBar(
+              title: S().diabetes,
             ),
             Expanded(
               child: LayoutBuilder(
@@ -49,7 +50,7 @@ class DiabetesPredictionScreen extends StatelessWidget {
                                       }
                                       return null;
                                     },
-                                    hint: 'Number of pregnancies',
+                                    hint: S().numberOfPregnancies,
                                     controller: numberOfPregnancies,
                                     textInputAction: TextInputAction.next,
                                     suffixText: '',
@@ -64,7 +65,7 @@ class DiabetesPredictionScreen extends StatelessWidget {
                                       }
                                       return null;
                                     },
-                                    hint: 'Glucose level',
+                                    hint: S().glucoseLevel,
                                     controller: glucoseLevel,
                                     textInputAction: TextInputAction.next,
                                     suffixText: 'mg/di',
@@ -79,7 +80,7 @@ class DiabetesPredictionScreen extends StatelessWidget {
                                       }
                                       return null;
                                     },
-                                    hint: 'Blood pressure',
+                                    hint: S().bloodPressure,
                                     controller: bloodPressure,
                                     textInputAction: TextInputAction.next,
                                     suffixText: 'mg/di',
@@ -94,7 +95,7 @@ class DiabetesPredictionScreen extends StatelessWidget {
                                       }
                                       return null;
                                     },
-                                    hint: 'Skin thickness',
+                                    hint: S().skinThickness,
                                     controller: skinCancer,
                                     textInputAction: TextInputAction.next,
                                     suffixText: 'mm',
@@ -109,7 +110,7 @@ class DiabetesPredictionScreen extends StatelessWidget {
                                       }
                                       return null;
                                     },
-                                    hint: 'insulin level',
+                                    hint: S().insulinLevel,
                                     controller: insulinLevel,
                                     textInputAction: TextInputAction.next,
                                     suffixText: 'iu/ml',
@@ -124,7 +125,7 @@ class DiabetesPredictionScreen extends StatelessWidget {
                                       }
                                       return null;
                                     },
-                                    hint: 'Body mass index',
+                                    hint: S().bodyMassIndex,
                                     controller: bodyMassIndex,
                                     textInputAction: TextInputAction.next,
                                     suffixText: 'kg/m2',
@@ -139,7 +140,7 @@ class DiabetesPredictionScreen extends StatelessWidget {
                                       }
                                       return null;
                                     },
-                                    hint: 'Diabetes pedigree function',
+                                    hint: S().diabetesPedigreeFunction,
                                     controller: diabetesPedigreeFunction,
                                     textInputAction: TextInputAction.next,
                                     suffixText: '',
@@ -154,7 +155,7 @@ class DiabetesPredictionScreen extends StatelessWidget {
                                       }
                                       return null;
                                     },
-                                    hint: 'Patient ages in years',
+                                    hint: S().patientAgeInYears,
                                     controller: patientAge,
                                     textInputAction: TextInputAction.next,
                                     suffixText: '',
@@ -162,6 +163,7 @@ class DiabetesPredictionScreen extends StatelessWidget {
                                   SizedBox(
                                     height: 4.h,
                                   ),
+                                  Spacer(),
                                   AppButton(
                                     onPressed: () {
                                       if (_formKey.currentState!.validate()) {
@@ -171,7 +173,7 @@ class DiabetesPredictionScreen extends StatelessWidget {
                                     margin:
                                         EdgeInsets.symmetric(horizontal: 17.sp),
                                     padding: EdgeInsets.all(17.sp),
-                                    label: "Predict",
+                                    label: S().predict,
                                     bgColor: AppColors.primary,
                                     borderRadius: BorderRadius.circular(15.sp),
                                   )

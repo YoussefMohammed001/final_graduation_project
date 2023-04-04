@@ -6,6 +6,7 @@ import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/features/Authentication/forget/presentation/pages/new_password.dart';
 import 'package:final_graduation_project/features/Authentication/forget/presentation/widgets/otp_item.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -36,13 +37,12 @@ class RecoveryPasswordScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Stack(
-                      alignment: AlignmentDirectional.bottomCenter,
+                      alignment: AlignmentDirectional.topCenter,
                       children: [
                         Image.asset(
-                          "assets/images/bk.jpg",
+                          "assets/images/bk.png",
                           width: double.infinity,
                           fit: BoxFit.cover,
-                          height: double.infinity,
                         ),
                         Column(
                           children: [
@@ -53,14 +53,14 @@ class RecoveryPasswordScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Forget your password?",
+                                    S().forgetYourPass,
                                   style: TextStyle(
                                       color: AppColors.primary,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20.sp),
                                 ),
                                 Text(
-                                  "Don’t worry",
+                                  S().doNotWorry,
                                   style: TextStyle(
                                       color: AppColors.primary,
                                       fontWeight: FontWeight.bold,
@@ -70,7 +70,7 @@ class RecoveryPasswordScreen extends StatelessWidget {
                                   height: 3.5.h,
                                 ),
                                 Text(
-                                  "Enter otp sent to your email",
+                                  S().enterOTPSentToYourEmail,
                                   style: TextStyle(
                                       color: AppColors.text,
                                       fontWeight: FontWeight.bold,
@@ -120,7 +120,7 @@ class RecoveryPasswordScreen extends StatelessWidget {
                                 safePrint(MyShared.getInt(key: MySharedKeys.otp));
                                 push(context, NewPassword());
                               },
-                              label: "Activate",
+                              label: S().verify,
                               padding: EdgeInsets.symmetric(vertical: 18.sp),
                               bgColor: AppColors.primary,
                               margin: EdgeInsets.symmetric(horizontal: 17.sp),
@@ -130,7 +130,7 @@ class RecoveryPasswordScreen extends StatelessWidget {
                               alignment: AlignmentDirectional.center,
                               margin: EdgeInsets.all(10.sp),
                               child: Text(
-                                "Send OTP again",
+                                S().sendOTPAgain,
                                 style: TextStyle(
                                     color: AppColors.primary,
                                     fontWeight: FontWeight.bold,

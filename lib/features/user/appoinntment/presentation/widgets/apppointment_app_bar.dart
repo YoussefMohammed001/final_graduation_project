@@ -1,4 +1,5 @@
 import 'package:final_graduation_project/core/styles/colors.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -12,8 +13,8 @@ class ApppointmentAppBar extends StatelessWidget {
       color: AppColors.primary,
       child: Row(
 
-        children: const [
-          Text("Appointments",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+        children:  [
+          Text(S().appointments,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
           Spacer(),
         ],
 

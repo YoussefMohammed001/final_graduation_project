@@ -3,6 +3,7 @@ import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
 import 'package:final_graduation_project/features/Authentication/on_boarding/presentaion/pages/on_boarding_screen.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -43,13 +44,13 @@ class OnBoardingWidget extends StatelessWidget {
                        visible: !lastPage,
                        child: Container(
                            margin: EdgeInsets.symmetric(vertical: 30.sp,horizontal: 15.sp),
-                           child: Text("SKIP",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18.sp),)),
+                           child: Text(S().skip,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18.sp),)),
                      ),
                    )
 
                  ],
                ),
-              Text("Manage your health and happy future",style: TextStyle(fontSize: 22.sp,fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
+              Text(S().manageYourHealthAndHappyFuture,style: TextStyle(fontSize: 22.sp,fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
               SizedBox(height: 2.h,),
               SmoothPageIndicator(
                 controller: indicatorController,
@@ -70,7 +71,7 @@ class OnBoardingWidget extends StatelessWidget {
                     : indicatorController.nextPage(
                     duration: const Duration(milliseconds: 300),
                     curve: Curves.easeIn);
-              }, label: lastPage ?'Lets Start' : "Next",)
+              }, label: lastPage ?S().letsStart : S().next,)
             ],
           ),
         ),

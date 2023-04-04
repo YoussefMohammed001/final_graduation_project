@@ -22,8 +22,157 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "Hi": MessageLookupByLibrary.simpleMessage("عربي"),
-        "heartDiseasePrediction":
-            MessageLookupByLibrary.simpleMessage("التنبؤ بأمراض القلب")
+        "aTypicalAngina":
+            MessageLookupByLibrary.simpleMessage("الذبحة الصدرية غير النمطية"),
+        "aboutUs": MessageLookupByLibrary.simpleMessage("معلومات عنا"),
+        "alreadyHaveAccount":
+            MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل؟"),
+        "appointments": MessageLookupByLibrary.simpleMessage("الحجوزات"),
+        "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
+        "asymptomatic":
+            MessageLookupByLibrary.simpleMessage("بدون أعراض ظاهرة"),
+        "attachPhoto": MessageLookupByLibrary.simpleMessage("إرفاق صورة"),
+        "attachPhotoOfTheSkin":
+            MessageLookupByLibrary.simpleMessage("إرفاق صورة الجلد"),
+        "back": MessageLookupByLibrary.simpleMessage("الرجوع"),
+        "backToLogin":
+            MessageLookupByLibrary.simpleMessage("العودة إلى تسجيل الدخول"),
+        "bloodPressure": MessageLookupByLibrary.simpleMessage("ضغط الدم"),
+        "bodyMassIndex":
+            MessageLookupByLibrary.simpleMessage("مؤشر كتلة الجسم"),
+        "bookNow": MessageLookupByLibrary.simpleMessage("احجز الآن"),
+        "ccurrent": MessageLookupByLibrary.simpleMessage("الحجوزات الحالية"),
+        "changeLang": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
+        "changePassword":
+            MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "changePhoto": MessageLookupByLibrary.simpleMessage("تغير الصوره"),
+        "chestPainType": MessageLookupByLibrary.simpleMessage("نوع ألم الصدر"),
+        "cholesterol": MessageLookupByLibrary.simpleMessage("الكوليسترول"),
+        "chooseTheGender": MessageLookupByLibrary.simpleMessage("اختر الجنس"),
+        "congrats": MessageLookupByLibrary.simpleMessage("تهانيا!"),
+        "consultingPrice":
+            MessageLookupByLibrary.simpleMessage("سعر الاستشارة"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+        "currentPassword":
+            MessageLookupByLibrary.simpleMessage("كلمة المرور الحالية"),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
+        "description": MessageLookupByLibrary.simpleMessage("عن الطبيب"),
+        "diabetes": MessageLookupByLibrary.simpleMessage("السكري"),
+        "diabetesPedigreeFunction":
+            MessageLookupByLibrary.simpleMessage("وظيفة نسب مرض السكري"),
+        "doNotHaveAccount":
+            MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "doNotWorry": MessageLookupByLibrary.simpleMessage("لا تقلق"),
+        "doYouWantToLogOut":
+            MessageLookupByLibrary.simpleMessage("هل ترغب بالخروج؟"),
+        "editMyData":
+            MessageLookupByLibrary.simpleMessage("تعديل البيانات الخاصة بي"),
+        "electrocardioGraphic":
+            MessageLookupByLibrary.simpleMessage("الرسم الكهربائي للقلب"),
+        "email": MessageLookupByLibrary.simpleMessage("بريد إلكتروني"),
+        "english": MessageLookupByLibrary.simpleMessage("الانجليزية"),
+        "enterOTPSentToYourEmail": MessageLookupByLibrary.simpleMessage(
+            "أدخل OTP المرسل إلى بريدك الإلكتروني"),
+        "enterYourEmail":
+            MessageLookupByLibrary.simpleMessage("أدخل بريدك الإلكتروني"),
+        "enterYourName": MessageLookupByLibrary.simpleMessage("أدخل اسمك"),
+        "enterYourNote": MessageLookupByLibrary.simpleMessage("أدخل ملاحظتك"),
+        "enterYourPassword":
+            MessageLookupByLibrary.simpleMessage("ادخل رقمك السري"),
+        "enterYourPasswordToDeleteAccount":
+            MessageLookupByLibrary.simpleMessage(
+                "أدخل كلمة المرور الخاصة بك لحذف حسابك"),
+        "faqs": MessageLookupByLibrary.simpleMessage("أسئلة متكرره"),
+        "female": MessageLookupByLibrary.simpleMessage("أنثى"),
+        "forgetPassword":
+            MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+        "forgetYourPass":
+            MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("هل نسيت كلمة السر؟"),
+        "glucoseLevel": MessageLookupByLibrary.simpleMessage("مستوى الجلوكوز"),
+        "heartDiseases": MessageLookupByLibrary.simpleMessage("أمراض القلب"),
+        "hello": MessageLookupByLibrary.simpleMessage("مرحبًا"),
+        "higherThan120": MessageLookupByLibrary.simpleMessage("أعلى من 120"),
+        "higherThan120Hint":
+            MessageLookupByLibrary.simpleMessage("أعلى من 120"),
+        "home": MessageLookupByLibrary.simpleMessage("الرئيسيه"),
+        "hopeYouAreOk":
+            MessageLookupByLibrary.simpleMessage("أتمنى أن تكون بخير؟"),
+        "insulinLevel": MessageLookupByLibrary.simpleMessage("مستوى الأنسولين"),
+        "joinNow": MessageLookupByLibrary.simpleMessage("انضم الان"),
+        "joinUsNow": MessageLookupByLibrary.simpleMessage("انضم إلينا الآن"),
+        "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "letsStart": MessageLookupByLibrary.simpleMessage("لنبدا"),
+        "location": MessageLookupByLibrary.simpleMessage("العنوان"),
+        "logOUT": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
+        "lowerThan120": MessageLookupByLibrary.simpleMessage("أقل من 120"),
+        "male": MessageLookupByLibrary.simpleMessage("ذكر"),
+        "maleHint": MessageLookupByLibrary.simpleMessage("ذكر"),
+        "manageYourHealthAndHappyFuture":
+            MessageLookupByLibrary.simpleMessage("إدارة صحتك ومستقبلك السعيد"),
+        "myAccount": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+        "nearestDoctors": MessageLookupByLibrary.simpleMessage("اقرب اطباء"),
+        "newPass": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
+        "next": MessageLookupByLibrary.simpleMessage("التالي"),
+        "noStayHere": MessageLookupByLibrary.simpleMessage("لا سابقى هنا"),
+        "nonAnginalPain": MessageLookupByLibrary.simpleMessage("ألم غير زاوي"),
+        "note": MessageLookupByLibrary.simpleMessage("ملاحظتك"),
+        "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "numberOfPregnancies":
+            MessageLookupByLibrary.simpleMessage("عدد حالات الحمل"),
+        "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "patientAgeInYears":
+            MessageLookupByLibrary.simpleMessage("عمر المريض بالسنوات"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم التليفون"),
+        "pleaseUseTheNewPasswordWhenLoggingIn":
+            MessageLookupByLibrary.simpleMessage(
+                "الرجاء استخدام كلمة المرور الجديدة عند تسجيل الدخول"),
+        "predict": MessageLookupByLibrary.simpleMessage("تنبؤ"),
+        "previous": MessageLookupByLibrary.simpleMessage("الحجوزات الماضية"),
+        "profile": MessageLookupByLibrary.simpleMessage("حسابي"),
+        "rePassword": MessageLookupByLibrary.simpleMessage("إعادة كلمة المرور"),
+        "result": MessageLookupByLibrary.simpleMessage("النتيجة"),
+        "saveChanges": MessageLookupByLibrary.simpleMessage("تغير"),
+        "searchForNearestDoctor":
+            MessageLookupByLibrary.simpleMessage("ابحث عن أقرب طبيب"),
+        "send": MessageLookupByLibrary.simpleMessage("ارسال"),
+        "sendCode": MessageLookupByLibrary.simpleMessage("أرسل الرمز"),
+        "sendOTPAgain":
+            MessageLookupByLibrary.simpleMessage("أرسل رمز OTP مرة أخرى"),
+        "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "signUp": MessageLookupByLibrary.simpleMessage("تسجيل"),
+        "signUpNow": MessageLookupByLibrary.simpleMessage("سجل الان"),
+        "skinCancer": MessageLookupByLibrary.simpleMessage("سرطان الجلد"),
+        "skinThickness": MessageLookupByLibrary.simpleMessage("سماكة الجلد"),
+        "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+        "specialists": MessageLookupByLibrary.simpleMessage("التخصصات"),
+        "specialization": MessageLookupByLibrary.simpleMessage("التخصص"),
+        "specializedDoctors":
+            MessageLookupByLibrary.simpleMessage("أطباء متخصصون"),
+        "termsAndConditions":
+            MessageLookupByLibrary.simpleMessage("الشروط و الاحكام"),
+        "thereAreNoReservationYet":
+            MessageLookupByLibrary.simpleMessage("لا يوجد حجز بعد"),
+        "toCompleteYourRegistration":
+            MessageLookupByLibrary.simpleMessage("لاكمال تسجيلك"),
+        "tryAgainAfter":
+            MessageLookupByLibrary.simpleMessage("حاول مرة أخرى بعد"),
+        "typicalAngina":
+            MessageLookupByLibrary.simpleMessage("الذبحة الصدرية النموذجية"),
+        "updateYourPassword":
+            MessageLookupByLibrary.simpleMessage("تحديث كلمة المرور الخاصة بك"),
+        "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+        "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
+        "verifyYourAccount":
+            MessageLookupByLibrary.simpleMessage("تحقق من حسابك"),
+        "viewAll": MessageLookupByLibrary.simpleMessage("اظهار الكل"),
+        "wantToPredictOneOfTheseDiseases": MessageLookupByLibrary.simpleMessage(
+            "تريد التنبؤ بأحد هذه الأمراض"),
+        "welcomeToHSPC":
+            MessageLookupByLibrary.simpleMessage("مرحبًا بك في HSPC"),
+        "youHaveSuccessfullyChangePassword":
+            MessageLookupByLibrary.simpleMessage(
+                "لقد نجحت في تغيير كلمة المرور!")
       };
 }

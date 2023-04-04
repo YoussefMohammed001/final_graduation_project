@@ -6,6 +6,7 @@ import 'package:final_graduation_project/features/user/single_doctor/presentatio
 import 'package:final_graduation_project/features/user/single_doctor/presentation/widgets/dr_location.dart';
 import 'package:final_graduation_project/features/user/single_doctor/presentation/widgets/dr_profile.dart';
 import 'package:final_graduation_project/features/user/single_doctor/presentation/widgets/single_doctor_head.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -61,7 +62,7 @@ class SingleDoctor extends StatelessWidget {
                   bgColor: AppColors.primary,
                   onPressed: () {
                     push(context, BookAppointmentScreen());
-                }, label: 'Book Now',),
+                }, label: S().bookNow,),
               ),
             ],
           ),

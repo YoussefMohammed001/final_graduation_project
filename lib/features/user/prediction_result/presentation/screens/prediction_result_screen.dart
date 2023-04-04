@@ -1,6 +1,7 @@
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
-import 'package:final_graduation_project/features/user/home/presentation/widgets/latest_doctor_tem.dart';
+import 'package:final_graduation_project/core/widgets/latest_doctor_tem.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -30,7 +31,7 @@ final String description;
                           children:  [
                             SizedBox(height: 3.h,),
 
-                            Text("Result",style: TextStyle(color: Colors.black,fontSize: 20.sp,fontWeight: FontWeight.bold),),
+                            Text(S().result,style: TextStyle(color: Colors.black,fontSize: 20.sp,fontWeight: FontWeight.bold),),
 
                             Container(
                                 width: double.infinity,
@@ -49,14 +50,14 @@ final String description;
                             Container(
                                 margin: EdgeInsets.symmetric(horizontal: 20.sp),
                                 child: Center(child: Text(description,style: TextStyle(color: Colors.grey,fontSize: 17.sp,),textAlign: TextAlign.center),)),
-                            SizedBox(height: 7.h,),
+Spacer(),
                             Container(
                               margin: EdgeInsets.symmetric(
                                   vertical: 13.sp, horizontal: 12.sp),
                               child: Row(
                                 children: [
                                   Text(
-                                    "Specialized Doctors",
+                                    S().specializedDoctors,
                                     style: TextStyle(
                                         fontSize: 19.sp,
                                         color: Colors.black,
@@ -64,7 +65,7 @@ final String description;
                                   ),
                                   const Spacer(),
                                   Text(
-                                    "View All",
+                                    S().viewAll,
                                     style: TextStyle(
                                         fontSize: 15.sp,
                                         color: AppColors.primary,
@@ -86,6 +87,7 @@ final String description;
                                 ],
                               ),
                             ),
+                            SizedBox(height: 2.h,)
                           ],
 
 

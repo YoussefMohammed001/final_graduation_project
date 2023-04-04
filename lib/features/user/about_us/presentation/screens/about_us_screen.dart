@@ -1,5 +1,6 @@
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
 import 'package:final_graduation_project/core/widgets/text_item.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class AboutUsScreen extends StatelessWidget {
@@ -11,11 +12,12 @@ class AboutUsScreen extends StatelessWidget {
       backgroundColor: Colors.grey[200],
       body: Column(
         children: [
-          const CustomAppBar(title: 'About Us',),
+           CustomAppBar(title: S().aboutUs,),
           Expanded(
             child: LayoutBuilder(
                 builder: (context, constrains) => SingleChildScrollView(
                   child: ConstrainedBox(
+
                     constraints: BoxConstraints(
                       minHeight: constrains.maxHeight,
                     ),

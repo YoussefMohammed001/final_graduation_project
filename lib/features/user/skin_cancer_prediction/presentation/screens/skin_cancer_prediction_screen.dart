@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
@@ -8,6 +7,7 @@ import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
 import 'package:final_graduation_project/core/widgets/spinner_text_form_field.dart';
 import 'package:final_graduation_project/features/user/prediction_result/presentation/screens/prediction_result_screen.dart';
 import 'package:final_graduation_project/features/user/skin_cancer_prediction/presentation/widgets/skin_cancer_text_form_field.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -26,10 +26,13 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
   final pickedFile = ImagePicker();
 
   uploadImage() async {
-    // ignore: deprecated_member_use
+
     var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
     if (pickedImage != null) {
-      _image = File(pickedImage.path);
+      setState(() {
+        _image = File(pickedImage.path);
+
+      });
     }
   }
 
@@ -42,8 +45,8 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
       child: Scaffold(
         body: Column(
           children: [
-            const CustomAppBar(
-              title: 'Skin Cancer',
+             CustomAppBar(
+              title: S().skinCancer,
             ),
             Expanded(
               child: LayoutBuilder(
@@ -62,37 +65,37 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
                                     height: 3.h,
                                   ),
                                   Text(
-                                    "Choose the gender",
+                                    S().chooseTheGender,
                                     style: TextStyle(
                                         color: Colors.black, fontSize: 16.sp),
                                   ),
                                   SizedBox(
                                     height: 2.h,
                                   ),
-                                  SpinnerTextFormField(
+                                  DropDownTextFormField(
                                     validators: (value) {
                                       if (value.toString().isEmpty) {
                                         return "enter your gender";
                                       }
                                     },
                                     textColor: Colors.black,
-                                    hint: 'male',
+                                    hint: S().maleHint,
                                     controller: male,
                                     textInputAction: TextInputAction.next,
                                     textInputType: TextInputType.name,
                                     enabled: false,
-                                    dropDownList: const [
+                                    dropDownList:  [
                                       DropDownValueModel(
-                                          name: "Male", value: "Male"),
+                                          name: S().male, value: S().male),
                                       DropDownValueModel(
-                                          name: "Female", value: "Female"),
+                                          name: S().female, value: S().female),
                                     ],
                                   ),
                                   SizedBox(
                                     height: 2.h,
                                   ),
                                   Text(
-                                    "Attach the photo of skin cancer",
+                                    S().attachPhotoOfTheSkin,
                                     style: TextStyle(
                                         color: Colors.black, fontSize: 16.sp),
                                   ),
@@ -111,8 +114,8 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
                                               height: 5.sp,
                                             )),
                                     hint: _image == null
-                                        ? 'Attach the photo'
-                                        : 'Change the photo',
+                                        ? S().attachPhoto
+                                        : S().changePhoto,
                                   ),
                                   const Spacer(),
                                   AppButton(
@@ -134,7 +137,7 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
                                     margin:
                                         EdgeInsets.symmetric(horizontal: 17.sp),
                                     padding: EdgeInsets.all(17.sp),
-                                    label: "Predict",
+                                    label: S().predict,
                                     bgColor: AppColors.primary,
                                     borderRadius: BorderRadius.circular(15.sp),
                                   )

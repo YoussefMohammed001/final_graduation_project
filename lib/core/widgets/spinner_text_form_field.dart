@@ -2,8 +2,8 @@ import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class SpinnerTextFormField extends StatefulWidget {
-   SpinnerTextFormField({Key? key, required this.textColor, required this.hint, this.validators, required this.controller, required this.textInputAction, required this.textInputType, required this.enabled, required this.dropDownList}) : super(key: key);
+class DropDownTextFormField extends StatefulWidget {
+   DropDownTextFormField({Key? key, required this.textColor, required this.hint, this.validators, required this.controller, required this.textInputAction, required this.textInputType, required this.enabled, required this.dropDownList}) : super(key: key);
   final Color textColor;
   final String hint;
   final FormFieldValidator<dynamic>? validators;
@@ -17,11 +17,11 @@ class SpinnerTextFormField extends StatefulWidget {
   final bool enabled;
 
   @override
-  State<SpinnerTextFormField> createState() => _SpinnerTextFormFieldState();
+  State<DropDownTextFormField> createState() => _DropDownTextFormFieldState();
 }
 
 
-class _SpinnerTextFormFieldState extends State<SpinnerTextFormField> {
+class _DropDownTextFormFieldState extends State<DropDownTextFormField> {
   bool obscureText = false;
 
   @override

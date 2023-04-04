@@ -6,6 +6,7 @@ import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/features/Authentication/forget/presentation/widgets/otp_item.dart';
 import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
 import 'package:final_graduation_project/features/Authentication/verifyAccount/presentation/manager/verify_cubit.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -64,14 +65,14 @@ class VerifyAccountScreen extends StatelessWidget {
                             height: 50.h,
                           ),
                           Text(
-                            "Verify Your Account",
+                            S().verifyYourAccount,
                             style: TextStyle(
                                 color: AppColors.primary,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20.sp),
                           ),
                           Text(
-                            "to complete your registration",
+                            S().toCompleteYourRegistration,
                             style: TextStyle(
                                 color: AppColors.primary,
                                 fontWeight: FontWeight.bold,
@@ -116,7 +117,7 @@ AppButton(onPressed: () {
 int code = int.parse(otp1Controller.text + otp2Controller.text + otp3Controller.text + otp4Controller.text);
 context.read<VerifyCubit>().userVerify(
 code: code);
-}, label: "Verify",
+}, label: S().verify,
 bgColor: AppColors.primary,
 margin: EdgeInsets.symmetric(horizontal:17.sp),
   padding: EdgeInsets.all(17.sp),
@@ -127,7 +128,7 @@ borderRadius: BorderRadius.circular(15.sp),
                             alignment: AlignmentDirectional.center,
                             margin: EdgeInsets.all(14.sp),
                             child: Text(
-                              "Send OTP again",
+                              S().sendOTPAgain,
                               style: TextStyle(
                                   color: AppColors.primary,
                                   fontWeight: FontWeight.bold,

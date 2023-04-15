@@ -1,3 +1,5 @@
+import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
@@ -117,6 +119,8 @@ class ForgetPasswordScreen extends StatelessWidget {
                                   AppButton(
                                     onPressed: () {
                                       if (emailFormKey.currentState!.validate()) {
+                                        MyShared.putString(key: MySharedKeys.email, value: emailController.text);
+                                        print(emailController.text);
                                         context.read<ForgetPassCubit>()
                                             .sendCode(email: emailController.text);
                                       }

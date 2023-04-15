@@ -22,7 +22,7 @@
   "sendOTPAgain": "Send OTP again",
   "updateYourPassword": "Update your password",
   "hello": "Hello",
-  "hopeYouAreOk": "Hope you are ok?",
+  "hopeYouAreOk": "Hope you are ok",
   "searchForNearestDoctor": "Search for nearest doctor",
   "wantToPredictOneOfTheseDiseases": "Want to predict one of these diseases",
   "skinCancer": "Skin Cancer",
@@ -30,7 +30,7 @@
   "heartDiseases": "Heart Diseases",
   "specialists": "Specialists",
   "viewAll": "view all",
-  "nearestDoctors": "Nearest Doctors",
+  "bestDoctors": "Best Doctors",
   "home": "Home",
   "appointments": "Appointments",
   "myAccount": "Ny account",
@@ -107,7 +107,15 @@
   "congrats": "Congrats!",
   "youHaveSuccessfullyChangePassword": "You have successfully change password!",
   "pleaseUseTheNewPasswordWhenLoggingIn": "Please use the new password when logging in",
-  "backToLogin": "Back To Login"
+  "backToLogin": "Back To Login",
+  "backToHome": "Back To Home",
+  "mobileNumber": "Mobile Number",
+  "chooseYourAppointment": "Choose your appointment",
+  "patientName": "Patient name",
+  "patientInformation": "Patient Information",
+  "iAmReservingInBehalfOfAnotherPatient": "I am reserving in behalf of another patient",
+  "reservationDone": "Reservation done"
+
 
 
 

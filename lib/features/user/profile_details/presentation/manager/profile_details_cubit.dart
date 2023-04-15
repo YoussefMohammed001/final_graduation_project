@@ -1,12 +1,16 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:final_graduation_project/core/api/endpoints.dart';
 import 'package:final_graduation_project/core/api/my_dio.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
+import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/features/user/profile_details/data/change_pass.dart';
 import 'package:final_graduation_project/features/user/profile_details/data/delete_account.dart';
+import 'package:final_graduation_project/features/user/profile_details/data/update_data_model.dart';
+import 'package:final_graduation_project/features/user/profile_details/data/upload_user_image_model.dart';
 
 part 'profile_details_state.dart';
 
@@ -14,18 +18,19 @@ class ProfileDetailsCubit extends Cubit<ProfileDetailsState> {
   ProfileDetailsCubit() : super(ProfileDetailsInitial());
   DeleteAccount deleteAccount =DeleteAccount();
   ChangePass changePass = ChangePass();
+  UpdateDataModel updateDataModel = UpdateDataModel();
 
 
   deleteUserData() async {
     MyShared.putString(key:MySharedKeys.email, value:"");
     MyShared.putString(key: MySharedKeys.username, value:"");
+    MyShared.putInt(key: MySharedKeys.phone, value:0);
     MyShared.putString(key: MySharedKeys.apiToken, value:"");
   }
 
 
   userDeleteAccount({required String password}) async{
     emit(ProfileDetailsLoading());
-
     var response = await AppDio.delete(endPoint:  "all/${MyShared.getString(key:MySharedKeys.id)}",data: {
       "password":password,
     });
@@ -35,7 +40,6 @@ class ProfileDetailsCubit extends Cubit<ProfileDetailsState> {
         safePrint(response);
         emit(ProfileDeleteSuccess(deleteAccount.message));
         await deleteUserData();
-
       }else{
         emit(ProfileDeleteFailure(deleteAccount.message));
         safePrint(response);
@@ -46,6 +50,8 @@ class ProfileDetailsCubit extends Cubit<ProfileDetailsState> {
 
 
   }
+
+
 
   userChangePass({required String oldPass,required String newPass}) async{
     emit(ProfileDetailsLoading());
@@ -67,5 +73,69 @@ class ProfileDetailsCubit extends Cubit<ProfileDetailsState> {
 
   }
 
+
+  userUpdateData({required String name,required String phone, required String id}) async{
+    emit(ProfileDetailsLoading());
+    var response = await AppDio.patch(endPoint:"user/all/$id",data: {
+      "name":name,
+      "phone":phone,
+    });
+   try{
+     updateDataModel = UpdateDataModel.fromJson(response!.data);
+    if(updateDataModel.apiStatus == true){
+      await saveUserData();
+      emit(UpdateUserDataSuccess(updateDataModel.message));
+      safePrint("response $response");
+
+    } if(updateDataModel.apiStatus ==false){
+     safePrint(response);
+     emit(UpdateUserDataFailure(updateDataModel.message));
+    } }catch(e){
+     safePrint(response);
+
+     emit(UpdateUserDataFailure(updateDataModel.message));
+   }
+
+
+  }
+
+  UploadUserImageModel uploadUserImageModel = UploadUserImageModel();
+  userUploadImage({
+    required String image,
+    required String id,
+  }) async {
+    emit(ProfileDetailsLoading());
+    print("loading");
+    var response = await AppDio.postFile(endPoint: EndPoints.uploadUserImage+id,
+      formData: FormData.fromMap({
+        "img": await MultipartFile.fromFile(image),
+      }),
+    );
+    try{
+      print("loading");
+      uploadUserImageModel = UploadUserImageModel.fromJson(response!.data);
+      if(uploadUserImageModel.apiStatus == true){
+        hideLoading();
+        await MyShared.putString(key: MySharedKeys.patientImage, value: uploadUserImageModel.user.profilePicture.url);
+        safePrint("response $response");
+        emit(UploadUserImageSuccess(uploadUserImageModel.data.toString()));
+      } if(uploadUserImageModel.apiStatus == false){
+        safePrint("response $response");
+        emit(UploadUserImageFailure(uploadUserImageModel.data.toString()));
+      }
+    }catch(e){
+      emit(UploadUserImageFailure(uploadUserImageModel.data.toString()));
+      safePrint("$response");
+    }
+
+
+  }
+
+
+  saveUserData() async {
+
+    MyShared.putString(key:MySharedKeys.email, value:updateDataModel.date.email);
+    MyShared.putString(key: MySharedKeys.username, value:updateDataModel.date.name);
+    }
 
 }

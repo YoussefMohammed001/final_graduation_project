@@ -5,8 +5,17 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class DrProfile extends StatelessWidget {
-  const DrProfile({Key? key}) : super(key: key);
 
+
+   DrProfile({Key? key, required this.name, required this.numOfReviews, required this.rating, required this.specialization, required this.fees}) : super(key: key);
+  final String name;
+  final int numOfReviews;
+
+  final double rating;
+
+  final String specialization;
+
+  final String fees;
   @override
   Widget build(BuildContext context) {
     return  Container(
@@ -16,12 +25,12 @@ class DrProfile extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text("DR. Ahmed Ali",style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold),),
+              Text("DR. $name",style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold),),
               const Spacer(),
               Row(
                 children: [
                   RatingBarIndicator(
-                    rating: 2.5,
+                    rating: rating,
                     itemBuilder: (context, index) => Icon(
                       Icons.star,
                       color: Colors.amber,
@@ -31,7 +40,7 @@ class DrProfile extends StatelessWidget {
                     direction: Axis.horizontal,
                   ),
 
-                  Text("(2.5/5)",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold),)
+                  Text(" $numOfReviews reviews",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold),)
                 ],
               ),
 
@@ -55,7 +64,7 @@ class DrProfile extends StatelessWidget {
                 width: 0.5.w,
               ),
               Text(
-                "Heart disease",
+                specialization,
                 style: TextStyle(fontSize: 15.sp,color: Colors.grey),
               ),
             ],
@@ -78,7 +87,7 @@ class DrProfile extends StatelessWidget {
                 width: 0.5.w,
               ),
               Text(
-                "150 EGP",
+                "$fees EGP",
                 style: TextStyle(fontSize: 15.sp,color: Colors.grey),
               ),
             ],

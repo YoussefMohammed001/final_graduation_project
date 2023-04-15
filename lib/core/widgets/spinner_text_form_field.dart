@@ -3,18 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class DropDownTextFormField extends StatefulWidget {
-   DropDownTextFormField({Key? key, required this.textColor, required this.hint, this.validators, required this.controller, required this.textInputAction, required this.textInputType, required this.enabled, required this.dropDownList}) : super(key: key);
-  final Color textColor;
+   DropDownTextFormField({Key? key,  required this.hint, this.validators, required this.controller, required this.enabled, required this.dropDownList,  this.count = 0}) : super(key: key);
   final String hint;
   final FormFieldValidator<dynamic>? validators;
   final SingleValueDropDownController  controller;
-  final TextInputAction textInputAction;
-  final TextInputType textInputType;
   BorderRadius? borderRadius;
   EdgeInsetsGeometry? margin;
    final List<DropDownValueModel> dropDownList;
    EdgeInsetsGeometry? padding;
   final bool enabled;
+  final int count;
 
   @override
   State<DropDownTextFormField> createState() => _DropDownTextFormFieldState();
@@ -31,6 +29,8 @@ class _DropDownTextFormFieldState extends State<DropDownTextFormField> {
       child: Column(
         children: [
           DropDownTextField(
+            dropDownItemCount: widget.count,
+
             clearOption: false,
             onChanged: (value){
               print(value);
@@ -38,7 +38,6 @@ class _DropDownTextFormFieldState extends State<DropDownTextFormField> {
 
             validator: widget.validators,
             controller: widget.controller,
-            keyboardType: widget.textInputType,
             textFieldDecoration: InputDecoration(
               enabled: false,
               suffixIcon: const Icon(

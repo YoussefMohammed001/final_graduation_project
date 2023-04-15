@@ -4,7 +4,7 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared.dart'
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
-import 'package:final_graduation_project/features/splash_screen.dart';
+import 'package:final_graduation_project/features/splash/presentation/splash_screen.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,7 +18,8 @@ Future main() async {
   AppDio.init();
   EasyLoading.init();
   safePrint(MyShared.getString(key: MySharedKeys.apiToken));
-  safePrint(MyShared.getString(key: MySharedKeys.username));
+  safePrint(  MyShared.getString(key: MySharedKeys.patientImage));
+  safePrint(MyShared.getString(key: MySharedKeys.id));
   runApp(const MyApp());
 }
 

@@ -84,7 +84,7 @@ class _CongratsScreenState extends State<CongratsScreen> {
                       height: 2.h,
                     ),
                      Text(
-                      S().pleaseUseTheNewPasswordWhenLoggingIn,
+                      S().youHaveSuccessfullyChangePassword,
                       style: const TextStyle(color: Colors.grey),
                     ),
                      Text(

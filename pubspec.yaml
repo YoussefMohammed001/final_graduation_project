@@ -58,6 +58,10 @@ dependencies:
   dropdown_textfield: ^1.0.8
   image_picker: ^0.8.7+1
   path: ^1.8.2
+  otp_timer_button: ^1.1.0
+  carousel_indicator: ^1.0.6
+  geolocator: ^9.0.2
+
 
 dev_dependencies:
   flutter_test:

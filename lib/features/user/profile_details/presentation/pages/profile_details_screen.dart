@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
@@ -6,17 +8,26 @@ import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
+import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
 import 'package:final_graduation_project/features/user/profile_details/presentation/manager/profile_details_cubit.dart';
 import 'package:final_graduation_project/features/user/profile_details/presentation/widgets/profile_details_app_bar.dart';
 import 'package:final_graduation_project/features/user/profile_details/presentation/widgets/user_image.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 // ignore: camel_case_types, must_be_immutable
-class profileDetailsScreen extends StatelessWidget {
-  profileDetailsScreen({Key? key}) : super(key: key);
+class profileDetailsScreen extends StatefulWidget {
+  const profileDetailsScreen({Key? key}) : super(key: key);
+
+  @override
+  State<profileDetailsScreen> createState() => _profileDetailsScreenState();
+}
+
+// ignore: camel_case_types
+class _profileDetailsScreenState extends State<profileDetailsScreen> {
   TextEditingController nameController = TextEditingController();
 
   TextEditingController confirmPasswordController = TextEditingController();
@@ -26,12 +37,30 @@ class profileDetailsScreen extends StatelessWidget {
   TextEditingController passwordController = TextEditingController();
 
   TextEditingController phoneController = TextEditingController();
+
   TextEditingController password = TextEditingController();
 
   TextEditingController currentpasswordController = TextEditingController();
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final cubit = ProfileDetailsCubit();
+
+  File? _image;
+  final pickedFile = ImagePicker();
+
+  uploadImage() async {
+    // ignore: deprecated_member_use
+    var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
+    if (pickedImage != null) {
+      setState(() {
+        _image = File(pickedImage.path);
+        cubit.userUploadImage(image: _image!.path.toString(), id: MyShared.getString(key: MySharedKeys.id));
+
+      });
+
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +79,23 @@ class profileDetailsScreen extends StatelessWidget {
               showError(state.failureMessage);
             }
             if (state is ProfileDeleteSuccess) {
+              pushAndRemoveUntil(context, const LoginScreen());
               showSuccess(state.sucsessMessage);
             }
-            if (state is ProfileDeleteFailure) {
-              showError(state.failureMessage);
+
+            if (state is UploadUserImageSuccess) {
+              hideLoading();
+              showSuccess(state.successMessage);
             }
+
+            if(state is UpdateUserDataSuccess){
+              showSuccess(state.message);
+            }
+
+            if(state is UpdateUserDataFailure){
+              showError(state.errorMessage);
+            }
+
           },
           child: Scaffold(
             body: Column(
@@ -70,7 +111,13 @@ class profileDetailsScreen extends StatelessWidget {
                         child: IntrinsicHeight(
                           child: Column(children: [
                             SizedBox(height: 3.h),
-                            const UserImage(),
+                            UserImage(
+                              userImage: MyShared.getString(key: MySharedKeys.patientImage),
+                              onTap:(){
+                                uploadImage();
+
+                              },
+                            ),
                             SizedBox(height: 3.h),
                             MyTextFormField(
                               margin: EdgeInsets.symmetric(horizontal: 19.sp),
@@ -89,6 +136,7 @@ class profileDetailsScreen extends StatelessWidget {
                             ),
                             SizedBox(height: 1.h),
                             MyTextFormField(
+                              enabled: false,
                               margin: EdgeInsets.symmetric(horizontal: 19.sp),
                               validators: (value) {
                                 if (value!.isEmpty) {
@@ -115,11 +163,13 @@ class profileDetailsScreen extends StatelessWidget {
                                 if (value!.isEmpty) {
                                   return "Confirm your Password";
                                 }
+                                return null;
                               },
                               textInputType: TextInputType.text,
                               textInputAction: TextInputAction.next,
                               controller: phoneController,
-                              hint: "Mobile number",
+                              hint:
+                                  "0${MyShared.getInt(key: MySharedKeys.phone)}",
                               isPassword: false,
                             ),
                             SizedBox(height: 1.h),
@@ -207,6 +257,7 @@ class profileDetailsScreen extends StatelessWidget {
                                                         .text) {
                                                   return "Password doesn't match";
                                                 }
+                                                return null;
                                               },
                                               textInputType: TextInputType.text,
                                               textInputAction:
@@ -241,9 +292,11 @@ class profileDetailsScreen extends StatelessWidget {
                                                                 newPass:
                                                                     passwordController
                                                                         .text);
+
                                                           }
                                                         },
-                                                        label: S().saveChanges)),
+                                                        label:
+                                                            S().saveChanges)),
                                                 Expanded(
                                                     flex: 1,
                                                     child: InkWell(
@@ -255,7 +308,7 @@ class profileDetailsScreen extends StatelessWidget {
                                                               AlignmentDirectional
                                                                   .center,
                                                           child:
-                                                               Text(S().back)),
+                                                              Text(S().back)),
                                                     ))
                                               ],
                                             )
@@ -278,9 +331,9 @@ class profileDetailsScreen extends StatelessWidget {
                                     SizedBox(
                                       width: 2.w,
                                     ),
-                                     Text(
-                                     S().changePassword ,
-                                      style: TextStyle(color: Colors.grey),
+                                    Text(
+                                      S().changePassword,
+                                      style: const TextStyle(color: Colors.grey),
                                     )
                                   ],
                                 ),
@@ -291,8 +344,14 @@ class profileDetailsScreen extends StatelessWidget {
                               height: 2.h,
                             ),
                             AppButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                cubit.userUpdateData(
+                                    name: nameController.text,
+                                    phone: phoneController.text, id: MyShared.getString(key: MySharedKeys.id));
+
+                              },
                               label: S().saveChanges,
+
                               bgColor: AppColors.primary,
                               margin: EdgeInsets.symmetric(
                                   vertical: 5.sp, horizontal: 18.sp),
@@ -319,8 +378,8 @@ class profileDetailsScreen extends StatelessWidget {
                                             height: 5.h,
                                           ),
                                           Text(
-                                           S().enterYourPasswordToDeleteAccount,
-                                             style: TextStyle(
+                                            S().enterYourPasswordToDeleteAccount,
+                                            style: TextStyle(
                                                 color: Colors.black,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 20.sp),
@@ -356,12 +415,11 @@ class profileDetailsScreen extends StatelessWidget {
                                                   onTap: () {
                                                     pop(context);
                                                   },
-                                                  child:  Text(S().back)))
+                                                  child: Text(S().back)))
                                         ],
                                       ),
                                     );
                                   },
-
                                 );
                               },
                               child: Row(
@@ -371,9 +429,9 @@ class profileDetailsScreen extends StatelessWidget {
                                   SizedBox(
                                     width: 2.w,
                                   ),
-                                   Text(
+                                  Text(
                                     S().deleteAccount,
-                                    style: TextStyle(color: Colors.red),
+                                    style: const TextStyle(color: Colors.red),
                                   )
                                 ],
                               ),

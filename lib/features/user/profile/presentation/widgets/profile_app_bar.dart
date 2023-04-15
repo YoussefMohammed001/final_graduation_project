@@ -1,8 +1,12 @@
+import 'package:final_graduation_project/core/cubits/language/language_cubit.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/features/user/profile/presentation/manager/profile_cubit.dart';
+import 'package:final_graduation_project/features/user/profile/presentation/widgets/log_out.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -30,35 +34,11 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                 showModalBottomSheet<void>(
                   context: context,
                   builder: (BuildContext context) {
-                    return Container(
-                      height: 35.h,
-                      margin: EdgeInsets.all(20.sp),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          AppSVG(assetName: "log_out_blue",height: 8.h,),
-                          SizedBox(height: 5.h,),
+                    return LogOutItem(onTap: () {
+                      MyShared.putString(key: MySharedKeys.currentLanguage, value: 'en');
+                       this.context.read<ProfileCubit>().userLogout();
 
-                          Text("Do you want to log out?",style: TextStyle(color:Colors.black,fontWeight: FontWeight.bold,fontSize: 22.sp),),
-                          SizedBox(height: 3.h,),
-
-
-                          AppButton(
-                            margin: EdgeInsets.all(8.sp),
-                            onPressed: (){
-                            pop(context);
-                          }, label: "No, stay here",bgColor: AppColors.primary,),
-                          SizedBox(height: 3.h,),
-                          Center(child: InkWell(
-                              onTap: (){
-                                this.context.read<ProfileCubit>().userLogout();
-                              },
-                              child: const Text("LOG OUT")))
-
-                        ],
-                      ),
-                    );
+                    },);
                   },
                 );              },
               child: const AppSVG(assetName: 'log_out'))

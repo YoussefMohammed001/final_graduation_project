@@ -31,6 +31,7 @@ class VerifyCubit extends Cubit<VerifyState> {
     verifyAccountModel = VerifyAccountModel.fromJson(response!.data);
     if(verifyAccountModel.apiStatus ==true){
       safePrint(response);
+      await saveUserData();
       emit(VerifySucsess(verifyAccountModel.message));
     } else{
       emit(VerifyFailure(verifyAccountModel.message));
@@ -39,5 +40,12 @@ class VerifyCubit extends Cubit<VerifyState> {
 
   }
 
+  saveUserData() async {
+    MyShared.putString(key:MySharedKeys.email, value:verifyAccountModel.data.user.email);
+    MyShared.putString(key: MySharedKeys.username, value:verifyAccountModel.data.user.name);
+    MyShared.putString(key: MySharedKeys.apiToken, value:verifyAccountModel.data.token);
+    MyShared.putString(key: MySharedKeys.id, value:verifyAccountModel.data.user.id);
+    MyShared.putInt(key: MySharedKeys.phone, value:verifyAccountModel.data.user.phone);
+  }
 
 }

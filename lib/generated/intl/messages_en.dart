@@ -34,7 +34,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "attachPhotoOfTheSkin":
             MessageLookupByLibrary.simpleMessage("Attach photo of the skin"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "backToHome": MessageLookupByLibrary.simpleMessage("Back To Home"),
         "backToLogin": MessageLookupByLibrary.simpleMessage("Back To Login"),
+        "bestDoctors": MessageLookupByLibrary.simpleMessage("Best Doctors"),
         "bloodPressure": MessageLookupByLibrary.simpleMessage("blood pressure"),
         "bodyMassIndex":
             MessageLookupByLibrary.simpleMessage("body mass index"),
@@ -49,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cholesterol": MessageLookupByLibrary.simpleMessage("cholesterol"),
         "chooseTheGender":
             MessageLookupByLibrary.simpleMessage("Choose the gender"),
+        "chooseYourAppointment":
+            MessageLookupByLibrary.simpleMessage("Choose your appointment"),
         "congrats": MessageLookupByLibrary.simpleMessage("Congrats!"),
         "consultingPrice":
             MessageLookupByLibrary.simpleMessage("Consulting Price"),
@@ -99,8 +103,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "higherThan120Hint":
             MessageLookupByLibrary.simpleMessage("higher than 120"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
-        "hopeYouAreOk":
-            MessageLookupByLibrary.simpleMessage("Hope you are ok?"),
+        "hopeYouAreOk": MessageLookupByLibrary.simpleMessage("Hope you are ok"),
+        "iAmReservingInBehalfOfAnotherPatient":
+            MessageLookupByLibrary.simpleMessage(
+                "I am reserving in behalf of another patient"),
         "insulinLevel": MessageLookupByLibrary.simpleMessage("insulin level"),
         "joinNow": MessageLookupByLibrary.simpleMessage("Join now"),
         "joinUsNow": MessageLookupByLibrary.simpleMessage("Join us now"),
@@ -113,9 +119,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "maleHint": MessageLookupByLibrary.simpleMessage("male"),
         "manageYourHealthAndHappyFuture": MessageLookupByLibrary.simpleMessage(
             "Manage your health and happy future"),
+        "mobileNumber": MessageLookupByLibrary.simpleMessage("Mobile Number"),
         "myAccount": MessageLookupByLibrary.simpleMessage("Ny account"),
-        "nearestDoctors":
-            MessageLookupByLibrary.simpleMessage("Nearest Doctors"),
         "newPass": MessageLookupByLibrary.simpleMessage("new password"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "noStayHere": MessageLookupByLibrary.simpleMessage("No stat here"),
@@ -128,6 +133,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "patientAgeInYears":
             MessageLookupByLibrary.simpleMessage("Patient age in years"),
+        "patientInformation":
+            MessageLookupByLibrary.simpleMessage("Patient Information"),
+        "patientName": MessageLookupByLibrary.simpleMessage("Patient name"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
         "pleaseUseTheNewPasswordWhenLoggingIn":
             MessageLookupByLibrary.simpleMessage(
@@ -136,6 +144,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "previous": MessageLookupByLibrary.simpleMessage("Previous"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "rePassword": MessageLookupByLibrary.simpleMessage("Re-password"),
+        "reservationDone":
+            MessageLookupByLibrary.simpleMessage("Reservation done"),
         "result": MessageLookupByLibrary.simpleMessage("Result"),
         "saveChanges": MessageLookupByLibrary.simpleMessage("Save changes"),
         "searchForNearestDoctor":

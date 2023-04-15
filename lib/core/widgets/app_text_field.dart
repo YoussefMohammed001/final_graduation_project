@@ -10,16 +10,20 @@ class MyTextFormField extends StatefulWidget {
     this.borderRadius,
     this.margin,
     this.padding,
+    this.isSearch = false,
     this.textColor = Colors.black,
     required this.controller,
     required this.isPassword,
     this.validators,
     required this.textInputAction,
     required this.textInputType,
+    this.enabled =true,
   }) : super(key: key);
   final Color textColor;
   final String hint;
   final bool isPassword;
+  final bool isSearch;
+  final bool? enabled;
   final FormFieldValidator<dynamic>? validators;
   final TextEditingController controller;
   final TextInputAction textInputAction;
@@ -42,7 +46,7 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
       child: Column(
         children: [
           TextFormField(
-
+            enabled: widget.enabled,
             validator: widget.validators,
             obscureText: obscureText,
             controller: widget.controller,
@@ -67,12 +71,14 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
               focusColor: Colors.grey.shade200,
               fillColor: Colors.grey.shade200,
               filled: true,
+
               hintStyle: TextStyle(
                 fontSize: 16.sp,
                 color: Colors.grey
               ),
 
               disabledBorder:OutlineInputBorder(
+
                 borderSide:  BorderSide(color: Colors.grey.shade200, width: 2.0),
                 borderRadius: BorderRadius.circular(13.0),
               ) ,

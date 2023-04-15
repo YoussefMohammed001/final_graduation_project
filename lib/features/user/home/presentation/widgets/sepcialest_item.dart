@@ -10,17 +10,18 @@ class SpecialistItem extends StatelessWidget {
     Key? key,
     required this.icon,
     required this.title,
-    required this.doctorsNumber,
+    required this.doctorsNumber, required this.onTap,
   }) : super(key: key);
 
   final String icon;
   final String title;
+  final GestureTapCallback  onTap;
   final String doctorsNumber;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 45.sp,
+      width: 47.sp,
       padding: EdgeInsets.symmetric(
         horizontal: 15.sp,
         vertical: 15.sp,
@@ -34,21 +35,20 @@ class SpecialistItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(13.sp),
           color: Colors.white),
       child: InkWell(
-        onTap: () {
-
-          push(context, SpecialistDoctors());
-        },
+        onTap: onTap,
         child: Column(
           children: [
-            AppSVG(
-              height: 32.sp,
-              width: 32.sp,
-               assetName: icon,
+            Image.network(
+              height: 27.sp,
+              width: 27.sp,
+                icon,
 
             ),
+            Spacer(),
             Text(
               title,
-
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: AppColors.text,

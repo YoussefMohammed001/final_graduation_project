@@ -1,178 +1,236 @@
+import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/features/user/diabetes_prediction/presentation/screens/diabetesPprediction_screen.dart';
 import 'package:final_graduation_project/features/user/heart_rediction/presentation/screens/heart_rediction_screen.dart';
+import 'package:final_graduation_project/features/user/home/data/home_model.dart';
+import 'package:final_graduation_project/features/user/home/presentation/manager/home_cubit.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/home_app_bar.dart';
 import 'package:final_graduation_project/core/widgets/latest_doctor_tem.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/predict_diseases_item.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/sepcialest_item.dart';
+import 'package:final_graduation_project/features/user/single_doctor/presentation/pages/single_doctor.dart';
 import 'package:final_graduation_project/features/user/skin_cancer_prediction/presentation/screens/skin_cancer_prediction_screen.dart';
+import 'package:final_graduation_project/features/user/specialist_doctors/presentation/screens/specialist_doctors.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 // ignore: must_be_immutable
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   TextEditingController searchController = TextEditingController();
+
+  final cubit = HomeCubit();
+  bool visible = false;
+  @override
+  void initState() {
+    cubit.getHome();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          HomeAppBar(
-            userImage:
-            'https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
-            searchController: searchController,
-            user: 'ahmed',
-          ),
-
-          Expanded(
-            child: LayoutBuilder(
-                builder: (context, constrains) => SingleChildScrollView(
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                          minHeight: constrains.maxHeight,
-                        ),
-
-                        child: IntrinsicHeight(
-                          child: Column(
-                            children: [
-                              Container(
-                                margin: EdgeInsets.symmetric(
-                                    vertical: 13.sp, horizontal: 12.sp),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      S().wantToPredictOneOfTheseDiseases,
-                                      style: TextStyle(
-                                        fontSize: 17.sp,
-                                        color: Colors.black,
+    return BlocProvider(
+      create: (context) => cubit,
+      child: BlocConsumer<HomeCubit, HomeState>(
+        listener: (context, state) {
+          if (state is HomeSuccess) {
+            visible = !visible;
+            print(visible);
+          }
+        },
+        builder: (context, state) {
+          return Scaffold(
+            body: Column(
+              children: [
+                HomeAppBar(
+                  userImage: MyShared.getString(key: MySharedKeys.patientImage),
+                  searchController: searchController,
+                  user: MyShared.getString(key: MySharedKeys.username),
+                ),
+                Visibility(
+                  visible: visible,
+                  child: Expanded(
+                    child: LayoutBuilder(
+                        builder: (context, constrains) => SingleChildScrollView(
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  minHeight: constrains.maxHeight,
+                                ),
+                                child: IntrinsicHeight(
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.symmetric(
+                                            vertical: 13.sp, horizontal: 12.sp),
+                                        child: Row(
+                                          children: [
+                                            Text(
+                                              S().wantToPredictOneOfTheseDiseases,
+                                              style: TextStyle(
+                                                fontSize: 17.sp,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  PredictDiseases(
-                                    image: 'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-                                    title: S().heartDiseases,
-                                    onTap: () {
-                                      push(context, HeartPredictionScreen());
-                                    },
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          PredictDiseases(
+                                            image:
+                                                'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                            title: S().heartDiseases,
+                                            onTap: () {
+                                              push(context,
+                                                  HeartPredictionScreen());
+                                            },
+                                          ),
+                                          PredictDiseases(
+                                            image:
+                                                'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                            title: S().diabetes,
+                                            onTap: () {
+                                              push(context,
+                                                  DiabetesPredictionScreen());
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          PredictDiseases(
+                                            image:
+                                                'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                            title: S().skinCancer,
+                                            onTap: () {
+                                              push(context, SkinCancerScreen());
+                                            },
+                                          ),
+                                          PredictDiseases(
+                                            image:
+                                                'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                            title: '',
+                                            onTap: () {},
+                                          ),
+                                        ],
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.symmetric(
+                                            vertical: 13.sp, horizontal: 12.sp),
+                                        child: Row(
+                                          children: [
+                                            Text(
+                                              S().specialists,
+                                              style: TextStyle(
+                                                  fontSize: 19.sp,
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            const Spacer(),
+                                            Text(
+                                              S().viewAll,
+                                              style: TextStyle(
+                                                  fontSize: 15.sp,
+                                                  color: AppColors.primary,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 51.sp,
+                                        child: ListView.builder(
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount: cubit.specializes.length,
+                                          itemBuilder: (BuildContext context,
+                                              int index) {
+                                            Specializes specializes =
+                                                cubit.specializes[index];
+                                            return SpecialistItem(
+                                              icon: specializes.img,
+                                              title:
+                                                  specializes.name.toString(),
+                                              doctorsNumber: specializes
+                                                  .numberOfDoctors
+                                                  .toString(), onTap: () {
+                                                push(context, SpecialistDoctors(id: specializes.id, title:specializes.name,));
+                                            },
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.symmetric(
+                                            vertical: 13.sp, horizontal: 12.sp),
+                                        child: Row(
+                                          children: [
+                                            Text(
+                                              S().bestDoctors,
+                                              style: TextStyle(
+                                                  fontSize: 19.sp,
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            const Spacer(),
+                                            Text(
+                                              S().viewAll,
+                                              style: TextStyle(
+                                                  fontSize: 15.sp,
+                                                  color: AppColors.primary,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 27.h,
+                                        child: ListView.builder(
+                                          itemCount: cubit.doctors.length,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.horizontal,
+                                          itemBuilder: (BuildContext context,
+                                              int index) {
+                                            Doctors doctors =
+                                                cubit.doctors[index];
+                                            return DoctorItem(
+                                              img: doctors.profile,
+                                              name: doctors.name,
+                                              specialist: doctors.specialize,
+                                              review: doctors.rating.toDouble(), onTap: () {
+                                                push(context, SingleDoctor(id: doctors.id,));
+                                            },
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 1.h,
+                                      ),
+                                    ],
                                   ),
-                                  PredictDiseases(
-                                    image: 'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-                                    title: S().diabetes,
-                                    onTap: () {
-                                      push(context, DiabetesPredictionScreen());
-                                    },
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  PredictDiseases(
-                                    image: 'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-                                    title: S().skinCancer,
-                                    onTap: () {
-                                      push(context, SkinCancerScreen());
-                                    },
-                                  ),
-                                  PredictDiseases(
-                                    image: 'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-                                    title: '',
-                                    onTap: () {},
-                                  ),
-                                ],
-                              ),
-                              Container(
-                                margin: EdgeInsets.symmetric(
-                                    vertical: 13.sp, horizontal: 12.sp),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      S().specialists,
-                                      style: TextStyle(
-                                          fontSize: 19.sp,
-
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    const Spacer(),
-                                    Text(
-                                      S().viewAll,
-                                      style: TextStyle(
-                                          fontSize: 15.sp,
-                                          color: AppColors.primary,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
                                 ),
                               ),
-                              SizedBox(
-                                height: 51.sp,
-                                child: ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: 8,
-                                  itemBuilder: (BuildContext context, int index) {
-                                    return const SpecialistItem(
-                                      icon: "heart",
-                                      title: "Heart Issue",
-                                      doctorsNumber: "20 Doctors",
-                                    );
-                                  },
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.symmetric(
-                                    vertical: 13.sp, horizontal: 12.sp),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      S().nearestDoctors,
-                                      style: TextStyle(
-                                          fontSize: 19.sp,
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    const Spacer(),
-                                    Text(
-                                      S().viewAll,
-                                      style: TextStyle(
-                                          fontSize: 15.sp,
-                                          color: AppColors.primary,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 29.h,
-                                child: ListView(
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.horizontal,
-                                  children: const [
-                                    LatestDoctorItem(),
-                                    LatestDoctorItem(),
-                                    LatestDoctorItem(),
-                                    LatestDoctorItem(),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 1.h,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    )),
-          ),
-        ],
+                            )),
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

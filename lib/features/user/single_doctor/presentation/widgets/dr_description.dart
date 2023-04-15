@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class DrDescription extends StatelessWidget {
-  const DrDescription({Key? key}) : super(key: key);
-
+  const DrDescription({Key? key, required this.about}) : super(key: key);
+final String about;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,9 +18,7 @@ class DrDescription extends StatelessWidget {
           ),
           SizedBox(height: 2.h,),
           Text(
-
-          "Here is a description of the clinic Here is a description of the clinic Here is a description of the clinic Here is a description of the clinic Here is a description ofthe clinic Here is a description of the clinic"
-          ,
+          about,
             style: TextStyle(fontSize: 16.sp,),
 
           ),

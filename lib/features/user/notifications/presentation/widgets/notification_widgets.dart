@@ -10,8 +10,8 @@ final String time;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(15.sp),
-      padding: EdgeInsets.all(17.sp),
+      margin: EdgeInsets.symmetric(vertical: 10.sp,horizontal: 15.sp),
+      padding: EdgeInsets.all(12.sp),
       decoration: BoxDecoration(
           color: Colors.grey[200],
 

@@ -79,11 +79,9 @@ Spacer(),
                               child: ListView(
                                 shrinkWrap: true,
                                 scrollDirection: Axis.horizontal,
-                                children: const [
-                                  LatestDoctorItem(),
-                                  LatestDoctorItem(),
-                                  LatestDoctorItem(),
-                                  LatestDoctorItem(),
+                                children:  [
+                                  DoctorItem(img: '', name: '', specialist: '', review:3, onTap: () {  },),
+
                                 ],
                               ),
                             ),

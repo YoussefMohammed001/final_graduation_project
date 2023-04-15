@@ -35,8 +35,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "attachPhotoOfTheSkin":
             MessageLookupByLibrary.simpleMessage("إرفاق صورة الجلد"),
         "back": MessageLookupByLibrary.simpleMessage("الرجوع"),
+        "backToHome":
+            MessageLookupByLibrary.simpleMessage("العودة إلى الرىيسية"),
         "backToLogin":
             MessageLookupByLibrary.simpleMessage("العودة إلى تسجيل الدخول"),
+        "bestDoctors": MessageLookupByLibrary.simpleMessage("افضل اطباء"),
         "bloodPressure": MessageLookupByLibrary.simpleMessage("ضغط الدم"),
         "bodyMassIndex":
             MessageLookupByLibrary.simpleMessage("مؤشر كتلة الجسم"),
@@ -49,6 +52,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "chestPainType": MessageLookupByLibrary.simpleMessage("نوع ألم الصدر"),
         "cholesterol": MessageLookupByLibrary.simpleMessage("الكوليسترول"),
         "chooseTheGender": MessageLookupByLibrary.simpleMessage("اختر الجنس"),
+        "chooseYourAppointment":
+            MessageLookupByLibrary.simpleMessage("اختر موعدك"),
         "congrats": MessageLookupByLibrary.simpleMessage("تهانيا!"),
         "consultingPrice":
             MessageLookupByLibrary.simpleMessage("سعر الاستشارة"),
@@ -98,7 +103,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("أعلى من 120"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسيه"),
         "hopeYouAreOk":
-            MessageLookupByLibrary.simpleMessage("أتمنى أن تكون بخير؟"),
+            MessageLookupByLibrary.simpleMessage("أتمنى أن تكون بخير"),
+        "iAmReservingInBehalfOfAnotherPatient":
+            MessageLookupByLibrary.simpleMessage("أنا أحجز نيابة عن مريض آخر"),
         "insulinLevel": MessageLookupByLibrary.simpleMessage("مستوى الأنسولين"),
         "joinNow": MessageLookupByLibrary.simpleMessage("انضم الان"),
         "joinUsNow": MessageLookupByLibrary.simpleMessage("انضم إلينا الآن"),
@@ -111,8 +118,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "maleHint": MessageLookupByLibrary.simpleMessage("ذكر"),
         "manageYourHealthAndHappyFuture":
             MessageLookupByLibrary.simpleMessage("إدارة صحتك ومستقبلك السعيد"),
+        "mobileNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "myAccount": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
-        "nearestDoctors": MessageLookupByLibrary.simpleMessage("اقرب اطباء"),
         "newPass": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "noStayHere": MessageLookupByLibrary.simpleMessage("لا سابقى هنا"),
@@ -124,6 +131,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "patientAgeInYears":
             MessageLookupByLibrary.simpleMessage("عمر المريض بالسنوات"),
+        "patientInformation":
+            MessageLookupByLibrary.simpleMessage("بيانات المريض"),
+        "patientName": MessageLookupByLibrary.simpleMessage("اسم المريض"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم التليفون"),
         "pleaseUseTheNewPasswordWhenLoggingIn":
             MessageLookupByLibrary.simpleMessage(
@@ -132,6 +142,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "previous": MessageLookupByLibrary.simpleMessage("الحجوزات الماضية"),
         "profile": MessageLookupByLibrary.simpleMessage("حسابي"),
         "rePassword": MessageLookupByLibrary.simpleMessage("إعادة كلمة المرور"),
+        "reservationDone": MessageLookupByLibrary.simpleMessage("تم الحجز"),
         "result": MessageLookupByLibrary.simpleMessage("النتيجة"),
         "saveChanges": MessageLookupByLibrary.simpleMessage("تغير"),
         "searchForNearestDoctor":

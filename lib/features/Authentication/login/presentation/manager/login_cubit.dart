@@ -5,7 +5,7 @@ import 'package:final_graduation_project/core/api/my_dio.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
-import 'package:final_graduation_project/features/Authentication/login/data/models/LoginRequestModel.dart';
+import 'package:final_graduation_project/features/Authentication/login/data/models/login_request_model.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 
@@ -31,17 +31,17 @@ class LoginCubit extends Cubit<LoginState> {
 
      loginRequestModel = LoginRequestModel.fromJson(response!.data);
      if(loginRequestModel.apiStatus ==true){
-       safePrint("name>> ${loginRequestModel.data.userData.name}");
+       safePrint("name>> ${loginRequestModel.data.userData.profilePicture.url}");
        safePrint(response);
        await saveUserData();
-       emit(LoginSucsess(loginRequestModel.message,loginRequestModel.data.userData.isverified));
+       emit(LoginSucsess(loginRequestModel.message,loginRequestModel.data.userData.isverified,loginRequestModel.data.userData.isDoctor));
      } if(loginRequestModel.apiStatus == false){
        emit(LoginFailure(loginRequestModel.message));
-       safePrint(response.statusMessage);
+       safePrint(response);
      }
    }catch(e){
      emit(LoginFailure(loginRequestModel.message));
-     safePrint("${response!.data}e");
+     safePrint("${response}e");
    }
 
   }
@@ -51,9 +51,9 @@ class LoginCubit extends Cubit<LoginState> {
     MyShared.putString(key:MySharedKeys.email, value:loginRequestModel.data.userData.email);
     MyShared.putString(key: MySharedKeys.username, value:loginRequestModel.data.userData.name);
     MyShared.putString(key: MySharedKeys.apiToken, value:loginRequestModel.data.token);
-    MyShared.putString(key: MySharedKeys.from, value:loginRequestModel.data.userData.from);
-    MyShared.putString(key: MySharedKeys.city, value:loginRequestModel.data.userData.city);
+    MyShared.putString(key: MySharedKeys.patientImage, value:loginRequestModel.data.userData.profilePicture.url);
     MyShared.putString(key: MySharedKeys.id, value:loginRequestModel.data.userData.id);
+    MyShared.putInt(key: MySharedKeys.phone, value:loginRequestModel.data.userData.phone.toInt());
   }
 
 }

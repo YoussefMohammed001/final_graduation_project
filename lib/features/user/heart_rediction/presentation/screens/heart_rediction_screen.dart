@@ -16,6 +16,7 @@ class HeartPredictionScreen extends StatelessWidget {
   TextEditingController bloodPressure = TextEditingController();
   TextEditingController cholesterol = TextEditingController();
   TextEditingController electrocardio = TextEditingController();
+  TextEditingController age = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
   SingleValueDropDownController gender = SingleValueDropDownController();
@@ -48,6 +49,20 @@ class HeartPredictionScreen extends StatelessWidget {
                                   SizedBox(
                                     height: 3.h,
                                   ),
+                                  PredictionTextFormField(
+                                    validators: (value) {
+                                      if (value.toString().isEmpty) {
+                                        return "This field is required";
+                                      }
+                                    },
+                                    hint: S().patientAgeInYears,
+                                    controller: age,
+                                    textInputAction: TextInputAction.next,
+                                    suffixText: '',
+                                  ),
+                                  SizedBox(
+                                    height: 2.h,
+                                  ),
                                   Text(
                                   S().chooseTheGender,
                                     style: TextStyle(
@@ -62,17 +77,14 @@ class HeartPredictionScreen extends StatelessWidget {
                                         return "this field is required";
                                       }
                                     },
-                                    textColor: Colors.black,
                                     hint: S().maleHint,
                                     controller: gender,
-                                    textInputAction: TextInputAction.next,
-                                    textInputType: TextInputType.name,
-                                    enabled: false,
+                                      enabled: false,
                                     dropDownList:  [
                                       DropDownValueModel(
-                                          name: S().male, value: S().male),
+                                          name: S().male, value: 0),
                                       DropDownValueModel(
-                                          name: S().female, value: S().female),
+                                          name: S().female, value: 1),
                                     ],
                                   ),
                                   SizedBox(
@@ -87,22 +99,20 @@ class HeartPredictionScreen extends StatelessWidget {
                                     height: 2.h,
                                   ),
                                   DropDownTextFormField(
+
                                     validators: (value) {
                                       if (value.toString().isEmpty) {
                                         return "this field is required";
                                       }
                                     },
-                                    textColor: Colors.black,
                                     hint: '1',
                                     controller: chestPainType,
-                                    textInputAction: TextInputAction.next,
-                                    textInputType: TextInputType.name,
-                                    enabled: false,
+                                       enabled: false,
                                     dropDownList:  [
-                                      DropDownValueModel(name: S().typicalAngina, value: S().typicalAngina),
-                                      DropDownValueModel(name: S().aTypicalAngina, value: S().typicalAngina),
-                                      DropDownValueModel(name: S().nonAnginalPain, value: S().nonAnginalPain),
-                                      DropDownValueModel(name: S().asymptomatic, value: S().asymptomatic),
+                                      DropDownValueModel(name: S().typicalAngina, value: 1),
+                                      DropDownValueModel(name: S().aTypicalAngina, value: 2),
+                                      DropDownValueModel(name: S().nonAnginalPain, value: 3),
+                                      DropDownValueModel(name: S().asymptomatic, value: 4),
 
                                     ],
                                   ),
@@ -151,12 +161,9 @@ class HeartPredictionScreen extends StatelessWidget {
                                         return "this field is required";
                                       }
                                     },
-                                    textColor: Colors.black,
                                     hint: S().higherThan120Hint,
                                     controller: fPS,
-                                    textInputAction: TextInputAction.next,
-                                    textInputType: TextInputType.name,
-                                    enabled: false,
+                                     enabled: false,
                                     dropDownList:  [
                                       DropDownValueModel(
                                           name: S().higherThan120,

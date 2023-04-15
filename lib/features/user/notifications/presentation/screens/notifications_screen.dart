@@ -25,19 +25,18 @@ class NotificationsScreen extends StatelessWidget {
                     ),
                     child: IntrinsicHeight(
                       child: Container(
-                        margin: EdgeInsets.all(17.sp),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children:  [
                          Expanded(
-                           child: Container(
+                           child: SizedBox(
                              height: 25.h,
                              child: ListView.builder(
                                shrinkWrap: false,
                                itemBuilder: (BuildContext context, int index) {
                                return NotificationItem(title: 'Notifications content will be here.Notifications content will be here.', time: '35 min ago',);
                              },
-                             itemCount: 2,
+                             itemCount: 5,
                              ),
                            ),
                          )

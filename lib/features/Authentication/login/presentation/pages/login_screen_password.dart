@@ -11,6 +11,7 @@ import 'package:final_graduation_project/features/Authentication/forget/presenta
 import 'package:final_graduation_project/features/Authentication/login/presentation/manager/login_cubit.dart';
 import 'package:final_graduation_project/features/Authentication/verifyAccount/presentation/manager/verify_cubit.dart';
 import 'package:final_graduation_project/features/Authentication/verifyAccount/presentation/pages/verify_account_screen.dart';
+import 'package:final_graduation_project/features/doctor/doctor_main_screen/doctor_main_screen.dart';
 import 'package:final_graduation_project/features/user/main_screen/main_screen.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,12 @@ class LoginScreenPassword extends StatelessWidget {
           if (state is LoginSucsess) {
             hideLoading();
             if (state.verified == true) {
-              push(context, const MainScreen());
+              if(state.isDoctor == true){
+                pushReplacement(context, const DoctorMainScreen());
+              }
+              if(state.isDoctor == false){
+                pushReplacement(context, const MainScreen());
+              }
             } else {
               push(
                   context,

@@ -47,42 +47,40 @@ VerifyAccountModel copyWith({  bool? apiStatus,
 
 class Data {
   Data({
-      User? user,}){
+      User? user,
+    String? token,
+  }){
     _user = user;
-}
+    _token = token;
+
+  }
 
   Data.fromJson(dynamic json) {
+    _token = json['token'];
     _user = json['user'] != null ? User.fromJson(json['user']) : null;
   }
   User? _user;
-Data copyWith({  User? user,
+  String? _token;
+
+  Data copyWith({  User? user,   String? token,
 }) => Data(  user: user ?? _user,
-);
+    token: token ?? _token,
+
+  );
   User get user => _user ?? user;
+  String get token => _token ?? "";
+
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     if (_user != null) {
       map['user'] = _user?.toJson();
+      map['token'] = _token;
     }
     return map;
   }
 
 }
-
-/// name : "Youssef Mohamed"
-/// Isverified : false
-/// email : "mohamedahmed2020303010@gmail.com"
-/// uniqueString : 202137
-/// isAdmin : false
-/// Notification : []
-/// seenNotification : []
-/// RandomNumber : ""
-/// city : "cairo"
-/// from : "el shourok"
-/// _id : "63fe2fce16ba18ac8634465f"
-/// createdAt : "2023-02-28T16:46:06.975Z"
-/// updatedAt : "2023-02-28T16:46:06.975Z"
 
 class User {
   User({
@@ -94,9 +92,8 @@ class User {
       List<dynamic>? notification, 
       List<dynamic>? seenNotification, 
       String? randomNumber, 
-      String? city, 
-      String? from, 
-      String? id, 
+      int? phone,
+      String? id,
       String? createdAt, 
       String? updatedAt,}){
     _name = name;
@@ -107,8 +104,7 @@ class User {
     _notification = notification;
     _seenNotification = seenNotification;
     _randomNumber = randomNumber;
-    _city = city;
-    _from = from;
+    _phone = phone;
     _id = id;
     _createdAt = createdAt;
     _updatedAt = updatedAt;
@@ -133,8 +129,7 @@ class User {
       });
     }
     _randomNumber = json['RandomNumber'];
-    _city = json['city'];
-    _from = json['from'];
+    _phone = json['phone'];
     _id = json['_id'];
     _createdAt = json['createdAt'];
     _updatedAt = json['updatedAt'];
@@ -147,8 +142,7 @@ class User {
   List<dynamic>? _notification;
   List<dynamic>? _seenNotification;
   String? _randomNumber;
-  String? _city;
-  String? _from;
+  int? _phone;
   String? _id;
   String? _createdAt;
   String? _updatedAt;
@@ -160,8 +154,7 @@ User copyWith({  String? name,
   List<dynamic>? notification,
   List<dynamic>? seenNotification,
   String? randomNumber,
-  String? city,
-  String? from,
+  int? phone,
   String? id,
   String? createdAt,
   String? updatedAt,
@@ -173,8 +166,7 @@ User copyWith({  String? name,
   notification: notification ?? _notification,
   seenNotification: seenNotification ?? _seenNotification,
   randomNumber: randomNumber ?? _randomNumber,
-  city: city ?? _city,
-  from: from ?? _from,
+  phone: phone ?? _phone,
   id: id ?? _id,
   createdAt: createdAt ?? _createdAt,
   updatedAt: updatedAt ?? _updatedAt,
@@ -187,8 +179,7 @@ User copyWith({  String? name,
   List<dynamic> get notification => _notification ??[];
   List<dynamic> get seenNotification => _seenNotification ??[];
   String get randomNumber => _randomNumber?? "";
-  String get city => _city?? "";
-  String get from => _from?? "";
+  int get phone => _phone ?? 0;
   String get id => _id?? "";
   String get createdAt => _createdAt?? "";
   String get updatedAt => _updatedAt ?? "";
@@ -207,8 +198,7 @@ User copyWith({  String? name,
       map['seenNotification'] = _seenNotification?.map((v) => v.toJson()).toList();
     }
     map['RandomNumber'] = _randomNumber;
-    map['city'] = _city;
-    map['from'] = _from;
+    map['phone'] = _phone;
     map['_id'] = _id;
     map['createdAt'] = _createdAt;
     map['updatedAt'] = _updatedAt;

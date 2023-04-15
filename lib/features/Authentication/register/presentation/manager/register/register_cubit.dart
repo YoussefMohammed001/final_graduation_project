@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:final_graduation_project/core/api/endpoints.dart';
 import 'package:final_graduation_project/core/api/my_dio.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
-import 'package:final_graduation_project/features/Authentication/register/data/models/RegisterRequestModel.dart';
+import 'package:final_graduation_project/features/Authentication/register/data/models/user_register_request_model.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 
@@ -11,15 +11,14 @@ part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
-   RegisterRequestModel registerModel = RegisterRequestModel();
+  UserRegisterRequestModel userRegisterRequestModel = UserRegisterRequestModel();
 
   userRegister({
     required String name,
     required String email,
     required String password,
     required String confirmPassword,
-    required String city,
-    required String from,
+    required int phoneNumber,
 
   }) async {
     emit(PostRegisterLoadingState());
@@ -28,17 +27,17 @@ class RegisterCubit extends Cubit<RegisterState> {
           "name":name,
           "email":email,
           "password":password,
+          "phone": phoneNumber,
           "ConfirmPassword":confirmPassword,
-          "city":city,
-          "from":from,
+
         });
-    registerModel = RegisterRequestModel.fromJson(response!.data);
-     if(registerModel.apiStatus ==true){
-       safePrint("name>> ${registerModel.data.user.name}");
+    userRegisterRequestModel = UserRegisterRequestModel.fromJson(response!.data);
+     if(userRegisterRequestModel.apiStatus ==true){
+       safePrint("name>> ${userRegisterRequestModel.data.patient.name}");
        safePrint(response);
-       emit(PostRegisterSuccessState(registerModel.message));
+       emit(PostRegisterSuccessState(userRegisterRequestModel.massage));
      } else{
-       emit(PostRegisterFailureState(registerModel.message));
+       emit(PostRegisterFailureState(userRegisterRequestModel.massage));
        safePrint(response);
 
      }

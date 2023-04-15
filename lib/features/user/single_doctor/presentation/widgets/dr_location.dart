@@ -17,12 +17,7 @@ class DrLocation extends StatelessWidget {
             style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 2.h,),
-          Text(
-"this for location,this for location this for location this for location"
-            ,
-            style: TextStyle(fontSize: 16.sp,),
 
-          ),
           
           Container(
               margin: EdgeInsets.symmetric(vertical: 15.sp,horizontal: 15.sp),

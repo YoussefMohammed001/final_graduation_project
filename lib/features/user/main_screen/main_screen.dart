@@ -37,6 +37,7 @@ class _MainScreenState extends State<MainScreen> {
 
   Widget bottomNavBar() {
 
+
     return BottomNavigationBar(
       selectedItemColor: AppColors.primary,
       onTap: (value) {

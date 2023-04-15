@@ -78,17 +78,15 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
                                         return "enter your gender";
                                       }
                                     },
-                                    textColor: Colors.black,
                                     hint: S().maleHint,
                                     controller: male,
-                                    textInputAction: TextInputAction.next,
-                                    textInputType: TextInputType.name,
                                     enabled: false,
                                     dropDownList:  [
                                       DropDownValueModel(
-                                          name: S().male, value: S().male),
+
+                                          name: S().male, value: 0),
                                       DropDownValueModel(
-                                          name: S().female, value: S().female),
+                                          name: S().female, value: 1),
                                     ],
                                   ),
                                   SizedBox(
@@ -130,7 +128,7 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
                                               description:
                                                   'description description  description description description description description description description description description description description description  description description description description description description',
                                             ));
-                                        print(male.dropDownValue!.name
+                                        print(male.dropDownValue!.value
                                             .toString());
                                       }
                                     },

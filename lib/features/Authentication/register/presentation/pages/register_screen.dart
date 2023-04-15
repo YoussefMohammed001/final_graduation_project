@@ -35,7 +35,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   TextEditingController MobileController = TextEditingController();
 
-  TextEditingController fromController = TextEditingController();
+
   final cubit = RegisterCubit();
 
 
@@ -89,7 +89,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         Column(
                           children: [
                             SizedBox(
-                              height: 50.h,
+                              height: 45.h,
                             ),
                             Text(
                               S().welcomeToHSPC,
@@ -161,8 +161,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               textInputType: TextInputType.emailAddress,
                               textInputAction: TextInputAction.next,
                               controller: MobileController,
-                              hint: S().enterYourEmail,
+                              hint: S().mobileNumber,
                               isPassword: false,
+
 
                             ),
                             SizedBox(height: 1.h),
@@ -207,10 +208,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             SizedBox(height: 2.h,),
                             AppButton(
                               onPressed: () {
+                                int  phone = int.parse(MobileController.text);
                                 if (formKey.currentState!.validate()) {
                                   cubit.userRegister(name: nameController.text, email: emailController.text
-                                      , password: passwordController.text, confirmPassword: confirmPasswordController.text
-                                      , city: MobileController.text, from:fromController.text );
+                                      , password: passwordController.text, confirmPassword: confirmPasswordController.text,
+                                      phoneNumber: phone);
                                 }
                               },
                               label: S().joinNow,

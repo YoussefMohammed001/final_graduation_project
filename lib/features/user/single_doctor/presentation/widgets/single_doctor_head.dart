@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SingleDoctorHead extends StatelessWidget {
-  const SingleDoctorHead({Key? key}) : super(key: key);
+  const SingleDoctorHead({Key? key, required this.count, required this.img}) : super(key: key);
+  final int count;
+  final String img;
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +18,14 @@ class SingleDoctorHead extends StatelessWidget {
 
         CarouselSlider.builder(
 
-          itemCount: 5,
+          itemCount: count,
           itemBuilder: (BuildContext context, int itemIndex,
               int pageViewIndex) {
 
             return AppImage(
               width: double.infinity,
               height: 17.h,
-              imageUrl: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xpbmljfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1600&q=60',
+              imageUrl: img,
             );
           },
           options: CarouselOptions(

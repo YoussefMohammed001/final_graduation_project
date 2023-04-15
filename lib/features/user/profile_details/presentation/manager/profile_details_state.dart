@@ -22,3 +22,24 @@ class ProfileDeleteFailure extends ProfileDetailsState {
   final String failureMessage;
   ProfileDeleteFailure(this.failureMessage);
 }
+
+class UpdateUserDataSuccess extends ProfileDetailsState{
+  final String message;
+
+  UpdateUserDataSuccess(this.message);
+}
+
+class UpdateUserDataFailure extends ProfileDetailsState{
+  final String errorMessage;
+
+  UpdateUserDataFailure(this.errorMessage);
+}
+class UploadUserImageSuccess extends ProfileDetailsState {
+  final String successMessage;
+
+  UploadUserImageSuccess(this.successMessage);
+}
+class UploadUserImageFailure extends ProfileDetailsState {
+  final String failureMessage;
+  UploadUserImageFailure(this.failureMessage);
+}

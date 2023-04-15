@@ -280,10 +280,10 @@ class S {
     );
   }
 
-  /// `Hope you are ok?`
+  /// `Hope you are ok`
   String get hopeYouAreOk {
     return Intl.message(
-      'Hope you are ok?',
+      'Hope you are ok',
       name: 'hopeYouAreOk',
       desc: '',
       args: [],
@@ -360,11 +360,11 @@ class S {
     );
   }
 
-  /// `Nearest Doctors`
-  String get nearestDoctors {
+  /// `Best Doctors`
+  String get bestDoctors {
     return Intl.message(
-      'Nearest Doctors',
-      name: 'nearestDoctors',
+      'Best Doctors',
+      name: 'bestDoctors',
       desc: '',
       args: [],
     );
@@ -1135,6 +1135,76 @@ class S {
     return Intl.message(
       'Back To Login',
       name: 'backToLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back To Home`
+  String get backToHome {
+    return Intl.message(
+      'Back To Home',
+      name: 'backToHome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mobile Number`
+  String get mobileNumber {
+    return Intl.message(
+      'Mobile Number',
+      name: 'mobileNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose your appointment`
+  String get chooseYourAppointment {
+    return Intl.message(
+      'Choose your appointment',
+      name: 'chooseYourAppointment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Patient name`
+  String get patientName {
+    return Intl.message(
+      'Patient name',
+      name: 'patientName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Patient Information`
+  String get patientInformation {
+    return Intl.message(
+      'Patient Information',
+      name: 'patientInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I am reserving in behalf of another patient`
+  String get iAmReservingInBehalfOfAnotherPatient {
+    return Intl.message(
+      'I am reserving in behalf of another patient',
+      name: 'iAmReservingInBehalfOfAnotherPatient',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reservation done`
+  String get reservationDone {
+    return Intl.message(
+      'Reservation done',
+      name: 'reservationDone',
       desc: '',
       args: [],
     );

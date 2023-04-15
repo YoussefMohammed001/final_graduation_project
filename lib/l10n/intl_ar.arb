@@ -22,7 +22,7 @@
  "sendOTPAgain": "أرسل رمز OTP مرة أخرى",
  "updateYourPassword": "تحديث كلمة المرور الخاصة بك",
  "hello": "مرحبًا",
- "hopeYouAreOk": "أتمنى أن تكون بخير؟",
+ "hopeYouAreOk": "أتمنى أن تكون بخير",
  "searchForNearestDoctor": "ابحث عن أقرب طبيب",
  "wantToPredictOneOfTheseDiseases": "تريد التنبؤ بأحد هذه الأمراض",
  "skinCancer": "سرطان الجلد",
@@ -31,7 +31,7 @@
  "specialists": "التخصصات",
 
  "viewAll": "اظهار الكل",
- "nearestDoctors": "اقرب اطباء",
+ "bestDoctors": "افضل اطباء",
  "home": "الرئيسيه",
  "appointments": "الحجوزات",
  "myAccount": "الملف الشخصي",
@@ -109,5 +109,17 @@
  "youHaveSuccessfullyChangePassword": "لقد نجحت في تغيير كلمة المرور!",
  "pleaseUseTheNewPasswordWhenLoggingIn": "الرجاء استخدام كلمة المرور الجديدة عند تسجيل الدخول",
  "backToLogin": "العودة إلى تسجيل الدخول",
- "congrats": "تهانيا!"
+ "backToHome": "العودة إلى الرىيسية",
+ "congrats": "تهانيا!",
+ "mobileNumber": "رقم الهاتف",
+ "chooseYourAppointment": "اختر موعدك",
+ "patientName":"اسم المريض",
+ "patientInformation": "بيانات المريض",
+ "iAmReservingInBehalfOfAnotherPatient": "أنا أحجز نيابة عن مريض آخر",
+ "reservationDone": "تم الحجز"
+
+
+
+
+
 }

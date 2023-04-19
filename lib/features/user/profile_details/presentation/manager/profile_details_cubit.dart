@@ -74,6 +74,8 @@ class ProfileDetailsCubit extends Cubit<ProfileDetailsState> {
   }
 
 
+
+
   userUpdateData({required String name,required String phone, required String id}) async{
     emit(ProfileDetailsLoading());
     var response = await AppDio.patch(endPoint:"user/all/$id",data: {

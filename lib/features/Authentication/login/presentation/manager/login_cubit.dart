@@ -47,13 +47,13 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   saveUserData() async {
-
     MyShared.putString(key:MySharedKeys.email, value:loginRequestModel.data.userData.email);
     MyShared.putString(key: MySharedKeys.username, value:loginRequestModel.data.userData.name);
     MyShared.putString(key: MySharedKeys.apiToken, value:loginRequestModel.data.token);
     MyShared.putString(key: MySharedKeys.patientImage, value:loginRequestModel.data.userData.profilePicture.url);
     MyShared.putString(key: MySharedKeys.id, value:loginRequestModel.data.userData.id);
     MyShared.putInt(key: MySharedKeys.phone, value:loginRequestModel.data.userData.phone.toInt());
+    MyShared.putBoolean(key: MySharedKeys.isDoctor, value:loginRequestModel.data.userData.isDoctor);
   }
 
 }

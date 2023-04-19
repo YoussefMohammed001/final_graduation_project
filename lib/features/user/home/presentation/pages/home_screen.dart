@@ -120,12 +120,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                               push(context, SkinCancerScreen());
                                             },
                                           ),
-                                          PredictDiseases(
-                                            image:
-                                                'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-                                            title: '',
-                                            onTap: () {},
-                                          ),
                                         ],
                                       ),
                                       Container(

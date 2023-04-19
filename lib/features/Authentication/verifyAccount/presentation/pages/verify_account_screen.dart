@@ -9,6 +9,7 @@ import 'package:final_graduation_project/features/Authentication/forget/presenta
 import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
 import 'package:final_graduation_project/features/Authentication/verifyAccount/presentation/manager/verify_cubit.dart';
 import 'package:final_graduation_project/features/doctor/doctor_main_screen/doctor_main_screen.dart';
+import 'package:final_graduation_project/features/doctor/send_licence/presentation/screens/post_licence_screen.dart';
 import 'package:final_graduation_project/features/user/main_screen/main_screen.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -35,13 +36,12 @@ class VerifyAccountScreen extends StatelessWidget {
 
             showSuccess(state.sucsessMessage);
             if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == true){
-              pushReplacement(context, const DoctorMainScreen());
+              pushReplacement(context, const PostLicenceScreen());
             }
             if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == false){
               pushReplacement(context, const MainScreen());
             }
 
-            // Alerts.showErrorDialog(context: context, errorMessage: state.sucssesMessage);
           }
           if (state is VerifyFailure) {
             hideLoading();

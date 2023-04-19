@@ -62,11 +62,13 @@ class _HomeAppBarState extends State<HomeAppBar> {
           width: double.infinity,
           child: Padding(
 
-            padding: EdgeInsets.symmetric(vertical: 25.sp, horizontal: 15.sp),
+            padding: EdgeInsets.symmetric(
+
+                vertical: 13.sp, horizontal: 15.sp),
             child: Column(
               children: [
                 SizedBox(
-                  height: 3.h,
+                  height: 5.h,
                 ),
                 Row(
                   children: [
@@ -126,30 +128,33 @@ class _HomeAppBarState extends State<HomeAppBar> {
             ),
           ),
         ),
-        Container(
-          margin: EdgeInsets.only(left: 8.sp, right: 8.sp, top: 45.sp),
-          child: InkWell(
-            onTap: (){
+        Visibility(
+          visible: MyShared.getBoolean(key: MySharedKeys.isDoctor) == false,
+          child: Container(
+            margin: EdgeInsets.only(left: 8.sp, right: 8.sp, top: 40.sp),
+            child: InkWell(
+              onTap: (){
 
-              _getCurrentLocation().then((value) {
-                push(context,  NearestDoctorScreen(lat: value.latitude.toString(), lang: value.longitude.toString(),));
+                _getCurrentLocation().then((value) {
+                  push(context,  NearestDoctorScreen(lat: value.latitude.toString(), lang: value.longitude.toString(),));
 
-                lat = value.latitude;
+                  lat = value.latitude;
 
-                long = value.longitude;
-              });
-            },
+                  long = value.longitude;
+                });
+              },
 
-            child: MyTextFormField(
-              isSearch: true,
-              enabled: false,
-              margin: EdgeInsets.all(15.sp),
-              padding: EdgeInsets.all(25.sp),
-              hint: S().searchForNearestDoctor,
-              controller: widget.searchController,
-              isPassword: false,
-              textInputAction: TextInputAction.search,
-              textInputType: TextInputType.text,
+              child: MyTextFormField(
+                isSearch: true,
+                enabled: false,
+                margin: EdgeInsets.all(15.sp),
+                padding: EdgeInsets.all(25.sp),
+                hint: S().searchForNearestDoctor,
+                controller: widget.searchController,
+                isPassword: false,
+                textInputAction: TextInputAction.search,
+                textInputType: TextInputType.text,
+              ),
             ),
           ),
         )

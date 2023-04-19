@@ -42,6 +42,7 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
   TextEditingController emailController = TextEditingController();
 
   TextEditingController mobileController = TextEditingController();
+  TextEditingController photo = TextEditingController();
 
   SingleValueDropDownController specialization =
       SingleValueDropDownController();
@@ -53,30 +54,19 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
     cubit.getSpecialist();
     super.initState();
   }
-  // File? _image;
-  // final pickedFile = ImagePicker();
-  //
-  // uploadProfileImage() async {
-  //
-  //   var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
-  //   if (pickedImage != null) {
-  //     setState(() {
-  //       _image = File(pickedImage.path);
-  //
-  //     });
-  //   }
-  // }
-  //
-  // File? licenceImg;
-  // uploadLicence() async {
-  //   var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
-  //   if (pickedImage != null) {
-  //     setState(() {
-  //       licenceImg = File(pickedImage.path);
-  //
-  //     });
-  //   }
-  // }
+
+  File? _image;
+  final pickedFile = ImagePicker();
+
+
+  uploadProfileImage() async {
+    var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
+    if (pickedImage != null) {
+      setState(() {
+        _image = File(pickedImage.path);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,196 +95,299 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
         builder: (context, state) {
           return Form(
             key: formKey,
-            child: Scaffold(
-              body: Column(
-                children: [
-                  Expanded(
-                    child: LayoutBuilder(
-                      builder: (context, constrains) => SingleChildScrollView(
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                            minHeight: constrains.maxHeight,
-                          ),
-                          child: IntrinsicHeight(
-                            child: Column(
-                              children: [
-                                Stack(
-                                  alignment: AlignmentDirectional.topCenter,
-                                  children: [
-                                    Image.asset(
-                                      "assets/images/bk.png",
-                                      width: double.infinity,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.all(17.sp),
-                                      child: Column(children: [
-                                        SizedBox(
-                                          height: 45.h,
-                                        ),
-                                        MyTextFormField(
-                                          validators: (value) {
-                                            if (value!.isEmpty) {
-                                              return "Username is Required";
-                                            }
+            child: SafeArea(
+              child: Scaffold(
+                body: Column(
+                  children: [
+                    Expanded(
+                      child: LayoutBuilder(
+                        builder: (context, constrains) => SingleChildScrollView(
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(
+                              minHeight: constrains.maxHeight,
+                            ),
+                            child: IntrinsicHeight(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          AppSVG(
+                                            height: 35.sp,
+                                            width: 35.sp,
+                                            assetName: 'splash',
+                                          ),
+                                          SizedBox(
+                                            width: 5.w,
+                                          ),
 
-                                            return null;
-                                          },
-                                          textInputAction: TextInputAction.next,
-                                          hint: S().enterYourName,
-                                          isPassword: false,
-                                          controller: nameController,
-                                          textInputType: TextInputType.text,
+
+                                        ],
+                                      ),
+                                       SizedBox(height: 2.h,),
+                                       Text("Welcome Doctor! Join Us now",
+                                        style: TextStyle(
+                                          fontSize: 19.sp,
+                                          color: AppColors.primary,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                        SizedBox(height: 1.h),
-                                        MyTextFormField(
-                                          validators: (value) {
-                                            if (value!.isEmpty) {
-                                              return "Email is required";
-                                            }
-                                            if (!value.contains("@") ||
-                                                !value.contains(".")) {
-                                              return "Email Not Valid";
-                                            }
-                                            return null;
-                                          },
-                                          textInputType:
-                                              TextInputType.emailAddress,
-                                          textInputAction: TextInputAction.next,
-                                          controller: emailController,
-                                          hint: S().enterYourEmail,
-                                          isPassword: false,
+                                      ),
+                                      SizedBox(
+                                        height: 2.h,
+                                      ),
+                                      Container(
+                                        width: 40.sp,
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 20.sp),
+                                        child: Stack(
+                                          alignment:
+                                              AlignmentDirectional.center,
+                                          children: [
+                                            InkWell(
+
+                                              onTap: uploadProfileImage,
+                                              child: TextFormField(
+                                                enabled: false,
+                                                maxLines: 15,
+                                                minLines: 3,
+                                                controller: photo,
+                                                decoration: InputDecoration(
+                                                  focusColor:
+                                                      Colors.grey.shade200,
+                                                  fillColor: Colors.grey.shade200,
+                                                  filled: true,
+                                                  disabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color:
+                                                            Colors.grey.shade200,
+                                                        width: 2.0),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13.0),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color:
+                                                            Colors.grey.shade200,
+                                                        width: 2.0),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13.0),
+                                                  ),
+                                                  border: OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color:
+                                                            Colors.grey.shade200,
+                                                        width: 2.0),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13.0),
+                                                  ),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color:
+                                                            Colors.grey.shade200,
+                                                        width: 2.0),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13.0),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            const Icon(
+                                              Icons.linked_camera,
+                                              color: AppColors.primary,
+                                            )
+                                          ],
                                         ),
-                                        SizedBox(
-                                          height: 1.h,
-                                        ),
-                                        MyTextFormField(
-                                          validators: (value) {
-                                            if (value!.isEmpty) {
-                                              return "Mobile Number";
-                                            }
-                                            if (value.length != 11) {
-                                              return "Mobile number not valid";
-                                            }
-                                            return null;
-                                          },
-                                          textInputType:
-                                              TextInputType.emailAddress,
-                                          textInputAction: TextInputAction.next,
-                                          controller: mobileController,
-                                          hint: S().mobileNumber,
-                                          isPassword: false,
-                                        ),
-                                        SizedBox(height: 1.h),
-                                        MyTextFormField(
-                                          validators: (value) {
-                                            if (value!.isEmpty) {
-                                              return "Password is required";
-                                            }
-                                            if (value.length < 6) {
-                                              return "Password Not Valid";
-                                            }
-                                            return null;
-                                          },
-                                          textInputType:
-                                              TextInputType.visiblePassword,
-                                          textInputAction: TextInputAction.done,
-                                          controller: passwordController,
-                                          hint: S().password,
-                                          isPassword: true,
-                                        ),
-                                        SizedBox(
-                                          height: 1.h,
-                                        ),
-                                        DropDownTextFormField(
-                                          hint: 'Specialization',
-                                          controller: specialization,
-                                          enabled: false,
-                                          dropDownList: List.generate(
-                                              cubit.specializedData.length,
-                                              (index) {
-                                            SpecializedData data =
-                                                cubit.specializedData[index];
-                                            return DropDownValueModel(
-                                                name: data.name,
-                                                value: data.id);
-                                          }),
-                                          count: cubit.specializedData.length,
-                                        ),
-                                        SizedBox(
-                                          height: 2.h,
-                                        ),
-                                        AppButton(
-                                          onPressed: () {
+                                      ),
+                                      const Text("Personal photo")
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 2.h,
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.all(17.sp),
+                                    child: Column(children: [
+                                      MyTextFormField(
+                                        validators: (value) {
+                                          if (value!.isEmpty) {
+                                            return "Username is Required";
+                                          }
+
+                                          return null;
+                                        },
+                                        textInputAction: TextInputAction.next,
+                                        hint: S().enterYourName,
+                                        isPassword: false,
+                                        controller: nameController,
+                                        textInputType: TextInputType.text,
+                                      ),
+                                      SizedBox(height: 1.h),
+                                      MyTextFormField(
+                                        validators: (value) {
+                                          if (value!.isEmpty) {
+                                            return "Email is required";
+                                          }
+                                          if (!value.contains("@") ||
+                                              !value.contains(".")) {
+                                            return "Email Not Valid";
+                                          }
+                                          return null;
+                                        },
+                                        textInputType:
+                                            TextInputType.emailAddress,
+                                        textInputAction: TextInputAction.next,
+                                        controller: emailController,
+                                        hint: S().enterYourEmail,
+                                        isPassword: false,
+                                      ),
+                                      SizedBox(
+                                        height: 1.h,
+                                      ),
+                                      MyTextFormField(
+                                        validators: (value) {
+                                          if (value!.isEmpty) {
+                                            return "Mobile Number";
+                                          }
+                                          if (value.length != 11) {
+                                            return "Mobile number not valid";
+                                          }
+                                          return null;
+                                        },
+                                        textInputType:
+                                            TextInputType.emailAddress,
+                                        textInputAction: TextInputAction.next,
+                                        controller: mobileController,
+                                        hint: S().mobileNumber,
+                                        isPassword: false,
+                                      ),
+                                      SizedBox(height: 1.h),
+                                      MyTextFormField(
+                                        validators: (value) {
+                                          if (value!.isEmpty) {
+                                            return "Password is required";
+                                          }
+                                          if (value.length < 6) {
+                                            return "Password Not Valid";
+                                          }
+                                          return null;
+                                        },
+                                        textInputType:
+                                            TextInputType.visiblePassword,
+                                        textInputAction: TextInputAction.done,
+                                        controller: passwordController,
+                                        hint: S().password,
+                                        isPassword: true,
+                                      ),
+                                      SizedBox(
+                                        height: 1.h,
+                                      ),
+                                      DropDownTextFormField(
+                                        validators: (value) {
+                                          if (value.isEmpty) {
+                                            return "Specialization is required";
+                                          }
+                                          return null;
+                                        },
+                                        hint: 'Specialization',
+                                        controller: specialization,
+                                        enabled: false,
+                                        dropDownList: List.generate(
+                                            cubit.specializedData.length,
+                                            (index) {
+                                          SpecializedData data =
+                                              cubit.specializedData[index];
+                                          return DropDownValueModel(
+                                              name: data.name, value: data.id);
+                                        }),
+                                        count: cubit.specializedData.length,
+                                      ),
+                                      SizedBox(
+                                        height: 2.h,
+                                      ),
+                                      AppButton(
+                                        onPressed: () {
+                                          if (formKey.currentState!
+                                              .validate()) {
                                             int phone = int.parse(
                                                 mobileController.text);
-                                            if (formKey.currentState!
-                                                .validate()) {
+                                            if(_image!.path.toString() != null){
                                               cubit.doctorRegister(
                                                   name: nameController.text,
                                                   email: emailController.text,
                                                   password:
-                                                      passwordController.text,
+                                                  passwordController.text,
                                                   confirmPassword:
-                                                      confirmPasswordController
-                                                          .text,
+                                                  confirmPasswordController
+                                                      .text,
                                                   phoneNumber: phone,
-                                                  specialization: specialization.dropDownValue!.value);
-
+                                                  specialization: specialization
+                                                      .dropDownValue!.value, image: _image!.path.toString());
                                             }
-                                          },
-                                          label: S().joinNow,
-                                          bgColor: AppColors.primary,
-                                          margin: EdgeInsets.symmetric(
-                                              horizontal: 17.sp),
-                                          padding: EdgeInsets.all(17.sp),
-                                          borderRadius:
-                                              BorderRadius.circular(15.sp),
-                                        ),
-                                        SizedBox(
-                                          height: 2.h,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(S().alreadyHaveAccount),
-                                            InkWell(
-                                              onTap: () {
-                                                push(
-                                                    context,
-                                                    BlocProvider(
-                                                      create: (context) =>
-                                                          LoginCubit(),
-                                                      child:
-                                                          const LoginScreen(),
-                                                    ));
-                                              },
-                                              child: Text(
-                                                S().signIn,
-                                                style: TextStyle(
-                                                    color: AppColors.primary,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
+
+                                          }
+                                        },
+                                        label: S().joinNow,
+                                        bgColor: AppColors.primary,
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 8.sp),
+                                        padding: EdgeInsets.all(17.sp),
+                                        borderRadius:
+                                            BorderRadius.circular(15.sp),
+                                      ),
+                                      SizedBox(
+                                        height: 2.h,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(S().alreadyHaveAccount),
+                                          SizedBox(width: 1.w,),
+                                          InkWell(
+                                            onTap: () {
+                                              push(
+                                                  context,
+                                                  BlocProvider(
+                                                    create: (context) =>
+                                                        LoginCubit(),
+                                                    child: const LoginScreen(),
+                                                  ));
+                                            },
+                                            child: Text(
+                                              S().signIn,
+                                              style: const TextStyle(
+                                                  color: AppColors.primary,
+                                                  fontWeight: FontWeight.bold),
                                             ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 5.h,
-                                        ),
-                                      ]),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 5.h,
+                                      ),
+                                    ]),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );

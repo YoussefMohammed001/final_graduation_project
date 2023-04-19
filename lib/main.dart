@@ -1,3 +1,4 @@
+import 'package:final_graduation_project/core/api/AI_dio.dart';
 import 'package:final_graduation_project/core/api/my_dio.dart';
 import 'package:final_graduation_project/core/cubits/language/language_cubit.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
@@ -16,6 +17,7 @@ Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await MyShared.init();
   AppDio.init();
+  AIDio.init();
   EasyLoading.init();
   safePrint(MyShared.getString(key: MySharedKeys.apiToken));
   safePrint(  MyShared.getString(key: MySharedKeys.patientImage));

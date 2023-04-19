@@ -1,10 +1,12 @@
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
 import 'package:final_graduation_project/features/Authentication/on_boarding/presentaion/pages/on_boarding_screen.dart';
 import 'package:final_graduation_project/features/doctor/doctor_main_screen/doctor_main_screen.dart';
+import 'package:final_graduation_project/features/doctor/waiting_screen/waiting_screen.dart';
 import 'package:final_graduation_project/features/splash/presentation/manager/splash_cubit.dart';
 import 'package:final_graduation_project/features/user/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
@@ -22,11 +24,10 @@ class _SplashScreenState extends State<SplashScreen> {
   double buttonOpacity = 0;
   final cubit = SplashCubit();
 
-
   @override
   void initState() {
     super.initState();
-    cubit.getDoctorData();
+
     Future.delayed(const Duration(milliseconds: 3000)).then((value) {
       if (!MyShared.isLoggedIn()) {
         // pushReplacement(context, OnBoardingScreen());
@@ -34,17 +35,15 @@ class _SplashScreenState extends State<SplashScreen> {
         return;
       }
 
-      if (MyShared.isLoggedIn()) {
-        pushReplacement(context, const MainScreen());
-      } else {
-        pushReplacement(context, const LoginScreen());
-      }
+
     });
+      cubit.getDoctorData();
+
 //.
 
     Future.delayed(
       const Duration(milliseconds: 1500),
-          () {
+      () {
         buttonOpacity = 1;
         setState(() {});
         logoHeight = 30.h;
@@ -88,21 +87,27 @@ class _SplashScreenState extends State<SplashScreen> {
                           duration: const Duration(milliseconds: 200),
                           curve: Curves.bounceOut,
                           child: AppSVG(
-
                             height: logoHeight,
-                            width: logoWidth, assetName: 'splash',
+                            width: logoWidth,
+                            assetName: 'splash',
                           ),
                         ),
-                        SizedBox(width: 5.w,),
+                        SizedBox(
+                          width: 5.w,
+                        ),
                         AnimatedOpacity(
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.bounceInOut,
-                            opacity: buttonOpacity,
-                            child: Text("PHCP", style: TextStyle(
-                                fontSize: 35.sp,
-                                color: AppColors.primary,
-                                fontWeight: FontWeight.bold),))
-
+                          duration: const Duration(milliseconds: 200),
+                          curve: Curves.bounceInOut,
+                          opacity: buttonOpacity,
+                          child: Text(
+                            "PHCP",
+                            style: TextStyle(
+                              fontSize: 35.sp,
+                              color: AppColors.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -112,12 +117,38 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
         ),
         listener: (context, state) {
-          if(state is SplashSucsess){
-            push(context, const DoctorMainScreen());
+          if (state is SplashSucsess) {
+
+            if (MyShared.isLoggedIn()) {
+              if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == true){
+                if(state.pending == 'pending'){
+                  pushReplacement(context, const WaitingScreen());
+
+                }
+                if(state.pending == 'pending'){
+                  push(context, const DoctorMainScreen());
+                }
+                if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == false){
+                  push(context, const MainScreen());
+                }
+              }
+            } else {
+
+              pushReplacement(context, const LoginScreen());
+            }
           }
-        },
+          if(state is SplashFailure){
+            if (MyShared.isLoggedIn()) {
+
+                  push(context, const MainScreen());
+
+              }
+            } else {
+
+              pushReplacement(context, const LoginScreen());
+            }
+          },
       ),
     );
   }
-
 }

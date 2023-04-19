@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:final_graduation_project/core/api/endpoints.dart';
 import 'package:final_graduation_project/core/api/my_dio.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
@@ -19,20 +20,24 @@ class DoctorRegisterCubit extends Cubit<DoctorRegisterState> {
     required String password,
     required String confirmPassword,
     required int phoneNumber,
-    required String specialization
+    required String specialization,
+    required String image,
+
 
   }) async {
     emit(DoctorRegisterLoading());
-    var response = await AppDio.post(endPoint: EndPoints.register,
-        data: {
+    var response = await AppDio.postFile(endPoint: EndPoints.register,
+        formData:FormData.fromMap({
           "name":name,
           "email":email,
           "password":password,
           "phone": phoneNumber,
           "specializeId":specialization,
-          "isDoctor" :"true"
+          "isDoctor" :"true",
+          "img" : await MultipartFile.fromFile(image),
+        })
 
-        });
+    );
     doctorRegisterModel = DoctorRegisterModel.fromJson(response!.data);
     if(doctorRegisterModel.apiStatus ==true){
       safePrint("name>> ${doctorRegisterModel.doctor.name}");
@@ -45,6 +50,18 @@ class DoctorRegisterCubit extends Cubit<DoctorRegisterState> {
     }
 
   }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   getSpecialist() async {

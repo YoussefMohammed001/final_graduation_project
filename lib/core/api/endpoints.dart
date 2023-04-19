@@ -1,5 +1,6 @@
 class EndPoints {
   static const String baseUrl = 'https://healthapp-wyde.onrender.com/';
+  static const String aiBaseUrl = 'https://prediction-pj3t.onrender.com/';
   static const String language = 'languages/translation';
   static const String login = "user/login";
   static const String register = "user/register";
@@ -11,6 +12,8 @@ class EndPoints {
   static const String send = "user/send";
   static const String uploadUserImage = "user/upload/";
   static const String specializeDoctors = "user/findDoctors";
+  static const String addPracticeLicence = "doctor/all/";
+  static const String diabetes = "predictDiabetes";
 
 
 }

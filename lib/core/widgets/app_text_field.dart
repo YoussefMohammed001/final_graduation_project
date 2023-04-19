@@ -68,15 +68,15 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
                 ),
               ),
               hintText: widget.hint,
-              focusColor: Colors.grey.shade200,
-              fillColor: Colors.grey.shade200,
-              filled: true,
+
 
               hintStyle: TextStyle(
                 fontSize: 16.sp,
                 color: Colors.grey
               ),
-
+              focusColor: Colors.grey.shade200,
+              fillColor: Colors.grey.shade200,
+              filled: true,
               disabledBorder:OutlineInputBorder(
 
                 borderSide:  BorderSide(color: Colors.grey.shade200, width: 2.0),

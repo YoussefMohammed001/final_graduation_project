@@ -14,7 +14,6 @@ final String title;
         onTap:onTap ,
         child: Container(
           margin: EdgeInsets.all(13.sp),
-          width: 30.w,
           decoration: BoxDecoration(
             border: Border.all(
               width: 1,
@@ -27,9 +26,10 @@ final String title;
             children: [
               AppImage(
                 imageUrl:
+
                     image,
                        width: double.infinity,
-                height: 13.h,
+                height: 16.h,
                 topLeftRadius: 17.sp,
                 topRightRadius: 17.sp,
               ),

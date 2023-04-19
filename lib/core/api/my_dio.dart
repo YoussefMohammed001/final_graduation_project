@@ -48,11 +48,6 @@ class AppDio {
 
 
 
-
-
-
-
-
   static Future<Response?> post({
     required String endPoint,
     Map<String, dynamic>? data,
@@ -81,8 +76,6 @@ class AppDio {
 
 
 
-
-
   static Future<Response?> delete({
     required String endPoint,
     Map<String, dynamic>? data,
@@ -96,7 +89,6 @@ class AppDio {
   }
 
 
-
   static Future<Response?> patch({
     required String endPoint,
     Map<String, dynamic>? data,
@@ -108,8 +100,6 @@ class AppDio {
     };
     return await _dio.patch(endPoint, data: data);
   }
-
-
 
 
 }

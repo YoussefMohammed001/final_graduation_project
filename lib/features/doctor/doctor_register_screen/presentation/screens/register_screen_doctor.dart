@@ -4,7 +4,6 @@ import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
-import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
@@ -15,7 +14,6 @@ import 'package:final_graduation_project/features/Authentication/verifyAccount/p
 import 'package:final_graduation_project/features/Authentication/verifyAccount/presentation/pages/verify_account_screen.dart';
 import 'package:final_graduation_project/features/doctor/doctor_register_screen/data/specialized_model.dart';
 import 'package:final_graduation_project/features/doctor/doctor_register_screen/presentation/manager/doctor_register_cubit.dart';
-import 'package:final_graduation_project/features/user/skin_cancer_prediction/presentation/widgets/skin_cancer_text_form_field.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +22,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 // ignore: must_be_immutable
 class RegisterScreenDoctor extends StatefulWidget {
-  RegisterScreenDoctor({Key? key}) : super(key: key);
+  const RegisterScreenDoctor({Key? key}) : super(key: key);
 
   @override
   State<RegisterScreenDoctor> createState() => _RegisterScreenDoctorState();
@@ -58,8 +56,8 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
   File? _image;
   final pickedFile = ImagePicker();
 
-
   uploadProfileImage() async {
+    // ignore: deprecated_member_use
     var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
     if (pickedImage != null) {
       setState(() {
@@ -125,12 +123,13 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
                                           SizedBox(
                                             width: 5.w,
                                           ),
-
-
                                         ],
                                       ),
-                                       SizedBox(height: 2.h,),
-                                       Text("Welcome Doctor! Join Us now",
+                                      SizedBox(
+                                        height: 2.h,
+                                      ),
+                                      Text(
+                                        "Welcome Doctor! Join Us now",
                                         style: TextStyle(
                                           fontSize: 19.sp,
                                           color: AppColors.primary,
@@ -145,72 +144,32 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
                                         padding: EdgeInsets.symmetric(
                                             vertical: 20.sp),
                                         child: Stack(
-                                          alignment:
-                                              AlignmentDirectional.center,
+                                          alignment: AlignmentDirectional.bottomCenter,
                                           children: [
-                                            InkWell(
+                                            Container(
+                                              margin: EdgeInsets.only(bottom: 10.sp),
+                                              width: 50.sp,
+                                              height: 40.sp,
+                                              decoration: BoxDecoration(
+                                                color: Colors.grey[200],
+                                                borderRadius: BorderRadius.circular(15.sp)
+                                              ),
+                                              child:  _image ==null ?  const Text("Personal photo") :
+                                              ClipRRect(
+                                                borderRadius: BorderRadius.circular(15.sp),
+                                                child: Image.file(_image!,fit: BoxFit.fill,),
 
-                                              onTap: uploadProfileImage,
-                                              child: TextFormField(
-                                                enabled: false,
-                                                maxLines: 15,
-                                                minLines: 3,
-                                                controller: photo,
-                                                decoration: InputDecoration(
-                                                  focusColor:
-                                                      Colors.grey.shade200,
-                                                  fillColor: Colors.grey.shade200,
-                                                  filled: true,
-                                                  disabledBorder:
-                                                      OutlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                        color:
-                                                            Colors.grey.shade200,
-                                                        width: 2.0),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            13.0),
-                                                  ),
-                                                  focusedBorder:
-                                                      OutlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                        color:
-                                                            Colors.grey.shade200,
-                                                        width: 2.0),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            13.0),
-                                                  ),
-                                                  border: OutlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                        color:
-                                                            Colors.grey.shade200,
-                                                        width: 2.0),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            13.0),
-                                                  ),
-                                                  enabledBorder:
-                                                      OutlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                        color:
-                                                            Colors.grey.shade200,
-                                                        width: 2.0),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            13.0),
-                                                  ),
-                                                ),
                                               ),
                                             ),
-                                            const Icon(
-                                              Icons.linked_camera,
-                                              color: AppColors.primary,
-                                            )
+                                            InkWell(
+                                                onTap: uploadProfileImage,
+
+                                                child: Container(
+                                                    child: Icon(Icons.linked_camera,color: AppColors.primary,)))
                                           ],
                                         ),
                                       ),
-                                      const Text("Personal photo")
+
                                     ],
                                   ),
                                   SizedBox(
@@ -318,25 +277,28 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
                                       ),
                                       AppButton(
                                         onPressed: () {
-                                          if (formKey.currentState!
-                                              .validate()) {
+                                          if (formKey.currentState!.validate()) {
                                             int phone = int.parse(
                                                 mobileController.text);
-                                            if(_image!.path.toString() != null){
+                                            if (_image != null) {
                                               cubit.doctorRegister(
                                                   name: nameController.text,
                                                   email: emailController.text,
                                                   password:
-                                                  passwordController.text,
+                                                      passwordController.text,
                                                   confirmPassword:
-                                                  confirmPasswordController
-                                                      .text,
+                                                      confirmPasswordController
+                                                          .text,
                                                   phoneNumber: phone,
                                                   specialization: specialization
-                                                      .dropDownValue!.value, image: _image!.path.toString());
+                                                      .dropDownValue!.value,
+                                                  image:
+                                                      _image!.path.toString());
+                                            } if(_image == null){
+                                              showError("please put your image");
                                             }
-
                                           }
+
                                         },
                                         label: S().joinNow,
                                         bgColor: AppColors.primary,
@@ -354,7 +316,9 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(S().alreadyHaveAccount),
-                                          SizedBox(width: 1.w,),
+                                          SizedBox(
+                                            width: 1.w,
+                                          ),
                                           InkWell(
                                             onTap: () {
                                               push(

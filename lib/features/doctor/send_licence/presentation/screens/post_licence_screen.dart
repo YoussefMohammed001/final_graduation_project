@@ -6,8 +6,8 @@ import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
+import 'package:final_graduation_project/features/doctor/add_clinic_data/presentation/screens/add_clinic_data.dart';
 import 'package:final_graduation_project/features/doctor/send_licence/presentation/manager/add_practice_licence_cubit.dart';
-import 'package:final_graduation_project/features/doctor/send_licence/presentation/screens/congratulation_screen.dart';
 import 'package:final_graduation_project/features/doctor/send_licence/presentation/widgets/attach_photo.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +48,7 @@ class _PostLicenceScreenState extends State<PostLicenceScreen> {
       child: BlocListener<AddPracticeLicenceCubit, AddPracticeLicenceState>(
         listener: (context, state) {
           if(state is AddPracticeLicenceSucsess){
-            push(context, RegisterationProcessScreen());
+            push(context, AddClinicData());
           }
           if(state is AddPracticeLicenceFailure){
             showError(state.message);
@@ -102,6 +102,7 @@ class _PostLicenceScreenState extends State<PostLicenceScreen> {
                                 const Spacer(),
                                 AppButton(
                                   onPressed: () {
+
                                     if (_image != null) {
                                       cubit.addPracticeLicence(
                                           image: _image!.path.toString(),

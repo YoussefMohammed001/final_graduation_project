@@ -14,6 +14,8 @@ class EndPoints {
   static const String specializeDoctors = "user/findDoctors";
   static const String addPracticeLicence = "doctor/all/";
   static const String diabetes = "predictDiabetes";
+  static const String addDoctorData = "doctor/doctorData";
+  static const String clinicImg = "doctor/clinicImgs";
 
 
 }

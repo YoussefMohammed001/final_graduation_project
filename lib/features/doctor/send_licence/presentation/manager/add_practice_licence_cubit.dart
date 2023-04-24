@@ -23,6 +23,7 @@ showLoading();
     var response = await AppDio.postFile(endPoint: EndPoints.addPracticeLicence+id,
       formData: FormData.fromMap({
         "img": await MultipartFile.fromFile(image),
+
       }),
     );
     try{

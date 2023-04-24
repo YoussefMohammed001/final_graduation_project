@@ -11,6 +11,7 @@ enum MySharedKeys {
   apiToken,
   currentLanguage,
   languageKeys,
+
   studentStatus, city, from, otp, id, patientImage, isDoctor,
 
 }

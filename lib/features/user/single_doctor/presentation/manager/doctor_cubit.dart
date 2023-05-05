@@ -11,8 +11,6 @@ class DoctorCubit extends Cubit<DoctorState> {
   DoctorCubit() : super(DoctorInitial());
   DoctorData singleDoctorData = DoctorData();
   List<Img> img = [];
-
-
   getSingleDoctorData({required String id}) async {
     showLoading();
     var response = await AppDio.get(endPoint: "doctor/all/$id",);
@@ -21,6 +19,7 @@ class DoctorCubit extends Cubit<DoctorState> {
       img = singleDoctorModel.doctorData.img;
       singleDoctorData = singleDoctorModel.doctorData;
       safePrint(response);
+      safePrint(singleDoctorData.rating);
       print(img.length);
       emit(DoctorSuccess());
       hideLoading();
@@ -28,5 +27,8 @@ class DoctorCubit extends Cubit<DoctorState> {
 
     }
   }
+
+
+
 
 }

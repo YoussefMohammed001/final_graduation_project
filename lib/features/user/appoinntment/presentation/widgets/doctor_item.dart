@@ -6,9 +6,17 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class DoctorItem extends StatelessWidget {
-  const DoctorItem({Key? key}) : super(key: key);
-
-  @override
+  const DoctorItem({Key? key, required this.location, required this.drName, required this.imgUrl, required this.specialization, required this.day, required this.rating, required this.text, required this.color, required this.time}) : super(key: key);
+final String location;
+final String drName;
+final String imgUrl;
+final String specialization;
+final String day;
+final double rating;
+final String text;
+final Color color;
+final String time;
+@override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 10.sp),
@@ -22,10 +30,14 @@ class DoctorItem extends StatelessWidget {
         children: [
           Row(
 
-            mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              Text(text,style: TextStyle(
+                color: color,
+                fontWeight: FontWeight.bold
+              ),),
+              Spacer(),
               RatingBarIndicator(
-                rating: 2.5,
+                rating: rating,
                 itemBuilder: (context, index) => const Icon(
                   Icons.star,
                   color: Colors.amber,
@@ -34,18 +46,17 @@ class DoctorItem extends StatelessWidget {
                 itemSize: 16.sp,
                 direction: Axis.horizontal,
               ),
-
-              Text("(2.5/5)",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold),)
+              Text("(${rating.toInt()}/5)",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold),)
             ],
           ),
+          SizedBox(height: 2.h,),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
 
             children: [
               AppImage(
-                imageUrl:
-                    "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZG9jdG9yfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
-                width: 25.sp,
+                imageUrl: imgUrl,
+                          width: 25.sp,
 
                 height:25.sp,
                 topRightRadius: 100.sp,
@@ -70,7 +81,7 @@ class DoctorItem extends StatelessWidget {
                         width: 0.5.w,
                       ),
                       Text(
-                        "Dr. Ahmed Ali",
+                        "Dr. $drName",
                         style: TextStyle(fontSize: 15.sp),
                       )
                     ],
@@ -88,7 +99,7 @@ class DoctorItem extends StatelessWidget {
                         width: 0.5.w,
                       ),
                       Text(
-                        "Cairo - Naser City",
+                        location,
                         style: TextStyle(fontSize: 15.sp),
                       )
                     ],
@@ -106,7 +117,7 @@ class DoctorItem extends StatelessWidget {
                         width: 0.5.w,
                       ),
                       Text(
-                        "Heart Disease",
+                        specialization,
                         style: TextStyle(fontSize: 15.sp),
                       )
                     ],
@@ -129,7 +140,7 @@ class DoctorItem extends StatelessWidget {
                                 width: 2.w,
                                 assetName: "calender"),
                             SizedBox(width: 2.w,),
-                            Text("6 March 23",style: TextStyle(fontSize: 15.sp,color: AppColors.semiGrey),),
+                            Text(day,style: TextStyle(fontSize: 15.sp,color: AppColors.semiGrey),),
                           ],
                         ),
                       ),
@@ -148,7 +159,7 @@ class DoctorItem extends StatelessWidget {
                                 width: 2.w,
                                 assetName: "clock"),
                             SizedBox(width: 2.w,),
-                            Text("6:00 PM",style: TextStyle(fontSize: 15.sp,color: AppColors.semiGrey),),
+                            Text(time,style: TextStyle(fontSize: 15.sp,color: AppColors.semiGrey),),
                           ],
                         ),
                       ),

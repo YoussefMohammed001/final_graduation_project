@@ -18,14 +18,13 @@ class SplashCubit extends Cubit<SplashState> {
       doctorProfileData = doctorDataModel.doctorProfileData;
       if(doctorDataModel.apiStatus == true){
         safePrint(response);
-
         emit(SplashSucsess(doctorProfileData.status));
       } if(doctorDataModel.apiStatus == false){
-        safePrint(response);
+        safePrint("fail"+ response.toString());
         emit(SplashFailure());
       }
     } catch(e){
-      safePrint(response);
+      safePrint("E"+ response.toString());
     emit(SplashFailure());
     }
   }

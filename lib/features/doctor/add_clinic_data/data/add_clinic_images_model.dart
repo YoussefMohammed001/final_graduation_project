@@ -173,6 +173,9 @@ class Data {
     if (_img != null) {
       map['img'] = _img?.map((v) => v.toJson()).toList();
     }
+    
+
+
     map['createdAt'] = _createdAt;
     map['updatedAt'] = _updatedAt;
     map['__v'] = _v;

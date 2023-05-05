@@ -1,14 +1,14 @@
-import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class IAmItem extends StatelessWidget {
-  const IAmItem({Key? key, required this.icon, required this.title, required this.containerColor, required this.iconColor, required this.onTap}) : super(key: key);
+  const IAmItem({Key? key, required this.icon, required this.title, required this.containerColor, required this.iconColor, required this.onTap, required this.titleColor}) : super(key: key);
 final String icon;
 final String title;
 final Color containerColor;
 final Color iconColor;
+final Color titleColor;
   final GestureTapCallback onTap;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ final Color iconColor;
                     borderRadius: BorderRadius.circular(15.sp)
                 ),
                 child: AppSVG(assetName: icon,color: iconColor,)),
-            Text(title)
+            Text(title,style: TextStyle(color:titleColor),)
           ],
         ),
       ),

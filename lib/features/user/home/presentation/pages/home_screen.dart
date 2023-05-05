@@ -1,7 +1,7 @@
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
-import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
+import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/features/user/diabetes_prediction/presentation/screens/diabetesPprediction_screen.dart';
 import 'package:final_graduation_project/features/user/heart_rediction/presentation/screens/heart_rediction_screen.dart';
 import 'package:final_graduation_project/features/user/home/data/home_model.dart';
@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         children: [
                                           PredictDiseases(
                                             image:
-                                                'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                                'assets/images/h.jpg',
                                             title: S().heartDiseases,
                                             onTap: () {
                                               push(context,
@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                           PredictDiseases(
                                             image:
-                                                'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                                'assets/images/d.jpg',
                                             title: S().diabetes,
                                             onTap: () {
                                               push(context,
@@ -114,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         children: [
                                           PredictDiseases(
                                             image:
-                                                'https://images.unsplash.com/photo-1576169210859-6796c4b93c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhYmV0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                                'assets/images/s.jpg',
                                             title: S().skinCancer,
                                             onTap: () {
                                               push(context, SkinCancerScreen());
@@ -135,13 +135,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             const Spacer(),
-                                            Text(
-                                              S().viewAll,
-                                              style: TextStyle(
-                                                  fontSize: 15.sp,
-                                                  color: AppColors.primary,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
+                                            // Text(
+                                            //   S().viewAll,
+                                            //   style: TextStyle(
+                                            //       fontSize: 15.sp,
+                                            //       color: AppColors.primary,
+                                            //       fontWeight: FontWeight.bold),
+                                            // ),
                                           ],
                                         ),
                                       ),
@@ -160,9 +160,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   specializes.name.toString(),
                                               doctorsNumber: specializes
                                                   .numberOfDoctors
-                                                  .toString(), onTap: () {
-                                                push(context, SpecialistDoctors(id: specializes.id, title:specializes.name,));
-                                            },
+                                                  .toString(),
+                                              onTap: () {
+                                                push(
+                                                    context,
+                                                    SpecialistDoctors(
+                                                      id: specializes.id,
+                                                      title: specializes.name,
+                                                    ));
+                                              },
                                             );
                                           },
                                         ),
@@ -180,13 +186,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             const Spacer(),
-                                            Text(
-                                              S().viewAll,
-                                              style: TextStyle(
-                                                  fontSize: 15.sp,
-                                                  color: AppColors.primary,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
+                                            // Text(
+                                            //   S().viewAll,
+                                            //   style: TextStyle(
+                                            //       fontSize: 15.sp,
+                                            //       color: AppColors.primary,
+                                            //       fontWeight: FontWeight.bold),
+                                            // ),
                                           ],
                                         ),
                                       ),
@@ -204,9 +210,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                               img: doctors.profile,
                                               name: doctors.name,
                                               specialist: doctors.specialize,
-                                              review: doctors.rating.toDouble(), onTap: () {
-                                                push(context, SingleDoctor(id: doctors.id,));
-                                            },
+                                              review: doctors.rating.toDouble(),
+                                              onTap: () {
+                                                push(
+                                                    context,
+                                                    SingleDoctor(
+                                                      id: doctors.id, img: doctors.profile,
+                                                    ));
+                                                safePrint(doctors.id);
+                                              },
+                                              id: doctors.id,
+                                              doctorSpecialist:
+                                                  doctors.specialize,
+
+
+                                              doctorImg: doctors.profile,
+                                              doctorName: doctors.name,
+                                              doctorPrice: doctors.fees.toString(),
                                             );
                                           },
                                         ),

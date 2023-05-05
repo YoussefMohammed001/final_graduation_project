@@ -1,4 +1,3 @@
-import 'package:final_graduation_project/core/widgets/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -24,14 +23,20 @@ final String title;
           ),
           child: Column(
             children: [
-              AppImage(
-                imageUrl:
+              ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(17.sp),
+                  topRight: Radius.circular(17.sp),
 
-                    image,
-                       width: double.infinity,
-                height: 16.h,
-                topLeftRadius: 17.sp,
-                topRightRadius: 17.sp,
+
+                ),
+                child: Image.asset(
+                   fit: BoxFit.fill,
+                      image,
+                         width: double.infinity,
+                  height: 50.sp,
+
+                ),
               ),
                Padding(
                 padding: EdgeInsets.all(12.sp),

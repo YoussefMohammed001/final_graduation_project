@@ -1,6 +1,7 @@
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_image.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -40,7 +41,7 @@ final String numberOfReviews;
               crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "DR. $doctorName",
+              "${S().dr} $doctorName",
               style: TextStyle(
                   fontSize: 17.sp, fontWeight: FontWeight.bold),
             ),
@@ -53,7 +54,7 @@ final String numberOfReviews;
                 Text(
                   doctorSpecialist,
                   style: TextStyle(
-                      fontSize: 15.sp, ),
+                      fontSize: 13.sp, overflow: TextOverflow.ellipsis),
                 ),
               ],
             ),
@@ -71,7 +72,7 @@ final String numberOfReviews;
                   direction: Axis.horizontal,
                 ),
 
-                Text("(2.5/5)",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold),)
+                Text("($numberOfReviews/5)",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold),)
               ],
             ),
 

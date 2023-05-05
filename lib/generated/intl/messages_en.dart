@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("already have account?"),
         "appointments": MessageLookupByLibrary.simpleMessage("Appointments"),
+        "appointmnet":
+            MessageLookupByLibrary.simpleMessage("Appointmnet Details"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "asymptomatic": MessageLookupByLibrary.simpleMessage("Asymptomatic"),
         "attachPhoto": MessageLookupByLibrary.simpleMessage("attach photo"),
@@ -59,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact us"),
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("current password"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete account"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "diabetes": MessageLookupByLibrary.simpleMessage("Diabetes"),
@@ -69,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "doNotWorry": MessageLookupByLibrary.simpleMessage("Don\'t worry"),
         "doYouWantToLogOut":
             MessageLookupByLibrary.simpleMessage("Do you want to logOut?"),
+        "dr": MessageLookupByLibrary.simpleMessage("Dr."),
         "editMyData": MessageLookupByLibrary.simpleMessage("Edit my data"),
         "electrocardioGraphic":
             MessageLookupByLibrary.simpleMessage("electrocardio graphic"),
@@ -88,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Enter your password to delete your account"),
         "faqs": MessageLookupByLibrary.simpleMessage("FAQS"),
+        "fees": MessageLookupByLibrary.simpleMessage("Fees"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("Forget password"),
@@ -95,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forget your password?"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot password"),
+        "from": MessageLookupByLibrary.simpleMessage("From"),
         "glucoseLevel": MessageLookupByLibrary.simpleMessage("glucose Level"),
         "heartDiseases": MessageLookupByLibrary.simpleMessage("Heart Diseases"),
         "hello": MessageLookupByLibrary.simpleMessage("Hello"),
@@ -120,7 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "manageYourHealthAndHappyFuture": MessageLookupByLibrary.simpleMessage(
             "Manage your health and happy future"),
         "mobileNumber": MessageLookupByLibrary.simpleMessage("Mobile Number"),
-        "myAccount": MessageLookupByLibrary.simpleMessage("Ny account"),
+        "myAccount": MessageLookupByLibrary.simpleMessage("My account"),
         "newPass": MessageLookupByLibrary.simpleMessage("new password"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "noStayHere": MessageLookupByLibrary.simpleMessage("No stat here"),
@@ -168,6 +174,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Terms & Conditions"),
         "thereAreNoReservationYet": MessageLookupByLibrary.simpleMessage(
             "There are no reservation yet"),
+        "time": MessageLookupByLibrary.simpleMessage("Time"),
+        "to": MessageLookupByLibrary.simpleMessage("To"),
         "toCompleteYourRegistration": MessageLookupByLibrary.simpleMessage(
             "to complete your registration"),
         "tryAgainAfter":

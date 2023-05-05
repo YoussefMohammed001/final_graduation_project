@@ -116,7 +116,15 @@
  "patientName":"اسم المريض",
  "patientInformation": "بيانات المريض",
  "iAmReservingInBehalfOfAnotherPatient": "أنا أحجز نيابة عن مريض آخر",
- "reservationDone": "تم الحجز"
+ "reservationDone": "تم الحجز",
+ "dr":"د",
+ "appointmnet": "تفاصيل الحجز",
+ "date": "التاريخ",
+ "time": "التوقيت",
+ "from": "من",
+ "to": "الي",
+ "fees": "تكاليف الكشف"
+
 
 
 

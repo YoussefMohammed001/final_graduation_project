@@ -33,7 +33,7 @@
   "bestDoctors": "Best Doctors",
   "home": "Home",
   "appointments": "Appointments",
-  "myAccount": "Ny account",
+  "myAccount": "My account",
   "profile" : "Profile",
   "bookNow": "Book now",
   "specialization": "Specialization",
@@ -114,8 +114,14 @@
   "patientName": "Patient name",
   "patientInformation": "Patient Information",
   "iAmReservingInBehalfOfAnotherPatient": "I am reserving in behalf of another patient",
-  "reservationDone": "Reservation done"
-
+  "reservationDone": "Reservation done",
+  "dr":"Dr.",
+  "appointmnet": "Appointmnet Details",
+  "date": "Date",
+  "time": "Time",
+  "from": "From",
+  "to": "To",
+  "fees": "Fees"
 
 
 

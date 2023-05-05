@@ -3,8 +3,8 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
-import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
 import 'package:final_graduation_project/features/Authentication/on_boarding/presentaion/pages/on_boarding_screen.dart';
+import 'package:final_graduation_project/features/Authentication/register/presentation/pages/doctor_or_patient.dart';
 import 'package:final_graduation_project/features/doctor/doctor_main_screen/doctor_main_screen.dart';
 import 'package:final_graduation_project/features/doctor/waiting_screen/waiting_screen.dart';
 import 'package:final_graduation_project/features/splash/presentation/manager/splash_cubit.dart';
@@ -29,15 +29,22 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Future.delayed(const Duration(milliseconds: 3000)).then((value) {
-      if (!MyShared.isLoggedIn()) {
-        // pushReplacement(context, OnBoardingScreen());
-        pushReplacement(context, OnBoardingScreen());
+      if(MyShared.isFirstOpen() && !MyShared.isLoggedIn()){
+        pushAndRemoveUntil(context, OnBoardingScreen());
+      }
+      if (!MyShared.isLoggedIn() && !MyShared.isFirstOpen()) {
+        pushReplacement(context, const DoctorOrPatientScreen());
         return;
+      } if(MyShared.isLoggedIn() && MyShared.getBoolean(key: MySharedKeys.isDoctor) == false){
+        pushAndRemoveUntil(context, MainScreen());
       }
 
 
+
     });
+    if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == true &&MyShared.isLoggedIn()){
       cubit.getDoctorData();
+    }
 
 //.
 
@@ -119,34 +126,19 @@ class _SplashScreenState extends State<SplashScreen> {
         listener: (context, state) {
           if (state is SplashSucsess) {
 
-            if (MyShared.isLoggedIn()) {
+
               if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == true){
                 if(state.pending == 'pending'){
                   pushReplacement(context, const WaitingScreen());
-
                 }
-                if(state.pending == 'pending'){
+                if(state.pending != 'pending'){
                   push(context, const DoctorMainScreen());
                 }
-                if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == false){
-                  push(context, const MainScreen());
-                }
               }
-            } else {
-
-              pushReplacement(context, const LoginScreen());
             }
+          if(state is SplashFailure) {
           }
-          if(state is SplashFailure){
-            if (MyShared.isLoggedIn()) {
 
-                  push(context, const MainScreen());
-
-              }
-            } else {
-
-              pushReplacement(context, const LoginScreen());
-            }
           },
       ),
     );

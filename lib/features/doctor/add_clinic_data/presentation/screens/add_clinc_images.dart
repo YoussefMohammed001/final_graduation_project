@@ -286,7 +286,7 @@ class _AddClinicImagesState extends State<AddClinicImages> {
                               if(_image1 == null || _image2 == null ||  _image3 == null|| _image4 == null|| _image5 == null){
                                 showError("Enter 5 images for your clinic");
                               } else{
-                                cubit.addPracticeLicence(
+                                cubit.addClinicImages(
                                     image: _image1!.path,
                                     image2: _image2!.path,
                                     image3: _image3!.path,

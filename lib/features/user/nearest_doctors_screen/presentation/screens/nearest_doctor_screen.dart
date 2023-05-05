@@ -9,22 +9,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class NearestDoctorScreen extends StatefulWidget {
-  const NearestDoctorScreen({Key? key, required this.lat, required this.lang}) : super(key: key);
-final String lat;
-final String lang;
+  const NearestDoctorScreen({Key? key, required this.lat, required this.lang})
+      : super(key: key);
+  final String lat;
+  final String lang;
 
   @override
   State<NearestDoctorScreen> createState() => _NearestDoctorScreenState();
 }
 
 class _NearestDoctorScreenState extends State<NearestDoctorScreen> {
-  final  cubit = NereastCubit();
+  final cubit = NereastCubit();
   @override
   void initState() {
-
     cubit.getNearest(lat: widget.lat, lang: widget.lang);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -39,8 +40,7 @@ class _NearestDoctorScreenState extends State<NearestDoctorScreen> {
                 ),
                 Expanded(
                   child: LayoutBuilder(
-                      builder: (context, constrains) =>
-                          SingleChildScrollView(
+                      builder: (context, constrains) => SingleChildScrollView(
                             child: ConstrainedBox(
                               constraints: BoxConstraints(
                                 minHeight: constrains.maxHeight,
@@ -54,27 +54,36 @@ class _NearestDoctorScreenState extends State<NearestDoctorScreen> {
                                         height: 1.h,
                                         child: GridView.builder(
                                           shrinkWrap: false,
-                                          itemBuilder:
-                                              (BuildContext context,
+                                          itemBuilder: (BuildContext context,
                                               int index) {
-                                            NearestData near = cubit.nearestData[index];
+                                            NearestData near =
+                                                cubit.nearestData[index];
                                             return DoctorItem(
                                               img: near.profilePicture,
                                               name: near.name,
                                               specialist: near.specialize,
                                               review: 2,
                                               onTap: () {
-                                                push(context, SingleDoctor(id: near.id,));
+                                                push(
+                                                    context,
+                                                    SingleDoctor(
+                                                      id: near.id, img: near.profilePicture,
+                                                    ));
                                               },
+                                              id: near.id,
+                                              doctorSpecialist: '',
+                                              doctorImg: '',
+                                              doctorName: '',
+                                              doctorPrice: '',
                                             );
                                           },
                                           itemCount: cubit.nearestData.length,
                                           gridDelegate:
-                                          SliverGridDelegateWithFixedCrossAxisCount(
-                                              crossAxisCount: 2,
-                                              mainAxisSpacing: 10,
-                                              crossAxisSpacing: 10,
-                                              childAspectRatio: 3.5.sp),
+                                              SliverGridDelegateWithFixedCrossAxisCount(
+                                                  crossAxisCount: 2,
+                                                  mainAxisSpacing: 10,
+                                                  crossAxisSpacing: 10,
+                                                  childAspectRatio: 3.5.sp),
                                         ),
                                       ),
                                     ),

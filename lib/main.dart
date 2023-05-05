@@ -20,8 +20,10 @@ Future main() async {
   AIDio.init();
   EasyLoading.init();
   safePrint(MyShared.getString(key: MySharedKeys.apiToken));
+  safePrint(MyShared.getBoolean(key: MySharedKeys.isDoctor));
   safePrint(  MyShared.getString(key: MySharedKeys.patientImage));
   safePrint(MyShared.getString(key: MySharedKeys.id));
+
   runApp(const MyApp());
 }
 
@@ -52,7 +54,8 @@ class MyApp extends StatelessWidget {
                     ],
                     color: AppColors.primary,
                     builder: EasyLoading.init(),
-                    home:   const SplashScreen(),
+                    home:    SplashScreen(),
+
 
                   );
                 },

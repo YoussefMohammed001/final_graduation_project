@@ -2,15 +2,15 @@ import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
-import 'package:final_graduation_project/features/user/home/presentation/pages/home_screen.dart';
 import 'package:final_graduation_project/features/user/main_screen/main_screen.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ConfirmedScreen extends StatefulWidget {
-  const ConfirmedScreen({Key? key}) : super(key: key);
-
+  const ConfirmedScreen({Key? key, required this.from, required this.to}) : super(key: key);
+final String from;
+final String to;
   @override
   State<ConfirmedScreen> createState() => _ConfirmedScreenState();
 }
@@ -75,9 +75,22 @@ class _ConfirmedScreenState extends State<ConfirmedScreen> {
                   style:  TextStyle(color: Colors.white,fontSize: 17.sp),
                 ),
               ),
+              SizedBox(height: 2.h,),
+
+              AnimatedOpacity(
+                duration: const Duration(milliseconds: 250),
+                curve: Curves.easeIn,
+                opacity: buttonOpacity,
+                child: Text(
+
+                  "Your appointment from ${widget.from} to ${widget.to}",
+                  style:  TextStyle(color: Colors.yellow[500],fontSize: 17.sp,fontWeight: FontWeight.bold),
+                ),
+              ),
               SizedBox(
                 height: 3.h,
               ),
+
               AnimatedOpacity(
                 duration: const Duration(milliseconds: 1300),
                 curve: Curves.bounceOut,

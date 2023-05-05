@@ -10,14 +10,15 @@ class PatientInformationItem extends StatefulWidget {
       required this.patientName,
       required this.patientMobile,
       required this.patientNameController,
-      required this.patientMobileController,
-      required this.patientAddressController})
+      required this.patientMobileController, required this.noteController, required this.patientNote,
+      })
       : super(key: key);
   final String patientName;
   final String patientMobile;
+  final String patientNote;
   final TextEditingController patientNameController;
   final TextEditingController patientMobileController;
-  final TextEditingController patientAddressController;
+  final TextEditingController noteController;
 
   @override
   State<PatientInformationItem> createState() => _PatientInformationItemState();
@@ -128,6 +129,16 @@ class _PatientInformationItemState extends State<PatientInformationItem> {
                     ),
                     SizedBox(
                       height: 2.h,
+                    ),
+                    AppointmentTextFormField(
+                      hint: widget.patientNote,
+                      title: 'Note',
+                      enabled: true,
+                      hintDisabled: widget.patientNote,
+                      hintEnabled: S().note,
+                      textInputAction: TextInputAction.next,
+                      textInputType: TextInputType.number,
+                      controller: widget.noteController,
                     ),
                   ],
                 ),

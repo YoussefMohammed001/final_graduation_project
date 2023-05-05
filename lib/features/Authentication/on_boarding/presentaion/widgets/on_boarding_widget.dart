@@ -1,8 +1,10 @@
+import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
-import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
 import 'package:final_graduation_project/features/Authentication/on_boarding/presentaion/pages/on_boarding_screen.dart';
+import 'package:final_graduation_project/features/Authentication/register/presentation/pages/doctor_or_patient.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -38,7 +40,9 @@ class OnBoardingWidget extends StatelessWidget {
                       child: Image.asset(image.toString(),fit: BoxFit.fill,),),
                    InkWell(
                      onTap: (){
-                       pushAndRemoveUntil(context, const LoginScreen());
+                       pushAndRemoveUntil(context, const DoctorOrPatientScreen());
+                       MyShared.putBoolean(key: MySharedKeys.firstOpen, value: false);
+
                      },
                      child: Visibility(
                        visible: !lastPage,
@@ -67,7 +71,8 @@ class OnBoardingWidget extends StatelessWidget {
               ),
               SizedBox(height: 2.h,),
               AppButton(bgColor: AppColors.primary,onPressed: () {
-                lastPage ? pushAndRemoveUntil(context, const LoginScreen())
+
+                lastPage ? pushAndRemoveUntil(context, const DoctorOrPatientScreen())
                     : indicatorController.nextPage(
                     duration: const Duration(milliseconds: 300),
                     curve: Curves.easeIn);

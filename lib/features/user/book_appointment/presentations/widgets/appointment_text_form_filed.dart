@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AppointmentTextFormField extends StatefulWidget {
-  const AppointmentTextFormField({Key? key, required this.hint, required this.title, required this.enabled, required this.hintDisabled, required this.hintEnabled, this.validators, required this.controller, required this.textInputAction, required this.textInputType}) : super(key: key);
+  const AppointmentTextFormField({Key? key, required this.hint, required this.title,  this.enabled = false, required this.hintDisabled, required this.hintEnabled, this.validators, required this.controller, required this.textInputAction, required this.textInputType}) : super(key: key);
 final String hint;
 final String title;
 final bool enabled;

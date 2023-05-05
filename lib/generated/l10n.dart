@@ -390,10 +390,10 @@ class S {
     );
   }
 
-  /// `Ny account`
+  /// `My account`
   String get myAccount {
     return Intl.message(
-      'Ny account',
+      'My account',
       name: 'myAccount',
       desc: '',
       args: [],
@@ -1205,6 +1205,76 @@ class S {
     return Intl.message(
       'Reservation done',
       name: 'reservationDone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dr.`
+  String get dr {
+    return Intl.message(
+      'Dr.',
+      name: 'dr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Appointmnet Details`
+  String get appointmnet {
+    return Intl.message(
+      'Appointmnet Details',
+      name: 'appointmnet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message(
+      'Date',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time`
+  String get time {
+    return Intl.message(
+      'Time',
+      name: 'time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `From`
+  String get from {
+    return Intl.message(
+      'From',
+      name: 'from',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To`
+  String get to {
+    return Intl.message(
+      'To',
+      name: 'to',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fees`
+  String get fees {
+    return Intl.message(
+      'Fees',
+      name: 'fees',
       desc: '',
       args: [],
     );

@@ -1,4 +1,3 @@
-import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -11,6 +10,8 @@ class MyTextFormField extends StatefulWidget {
     this.margin,
     this.padding,
     this.isSearch = false,
+    this.maxLines = 1,
+    this.minLines = 1,
     this.textColor = Colors.black,
     required this.controller,
     required this.isPassword,
@@ -22,6 +23,8 @@ class MyTextFormField extends StatefulWidget {
   final Color textColor;
   final String hint;
   final bool isPassword;
+  final int maxLines;
+  final int minLines;
   final bool isSearch;
   final bool? enabled;
   final FormFieldValidator<dynamic>? validators;
@@ -46,6 +49,8 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
       child: Column(
         children: [
           TextFormField(
+            maxLines:widget.maxLines ,
+            minLines:widget.minLines ,
             enabled: widget.enabled,
             validator: widget.validators,
             obscureText: obscureText,

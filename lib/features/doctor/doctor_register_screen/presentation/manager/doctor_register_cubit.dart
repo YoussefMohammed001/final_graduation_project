@@ -2,8 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:final_graduation_project/core/api/endpoints.dart';
 import 'package:final_graduation_project/core/api/my_dio.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
-import 'package:final_graduation_project/features/doctor/doctor_register_screen/data/doctor_register_model.dart';
+import 'package:final_graduation_project/features/doctor/doctor_register_screen/data/doctorRegisterModel.dart';
 import 'package:final_graduation_project/features/doctor/doctor_register_screen/data/specialized_model.dart';
 import 'package:meta/meta.dart';
 
@@ -40,8 +42,10 @@ class DoctorRegisterCubit extends Cubit<DoctorRegisterState> {
     );
     doctorRegisterModel = DoctorRegisterModel.fromJson(response!.data);
     if(doctorRegisterModel.apiStatus ==true){
-      safePrint("name>> ${doctorRegisterModel.doctor.name}");
+      safePrint("name>> ${doctorRegisterModel.doctorRegisterData.name}");
       safePrint(response);
+      MyShared.putString(key: MySharedKeys.id ,value: doctorRegisterModel.doctorRegisterData.id);
+      MyShared.putString(key: MySharedKeys.apiToken ,value: doctorRegisterModel.token);
       emit(DoctorRegisterSuccess(doctorRegisterModel.massage));
     } else{
       emit(DoctorRegisterFailure(doctorRegisterModel.massage));

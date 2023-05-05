@@ -1,5 +1,6 @@
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -29,7 +30,7 @@ final String price;
 
                 SizedBox(width: 3.w,),
                 Text(
-                  "Appointmnet",
+                  S().appointmnet,
                   style: TextStyle(
                       fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
@@ -40,7 +41,7 @@ final String price;
               children: [
                 AppSVG(assetName: "clock",height: 16.sp,width: 16.sp,color: AppColors.primary,),
                 SizedBox(width: 3.w,),
-                Text("date:",style: TextStyle(fontSize: 15.sp,fontWeight: FontWeight.bold),),
+                Text("${S().date}:",style: TextStyle(fontSize: 15.sp,fontWeight: FontWeight.bold),),
                 SizedBox(width: 1.w,),
                 Text(date,style: TextStyle(fontSize: 15.sp,),),
               ],
@@ -50,12 +51,12 @@ final String price;
               children: [
                 AppSVG(assetName: "clock",height: 16.sp,width: 16.sp,color: AppColors.primary,),
             SizedBox(width: 3.w,),
-                Text("Time:",style: TextStyle(fontSize: 15.sp,fontWeight: FontWeight.bold),),
+                Text("${S().time}:",style: TextStyle(fontSize: 15.sp,fontWeight: FontWeight.bold),),
                 SizedBox(width: 1.w,),
 
                 Text(timeFrom,style: TextStyle(fontSize: 15.sp),),
                 SizedBox(width: 1.w,),
-                Text("to",style: TextStyle(fontSize: 15.sp),),
+                Text(S().to,style: TextStyle(fontSize: 15.sp),),
                 SizedBox(width: 1.w,),
                 Text(timeTo,style: TextStyle(fontSize: 15.sp),),
               ],
@@ -65,7 +66,7 @@ final String price;
               children: [
                 AppSVG(assetName: "file",height: 16.sp,width: 16.sp,),
                 SizedBox(width: 3.w,),
-                Text("Fees:",style: TextStyle(fontSize: 15.sp,fontWeight: FontWeight.bold),),
+                Text("${S().fees}:",style: TextStyle(fontSize: 15.sp,fontWeight: FontWeight.bold),),
                 SizedBox(width: 1.w,),
                 Text(price,style: TextStyle(fontSize: 15.sp),),
               ],

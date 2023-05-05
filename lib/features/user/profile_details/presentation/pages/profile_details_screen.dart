@@ -55,10 +55,10 @@ class _profileDetailsScreenState extends State<profileDetailsScreen> {
     if (pickedImage != null) {
       setState(() {
         _image = File(pickedImage.path);
-        cubit.userUploadImage(image: _image!.path.toString(), id: MyShared.getString(key: MySharedKeys.id));
-
+        cubit.userUploadImage(
+            image: _image!.path.toString(),
+            id: MyShared.getString(key: MySharedKeys.id));
       });
-
     }
   }
 
@@ -88,14 +88,17 @@ class _profileDetailsScreenState extends State<profileDetailsScreen> {
               showSuccess(state.successMessage);
             }
 
-            if(state is UpdateUserDataSuccess){
+            if (state is UpdateUserDataSuccess) {
               showSuccess(state.message);
+              nameController.clear();
+              phoneController.clear();
             }
 
-            if(state is UpdateUserDataFailure){
+            if (state is UpdateUserDataFailure) {
               showError(state.errorMessage);
+              nameController.clear();
+              phoneController.clear();
             }
-
           },
           child: Scaffold(
             body: Column(
@@ -112,10 +115,10 @@ class _profileDetailsScreenState extends State<profileDetailsScreen> {
                           child: Column(children: [
                             SizedBox(height: 3.h),
                             UserImage(
-                              userImage: MyShared.getString(key: MySharedKeys.patientImage),
-                              onTap:(){
+                              userImage: MyShared.getString(
+                                  key: MySharedKeys.patientImage),
+                              onTap: () {
                                 uploadImage();
-
                               },
                             ),
                             SizedBox(height: 3.h),
@@ -333,7 +336,8 @@ class _profileDetailsScreenState extends State<profileDetailsScreen> {
                                     ),
                                     Text(
                                       S().changePassword,
-                                      style: const TextStyle(color: Colors.grey),
+                                      style:
+                                          const TextStyle(color: Colors.grey),
                                     )
                                   ],
                                 ),
@@ -346,12 +350,12 @@ class _profileDetailsScreenState extends State<profileDetailsScreen> {
                             AppButton(
                               onPressed: () {
                                 cubit.userUpdateData(
-                                    name: nameController.text,
-                                    phone: phoneController.text, id: MyShared.getString(key: MySharedKeys.id));
-
+                                    name: nameController.text.isEmpty ? MyShared.getString(key: MySharedKeys.username) : nameController.text,
+                                    phone: phoneController.text,
+                                    id: MyShared.getString(
+                                        key: MySharedKeys.id));
                               },
                               label: S().saveChanges,
-
                               bgColor: AppColors.primary,
                               margin: EdgeInsets.symmetric(
                                   vertical: 5.sp, horizontal: 18.sp),

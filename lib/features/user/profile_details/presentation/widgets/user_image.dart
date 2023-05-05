@@ -1,5 +1,6 @@
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
+import 'package:final_graduation_project/core/widgets/app_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -14,9 +15,13 @@ final GestureTapCallback onTap;
       child: Stack(
         alignment: AlignmentDirectional.bottomStart,
         children: [
-          CircleAvatar(
-            radius: 40.sp,
-            backgroundImage:  NetworkImage(userImage,),
+          AppImage(
+            imageUrl:  userImage, width: 45.sp, height: 45.sp,
+            bottomLeftRadius: 60.sp,
+            bottomRightRadius: 60.sp,
+            topRightRadius: 60.sp,
+            topLeftRadius: 60.sp,
+
           ),
 
           InkWell(
@@ -27,7 +32,7 @@ final GestureTapCallback onTap;
                     color: AppColors.text
                 ),
                 padding: EdgeInsets.all(13.sp),
-                child: const AppSVG(assetName: "photo_camera_interface_symbol_for_button")),
+                child:  AppSVG(assetName: "photo_camera_interface_symbol_for_button",height: 15.sp,width: 15.sp,)),
           ),
         ],
       ),

@@ -80,7 +80,7 @@ Spacer(),
                                 shrinkWrap: true,
                                 scrollDirection: Axis.horizontal,
                                 children:  [
-                                  DoctorItem(img: '', name: '', specialist: '', review:3, onTap: () {  },),
+                                  DoctorItem(img: '', name: '', specialist: '', review:3, onTap: () {  }, id: '', doctorSpecialist: '', doctorImg: '', doctorName: '', doctorPrice: '',),
 
                                 ],
                               ),

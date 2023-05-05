@@ -1,7 +1,4 @@
 import 'package:final_graduation_project/core/styles/colors.dart';
-import 'package:final_graduation_project/core/utils/navigators.dart';
-import 'package:final_graduation_project/features/user/book_appointment/presentations/screens/confirm_appointmnet_screen.dart';
-import 'package:final_graduation_project/features/user/book_appointment/presentations/widgets/doctor_item.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -11,19 +8,18 @@ class AppointmentItem extends StatelessWidget {
     Key? key,
     required this.from,
     required this.day,
-    required this.to,
+    required this.to, required this.onTap,
   }) : super(key: key);
 
   final String from;
   final String to;
   final String day;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        push(context, ConfirmAppointmentScreen());
-      },
+      onTap: onTap,
 
       child: Container(
 

@@ -1,3 +1,4 @@
+
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
@@ -9,6 +10,7 @@ import 'package:final_graduation_project/features/doctor/add_clinic_data/present
 import 'package:final_graduation_project/features/doctor/add_clinic_data/presentation/screens/add_clinc_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AddClinicData extends StatefulWidget {
@@ -40,14 +42,13 @@ class _AddClinicDataState extends State<AddClinicData> {
 
   @override
   void initState() {
-    MyShared.putString(
-        key: MySharedKeys.apiToken,
-        value:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ0OWY3MWQ2NDdjNzljNTdkOGQxYjkiLCJpYXQiOjE2ODIyMTg4NjV9.2_aOTrrbSwsEF-ni_DSFFqHzkbIhbVDDFah8uskefAk");
+
     super.initState();
   }
 
   final cubit = DoctorDataImagesCubit();
+  final ImagePicker imagePicker = ImagePicker();
+
 
   @override
   Widget build(BuildContext context) {
@@ -280,7 +281,8 @@ class _AddClinicDataState extends State<AddClinicData> {
                                  placeNOAr:placeAr.text,
                                  placeNO: place.text,
                                  fees: fees.text,
-                                 experience: experince.text);
+                                 experience: experince.text,
+                                 id: MyShared.getString(key: MySharedKeys.id));
                            }
                               },
                               margin: EdgeInsets.symmetric(horizontal: 0.sp),

@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
+import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
 import 'package:final_graduation_project/core/widgets/spinner_text_form_field.dart';
@@ -13,7 +14,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SkinCancerScreen extends StatefulWidget {
-  SkinCancerScreen({Key? key}) : super(key: key);
+  const SkinCancerScreen({Key? key}) : super(key: key);
 
   @override
   State<SkinCancerScreen> createState() => _SkinCancerScreenState();
@@ -27,6 +28,7 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
 
   uploadImage() async {
 
+    // ignore: deprecated_member_use
     var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
     if (pickedImage != null) {
       setState(() {
@@ -77,10 +79,13 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
                                       if (value.toString().isEmpty) {
                                         return "enter your gender";
                                       }
+                                      return null;
                                     },
                                     hint: S().maleHint,
                                     controller: male,
                                     enabled: false,
+                                    count: 2,
+
                                     dropDownList:  [
                                       DropDownValueModel(
 
@@ -128,7 +133,7 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
                                               description:
                                                   'description description  description description description description description description description description description description description description  description description description description description description',
                                             ));
-                                        print(male.dropDownValue!.value
+                                        safePrint(male.dropDownValue!.value
                                             .toString());
                                       }
                                     },

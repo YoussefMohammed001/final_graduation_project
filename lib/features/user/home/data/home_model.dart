@@ -126,11 +126,13 @@ class Doctors {
       String? name, 
       String? profile, 
       String? specialize, 
+      int? fees,
       num? rating,}){
     _id = id;
     _name = name;
     _profile = profile;
     _specialize = specialize;
+    _fees = fees;
     _rating = rating;
 }
 
@@ -139,18 +141,21 @@ class Doctors {
     _name = json['name'];
     _profile = json['profile'];
     _specialize = json['specialize'];
+    _fees = json['feesPerCunsaltation'];
     _rating = json['rating'];
   }
   String? _id;
   String? _name;
   String? _profile;
   String? _specialize;
+  int? _fees;
   num? _rating;
 
   String get id => _id ?? "";
   String get name => _name ?? "";
   String get profile => _profile ?? "";
   String get specialize => _specialize ?? "";
+  int get fees => _fees ?? 0;
   num get rating => _rating ?? 0;
 
   Map<String, dynamic> toJson() {
@@ -160,6 +165,7 @@ class Doctors {
     map['profile'] = _profile;
     map['specialize'] = _specialize;
     map['rating'] = _rating;
+    map['feesPerCunsaltation'] = _fees;
     return map;
   }
 

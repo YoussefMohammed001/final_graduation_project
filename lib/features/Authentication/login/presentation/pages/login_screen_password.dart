@@ -35,32 +35,58 @@ class LoginScreenPassword extends StatelessWidget {
           if (state is LoginLoading) {
             showLoading();
           }
-          if (state is LoginSucsess) {
-            hideLoading();
-            if (state.verified == true) {
-              if(state.isDoctor == true){
-                pushReplacement(context, const DoctorMainScreen());
+          if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == false){
+            if (state is LoginSucsess) {
+              hideLoading();
+              if (state.verified == true) {
+                showSuccess(state.sucsessMessage);
+                pushAndRemoveUntil(context, MainScreen());
+              } else {
+                push(
+                    context,
+                    BlocProvider(
+                      create: (context) => VerifyCubit(),
+                      child: VerifyAccountScreen(),
+                    ));
               }
-              if(state.isDoctor == false){
-                pushReplacement(context, const MainScreen());
-              }
-            } else {
-              push(
-                  context,
-                  BlocProvider(
-                    create: (context) => VerifyCubit(),
-                    child: VerifyAccountScreen(),
-                  ));
-            }
-            showSuccess(state.sucsessMessage);
-            // Alerts.showErrorDialog(context: context, errorMessage: state.successMessage);
-          }
-          if (state is LoginFailure) {
-            hideLoading();
-            showError(state.errorMessage);
 
-            // Alerts.showErrorDialog(context: context, errorMessage: state.errorMessage);
+              // Alerts.showErrorDialog(context: context, errorMessage: state.successMessage);
+            }
+            if (state is LoginFailure) {
+              hideLoading();
+              showError(state.errorMessage);
+
+
+              // Alerts.showErrorDialog(context: context, errorMessage: state.errorMessage);
+            }
+
           }
+          if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == true){
+            if (state is LoginSucsess) {
+              hideLoading();
+              if (state.verified == true) {
+                showSuccess(state.sucsessMessage);
+                pushAndRemoveUntil(context, DoctorMainScreen());
+              } else {
+                push(
+                    context,
+                    BlocProvider(
+                      create: (context) => VerifyCubit(),
+                      child: VerifyAccountScreen(),
+                    ));
+              }
+
+              // Alerts.showErrorDialog(context: context, errorMessage: state.successMessage);
+            }
+            if (state is LoginFailure) {
+              hideLoading();
+              showError(state.errorMessage);
+
+              // Alerts.showErrorDialog(context: context, errorMessage: state.errorMessage);
+            }
+          }
+
+
         },
         child: Form(
           key: passFormKey,

@@ -23,6 +23,7 @@ class SpecializeDoctorsCubit extends Cubit<SpecializeDoctorsState> {
       SpecializeDoctorsModel  specializeDoctorsModel = SpecializeDoctorsModel.fromJson(response!.data);
       specializeDoctorData = specializeDoctorsModel.data;
       emit(SpecializeDoctorsSuccess());
+      print(response);
       hideLoading();
     } catch(e){
 

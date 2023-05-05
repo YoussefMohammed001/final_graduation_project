@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل؟"),
         "appointments": MessageLookupByLibrary.simpleMessage("الحجوزات"),
+        "appointmnet": MessageLookupByLibrary.simpleMessage("تفاصيل الحجز"),
         "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
         "asymptomatic":
             MessageLookupByLibrary.simpleMessage("بدون أعراض ظاهرة"),
@@ -60,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الحالية"),
+        "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "description": MessageLookupByLibrary.simpleMessage("عن الطبيب"),
         "diabetes": MessageLookupByLibrary.simpleMessage("السكري"),
@@ -70,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "doNotWorry": MessageLookupByLibrary.simpleMessage("لا تقلق"),
         "doYouWantToLogOut":
             MessageLookupByLibrary.simpleMessage("هل ترغب بالخروج؟"),
+        "dr": MessageLookupByLibrary.simpleMessage("د"),
         "editMyData":
             MessageLookupByLibrary.simpleMessage("تعديل البيانات الخاصة بي"),
         "electrocardioGraphic":
@@ -88,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "أدخل كلمة المرور الخاصة بك لحذف حسابك"),
         "faqs": MessageLookupByLibrary.simpleMessage("أسئلة متكرره"),
+        "fees": MessageLookupByLibrary.simpleMessage("تكاليف الكشف"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
@@ -95,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة السر؟"),
+        "from": MessageLookupByLibrary.simpleMessage("من"),
         "glucoseLevel": MessageLookupByLibrary.simpleMessage("مستوى الجلوكوز"),
         "heartDiseases": MessageLookupByLibrary.simpleMessage("أمراض القلب"),
         "hello": MessageLookupByLibrary.simpleMessage("مرحبًا"),
@@ -165,6 +170,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الشروط و الاحكام"),
         "thereAreNoReservationYet":
             MessageLookupByLibrary.simpleMessage("لا يوجد حجز بعد"),
+        "time": MessageLookupByLibrary.simpleMessage("التوقيت"),
+        "to": MessageLookupByLibrary.simpleMessage("الي"),
         "toCompleteYourRegistration":
             MessageLookupByLibrary.simpleMessage("لاكمال تسجيلك"),
         "tryAgainAfter":

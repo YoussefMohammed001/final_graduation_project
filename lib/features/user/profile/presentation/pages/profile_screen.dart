@@ -1,9 +1,8 @@
 
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
-import 'package:final_graduation_project/core/styles/colors.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
-import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
 import 'package:final_graduation_project/features/user/FAQS/presentation/screens/user_faqs.dart';
 import 'package:final_graduation_project/features/user/about_us/presentation/screens/about_us_screen.dart';
@@ -54,15 +53,18 @@ TextEditingController password = TextEditingController();
           ProfileItem(text: S().aboutUs, icon: 'ic_ic_account', onTap: () {
             push(context, const AboutUsScreen());
           },),
-          ProfileItem(text: S().language, icon: 'ic_ic_lang', onTap: () {
-            showModalBottomSheet<void>(
-              context: context,
-              builder: (BuildContext context) {
-                return ChangeLangItem();
-              },
-            );
+          Visibility(
+            visible: MyShared.getBoolean(key: MySharedKeys.isDoctor) == false,
+            child: ProfileItem(text: S().language, icon: 'ic_ic_lang', onTap: () {
+              showModalBottomSheet<void>(
+                context: context,
+                builder: (BuildContext context) {
+                  return ChangeLangItem();
+                },
+              );
 
-          },),
+            },),
+          ),
           ProfileItem(text: S().termsAndConditions, icon: 'ic_ic_terms', onTap: () {
             push(context,             const TermsAndConditionScreen());
           },),

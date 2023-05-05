@@ -1,7 +1,7 @@
-import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
+import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_image.dart';
@@ -11,16 +11,15 @@ import 'package:final_graduation_project/features/user/single_doctor/presentatio
 import 'package:final_graduation_project/features/user/single_doctor/presentation/widgets/dr_description.dart';
 import 'package:final_graduation_project/features/user/single_doctor/presentation/widgets/dr_location.dart';
 import 'package:final_graduation_project/features/user/single_doctor/presentation/widgets/dr_profile.dart';
-import 'package:final_graduation_project/features/user/single_doctor/presentation/widgets/single_doctor_head.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SingleDoctor extends StatefulWidget {
-  SingleDoctor({Key? key, required this.id}) : super(key: key);
+  SingleDoctor({Key? key, required this.id, required this.img}) : super(key: key);
   final String id;
+  final String img;
 
   @override
   State<SingleDoctor> createState() => _SingleDoctorState();
@@ -120,7 +119,7 @@ class _SingleDoctorState extends State<SingleDoctor> {
                                             cubit.singleDoctorData.specialize,
                                         fees: cubit
                                             .singleDoctorData.consultation
-                                            .toString(),
+                                            .toString(), img: widget.img,
                                       ),
                                       Divider(
                                         height: 10.sp,
@@ -152,12 +151,14 @@ class _SingleDoctorState extends State<SingleDoctor> {
                                           bgColor: AppColors.primary,
                                           onPressed: () {
                                             push(context,
-                                                const ChooseAppointmentScreen());
+                                                 ChooseAppointmentScreen(id: cubit.singleDoctorData.id, doctorSpecialist: cubit.singleDoctorData.specialize, doctorImg: widget.img, doctorName: cubit.singleDoctorData.name, doctorPrice: cubit.singleDoctorData.consultation.toString(), rating: cubit.singleDoctorData.rating.toDouble(), ratingNum: cubit.singleDoctorData.ratingsQuantity.toDouble(),));
+                                            safePrint(cubit.singleDoctorData.id);
                                           },
                                           label: S().bookNow,
                                         ),
                                       ),
                                     ],
+
                                   ),
                                 ],
                               ),

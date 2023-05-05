@@ -5,8 +5,8 @@ import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
 import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen_password.dart';
-import 'package:final_graduation_project/features/Authentication/register/presentation/pages/doctor_or_patient.dart';
 import 'package:final_graduation_project/features/Authentication/register/presentation/pages/register_screen.dart';
+import 'package:final_graduation_project/features/doctor/doctor_register_screen/presentation/screens/register_screen_doctor.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -111,8 +111,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                 SizedBox(width: 1.w,),
                                 InkWell(
                                   onTap: () {
-                                    push(context, const DoctorOrPatientScreen());
-                                  },
+                                    if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == true){
+                                      push(context, RegisterScreenDoctor());
+                                    }
+                                    if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == false){
+                                      push(context, RegisterScreen());
+                                    }
+                                    },
                                   child:  Text(
                                   S().signUpNow,
                                     style: const TextStyle(

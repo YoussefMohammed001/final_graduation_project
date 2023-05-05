@@ -31,7 +31,7 @@ class ProfileDetailsCubit extends Cubit<ProfileDetailsState> {
 
   userDeleteAccount({required String password}) async{
     emit(ProfileDetailsLoading());
-    var response = await AppDio.delete(endPoint:  "all/${MyShared.getString(key:MySharedKeys.id)}",data: {
+    var response = await AppDio.delete(endPoint:  "user/all/${MyShared.getString(key:MySharedKeys.id)}",data: {
       "password":password,
     });
     try{
@@ -78,7 +78,7 @@ class ProfileDetailsCubit extends Cubit<ProfileDetailsState> {
 
   userUpdateData({required String name,required String phone, required String id}) async{
     emit(ProfileDetailsLoading());
-    var response = await AppDio.patch(endPoint:"user/all/$id",data: {
+    var response = await AppDio.patch(endPoint:"user/edit-user-data",data: {
       "name":name,
       "phone":phone,
     });

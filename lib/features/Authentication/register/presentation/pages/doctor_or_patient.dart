@@ -4,9 +4,8 @@ import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
+import 'package:final_graduation_project/features/Authentication/login/presentation/pages/login_screen.dart';
 import 'package:final_graduation_project/features/Authentication/login/presentation/widgets/i_am_widget.dart';
-import 'package:final_graduation_project/features/Authentication/register/presentation/pages/register_screen.dart';
-import 'package:final_graduation_project/features/doctor/doctor_register_screen/presentation/screens/register_screen_doctor.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -34,8 +33,25 @@ class _DoctorOrPatientScreenState extends State<DoctorOrPatientScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+
+
                     const Center(child: AppSVG(assetName: "splash")),
+                    SizedBox(height: 3.h,),
+                    Text("Let's get acquainted",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18.sp),),
                   SizedBox(height: 5.h,),
+                    IAmItem(
+                      icon: 'patient',
+                      title: 'I am a patient',
+                      containerColor:MyShared.getBoolean(key: MySharedKeys.isDoctor)  ? Colors.grey.shade200:AppColors.primary,
+                      iconColor: MyShared.getBoolean(key: MySharedKeys.isDoctor) ? Colors.black : Colors.white,
+                      onTap: () {
+                        MyShared.putBoolean(
+                            key: MySharedKeys.isDoctor, value: false);
+                        print(MyShared.getBoolean(key: MySharedKeys.isDoctor));
+                        setState(() {});
+                        
+                      }, titleColor: MyShared.getBoolean(key: MySharedKeys.isDoctor) == true ? Colors.black:AppColors.primary,
+                    ),
                     IAmItem(
                       icon: 'doctor',
                       title: 'I am a doctor',
@@ -47,29 +63,14 @@ class _DoctorOrPatientScreenState extends State<DoctorOrPatientScreen> {
                         print(MyShared.getBoolean(key: MySharedKeys.isDoctor) ==
                             true);
                         setState(() {});
-                      },
+
+                      }, titleColor: MyShared.getBoolean(key: MySharedKeys.isDoctor) == true  ? AppColors.primary :Colors.black,
                     ),
-                    IAmItem(
-                      icon: 'patient',
-                      title: 'I am a patient',
-                      containerColor:MyShared.getBoolean(key: MySharedKeys.isDoctor)  ? Colors.grey.shade200:AppColors.primary,
-                      iconColor: MyShared.getBoolean(key: MySharedKeys.isDoctor) ? Colors.black : Colors.white,
-                      onTap: () {
-                        MyShared.putBoolean(
-                            key: MySharedKeys.isDoctor, value: false);
-                        print(MyShared.getBoolean(key: MySharedKeys.isDoctor));
-                        setState(() {});
-                      },
-                    ),
+
                     Spacer(),
                     AppButton(
                       onPressed: () {
-                        if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == true){
-                          push(context, RegisterScreenDoctor());
-                        }
-                        if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == false){
-                          push(context, RegisterScreen());
-                        }
+                          push(context, LoginScreen());
                         },
                       label: S().next,
                       bgColor: AppColors.primary,

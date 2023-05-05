@@ -1,5 +1,5 @@
 /// apiStatus : true
-/// doctorData : {"id":"6437348a4955aafd31f2063c","name":"Salah Naem","img":[{"public_id":"clinicImages/qzfq4webjbgyz4wde5nj","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681356036/clinicImages/qzfq4webjbgyz4wde5nj.jpg","_id":"6437750840decf5f2aa3beca"},{"public_id":"clinicImages/wxhxs2krvfykglyi3kjc","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681356037/clinicImages/wxhxs2krvfykglyi3kjc.jpg","_id":"6437750840decf5f2aa3becb"},{"public_id":"clinicImages/dumtu2z3ux1t7lhnzqwa","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681356038/clinicImages/dumtu2z3ux1t7lhnzqwa.jpg","_id":"6437750840decf5f2aa3becc"},{"public_id":"clinicImages/khx7ietmiiin0txmfczu","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681356039/clinicImages/khx7ietmiiin0txmfczu.jpg","_id":"6437750840decf5f2aa3becd"},{"public_id":"clinicImages/q2fmnnn5hejv2wudg6zt","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681356040/clinicImages/q2fmnnn5hejv2wudg6zt.jpg","_id":"6437750840decf5f2aa3bece"}],"specialize":"Orthopedics (Bones)","rating":4,"Consultation":200,"about":"PhD and Consultant of Oral and Dental Surgery higly specialized in full mouth rehabilitation and reconstruction with over 35 years of experience besides her passion in becoming an artist and drawing the prettiest smiles on her patients faces making her one of the elite dental care providers not only in egypt but in the middle east region Her honesty professionalism and dedication for her patient's satisfaction made her well known among her patients","geolocation":{"type":"Point","coordinates":[31.548224,30.166284]},"ratingsQuantity":5}
+/// doctorData : {"id":"643733944955aafd31f2061a","name":"Mohamed Ahmed","img":[{"public_id":"doctorImages/gsqgmzc3rmprbshognc7","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682555437/doctorImages/gsqgmzc3rmprbshognc7.jpg","_id":"6448b537ebf958889f8fc834"},{"public_id":"clinicImages/fnenrxtuof115r4vhefb","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682486581/clinicImages/fnenrxtuof115r4vhefb.jpg","_id":"6448b537ebf958889f8fc835"},{"public_id":"doctorImages/spzunnrwnzjqxvnhszsb","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682486872/doctorImages/spzunnrwnzjqxvnhszsb.jpg","_id":"6448b537ebf958889f8fc836"},{"public_id":"clinicImages/afho5gjjddpmz0ltsjxj","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682486582/clinicImages/afho5gjjddpmz0ltsjxj.jpg","_id":"6448b537ebf958889f8fc837"}],"specialize":"Cardiology and Vascular Disease (Heart)","rating":1,"city":"cairo","placeNumber":"elshrouk","Consultation":300,"about":"PhD and Consultant of Oral and Dental Surgery higly specialized in full mouth rehabilitation and reconstruction with over 35 years of experience besides her passion in becoming an artist and drawing the prettiest smiles on her patients faces making her one of the elite dental care providers not only in egypt but in the middle east region Her honesty professionalism and dedication for her patient's satisfaction made her well known among her patients","geolocation":{"type":"Point","coordinates":[31.548219,30.16628]},"profilePicture":{"public_id":"doctorImages/bsqz98e0h73wd0oncevi","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682454542/doctorImages/bsqz98e0h73wd0oncevi.jpg"},"ratingsQuantity":0}
 /// message : "doctor data fetched success"
 
 class SingleDoctorModel {
@@ -23,7 +23,7 @@ class SingleDoctorModel {
 
   bool get apiStatus => _apiStatus ?? false;
   DoctorData get doctorData => _doctorData ?? doctorData;
-  String get message => _message ?? "";
+  String get message => _message ?? '';
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -37,15 +37,18 @@ class SingleDoctorModel {
 
 }
 
-/// id : "6437348a4955aafd31f2063c"
-/// name : "Salah Naem"
-/// img : [{"public_id":"clinicImages/qzfq4webjbgyz4wde5nj","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681356036/clinicImages/qzfq4webjbgyz4wde5nj.jpg","_id":"6437750840decf5f2aa3beca"},{"public_id":"clinicImages/wxhxs2krvfykglyi3kjc","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681356037/clinicImages/wxhxs2krvfykglyi3kjc.jpg","_id":"6437750840decf5f2aa3becb"},{"public_id":"clinicImages/dumtu2z3ux1t7lhnzqwa","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681356038/clinicImages/dumtu2z3ux1t7lhnzqwa.jpg","_id":"6437750840decf5f2aa3becc"},{"public_id":"clinicImages/khx7ietmiiin0txmfczu","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681356039/clinicImages/khx7ietmiiin0txmfczu.jpg","_id":"6437750840decf5f2aa3becd"},{"public_id":"clinicImages/q2fmnnn5hejv2wudg6zt","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681356040/clinicImages/q2fmnnn5hejv2wudg6zt.jpg","_id":"6437750840decf5f2aa3bece"}]
-/// specialize : "Orthopedics (Bones)"
-/// rating : 4
-/// Consultation : 200
+/// id : "643733944955aafd31f2061a"
+/// name : "Mohamed Ahmed"
+/// img : [{"public_id":"doctorImages/gsqgmzc3rmprbshognc7","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682555437/doctorImages/gsqgmzc3rmprbshognc7.jpg","_id":"6448b537ebf958889f8fc834"},{"public_id":"clinicImages/fnenrxtuof115r4vhefb","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682486581/clinicImages/fnenrxtuof115r4vhefb.jpg","_id":"6448b537ebf958889f8fc835"},{"public_id":"doctorImages/spzunnrwnzjqxvnhszsb","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682486872/doctorImages/spzunnrwnzjqxvnhszsb.jpg","_id":"6448b537ebf958889f8fc836"},{"public_id":"clinicImages/afho5gjjddpmz0ltsjxj","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682486582/clinicImages/afho5gjjddpmz0ltsjxj.jpg","_id":"6448b537ebf958889f8fc837"}]
+/// specialize : "Cardiology and Vascular Disease (Heart)"
+/// rating : 1
+/// city : "cairo"
+/// placeNumber : "elshrouk"
+/// Consultation : 300
 /// about : "PhD and Consultant of Oral and Dental Surgery higly specialized in full mouth rehabilitation and reconstruction with over 35 years of experience besides her passion in becoming an artist and drawing the prettiest smiles on her patients faces making her one of the elite dental care providers not only in egypt but in the middle east region Her honesty professionalism and dedication for her patient's satisfaction made her well known among her patients"
-/// geolocation : {"type":"Point","coordinates":[31.548224,30.166284]}
-/// ratingsQuantity : 5
+/// geolocation : {"type":"Point","coordinates":[31.548219,30.16628]}
+/// profilePicture : {"public_id":"doctorImages/bsqz98e0h73wd0oncevi","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682454542/doctorImages/bsqz98e0h73wd0oncevi.jpg"}
+/// ratingsQuantity : 0
 
 class DoctorData {
   DoctorData({
@@ -54,18 +57,24 @@ class DoctorData {
       List<Img>? img, 
       String? specialize, 
       num? rating, 
+      String? city, 
+      String? placeNumber, 
       num? consultation, 
       String? about, 
       Geolocation? geolocation, 
+      ProfilePicture? profilePicture, 
       num? ratingsQuantity,}){
     _id = id;
     _name = name;
     _img = img;
     _specialize = specialize;
     _rating = rating;
+    _city = city;
+    _placeNumber = placeNumber;
     _consultation = consultation;
     _about = about;
     _geolocation = geolocation;
+    _profilePicture = profilePicture;
     _ratingsQuantity = ratingsQuantity;
 }
 
@@ -80,9 +89,12 @@ class DoctorData {
     }
     _specialize = json['specialize'];
     _rating = json['rating'];
+    _city = json['city'];
+    _placeNumber = json['placeNumber'];
     _consultation = json['Consultation'];
     _about = json['about'];
     _geolocation = json['geolocation'] != null ? Geolocation.fromJson(json['geolocation']) : null;
+    _profilePicture = json['profilePicture'] != null ? ProfilePicture.fromJson(json['profilePicture']) : null;
     _ratingsQuantity = json['ratingsQuantity'];
   }
   String? _id;
@@ -90,9 +102,12 @@ class DoctorData {
   List<Img>? _img;
   String? _specialize;
   num? _rating;
+  String? _city;
+  String? _placeNumber;
   num? _consultation;
   String? _about;
   Geolocation? _geolocation;
+  ProfilePicture? _profilePicture;
   num? _ratingsQuantity;
 
   String get id => _id ?? "";
@@ -100,9 +115,12 @@ class DoctorData {
   List<Img> get img => _img ?? [];
   String get specialize => _specialize ?? "";
   num get rating => _rating ?? 0;
+  String get city => _city ?? "";
+  String get placeNumber => _placeNumber ?? '';
   num get consultation => _consultation ?? 0;
-  String get about => _about ?? "";
+  String get about => _about ?? '';
   Geolocation get geolocation => _geolocation ?? geolocation;
+  ProfilePicture get profilePicture => _profilePicture ?? profilePicture;
   num get ratingsQuantity => _ratingsQuantity ?? 0;
 
   Map<String, dynamic> toJson() {
@@ -114,10 +132,15 @@ class DoctorData {
     }
     map['specialize'] = _specialize;
     map['rating'] = _rating;
+    map['city'] = _city;
+    map['placeNumber'] = _placeNumber;
     map['Consultation'] = _consultation;
     map['about'] = _about;
     if (_geolocation != null) {
       map['geolocation'] = _geolocation?.toJson();
+    }
+    if (_profilePicture != null) {
+      map['profilePicture'] = _profilePicture?.toJson();
     }
     map['ratingsQuantity'] = _ratingsQuantity;
     return map;
@@ -125,8 +148,38 @@ class DoctorData {
 
 }
 
+/// public_id : "doctorImages/bsqz98e0h73wd0oncevi"
+/// url : "https://res.cloudinary.com/dlivgib8n/image/upload/v1682454542/doctorImages/bsqz98e0h73wd0oncevi.jpg"
+
+class ProfilePicture {
+  ProfilePicture({
+      String? publicId, 
+      String? url,}){
+    _publicId = publicId;
+    _url = url;
+}
+
+  ProfilePicture.fromJson(dynamic json) {
+    _publicId = json['public_id'];
+    _url = json['url'];
+  }
+  String? _publicId;
+  String? _url;
+
+  String get publicId => _publicId ?? "";
+  String get url => _url ?? "";
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['public_id'] = _publicId;
+    map['url'] = _url;
+    return map;
+  }
+
+}
+
 /// type : "Point"
-/// coordinates : [31.548224,30.166284]
+/// coordinates : [31.548219,30.16628]
 
 class Geolocation {
   Geolocation({
@@ -155,9 +208,9 @@ class Geolocation {
 
 }
 
-/// public_id : "clinicImages/qzfq4webjbgyz4wde5nj"
-/// url : "https://res.cloudinary.com/dlivgib8n/image/upload/v1681356036/clinicImages/qzfq4webjbgyz4wde5nj.jpg"
-/// _id : "6437750840decf5f2aa3beca"
+/// public_id : "doctorImages/gsqgmzc3rmprbshognc7"
+/// url : "https://res.cloudinary.com/dlivgib8n/image/upload/v1682555437/doctorImages/gsqgmzc3rmprbshognc7.jpg"
+/// _id : "6448b537ebf958889f8fc834"
 
 class Img {
   Img({
@@ -178,7 +231,7 @@ class Img {
   String? _url;
   String? _id;
 
-  String get publicId => _publicId ?? "";
+  String get publicId => _publicId ?? '';
   String get url => _url ?? "";
   String get id => _id ?? "";
 

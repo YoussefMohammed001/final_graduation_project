@@ -1,4 +1,5 @@
 import 'package:final_graduation_project/core/utils/svg.dart';
+import 'package:final_graduation_project/core/widgets/app_image.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -7,13 +8,14 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class DrProfile extends StatelessWidget {
 
 
-   DrProfile({Key? key, required this.name, required this.numOfReviews, required this.rating, required this.specialization, required this.fees}) : super(key: key);
+   DrProfile({Key? key, required this.name, required this.numOfReviews, required this.rating, required this.specialization, required this.fees, required this.img}) : super(key: key);
   final String name;
   final int numOfReviews;
 
   final double rating;
 
   final String specialization;
+  final String img;
 
   final String fees;
   @override
@@ -25,22 +27,34 @@ class DrProfile extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text("DR. $name",style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold),),
+              Row(
+                children: [
+                  AppImage(imageUrl: img, width: 25.sp, height: 25.sp,
+
+                    topLeftRadius: 50.sp,
+                    topRightRadius: 50.sp,
+                    bottomRightRadius: 50.sp,
+                    bottomLeftRadius: 50.sp,
+                  ),
+                  SizedBox(width: 1.w,),
+                  Text("${S().myAccount} $name",style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
+                ],
+              ),
               const Spacer(),
               Row(
                 children: [
                   RatingBarIndicator(
                     rating: rating,
-                    itemBuilder: (context, index) => Icon(
+                    itemBuilder: (context, index) => const Icon(
                       Icons.star,
                       color: Colors.amber,
                     ),
                     itemCount: 5,
-                    itemSize: 16.sp,
+                    itemSize: 13.sp,
                     direction: Axis.horizontal,
                   ),
 
-                  Text(" $numOfReviews reviews",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold),)
+                  Text("(${rating.toInt()}/5)",style: TextStyle(fontSize: 13.sp,fontWeight: FontWeight.bold),)
                 ],
               ),
 
@@ -63,9 +77,11 @@ class DrProfile extends StatelessWidget {
               SizedBox(
                 width: 0.5.w,
               ),
-              Text(
-                specialization,
-                style: TextStyle(fontSize: 15.sp,color: Colors.grey),
+              Expanded(
+                child: Text(
+                  specialization,
+                  style: TextStyle(fontSize: 15.sp,color: Colors.grey,overflow: TextOverflow.ellipsis),
+                ),
               ),
             ],
           ),

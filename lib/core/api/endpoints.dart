@@ -14,8 +14,13 @@ class EndPoints {
   static const String specializeDoctors = "user/findDoctors";
   static const String addPracticeLicence = "doctor/all/";
   static const String diabetes = "predictDiabetes";
-  static const String addDoctorData = "doctor/doctorData";
+  static const String addDoctorData = "doctor/doctorData/";
   static const String clinicImg = "doctor/clinicImgs";
+  static const String getSlot = "user/getSlot/";
+  static const String makeAppointment = "user/MakeAppointment/";
+  static const String contactUs = "user/contact-us";
+  static const String currentAppointment = "user/current-appointment";
+  static const String predictHeart = "predictHeart";
 
 
 }

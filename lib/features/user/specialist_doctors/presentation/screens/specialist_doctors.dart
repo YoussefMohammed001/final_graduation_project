@@ -9,9 +9,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SpecialistDoctors extends StatefulWidget {
-  const SpecialistDoctors({Key? key, required this.id, required this.title}) : super(key: key);
-final String id;
-final String title;
+  const SpecialistDoctors({Key? key, required this.id, required this.title})
+      : super(key: key);
+  final String id;
+  final String title;
   @override
   State<SpecialistDoctors> createState() => _SpecialistDoctorsState();
 }
@@ -24,7 +25,9 @@ class _SpecialistDoctorsState extends State<SpecialistDoctors> {
     cubit.getDoctors(id: widget.id);
     // TODO: implement initState
     super.initState();
+
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -34,7 +37,7 @@ class _SpecialistDoctorsState extends State<SpecialistDoctors> {
           return Scaffold(
             body: Column(
               children: [
-                 CustomAppBar(
+                CustomAppBar(
                   title: widget.title,
                 ),
                 Expanded(
@@ -73,11 +76,17 @@ class _SpecialistDoctorsState extends State<SpecialistDoctors> {
                                                     context,
                                                     SingleDoctor(
                                                         id: specializeDoctorData
-                                                            .id));
+                                                            .id, img: specializeDoctorData.profilePicture,));
                                               },
+                                              id: specializeDoctorData.id,
+                                              doctorSpecialist: specializeDoctorData.specialize,
+                                              doctorImg: specializeDoctorData.profilePicture,
+                                              doctorName: specializeDoctorData.name,
+                                              doctorPrice: specializeDoctorData.rating.toString(),
                                             );
                                           },
-                                          itemCount: cubit.specializeDoctorData.length,
+                                          itemCount:
+                                              cubit.specializeDoctorData.length,
                                           gridDelegate:
                                               SliverGridDelegateWithFixedCrossAxisCount(
                                                   crossAxisCount: 2,

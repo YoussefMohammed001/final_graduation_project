@@ -144,32 +144,47 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
                                         padding: EdgeInsets.symmetric(
                                             vertical: 20.sp),
                                         child: Stack(
-                                          alignment: AlignmentDirectional.bottomCenter,
+                                          alignment:
+                                              AlignmentDirectional.bottomCenter,
                                           children: [
                                             Container(
-                                              margin: EdgeInsets.only(bottom: 10.sp),
+                                              margin: EdgeInsets.only(
+                                                  bottom: 10.sp),
                                               width: 50.sp,
                                               height: 40.sp,
                                               decoration: BoxDecoration(
-                                                color: Colors.grey[200],
-                                                borderRadius: BorderRadius.circular(15.sp)
-                                              ),
-                                              child:  _image ==null ?  const Text("Personal photo") :
-                                              ClipRRect(
-                                                borderRadius: BorderRadius.circular(15.sp),
-                                                child: Image.file(_image!,fit: BoxFit.fill,),
-
-                                              ),
+                                                  color: Colors.grey[200],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15.sp)),
+                                              child: _image == null
+                                                  ? Center(
+                                                      child: Text(
+                                                      "Personal photo",
+                                                      style: TextStyle(
+                                                          fontSize: 13.sp),
+                                                    ))
+                                                  : ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.sp),
+                                                      child: Image.file(
+                                                        _image!,
+                                                        fit: BoxFit.fill,
+                                                      ),
+                                                    ),
                                             ),
                                             InkWell(
                                                 onTap: uploadProfileImage,
-
                                                 child: Container(
-                                                    child: Icon(Icons.linked_camera,color: AppColors.primary,)))
+
+                                                    child: const Icon(
+                                                  Icons.linked_camera,
+                                                  color: AppColors.primary,
+                                                )))
                                           ],
                                         ),
                                       ),
-
                                     ],
                                   ),
                                   SizedBox(
@@ -277,7 +292,8 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
                                       ),
                                       AppButton(
                                         onPressed: () {
-                                          if (formKey.currentState!.validate()) {
+                                          if (formKey.currentState!
+                                              .validate()) {
                                             int phone = int.parse(
                                                 mobileController.text);
                                             if (_image != null) {
@@ -294,11 +310,12 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
                                                       .dropDownValue!.value,
                                                   image:
                                                       _image!.path.toString());
-                                            } if(_image == null){
-                                              showError("please put your image");
+                                            }
+                                            if (_image == null) {
+                                              showError(
+                                                  "please put your image");
                                             }
                                           }
-
                                         },
                                         label: S().joinNow,
                                         bgColor: AppColors.primary,

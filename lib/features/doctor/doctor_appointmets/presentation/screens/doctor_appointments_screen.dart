@@ -1,6 +1,6 @@
-import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
-import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
-import 'package:final_graduation_project/features/user/home/presentation/widgets/home_app_bar.dart';
+import 'package:final_graduation_project/features/doctor/doctor_appointmets/presentation/widgets/doctor_appointments_item.dart';
+import 'package:final_graduation_project/features/user/appoinntment/presentation/widgets/apppointment_app_bar.dart';
+import 'package:final_graduation_project/features/user/appoinntment/presentation/widgets/switch.dart';
 import 'package:flutter/material.dart';
 
 class DoctorAppointmentsScreen extends StatelessWidget {
@@ -9,13 +9,12 @@ TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       body: Column(
         children: [
-          HomeAppBar(
-            userImage: MyShared.getString(key: MySharedKeys.patientImage),
-            searchController: searchController,
-            user: MyShared.getString(key: MySharedKeys.username),
-          ),
+
+          const ApppointmentAppBar(),
+          SwitchAppointment(),
           Expanded(
             child: LayoutBuilder(
                 builder: (context, constrains) => SingleChildScrollView(
@@ -26,7 +25,7 @@ TextEditingController searchController = TextEditingController();
                     child: IntrinsicHeight(
                       child: Column(
                         children: [
-
+                          DoctorAppointmentItems()
                         ],
                       ),
                     ),

@@ -4,6 +4,7 @@ import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
+import 'package:final_graduation_project/features/user/home/presentation/widgets/search_text_field.dart';
 import 'package:final_graduation_project/features/user/nearest_doctors_screen/presentation/screens/nearest_doctor_screen.dart';
 import 'package:final_graduation_project/features/user/notifications/presentation/screens/notifications_screen.dart';
 import 'package:final_graduation_project/features/user/notifications/presentation/widgets/notification_widgets.dart';
@@ -144,16 +145,12 @@ class _HomeAppBarState extends State<HomeAppBar> {
                 });
               },
 
-              child: MyTextFormField(
-                isSearch: true,
-                enabled: false,
+              child: SearchTextFiled(
+
                 margin: EdgeInsets.all(15.sp),
                 padding: EdgeInsets.all(25.sp),
                 hint: S().searchForNearestDoctor,
-                controller: widget.searchController,
-                isPassword: false,
-                textInputAction: TextInputAction.search,
-                textInputType: TextInputType.text,
+
               ),
             ),
           ),

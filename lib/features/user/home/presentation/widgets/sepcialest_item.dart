@@ -2,6 +2,7 @@ import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/features/user/specialist_doctors/presentation/screens/specialist_doctors.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -57,8 +58,7 @@ class SpecialistItem extends StatelessWidget {
               ),
             ),
             SizedBox(height: 1.h,),
-            Text(
-              doctorsNumber,
+            Text(doctorsNumber,
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.grey, fontSize: 12.sp),
             ),

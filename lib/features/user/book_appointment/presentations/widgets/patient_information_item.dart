@@ -119,7 +119,7 @@ class _PatientInformationItemState extends State<PatientInformationItem> {
                         }
                       },
                       hint: widget.patientMobile,
-                      title: 'Patient Mobile',
+                      title: S().mobileNumber,
                       enabled: anotherPatient,
                       hintDisabled: widget.patientMobile,
                       hintEnabled: S().phoneNumber,
@@ -132,7 +132,7 @@ class _PatientInformationItemState extends State<PatientInformationItem> {
                     ),
                     AppointmentTextFormField(
                       hint: widget.patientNote,
-                      title: 'Note',
+                      title: S().note,
                       enabled: true,
                       hintDisabled: widget.patientNote,
                       hintEnabled: S().note,

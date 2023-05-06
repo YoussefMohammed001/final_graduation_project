@@ -5,6 +5,8 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
+import 'package:final_graduation_project/core/utils/pick_image_dialogue.dart';
+import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
@@ -49,9 +51,9 @@ class _profileDetailsScreenState extends State<profileDetailsScreen> {
   File? _image;
   final pickedFile = ImagePicker();
 
-  uploadImage() async {
+  uploadImage(ImageSource source) async {
     // ignore: deprecated_member_use
-    var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
+    var pickedImage = await pickedFile.getImage(source: source);
     if (pickedImage != null) {
       setState(() {
         _image = File(pickedImage.path);
@@ -118,7 +120,18 @@ class _profileDetailsScreenState extends State<profileDetailsScreen> {
                               userImage: MyShared.getString(
                                   key: MySharedKeys.patientImage),
                               onTap: () {
-                                uploadImage();
+                                dialogBuilder(context,() {
+                                  uploadImage(ImageSource.camera);
+                                  pop(context);
+                                  safePrint("camera");
+                                },
+                                () {
+                                  uploadImage(ImageSource.gallery);
+                                  pop(context);
+                                  safePrint("gallery");
+
+                                },
+                                );
                               },
                             ),
                             SizedBox(height: 3.h),

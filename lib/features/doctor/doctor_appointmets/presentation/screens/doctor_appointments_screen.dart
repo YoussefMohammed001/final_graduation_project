@@ -14,7 +14,7 @@ TextEditingController searchController = TextEditingController();
         children: [
 
           const ApppointmentAppBar(),
-          SwitchAppointment(),
+          SwitchAppointment(current: () {  }, previous: () {  },),
           Expanded(
             child: LayoutBuilder(
                 builder: (context, constrains) => SingleChildScrollView(

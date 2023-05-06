@@ -1,3 +1,4 @@
+import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -21,7 +22,6 @@ class MyTextFormField extends StatefulWidget {
     this.enabled =true,
   }) : super(key: key);
   final Color textColor;
-  final String hint;
   final bool isPassword;
   final int maxLines;
   final int minLines;
@@ -31,6 +31,8 @@ class MyTextFormField extends StatefulWidget {
   final TextEditingController controller;
   final TextInputAction textInputAction;
   final TextInputType textInputType;
+  final String hint;
+
   BorderRadius? borderRadius;
   EdgeInsetsGeometry? margin;
   EdgeInsetsGeometry? padding;
@@ -58,6 +60,7 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
             keyboardType: widget.textInputType,
             textInputAction: widget.textInputAction,
             decoration: InputDecoration(
+
               suffixIcon: Visibility(
                 visible: widget.isPassword,
                 child: InkWell(

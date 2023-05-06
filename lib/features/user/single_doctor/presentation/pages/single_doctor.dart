@@ -134,7 +134,7 @@ class _SingleDoctorState extends State<SingleDoctor> {
                                         thickness: 12.sp,
                                         color: Colors.grey.shade200,
                                       ),
-                                      const DrLocation(),
+                                       DrLocation(location: "${cubit.singleDoctorData.city} - ${cubit.singleDoctorData.placeNumber}" ,),
                                       Divider(
                                         height: 10.sp,
                                         thickness: 12.sp,

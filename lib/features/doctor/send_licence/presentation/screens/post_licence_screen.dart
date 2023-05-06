@@ -28,7 +28,6 @@ class _PostLicenceScreenState extends State<PostLicenceScreen> {
   File? _image;
 
   final pickedFile = ImagePicker();
-
   uploadImage() async {
     // ignore: deprecated_member_use
     var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);

@@ -2,16 +2,17 @@ import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+bool current = true;
 
 class SwitchAppointment extends StatefulWidget {
-  SwitchAppointment({Key? key}) : super(key: key);
-
+  const SwitchAppointment({Key? key, required this.current, required this.previous}) : super(key: key);
+final VoidCallback current;
+final VoidCallback previous;
   @override
   State<SwitchAppointment> createState() => _SwitchAppointmentState();
 }
 
 class _SwitchAppointmentState extends State<SwitchAppointment> {
-  bool current = true;
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +26,7 @@ class _SwitchAppointmentState extends State<SwitchAppointment> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           InkWell(
-            onTap: (){
-              current = true;
-              setState(() {
-
-              });
-              },
+            onTap: widget.current,
               child: Container(
                 padding: EdgeInsets.all(17.sp),
 
@@ -42,12 +38,7 @@ class _SwitchAppointmentState extends State<SwitchAppointment> {
           ),
               )),
           InkWell(
-            onTap: (){
-              current = false;
-              setState(() {
-
-              });
-            },
+            onTap: widget.previous,
               child: Container(
                 padding: EdgeInsets.all(17.sp),
                 child: Text(

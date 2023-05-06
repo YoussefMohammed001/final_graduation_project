@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
+import 'package:final_graduation_project/core/utils/pick_image_dialogue.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
@@ -26,14 +27,12 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
   File? _image;
   final pickedFile = ImagePicker();
 
-  uploadImage() async {
-
+  uploadImage(ImageSource source) async {
     // ignore: deprecated_member_use
-    var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
+    var pickedImage = await pickedFile.getImage(source: source);
     if (pickedImage != null) {
       setState(() {
         _image = File(pickedImage.path);
-
       });
     }
   }
@@ -47,7 +46,7 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
       child: Scaffold(
         body: Column(
           children: [
-             CustomAppBar(
+            CustomAppBar(
               title: S().skinCancer,
             ),
             Expanded(
@@ -85,10 +84,8 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
                                     controller: male,
                                     enabled: false,
                                     count: 2,
-
-                                    dropDownList:  [
+                                    dropDownList: [
                                       DropDownValueModel(
-
                                           name: S().male, value: 0),
                                       DropDownValueModel(
                                           name: S().female, value: 1),
@@ -106,7 +103,21 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
                                     height: 2.h,
                                   ),
                                   SkinCancerTextFormField(
-                                    onTap: uploadImage,
+                                    onTap: () {
+                                      dialogBuilder(
+                                        context,
+                                        () {
+                                          uploadImage(ImageSource.camera);
+                                          pop(context);
+                                          safePrint("camera");
+                                        },
+                                        () {
+                                          uploadImage(ImageSource.gallery);
+                                          pop(context);
+                                          safePrint("gallery");
+                                        },
+                                      );
+                                    },
                                     widget: _image == null
                                         ? const Icon(Icons.add_photo_alternate)
                                         : Container(

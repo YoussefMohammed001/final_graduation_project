@@ -25,7 +25,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
       child: Row(
 
         children: [
-           Text(S().dr,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+           Text(S().myAccount,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
          const Spacer(),
           InkWell(
 

@@ -1,3 +1,5 @@
+import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/features/user/appoinntment/data/patient_appointments_model.dart';
 import 'package:final_graduation_project/features/user/appoinntment/presentation/manager/patients_appointmetns_cubit.dart';
@@ -33,7 +35,25 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
             body: Column(
               children: [
                 const ApppointmentAppBar(),
-                SwitchAppointment(),
+                SwitchAppointment(
+                  current: () {
+setState(() {
+  current = true;
+  MyShared.putBoolean(key: MySharedKeys.currentAppointment, value: true);
+  cubit.getAppointemnts();
+});
+
+
+                  },
+                  previous: () {
+                    setState(() {
+                      MyShared.putBoolean(key: MySharedKeys.currentAppointment, value: false);
+                      current =false;
+                      cubit.getAppointemnts();
+
+                    });
+                  },
+                ),
                 Expanded(
                   child: ListView.builder(
                     shrinkWrap: false,
@@ -50,7 +70,10 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                         day: patientAppointments.day,
                         rating: patientAppointments.rating.toDouble(),
                         text: patientAppointments.status,
-                        color: patientAppointments.status == "accepted" ?  AppColors.primary :Colors.red, time: patientAppointments.time,
+                        color: patientAppointments.status == "accepted"
+                            ? AppColors.primary
+                            : Colors.red,
+                        time: patientAppointments.time,
                       );
                     },
                     itemCount: cubit.patientAppointments.length,

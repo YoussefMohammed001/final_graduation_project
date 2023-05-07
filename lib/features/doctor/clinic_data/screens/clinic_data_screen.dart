@@ -420,8 +420,8 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                           textInputAction: TextInputAction.next,
                                           textInputType: TextInputType.text,
                                           onTap: () {
-                                            cubit.updateDoctorNameAr(
-                                                name: nameAr.text);
+                                            // cubit.updateDoctorNameAr(
+                                            //     name: nameAr.text);
                                           },
                                         )),
                                     SizedBox(
@@ -440,8 +440,8 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
                                       onTap: () {
-                                        cubit.updateDoctorNameAbout(
-                                            about: about.text);
+                                        // cubit.updateDoctorNameAbout(
+                                        //     about: about.text);
                                       },
                                     ),
                                     SizedBox(
@@ -462,8 +462,8 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                           textInputAction: TextInputAction.next,
                                           textInputType: TextInputType.text,
                                           onTap: () {
-                                            cubit.updateDoctorNameAboutAr(
-                                                aboutAr: aboutAr.text);
+                                            // cubit.updateDoctorNameAboutAr(
+                                            //     aboutAr: aboutAr.text);
                                           },
                                         )),
                                     SizedBox(
@@ -482,8 +482,8 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
                                       onTap: () {
-                                        cubit.updateDoctorExperience(
-                                            experience: experince.text);
+                                        // cubit.updateDoctorExperience(
+                                        //     experience: experince.text);
                                       },
                                     ),
                                     SizedBox(
@@ -502,8 +502,8 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
                                       onTap: () {
-                                        cubit.updateDoctorWaitingTime(
-                                            waitingTime: waitingTime.text);
+                                        // cubit.updateDoctorWaitingTime(
+                                        //     waitingTime: waitingTime.text);
                                       },
                                     ),
                                     SizedBox(
@@ -522,7 +522,7 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
                                       onTap: () {
-                                        cubit.updateDoctorFees(fees: fees.text);
+                                        // cubit.updateDoctorFees(fees: fees.text);
                                       },
                                     ),
                                     SizedBox(
@@ -567,7 +567,7 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
                                       onTap: () {
-                                        cubit.updateDoctorCity(city: city.text);
+                                        // cubit.updateDoctorCity(city: city.text);
                                       },
                                     ),
                                     SizedBox(
@@ -588,8 +588,8 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                           textInputAction: TextInputAction.next,
                                           textInputType: TextInputType.text,
                                           onTap: () {
-                                            cubit.updateDoctorCityAR(
-                                                cityAR: cityAr.text);
+                                            // cubit.updateDoctorCityAR(
+                                            //     cityAR: cityAr.text);
                                           },
                                         )),
                                     SizedBox(
@@ -608,8 +608,8 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
                                       onTap: () {
-                                        cubit.updateDoctorPlaceNO(
-                                            placeNO: place.text);
+                                        // cubit.updateDoctorPlaceNO(
+                                        //     placeNO: place.text);
                                       },
                                     ),
                                     SizedBox(
@@ -630,8 +630,8 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                           textInputAction: TextInputAction.next,
                                           textInputType: TextInputType.text,
                                           onTap: () {
-                                            cubit.updateDoctorPlaceNOAr(
-                                                placeNOAr: placeAr.text);
+                                            // cubit.updateDoctorPlaceNOAr(
+                                            //     placeNOAr: placeAr.text);
                                           },
                                         )),
                                     SizedBox(

@@ -1,35 +1,35 @@
 /// apiStatus : true
-/// doctorData : {"practiceLicense":{"url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"},"address":{"city":"10ofRamadan","city_ar":"العاشر من رمضان","placeNumber":"elshrqia 10ofRamadan street Ammar abn yas","placeNumber_ar":"محافظه الشرقيه العاشر من رمضان مجاوره الخامسه شارع عمار بن ياسر"},"geolocation":{"type":"Point","coordinates":[31.740758,30.287383]},"userId":{"profilePicture":{"url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"},"_id":"64449f71d647c79c57d8d1b9","name":"Ahmed Osama","status":"pending","phone":78282823882},"specializeId":"64346c45565b50f6ec228ea7","ratingsQuantity":0,"createdAt":"2023-04-23T03:01:09.891Z","updatedAt":"2023-04-23T03:01:55.967Z","__v":0,"about":"Consultant of Neurology at neuropsychiatry Department in Police Hospitals MD in neuropsychaitry medicine Masters degree of Neurology and Psychiatry Specialists in treatment of knee osteoarthritis without surgery by hyaluronic acid intra-articular injection and PRP ","about_ar":"استشاري امراض المخ والاعصاب بقسم الطب النفسي العصبي بمستشفيات الشرطة دكتوراه طب الاعصاب ماجستير طب الاعصاب والطب النفسي متخصصون في علاج هشاشة العظام بدون جراحة عن طريق حقن حمض الهيالورونيك داخل المفصل و PRP","website":"https://www.facebook.com/dr.ahmed.rafeek/","experience":"3","waitingTime":"14","name_ar":"ساره محمد","id":"64449f75d647c79c57d8d1bc"}
+/// data : {"practiceLicense":{"public_id":"doctorImages/vzwxrgptkk4pgsanfx3l","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682980697/doctorImages/vzwxrgptkk4pgsanfx3l.jpg"},"address":{"city":"10ofRamadan","city_ar":"العاشر من رمضان","placeNumber":"elshrqia 10ofRamadan street Ammar abn yas","placeNumber_ar":"محافظه الشرقيه العاشر من رمضان مجاوره الخامسه شارع عمار بن ياسر"},"geolocation":{"type":"Point","coordinates":[31.740757,30.287382]},"_id":"644d1bffa6ea9bbfd66c2a92","userId":{"profilePicture":{"public_id":"userImages/e5xhyqpprfqh38u7ql1u","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682775040/userImages/e5xhyqpprfqh38u7ql1u.jpg"},"_id":"644d1bffa6ea9bbfd66c2a8f","name":"Khaled Atia","status":"pending","Notification":[],"phone":1027372920},"specializeId":{"_id":"64346c45565b50f6ec228ea7","name":"Dentistry (teeth)","name_ar":"اسنان"},"ratingAverage":1,"ratingsQuantity":0,"img":[{"public_id":"doctorImages/bqxuuldsp7qgxgmduuwp","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682776328/doctorImages/bqxuuldsp7qgxgmduuwp.jpg","_id":"644d20a8bcd079eba56ee53e"},{"public_id":"clinicImages/xmnizgx4nkv1io9x1jhr","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682776225/clinicImages/xmnizgx4nkv1io9x1jhr.jpg","_id":"644d20a8bcd079eba56ee53f"},{"public_id":"clinicImages/eu5fmvwodt7rb3s5ylgl","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682776227/clinicImages/eu5fmvwodt7rb3s5ylgl.jpg","_id":"644d20a8bcd079eba56ee540"},{"public_id":"clinicImages/we4a2tabghuxhmzbzbfm","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682776230/clinicImages/we4a2tabghuxhmzbzbfm.jpg","_id":"644d20a8bcd079eba56ee541"},{"public_id":"clinicImages/gv98uwyuew6apcombklk","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1683407908/clinicImages/gv98uwyuew6apcombklk.jpg","_id":"6456c4269db73674ee159ae1"},{"public_id":"clinicImages/j2k9p0vlhztskx4fxtd8","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1683407908/clinicImages/j2k9p0vlhztskx4fxtd8.jpg","_id":"6456c4269db73674ee159ae2"},{"public_id":"clinicImages/k4h5k9lznvq1p7fwdwqo","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1683407909/clinicImages/k4h5k9lznvq1p7fwdwqo.jpg","_id":"6456c4269db73674ee159ae3"},{"public_id":"clinicImages/etfekzzurrkeelqjyq0a","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1683407909/clinicImages/etfekzzurrkeelqjyq0a.jpg","_id":"6456c4269db73674ee159ae4"},{"public_id":"clinicImages/hnm1rsbzme6jyhspijx3","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1683407910/clinicImages/hnm1rsbzme6jyhspijx3.jpg","_id":"6456c4269db73674ee159ae5"}],"createdAt":"2023-04-29T13:30:42.103Z","updatedAt":"2023-05-06T21:19:04.251Z","__v":2,"about":"Consultant of Neurology at neuropsychiatry Department in Police Hospitals MD in neuropsychaitry medicine Masters degree of Neurology and Psychiatry Specialists in treatment of knee osteoarthritis without surgery by hyaluronic acid intra-articular injection and PRP ","about_ar":"استشاري امراض المخ والاعصاب بقسم الطب النفسي العصبي بمستشفيات الشرطة دكتوراه طب الاعصاب ماجستير طب الاعصاب والطب النفسي متخصصون في علاج هشاشة العظام بدون جراحة عن طريق حقن حمض الهيالورونيك داخل المفصل و PRP","experience":"3","feesPerCunsaltation":200,"name_ar":"خالد محمد ","waitingTime":"14","website":"https://www.facebook.com/dr.ahmed.rafeek/","id":"644d1bffa6ea9bbfd66c2a92"}
 /// message : "doctor Data added success"
 
 class AddDoctorData {
   AddDoctorData({
       bool? apiStatus, 
-      DoctorData? doctorData, 
+      Data? data, 
       String? message,}){
     _apiStatus = apiStatus;
-    _doctorData = doctorData;
+    _data = data;
     _message = message;
 }
 
   AddDoctorData.fromJson(dynamic json) {
     _apiStatus = json['apiStatus'];
-    _doctorData = json['data'] != null ? DoctorData.fromJson(json['data']) : null;
+    _data = json['data'] != null ? Data.fromJson(json['data']) : null;
     _message = json['message'];
   }
   bool? _apiStatus;
-  DoctorData? _doctorData;
+  Data? _data;
   String? _message;
 
   bool get apiStatus => _apiStatus ?? false;
-  DoctorData get doctorData => _doctorData ?? doctorData ;
-  String get message => _message ?? "";
+  Data get data => _data ?? Data();
+  String get message => _message ?? '';
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['apiStatus'] = _apiStatus;
-    if (_doctorData != null) {
-      map['data'] = _doctorData?.toJson();
+    if (_data != null) {
+      map['data'] = _data?.toJson();
     }
     map['message'] = _message;
     return map;
@@ -37,110 +37,106 @@ class AddDoctorData {
 
 }
 
-/// practiceLicense : {"url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"}
-/// address : {"city":"10ofRamadan","city_ar":"العاشر من رمضان","placeNumber":"elshrqia 10ofRamadan street Ammar abn yas","placeNumber_ar":"محافظه الشرقيه العاشر من رمضان مجاوره الخامسه شارع عمار بن ياسر"}
-/// geolocation : {"type":"Point","coordinates":[31.740758,30.287383]}
-/// userId : {"profilePicture":{"url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"},"_id":"64449f71d647c79c57d8d1b9","name":"Ahmed Osama","status":"pending","phone":78282823882}
-/// specializeId : "64346c45565b50f6ec228ea7"
-/// ratingsQuantity : 0
-/// createdAt : "2023-04-23T03:01:09.891Z"
-/// updatedAt : "2023-04-23T03:01:55.967Z"
-/// __v : 0
-/// about : "Consultant of Neurology at neuropsychiatry Department in Police Hospitals MD in neuropsychaitry medicine Masters degree of Neurology and Psychiatry Specialists in treatment of knee osteoarthritis without surgery by hyaluronic acid intra-articular injection and PRP "
-/// about_ar : "استشاري امراض المخ والاعصاب بقسم الطب النفسي العصبي بمستشفيات الشرطة دكتوراه طب الاعصاب ماجستير طب الاعصاب والطب النفسي متخصصون في علاج هشاشة العظام بدون جراحة عن طريق حقن حمض الهيالورونيك داخل المفصل و PRP"
-/// website : "https://www.facebook.com/dr.ahmed.rafeek/"
-/// experience : "3"
-/// waitingTime : "14"
-/// name_ar : "ساره محمد"
-/// id : "64449f75d647c79c57d8d1bc"
 
-class DoctorData {
-  DoctorData({
+class Data {
+  Data({
       PracticeLicense? practiceLicense, 
       Address? address, 
       Geolocation? geolocation, 
-      UserId? userId, 
-      String? specializeId, 
+      String? id, 
+
+      num? ratingAverage, 
       num? ratingsQuantity, 
+
       String? createdAt, 
       String? updatedAt, 
       num? v, 
       String? about, 
       String? aboutAr, 
-      String? website, 
       String? experience, 
-      String? waitingTime, 
+      num? feesPerCunsaltation, 
       String? nameAr, 
-      String? id,}){
+      String? waitingTime, 
+      String? website, 
+      String? Doctorid,}){
     _practiceLicense = practiceLicense;
     _address = address;
     _geolocation = geolocation;
-    _userId = userId;
-    _specializeId = specializeId;
+    _id = id;
+
+    _ratingAverage = ratingAverage;
     _ratingsQuantity = ratingsQuantity;
     _createdAt = createdAt;
     _updatedAt = updatedAt;
     _v = v;
     _about = about;
     _aboutAr = aboutAr;
-    _website = website;
     _experience = experience;
-    _waitingTime = waitingTime;
+    _feesPerCunsaltation = feesPerCunsaltation;
     _nameAr = nameAr;
+    _waitingTime = waitingTime;
+    _website = website;
     _id = id;
 }
 
-  DoctorData.fromJson(dynamic json) {
+  Data.fromJson(dynamic json) {
     _practiceLicense = json['practiceLicense'] != null ? PracticeLicense.fromJson(json['practiceLicense']) : null;
     _address = json['address'] != null ? Address.fromJson(json['address']) : null;
     _geolocation = json['geolocation'] != null ? Geolocation.fromJson(json['geolocation']) : null;
-    _userId = json['userId'] != null ? UserId.fromJson(json['userId']) : null;
-    _specializeId = json['specializeId'];
+    _id = json['_id'];
+      _ratingAverage = json['ratingAverage'];
     _ratingsQuantity = json['ratingsQuantity'];
+
     _createdAt = json['createdAt'];
     _updatedAt = json['updatedAt'];
     _v = json['__v'];
     _about = json['about'];
     _aboutAr = json['about_ar'];
-    _website = json['website'];
     _experience = json['experience'];
-    _waitingTime = json['waitingTime'];
+    _feesPerCunsaltation = json['feesPerCunsaltation'];
     _nameAr = json['name_ar'];
-    _id = json['id'];
+    _waitingTime = json['waitingTime'];
+    _website = json['website'];
+    _Doctorid = json['id'];
   }
   PracticeLicense? _practiceLicense;
   Address? _address;
   Geolocation? _geolocation;
-  UserId? _userId;
-  String? _specializeId;
+  String? _id;
+
+  num? _ratingAverage;
   num? _ratingsQuantity;
+
   String? _createdAt;
   String? _updatedAt;
   num? _v;
   String? _about;
   String? _aboutAr;
-  String? _website;
   String? _experience;
-  String? _waitingTime;
+  num? _feesPerCunsaltation;
   String? _nameAr;
-  String? _id;
+  String? _waitingTime;
+  String? _website;
+  String? _Doctorid;
 
-  PracticeLicense get practiceLicense => _practiceLicense ?? practiceLicense;
-  Address get address => _address ?? address;
-  Geolocation get geolocation => _geolocation ?? geolocation;
-  UserId get userId => _userId?? userId;
-  String get specializeId => _specializeId??"";
-  num get ratingsQuantity => _ratingsQuantity?? 0;
-  String get createdAt => _createdAt?? "";
-  String get updatedAt => _updatedAt?? "";
-  num get v => _v?? 0;
-  String get about => _about?? "";
-  String get aboutAr => _aboutAr?? "";
-  String get website => _website?? "";
-  String get experience => _experience?? "";
-  String get waitingTime => _waitingTime?? "";
-  String get nameAr => _nameAr ?? "";
+  PracticeLicense get practiceLicense => _practiceLicense ?? PracticeLicense();
+  Address get address => _address ?? Address();
+  Geolocation get geolocation => _geolocation ?? Geolocation();
   String get id => _id ?? "";
+
+  num get ratingAverage => _ratingAverage ?? 0;
+  num get ratingsQuantity => _ratingsQuantity ?? 0;
+  String get createdAt => _createdAt ?? "";
+  String get updatedAt => _updatedAt ?? "";
+  num get v => _v ?? 0;
+  String get about => _about ?? "";
+  String get aboutAr => _aboutAr ?? "";
+  String get experience => _experience  ?? '';
+  num get feesPerCunsaltation => _feesPerCunsaltation ?? 0;
+  String get nameAr => _nameAr ?? '';
+  String get waitingTime => _waitingTime ?? "";
+  String get website => _website  ?? "";
+  String get Doctorid => _id  ?? "";
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -153,105 +149,25 @@ class DoctorData {
     if (_geolocation != null) {
       map['geolocation'] = _geolocation?.toJson();
     }
-    if (_userId != null) {
-      map['userId'] = _userId?.toJson();
-    }
-    map['specializeId'] = _specializeId;
+    map['_id'] = _id;
+    map['ratingAverage'] = _ratingAverage;
     map['ratingsQuantity'] = _ratingsQuantity;
+
     map['createdAt'] = _createdAt;
     map['updatedAt'] = _updatedAt;
     map['__v'] = _v;
     map['about'] = _about;
     map['about_ar'] = _aboutAr;
-    map['website'] = _website;
     map['experience'] = _experience;
-    map['waitingTime'] = _waitingTime;
+    map['feesPerCunsaltation'] = _feesPerCunsaltation;
     map['name_ar'] = _nameAr;
+    map['waitingTime'] = _waitingTime;
+    map['website'] = _website;
     map['id'] = _id;
     return map;
   }
 
 }
-
-/// profilePicture : {"url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"}
-/// _id : "64449f71d647c79c57d8d1b9"
-/// name : "Ahmed Osama"
-/// status : "pending"
-/// phone : 78282823882
-
-class UserId {
-  UserId({
-      ProfilePicture? profilePicture, 
-      String? id, 
-      String? name, 
-      String? status, 
-      num? phone,}){
-    _profilePicture = profilePicture;
-    _id = id;
-    _name = name;
-    _status = status;
-    _phone = phone;
-}
-
-  UserId.fromJson(dynamic json) {
-    _profilePicture = json['profilePicture'] != null ? ProfilePicture.fromJson(json['profilePicture']) : null;
-    _id = json['_id'];
-    _name = json['name'];
-    _status = json['status'];
-    _phone = json['phone'];
-  }
-  ProfilePicture? _profilePicture;
-  String? _id;
-  String? _name;
-  String? _status;
-  num? _phone;
-
-  ProfilePicture get profilePicture => _profilePicture ?? profilePicture;
-  String get id => _id ?? "";
-  String get name => _name ?? "";
-  String get status => _status ?? "";
-  num get phone => _phone ?? 0;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    if (_profilePicture != null) {
-      map['profilePicture'] = _profilePicture?.toJson();
-    }
-    map['_id'] = _id;
-    map['name'] = _name;
-    map['status'] = _status;
-    map['phone'] = _phone;
-    return map;
-  }
-
-}
-
-/// url : "https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"
-
-class ProfilePicture {
-  ProfilePicture({
-      String? url,}){
-    _url = url;
-}
-
-  ProfilePicture.fromJson(dynamic json) {
-    _url = json['url'];
-  }
-  String? _url;
-
-  String? get url => _url;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['url'] = _url;
-    return map;
-  }
-
-}
-
-/// type : "Point"
-/// coordinates : [31.740758,30.287383]
-
 class Geolocation {
   Geolocation({
       String? type, 
@@ -267,8 +183,8 @@ class Geolocation {
   String? _type;
   List<num>? _coordinates;
 
-  String? get type => _type;
-  List<num>? get coordinates => _coordinates;
+  String get type => _type ?? "";
+  List<num> get coordinates => _coordinates ?? [];
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -307,10 +223,10 @@ class Address {
   String? _placeNumber;
   String? _placeNumberAr;
 
-  String? get city => _city;
-  String? get cityAr => _cityAr;
-  String? get placeNumber => _placeNumber;
-  String? get placeNumberAr => _placeNumberAr;
+  String get city => _city ?? '';
+  String get cityAr => _cityAr ?? "";
+  String get placeNumber => _placeNumber ?? '';
+  String get placeNumberAr => _placeNumberAr ?? "";
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -323,23 +239,30 @@ class Address {
 
 }
 
-/// url : "https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"
+/// public_id : "doctorImages/vzwxrgptkk4pgsanfx3l"
+/// url : "https://res.cloudinary.com/dlivgib8n/image/upload/v1682980697/doctorImages/vzwxrgptkk4pgsanfx3l.jpg"
 
 class PracticeLicense {
   PracticeLicense({
+      String? publicId, 
       String? url,}){
+    _publicId = publicId;
     _url = url;
 }
 
   PracticeLicense.fromJson(dynamic json) {
+    _publicId = json['public_id'];
     _url = json['url'];
   }
+  String? _publicId;
   String? _url;
 
-  String? get url => _url;
+  String get publicId => _publicId ?? '';
+  String get url => _url ?? "";
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+    map['public_id'] = _publicId;
     map['url'] = _url;
     return map;
   }

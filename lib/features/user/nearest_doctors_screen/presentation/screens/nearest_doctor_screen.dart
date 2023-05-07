@@ -71,10 +71,10 @@ class _NearestDoctorScreenState extends State<NearestDoctorScreen> {
                                                     ));
                                               },
                                               id: near.id,
-                                              doctorSpecialist: '',
-                                              doctorImg: '',
-                                              doctorName: '',
-                                              doctorPrice: '',
+                                              doctorSpecialist: near.specialize,
+                                              doctorImg: near.profilePicture,
+                                              doctorName: near.name,
+                                              doctorPrice: near.name,
                                             );
                                           },
                                           itemCount: cubit.nearestData.length,

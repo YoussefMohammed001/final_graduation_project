@@ -5,6 +5,8 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
+import 'package:final_graduation_project/core/utils/pick_image_dialogue.dart';
+import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/features/doctor/add_clinic_data/presentation/manager/doctor_data_images_cubit.dart';
 import 'package:final_graduation_project/features/doctor/send_licence/presentation/screens/congratulation_screen.dart';
@@ -29,15 +31,12 @@ class _AddClinicImagesState extends State<AddClinicImages> {
   File? _image4;
   File? _image5;
 
-  final pickedFile1 = ImagePicker();
-  final pickedFile2 = ImagePicker();
-  final pickedFile3 = ImagePicker();
-  final pickedFile4 = ImagePicker();
-  final pickedFile5 = ImagePicker();
+  final pickedFile = ImagePicker();
 
-  uploadImage1() async {
+
+  uploadImage1(ImageSource source) async {
     // ignore: deprecated_member_use
-    var pickedImage = await pickedFile1.getImage(source: ImageSource.gallery);
+    var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
     if (pickedImage != null) {
       setState(() {
         _image1 = File(pickedImage.path);
@@ -45,9 +44,9 @@ class _AddClinicImagesState extends State<AddClinicImages> {
     }
   }
 
-  uploadImage2() async {
+  uploadImage2(ImageSource source) async {
     // ignore: deprecated_member_use
-    var pickedImage = await pickedFile2.getImage(source: ImageSource.gallery);
+    var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
     if (pickedImage != null) {
       setState(() {
         _image2 = File(pickedImage.path);
@@ -55,9 +54,9 @@ class _AddClinicImagesState extends State<AddClinicImages> {
     }
   }
 
-  uploadImage3() async {
+  uploadImage3(ImageSource source) async {
     // ignore: deprecated_member_use
-    var pickedImage = await pickedFile3.getImage(source: ImageSource.gallery);
+    var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
     if (pickedImage != null) {
       setState(() {
         _image3 = File(pickedImage.path);
@@ -65,9 +64,9 @@ class _AddClinicImagesState extends State<AddClinicImages> {
     }
   }
 
-  uploadImage4() async {
+  uploadImage4(ImageSource source) async {
     // ignore: deprecated_member_use
-    var pickedImage = await pickedFile4.getImage(source: ImageSource.gallery);
+    var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
     if (pickedImage != null) {
       setState(() {
         _image4 = File(pickedImage.path);
@@ -75,9 +74,9 @@ class _AddClinicImagesState extends State<AddClinicImages> {
     }
   }
 
-  uploadImage5() async {
+  uploadImage5(ImageSource source) async {
     // ignore: deprecated_member_use
-    var pickedImage = await pickedFile5.getImage(source: ImageSource.gallery);
+    var pickedImage = await pickedFile.getImage(source: source);
     if (pickedImage != null) {
       setState(() {
         _image5 = File(pickedImage.path);
@@ -140,7 +139,20 @@ class _AddClinicImagesState extends State<AddClinicImages> {
                                       child: Container(
                                           color: Colors.grey[200],
                                           child: InkWell(
-                                            onTap: uploadImage1,
+                                            onTap: (){
+                                              dialogBuilder(context,() {
+                                                uploadImage1(ImageSource.camera);
+                                                pop(context);
+                                                safePrint("camera");
+                                              },
+                                                    () {
+                                                  uploadImage1(ImageSource.gallery);
+                                                  pop(context);
+                                                  safePrint("gallery");
+
+                                                },
+                                              );
+                                            },
                                             child: _image1 == null
                                                 ? const Icon(
                                                     Icons.linked_camera,
@@ -173,7 +185,20 @@ class _AddClinicImagesState extends State<AddClinicImages> {
                                       child: Container(
                                           color: Colors.grey[200],
                                           child: InkWell(
-                                            onTap: uploadImage2,
+                                            onTap: (){
+                                              dialogBuilder(context,() {
+                                                uploadImage2(ImageSource.camera);
+                                                pop(context);
+                                                safePrint("camera");
+                                              },
+                                                    () {
+                                                  uploadImage2(ImageSource.gallery);
+                                                  pop(context);
+                                                  safePrint("gallery");
+
+                                                },
+                                              );
+                                            },
                                             child: _image2 == null
                                                 ? const Icon(
                                                     Icons.linked_camera,
@@ -200,7 +225,20 @@ class _AddClinicImagesState extends State<AddClinicImages> {
                                       child: Container(
                                           color: Colors.grey[200],
                                           child: InkWell(
-                                            onTap: uploadImage3,
+                                            onTap: (){
+                                              dialogBuilder(context,() {
+                                                uploadImage3(ImageSource.camera);
+                                                pop(context);
+                                                safePrint("camera");
+                                              },
+                                                    () {
+                                                  uploadImage3(ImageSource.gallery);
+                                                  pop(context);
+                                                  safePrint("gallery");
+
+                                                },
+                                              );
+                                            },
                                             child: _image3 == null
                                                 ? const Icon(
                                                     Icons.linked_camera,
@@ -233,7 +271,20 @@ class _AddClinicImagesState extends State<AddClinicImages> {
                                       child: Container(
                                           color: Colors.grey[200],
                                           child: InkWell(
-                                            onTap: uploadImage4,
+                                            onTap: (){
+                                              dialogBuilder(context,() {
+                                                uploadImage4(ImageSource.camera);
+                                                pop(context);
+                                                safePrint("camera");
+                                              },
+                                                    () {
+                                                  uploadImage4(ImageSource.gallery);
+                                                  pop(context);
+                                                  safePrint("gallery");
+
+                                                },
+                                              );
+                                            },
                                             child: _image4 == null
                                                 ? const Icon(
                                                     Icons.linked_camera,
@@ -260,7 +311,21 @@ class _AddClinicImagesState extends State<AddClinicImages> {
                                       child: Container(
                                           color: Colors.grey[200],
                                           child: InkWell(
-                                            onTap: uploadImage5,
+                                            onTap: (){
+                                              dialogBuilder(context,() {
+
+                                                uploadImage5(ImageSource.camera);
+                                                pop(context);
+                                                safePrint("camera");
+                                              },
+                                                    () {
+                                                  uploadImage5(ImageSource.gallery);
+                                                  pop(context);
+                                                  safePrint("gallery");
+
+                                                },
+                                              );
+                                            },
                                             child: _image5 == null
                                                 ? const Icon(
                                                     Icons.linked_camera,

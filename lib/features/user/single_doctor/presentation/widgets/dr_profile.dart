@@ -37,7 +37,7 @@ class DrProfile extends StatelessWidget {
                     bottomLeftRadius: 50.sp,
                   ),
                   SizedBox(width: 1.w,),
-                  Text("${S().myAccount} $name",style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
+                  Text("${S().dr} $name",style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
                 ],
               ),
               const Spacer(),

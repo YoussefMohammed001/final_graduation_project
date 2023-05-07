@@ -31,19 +31,25 @@ class ProfileDetailsCubit extends Cubit<ProfileDetailsState> {
 
   userDeleteAccount({required String password}) async{
     emit(ProfileDetailsLoading());
-    var response = await AppDio.delete(endPoint:  "user/all/${MyShared.getString(key:MySharedKeys.id)}",data: {
+    var response = await AppDio.delete(endPoint:  "user/all/",data: {
       "password":password,
     });
     try{
       deleteAccount = DeleteAccount.fromJson(response!.data);
       if(deleteAccount.apiStatus == true){
+        hideLoading();
         safePrint(response);
         emit(ProfileDeleteSuccess(deleteAccount.message));
         await deleteUserData();
       }else{
+        hideLoading();
+        showError(deleteAccount.message);
         emit(ProfileDeleteFailure(deleteAccount.message));
         safePrint(response);
       }}catch(e){
+      hideLoading();
+      showError(e.toString());
+
       emit(ProfileDeleteFailure(deleteAccount.message));
       safePrint(response);
     }

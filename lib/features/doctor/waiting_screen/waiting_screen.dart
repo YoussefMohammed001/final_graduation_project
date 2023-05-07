@@ -16,10 +16,7 @@ class WaitingScreen extends StatefulWidget {
 }
 
 class _WaitingScreenState extends State<WaitingScreen> {
-  double logoHeight = 5.h;
-  double logoWidth = 2.5.w;
 
-  double buttonOpacity = 0;
 
   @override
   void initState() {
@@ -28,8 +25,7 @@ class _WaitingScreenState extends State<WaitingScreen> {
     Future.delayed(
       const Duration(milliseconds: 500),
       () {
-        logoHeight = 10.h;
-        logoWidth = 20.w;
+
 
         setState(() {});
       },
@@ -38,7 +34,6 @@ class _WaitingScreenState extends State<WaitingScreen> {
     Future.delayed(
       const Duration(milliseconds: 2000),
       () {
-        buttonOpacity = 1;
         setState(() {});
       },
     );
@@ -56,106 +51,75 @@ class _WaitingScreenState extends State<WaitingScreen> {
                   ),
                   child: IntrinsicHeight(
                     child: Container(
-                      margin: EdgeInsets.all(8.sp),
+                      margin: EdgeInsets.symmetric(horizontal: 18.sp),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          AnimatedContainer(
-                            height: logoHeight,
-                            width: logoWidth,
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.bounceOut,
-                            child: AppSVG(
-                              height: logoHeight,
-                              width: logoWidth,
-                              assetName: 'done',
-                            ),
+                          AppSVG(
+                            height: 45.sp,
+                            width: 45.sp,
+                            assetName: 'done',
                           ),
-                          AnimatedOpacity(
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.easeIn,
-                            opacity: buttonOpacity,
-                            child: Text(
-                              "Registeration Done",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 17.sp),
-                            ),
+                          Text(
+                            "Registeration Done",
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 17.sp),
                           ),
                           SizedBox(
                             height: 2.h,
                           ),
-                          AnimatedOpacity(
-                            duration: const Duration(milliseconds: 250),
-                            curve: Curves.easeIn,
-                            opacity: buttonOpacity,
-                            child: Text(
-                              "Your request is pending now, we will mail you when you are accepted ",
-                              style: TextStyle(
-                                color: Colors.yellow[500],
-                                fontSize: 17.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              textAlign: TextAlign.center,
+                          Text(
+                            "Your request is pending now, we will mail you when you are accepted ",
+                            style: TextStyle(
+                              color: Colors.yellow[500],
+                              fontSize: 17.sp,
+                              fontWeight: FontWeight.bold,
                             ),
+                            textAlign: TextAlign.center,
                           ),
                           SizedBox(
                             height: 3.h,
                           ),
-                          AnimatedOpacity(
-                            duration: const Duration(milliseconds: 1300),
-                            curve: Curves.bounceOut,
-                            opacity: buttonOpacity,
-                            child: AppButton(
-                              textColor: AppColors.primary,
-                              bgColor: Colors.white,
-                              borderRadius: BorderRadius.circular(15.sp),
-                              margin: EdgeInsets.all(0.sp),
-                              onPressed: () {
-                                push(context, PostLicenceScreen());
-                              },
-                              padding: EdgeInsets.all(15.sp),
-                              label: "Didn't send license",
-                            ),
+                          AppButton(
+                            textColor: AppColors.primary,
+                            bgColor: Colors.white,
+                            borderRadius: BorderRadius.circular(15.sp),
+                            margin: EdgeInsets.all(0.sp),
+                            onPressed: () {
+                              push(context, PostLicenceScreen());
+                            },
+                            padding: EdgeInsets.all(15.sp),
+                            label: "Didn't send license",
                           ),
                           SizedBox(
                             height: 2.h,
                           ),
-                          AnimatedOpacity(
-                            duration: const Duration(milliseconds: 1300),
-                            curve: Curves.bounceOut,
-                            opacity: buttonOpacity,
-                            child: AppButton(
-                              textColor: AppColors.primary,
-                              bgColor: Colors.white,
-                              margin: EdgeInsets.all(0.sp),
-                              borderRadius: BorderRadius.circular(15.sp),
-                              onPressed: () {
-                                push(context, AddClinicData());
+                          AppButton(
+                            textColor: AppColors.primary,
+                            bgColor: Colors.white,
+                            margin: EdgeInsets.all(0.sp),
+                            borderRadius: BorderRadius.circular(15.sp),
+                            onPressed: () {
+                              push(context, AddClinicData());
 
-                              },
-                              padding: EdgeInsets.all(15.sp),
+                            },
+                            padding: EdgeInsets.all(15.sp),
 
-                              label: "Didn't send doctor details",
-                            ),
+                            label: "Didn't send doctor details",
                           ),
                           SizedBox(
                             height: 2.h,
                           ),
-                          AnimatedOpacity(
-                            duration: const Duration(milliseconds: 1300),
-                            curve: Curves.bounceOut,
-                            opacity: buttonOpacity,
-                            child: AppButton(
-                              textColor: AppColors.primary,
-                              bgColor: Colors.white,
-                              margin: EdgeInsets.all(0.sp),
-                              borderRadius: BorderRadius.circular(15.sp),
-                              onPressed: () {
-                                push(context, AddClinicImages());
-                              },
-                              label: "Didn't send clinic images",
-                              padding: EdgeInsets.all(15.sp),
-                            ),
+                          AppButton(
+                            textColor: AppColors.primary,
+                            bgColor: Colors.white,
+                            margin: EdgeInsets.all(0.sp),
+                            borderRadius: BorderRadius.circular(15.sp),
+                            onPressed: () {
+                              push(context, AddClinicImages());
+                            },
+                            label: "Didn't send clinic images",
+                            padding: EdgeInsets.all(15.sp),
                           ),
                           SizedBox(
                             width: 2.w,

@@ -8,6 +8,7 @@ import 'package:final_graduation_project/features/user/home/presentation/widgets
 import 'package:final_graduation_project/features/user/nearest_doctors_screen/presentation/screens/nearest_doctor_screen.dart';
 import 'package:final_graduation_project/features/user/notifications/presentation/screens/notifications_screen.dart';
 import 'package:final_graduation_project/features/user/notifications/presentation/widgets/notification_widgets.dart';
+import 'package:final_graduation_project/features/user/profile_details/presentation/pages/profile_details_screen.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -71,56 +72,59 @@ class _HomeAppBarState extends State<HomeAppBar> {
                 SizedBox(
                   height: 5.h,
                 ),
-                Row(
-                  children: [
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(widget.userImage),
-                      radius: 20.sp,
-                    ),
-                    SizedBox(
-                      width: 2.w,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "${S().hello} ${widget.user}",
-                          style: const TextStyle(color: Colors.grey),
-                        ),
-                         Text(
-                          S().hopeYouAreOk,
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    InkWell(
+                InkWell(
 
-                      onTap: (){
-                        push(context, NotificationsScreen());
-                      },
-                      child: Stack(
-                        alignment: AlignmentDirectional.topEnd,
+                  onTap: ()=> push(context, const profileDetailsScreen()),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(widget.userImage),
+                        radius: 20.sp,
+                      ),
+                      SizedBox(
+                        width: 2.w,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          AppSVG(
-                            assetName: "notifications",
-                            height: 21.sp,
-                            width: 21.sp,
+                          Text(
+                            "${S().hello} ${widget.user}",
+                            style: const TextStyle(color: Colors.grey),
                           ),
-                          CircleAvatar(
-                            radius: 11.sp,
-                            backgroundColor: Colors.yellow.shade800,
-                            child: Text(
-                              "3",
-                              style:
-                                  TextStyle(fontSize: 13.sp, color: Colors.white),
-                            ),
+                           Text(
+                            S().hopeYouAreOk,
+                            style: const TextStyle(
+                                color: Colors.white, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
-                    ),
-                  ],
+                      const Spacer(),
+                      InkWell(
+                        onTap: (){
+                          push(context, const NotificationsScreen());
+                        },
+                        child: Stack(
+                          alignment: AlignmentDirectional.topEnd,
+                          children: [
+                            AppSVG(
+                              assetName: "notifications",
+                              height: 21.sp,
+                              width: 21.sp,
+                            ),
+                            CircleAvatar(
+                              radius: 11.sp,
+                              backgroundColor: Colors.yellow.shade800,
+                              child: Text(
+                                "3",
+                                style:
+                                    TextStyle(fontSize: 13.sp, color: Colors.white),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 3.h,

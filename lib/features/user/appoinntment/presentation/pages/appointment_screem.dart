@@ -21,6 +21,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
 
   @override
   void initState() {
+    MyShared.putBoolean(key: MySharedKeys.currentAppointment,value: true);
     cubit.getAppointemnts();
     super.initState();
   }

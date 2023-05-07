@@ -4,6 +4,7 @@ import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
+import 'package:final_graduation_project/core/utils/pick_image_dialogue.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
@@ -53,18 +54,22 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
     super.initState();
   }
 
+
+
   File? _image;
   final pickedFile = ImagePicker();
 
-  uploadProfileImage() async {
+  uploadImage(ImageSource source) async {
     // ignore: deprecated_member_use
-    var pickedImage = await pickedFile.getImage(source: ImageSource.gallery);
+    var pickedImage = await pickedFile.getImage(source: source);
     if (pickedImage != null) {
       setState(() {
         _image = File(pickedImage.path);
+
       });
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -175,7 +180,17 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
                                                     ),
                                             ),
                                             InkWell(
-                                                onTap: uploadProfileImage,
+                                                onTap: () => dialogBuilder(context,() {
+                                                  uploadImage(ImageSource.camera);
+                                                  pop(context);
+                                                },
+                                                () {
+                                                  uploadImage(ImageSource.gallery);
+                                                  pop(context);
+
+                                                },
+
+                                                ),
                                                 child: Container(
 
                                                     child: const Icon(

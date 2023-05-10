@@ -23,8 +23,13 @@ class PatientsAppointmetnsCubit extends Cubit<PatientsAppointmetnsState> {
       PatientAppointmentsModel  specializeDoctorsModel = PatientAppointmentsModel.fromJson(response!.data);
       patientAppointments = specializeDoctorsModel.patientAppointments;
       emit(PatientsAppointmetnsSucsess());
+
+
+
+
       print(response);
       hideLoading();
+
     } catch(e){
 
     }

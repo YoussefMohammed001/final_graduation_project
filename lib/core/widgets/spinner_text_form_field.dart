@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class DropDownTextFormField extends StatefulWidget {
-   DropDownTextFormField({Key? key,  required this.hint, this.validators, required this.controller, required this.enabled, required this.dropDownList,  this.count = 0}) : super(key: key);
+   DropDownTextFormField({Key? key,  required this.hint, this.validators, required this.controller, required this.enabled, required this.dropDownList,  this.count = 0, this.onChanged}) : super(key: key);
   final String hint;
   final FormFieldValidator<dynamic>? validators;
   final SingleValueDropDownController  controller;
@@ -13,8 +13,10 @@ class DropDownTextFormField extends StatefulWidget {
    EdgeInsetsGeometry? padding;
   final bool enabled;
   final int count;
+   final ValueSetter? onChanged;
 
-  @override
+
+   @override
   State<DropDownTextFormField> createState() => _DropDownTextFormFieldState();
 }
 
@@ -32,10 +34,7 @@ class _DropDownTextFormFieldState extends State<DropDownTextFormField> {
             dropDownItemCount: widget.count,
 
             clearOption: false,
-            onChanged: (value){
-              print(value);
-            },
-
+            onChanged: widget.onChanged,
             validator: widget.validators,
             controller: widget.controller,
             textFieldDecoration: InputDecoration(

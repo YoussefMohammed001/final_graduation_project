@@ -3,6 +3,9 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared.dart'
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/easy_loading.dart';
+import 'package:final_graduation_project/core/utils/navigators.dart';
+import 'package:final_graduation_project/core/utils/pick_image_dialogue.dart';
+import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/widgets/app_image.dart';
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
 import 'package:final_graduation_project/features/doctor/add_clinic_data/presentation/manager/doctor_data_images_cubit.dart';
@@ -44,23 +47,7 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
 
   late File _image1;
 
-  late File _image2;
-
-  late File _image3;
-
-  late File _image4;
-
-  late File _image5;
-
   final pickedFile1 = ImagePicker();
-
-  final pickedFile2 = ImagePicker();
-
-  final pickedFile3 = ImagePicker();
-
-  final pickedFile4 = ImagePicker();
-
-  final pickedFile5 = ImagePicker();
 
   @override
   void initState() {
@@ -77,60 +64,18 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
     super.initState();
   }
 
-  uploadImage1() async {
+  uploadImage1(
+      {required MySharedKeys idKey,
+      required MySharedKeys imgKey,
+      required ImageSource source}) async {
     // ignore: deprecated_member_use
-    var pickedImage = await pickedFile1.getImage(source: ImageSource.gallery);
+    var pickedImage = await pickedFile1.getImage(source: source);
     if (pickedImage != null) {
       setState(() {
         _image1 = File(pickedImage.path);
-
-        cubit.addClinicImages(
-            image: _image1.path,
-            id: MyShared.getString(key: MySharedKeys.id),
-            image2: _image2.path,
-            image3: _image3.path,
-            image4: _image4.path,
-            image5: _image5.path);
-      });
-    }
-  }
-
-  uploadImage2() async {
-    // ignore: deprecated_member_use
-    var pickedImage = await pickedFile2.getImage(source: ImageSource.gallery);
-    if (pickedImage != null) {
-      setState(() {
-        _image2 = File(pickedImage.path);
-      });
-    }
-  }
-
-  uploadImage3() async {
-    // ignore: deprecated_member_use
-    var pickedImage = await pickedFile3.getImage(source: ImageSource.gallery);
-    if (pickedImage != null) {
-      setState(() {
-        _image3 = File(pickedImage.path);
-      });
-    }
-  }
-
-  uploadImage4() async {
-    // ignore: deprecated_member_use
-    var pickedImage = await pickedFile4.getImage(source: ImageSource.gallery);
-    if (pickedImage != null) {
-      setState(() {
-        _image4 = File(pickedImage.path);
-      });
-    }
-  }
-
-  uploadImage5() async {
-    // ignore: deprecated_member_use
-    var pickedImage = await pickedFile5.getImage(source: ImageSource.gallery);
-    if (pickedImage != null) {
-      setState(() {
-        _image5 = File(pickedImage.path);
+        cubit.updateClincImages(
+            imgId: MyShared.getString(key: idKey),
+            img: _image1.path);
       });
     }
   }
@@ -211,7 +156,37 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                                 topLeftRadius: 15.sp,
                                               ),
                                               InkWell(
-                                                onTap: uploadImage1,
+                                                onTap: () {
+                                                  dialogBuilder(
+                                                    context,
+                                                    () {
+                                                      uploadImage1(
+                                                          idKey: MySharedKeys
+                                                              .clinicImageId1,
+                                                          imgKey: MySharedKeys
+                                                              .clinicImage1,
+                                                          source: ImageSource
+                                                              .camera);
+                                                      pop(context);
+                                                      safePrint("camera");
+                                                    },
+                                                    () {
+                                                      pop(context);
+                                                      uploadImage1(
+                                                          idKey: MySharedKeys
+                                                              .clinicImageId1,
+                                                          imgKey: MySharedKeys
+                                                              .clinicImage1,
+                                                          source: ImageSource
+                                                              .gallery);
+
+                                                      safePrint("gallery");
+                                                    },
+                                                  );
+                                                  setState(() {
+
+                                                  });
+                                                },
                                                 child: Container(
                                                     padding:
                                                         EdgeInsets.all(8.sp),
@@ -253,22 +228,55 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                                 topRightRadius: 15.sp,
                                                 topLeftRadius: 15.sp,
                                               ),
-                                              Container(
-                                                  padding: EdgeInsets.all(8.sp),
-                                                  decoration: BoxDecoration(
-                                                      color: AppColors.primary,
-                                                      borderRadius:
-                                                          BorderRadius.only(
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      15.sp),
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      15.sp))),
-                                                  child: const Icon(
-                                                    Icons.edit,
-                                                    color: Colors.white,
-                                                  ))
+                                              InkWell(
+                                                onTap: (){
+                                                  dialogBuilder(
+                                                    context,
+                                                        () {
+                                                      uploadImage1(
+                                                          idKey: MySharedKeys
+                                                              .clinicImageId2,
+                                                          imgKey: MySharedKeys
+                                                              .clinicImage2,
+                                                          source: ImageSource
+                                                              .camera);
+                                                      pop(context);
+                                                      safePrint("camera");
+                                                    },
+                                                        () {
+                                                      pop(context);
+                                                      uploadImage1(
+                                                          idKey: MySharedKeys
+                                                              .clinicImageId2,
+                                                          imgKey: MySharedKeys
+                                                              .clinicImage2,
+                                                          source: ImageSource
+                                                              .gallery);
+
+                                                      safePrint("gallery");
+                                                    },
+                                                  );
+                                                  setState(() {
+
+                                                  });
+                                                },
+                                                child: Container(
+                                                    padding: EdgeInsets.all(8.sp),
+                                                    decoration: BoxDecoration(
+                                                        color: AppColors.primary,
+                                                        borderRadius:
+                                                            BorderRadius.only(
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                        15.sp),
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        15.sp))),
+                                                    child: const Icon(
+                                                      Icons.edit,
+                                                      color: Colors.white,
+                                                    )),
+                                              )
                                             ],
                                           ),
                                         ),
@@ -295,22 +303,55 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                                 topRightRadius: 15.sp,
                                                 topLeftRadius: 15.sp,
                                               ),
-                                              Container(
-                                                  padding: EdgeInsets.all(8.sp),
-                                                  decoration: BoxDecoration(
-                                                      color: AppColors.primary,
-                                                      borderRadius:
-                                                          BorderRadius.only(
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      15.sp),
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      15.sp))),
-                                                  child: const Icon(
-                                                    Icons.edit,
-                                                    color: Colors.white,
-                                                  ))
+                                              InkWell(
+                                                onTap: (){
+                                                  dialogBuilder(
+                                                    context,
+                                                        () {
+                                                      uploadImage1(
+                                                          idKey: MySharedKeys
+                                                              .clinicImageId3,
+                                                          imgKey: MySharedKeys
+                                                              .clinicImage3,
+                                                          source: ImageSource
+                                                              .camera);
+                                                      pop(context);
+                                                      safePrint("camera");
+                                                    },
+                                                        () {
+                                                      pop(context);
+                                                      uploadImage1(
+                                                          idKey: MySharedKeys
+                                                              .clinicImageId3,
+                                                          imgKey: MySharedKeys
+                                                              .clinicImage3,
+                                                          source: ImageSource
+                                                              .gallery);
+
+                                                      safePrint("gallery");
+                                                    },
+                                                  );
+                                                  setState(() {
+
+                                                  });
+                                                },
+                                                child: Container(
+                                                    padding: EdgeInsets.all(8.sp),
+                                                    decoration: BoxDecoration(
+                                                        color: AppColors.primary,
+                                                        borderRadius:
+                                                            BorderRadius.only(
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                        15.sp),
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        15.sp))),
+                                                    child: const Icon(
+                                                      Icons.edit,
+                                                      color: Colors.white,
+                                                    )),
+                                              )
                                             ],
                                           ),
                                         ),
@@ -333,22 +374,55 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                                 topRightRadius: 15.sp,
                                                 topLeftRadius: 15.sp,
                                               ),
-                                              Container(
-                                                  padding: EdgeInsets.all(8.sp),
-                                                  decoration: BoxDecoration(
-                                                      color: AppColors.primary,
-                                                      borderRadius:
-                                                          BorderRadius.only(
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      15.sp),
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      15.sp))),
-                                                  child: const Icon(
-                                                    Icons.edit,
-                                                    color: Colors.white,
-                                                  ))
+                                              InkWell(
+                                                onTap:(){
+                                                  dialogBuilder(
+                                                    context,
+                                                        () {
+                                                      uploadImage1(
+                                                          idKey: MySharedKeys
+                                                              .clinicImageId4,
+                                                          imgKey: MySharedKeys
+                                                              .clinicImage4,
+                                                          source: ImageSource
+                                                              .camera);
+                                                      pop(context);
+                                                      safePrint("camera");
+                                                    },
+                                                        () {
+                                                      pop(context);
+                                                      uploadImage1(
+                                                          idKey: MySharedKeys
+                                                              .clinicImageId4,
+                                                          imgKey: MySharedKeys
+                                                              .clinicImage4,
+                                                          source: ImageSource
+                                                              .gallery);
+
+                                                      safePrint("gallery");
+                                                    },
+                                                  );
+                                                  setState(() {
+
+                                                  });
+                                                },
+                                                child: Container(
+                                                    padding: EdgeInsets.all(8.sp),
+                                                    decoration: BoxDecoration(
+                                                        color: AppColors.primary,
+                                                        borderRadius:
+                                                            BorderRadius.only(
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                        15.sp),
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        15.sp))),
+                                                    child: const Icon(
+                                                      Icons.edit,
+                                                      color: Colors.white,
+                                                    )),
+                                              )
                                             ],
                                           ),
                                         ),
@@ -371,22 +445,55 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                                 topRightRadius: 15.sp,
                                                 topLeftRadius: 15.sp,
                                               ),
-                                              Container(
-                                                  padding: EdgeInsets.all(8.sp),
-                                                  decoration: BoxDecoration(
-                                                      color: AppColors.primary,
-                                                      borderRadius:
-                                                          BorderRadius.only(
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      15.sp),
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      15.sp))),
-                                                  child: const Icon(
-                                                    Icons.edit,
-                                                    color: Colors.white,
-                                                  ))
+                                              InkWell(
+                                                onTap: (){
+                                                  dialogBuilder(
+                                                    context,
+                                                        () {
+                                                      uploadImage1(
+                                                          idKey: MySharedKeys
+                                                              .clinicImageId5,
+                                                          imgKey: MySharedKeys
+                                                              .clinicImage5,
+                                                          source: ImageSource
+                                                              .camera);
+                                                      pop(context);
+                                                      safePrint("camera");
+                                                    },
+                                                        () {
+                                                      pop(context);
+                                                      uploadImage1(
+                                                          idKey: MySharedKeys
+                                                              .clinicImageId5,
+                                                          imgKey: MySharedKeys
+                                                              .clinicImage5,
+                                                          source: ImageSource
+                                                              .gallery);
+
+                                                      safePrint("gallery");
+                                                    },
+                                                  );
+                                                  setState(() {
+
+                                                  });
+                                                },
+                                                child: Container(
+                                                    padding: EdgeInsets.all(8.sp),
+                                                    decoration: BoxDecoration(
+                                                        color: AppColors.primary,
+                                                        borderRadius:
+                                                            BorderRadius.only(
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                        15.sp),
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        15.sp))),
+                                                    child: const Icon(
+                                                      Icons.edit,
+                                                      color: Colors.white,
+                                                    )),
+                                              )
                                             ],
                                           ),
                                         ),
@@ -420,8 +527,10 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                           textInputAction: TextInputAction.next,
                                           textInputType: TextInputType.text,
                                           onTap: () {
-                                            // cubit.updateDoctorNameAr(
-                                            //     name: nameAr.text);
+                                            cubit.addDoctorDataa(
+                                                name: nameAr.text,
+                                                id: MyShared.getString(
+                                                    key: MySharedKeys.id));
                                           },
                                         )),
                                     SizedBox(
@@ -440,8 +549,10 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
                                       onTap: () {
-                                        // cubit.updateDoctorNameAbout(
-                                        //     about: about.text);
+                                        cubit.addDoctorDataa(
+                                            name: about.text,
+                                            id: MyShared.getString(
+                                                key: MySharedKeys.id));
                                       },
                                     ),
                                     SizedBox(
@@ -462,8 +573,10 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                           textInputAction: TextInputAction.next,
                                           textInputType: TextInputType.text,
                                           onTap: () {
-                                            // cubit.updateDoctorNameAboutAr(
-                                            //     aboutAr: aboutAr.text);
+                                            cubit.addDoctorDataa(
+                                                name: aboutAr.text,
+                                                id: MyShared.getString(
+                                                    key: MySharedKeys.id));
                                           },
                                         )),
                                     SizedBox(
@@ -482,8 +595,10 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
                                       onTap: () {
-                                        // cubit.updateDoctorExperience(
-                                        //     experience: experince.text);
+                                        cubit.addDoctorDataa(
+                                            name: experince.text,
+                                            id: MyShared.getString(
+                                                key: MySharedKeys.id));
                                       },
                                     ),
                                     SizedBox(
@@ -502,8 +617,10 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
                                       onTap: () {
-                                        // cubit.updateDoctorWaitingTime(
-                                        //     waitingTime: waitingTime.text);
+                                        cubit.addDoctorDataa(
+                                            name: waitingTime.text,
+                                            id: MyShared.getString(
+                                                key: MySharedKeys.id));
                                       },
                                     ),
                                     SizedBox(
@@ -522,7 +639,10 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
                                       onTap: () {
-                                        // cubit.updateDoctorFees(fees: fees.text);
+                                        cubit.addDoctorDataa(
+                                            name: fees.text,
+                                            id: MyShared.getString(
+                                                key: MySharedKeys.id));
                                       },
                                     ),
                                     SizedBox(
@@ -549,7 +669,12 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       controller: city,
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
-                                      onTap: () {},
+                                      onTap: () {
+                                        cubit.addDoctorDataa(
+                                            name: city.text,
+                                            id: MyShared.getString(
+                                                key: MySharedKeys.id));
+                                      },
                                     ),
                                     SizedBox(
                                       height: 2.h,
@@ -567,7 +692,10 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
                                       onTap: () {
-                                        // cubit.updateDoctorCity(city: city.text);
+                                        cubit.addDoctorDataa(
+                                            name: city.text,
+                                            id: MyShared.getString(
+                                                key: MySharedKeys.id));
                                       },
                                     ),
                                     SizedBox(
@@ -588,8 +716,10 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                           textInputAction: TextInputAction.next,
                                           textInputType: TextInputType.text,
                                           onTap: () {
-                                            // cubit.updateDoctorCityAR(
-                                            //     cityAR: cityAr.text);
+                                            cubit.addDoctorDataa(
+                                                name: cityAr.text,
+                                                id: MyShared.getString(
+                                                    key: MySharedKeys.id));
                                           },
                                         )),
                                     SizedBox(
@@ -608,8 +738,10 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       textInputAction: TextInputAction.next,
                                       textInputType: TextInputType.text,
                                       onTap: () {
-                                        // cubit.updateDoctorPlaceNO(
-                                        //     placeNO: place.text);
+                                        cubit.addDoctorDataa(
+                                            name: place.text,
+                                            id: MyShared.getString(
+                                                key: MySharedKeys.id));
                                       },
                                     ),
                                     SizedBox(
@@ -630,8 +762,10 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                           textInputAction: TextInputAction.next,
                                           textInputType: TextInputType.text,
                                           onTap: () {
-                                            // cubit.updateDoctorPlaceNOAr(
-                                            //     placeNOAr: placeAr.text);
+                                            cubit.addDoctorDataa(
+                                                name: placeAr.text,
+                                                id: MyShared.getString(
+                                                    key: MySharedKeys.id));
                                           },
                                         )),
                                     SizedBox(

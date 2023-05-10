@@ -1,13 +1,14 @@
 /// apiStatus : true
-/// doctor : {"practiceLicense":{"url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"},"address":{"city":"10ofRamadan","city_ar":"العاشر من رمضان","placeNumber":"elshrqia 10ofRamadan street Ammar abn yas","placeNumber_ar":"محافظه الشرقيه العاشر من رمضان مجاوره الخامسه شارع عمار بن ياسر"},"geolocation":{"type":"Point","coordinates":[31.740758,30.287383]},"profilePicture":{"url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"},"name":"Ahmed Osama","name_ar":"ساره محمد","status":"pending","phone":78282823882,"id":"6449bf2e749a91f51fe415bf","specializeId":"64346c45565b50f6ec228ea7","img":[{"public_id":"clinicImages/sfphp6xglc3jkx53mkja","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682555071/clinicImages/sfphp6xglc3jkx53mkja.jpg","_id":"6449c0c2749a91f51fe415e8"},{"public_id":"clinicImages/mudjxoqctyeqezieg9gv","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682555072/clinicImages/mudjxoqctyeqezieg9gv.jpg","_id":"6449c0c2749a91f51fe415e9"},{"public_id":"clinicImages/hyjwsfytnhiejslqwzrz","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682555072/clinicImages/hyjwsfytnhiejslqwzrz.jpg","_id":"6449c0c2749a91f51fe415ea"},{"public_id":"clinicImages/pjh9buhpxlnlf0rn47an","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682555073/clinicImages/pjh9buhpxlnlf0rn47an.jpg","_id":"6449c0c2749a91f51fe415eb"},{"public_id":"clinicImages/a5mfwev3refmutoqlv9k","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682555074/clinicImages/a5mfwev3refmutoqlv9k.jpg","_id":"6449c0c2749a91f51fe415ec"}],"about":"Consultant of Neurology at neuropsychiatry Department in Police Hospitals MD in neuropsychaitry medicine Masters degree of Neurology and Psychiatry Specialists in treatment of knee osteoarthritis without surgery by hyaluronic acid intra-articular injection and PRP ","about_ar":"استشاري امراض المخ والاعصاب بقسم الطب النفسي العصبي بمستشفيات الشرطة دكتوراه طب الاعصاب ماجستير طب الاعصاب والطب النفسي متخصصون في علاج هشاشة العظام بدون جراحة عن طريق حقن حمض الهيالورونيك داخل المفصل و PRP","experience":"3","website":"https://www.facebook.com/dr.ahmed.rafeek/","waitingTime":"14"}
-/// token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ5YmYyZTc0OWE5MWY1MWZlNDE1YmYiLCJpYXQiOjE2ODI1NTUxNjN9.YM9jhYYhe-M5-pk85hVMsRk1mCzwG1Dg_Hh2MfVIN7Q"
+/// isDoctor : true
+/// doctor : {"practiceLicense":{"public_id":"doctorImages/a8oikdwnkny8wr33zpqy","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1683628258/doctorImages/a8oikdwnkny8wr33zpqy.jpg"},"address":{"city":"location","city_ar":"caior","placeNumber":"wgyp[te","placeNumber_ar":"12"},"geolocation":{"type":"Point","coordinates":[31.7,30.28]},"ratingAverage":1,"profilePicture":{"public_id":"userImages/e8pnr5yggyzkxvv1uqtc","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1683628212/userImages/e8pnr5yggyzkxvv1uqtc.jpg"},"name":"Youssef","name_ar":"youssef mohasmed naeem","status":"accept","phone":1211829505,"id":"645a20b474598ee11c1a5e80","ratingsQuantity":1,"specializeId":{"_id":"6437317a22b79fdc2f9cd7d0","name":"Pediatrics and New Born (Child)","name_ar":"اطفال وحديثي الولاده"},"img":[{"public_id":"clinicImages/keh5d5lxkmgxs6qg3gpd","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1683628403/clinicImages/keh5d5lxkmgxs6qg3gpd.jpg","_id":"645a217874598ee11c1a5e9a"},{"public_id":"clinicImages/ntrnlsieea0vcvx7otau","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1683628404/clinicImages/ntrnlsieea0vcvx7otau.jpg","_id":"645a217874598ee11c1a5e9b"},{"public_id":"clinicImages/agudsogkawqhwwq9gfmy","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1683628405/clinicImages/agudsogkawqhwwq9gfmy.jpg","_id":"645a217874598ee11c1a5e9c"},{"public_id":"clinicImages/farmdoy9idy8mtvctbko","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1683628406/clinicImages/farmdoy9idy8mtvctbko.jpg","_id":"645a217874598ee11c1a5e9d"},{"public_id":"clinicImages/bffzbepggionbplgag4v","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1683628407/clinicImages/bffzbepggionbplgag4v.jpg","_id":"645a217874598ee11c1a5e9e"}],"about":"about doctor","about_ar":"about doctor","experience":"12 years","waitingTime":"waiting time"}
+/// token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVhMjBiMDc0NTk4ZWUxMWMxYTVlN2QiLCJpYXQiOjE2ODM2MzQ2NjZ9.r0x6huKiQVW9k8qeB5UuMtju0QuuGiZsTGSymObhw5g"
 /// message : "Logged In"
 
 class LoginDoctorModel {
   LoginDoctorModel({
       bool? apiStatus, 
-      Doctor? doctor,
-    bool? isDoctor,
+      bool? isDoctor, 
+      Doctor? doctor, 
       String? token, 
       String? message,}){
     _apiStatus = apiStatus;
@@ -30,17 +31,16 @@ class LoginDoctorModel {
   String? _token;
   String? _message;
 
-
-  bool get isDoctor => _isDoctor ?? false;
   bool get apiStatus => _apiStatus ?? false;
-  Doctor get doctor => _doctor ?? doctor;
+  bool get isDoctor => _isDoctor ?? false;
+  Doctor get doctor => _doctor ?? Doctor();
   String get token => _token ?? "";
-  String get message => _message ?? '';
+  String get message => _message ?? "";
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['apiStatus'] = _apiStatus;
-    map['isDoctor'] = _apiStatus;
+    map['isDoctor'] = _isDoctor;
     if (_doctor != null) {
       map['doctor'] = _doctor?.toJson();
     }
@@ -51,56 +51,43 @@ class LoginDoctorModel {
 
 }
 
-/// practiceLicense : {"url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"}
-/// address : {"city":"10ofRamadan","city_ar":"العاشر من رمضان","placeNumber":"elshrqia 10ofRamadan street Ammar abn yas","placeNumber_ar":"محافظه الشرقيه العاشر من رمضان مجاوره الخامسه شارع عمار بن ياسر"}
-/// geolocation : {"type":"Point","coordinates":[31.740758,30.287383]}
-/// profilePicture : {"url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"}
-/// name : "Ahmed Osama"
-/// name_ar : "ساره محمد"
-/// status : "pending"
-/// phone : 78282823882
-/// id : "6449bf2e749a91f51fe415bf"
-/// specializeId : "64346c45565b50f6ec228ea7"
-/// img : [{"public_id":"clinicImages/sfphp6xglc3jkx53mkja","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682555071/clinicImages/sfphp6xglc3jkx53mkja.jpg","_id":"6449c0c2749a91f51fe415e8"},{"public_id":"clinicImages/mudjxoqctyeqezieg9gv","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682555072/clinicImages/mudjxoqctyeqezieg9gv.jpg","_id":"6449c0c2749a91f51fe415e9"},{"public_id":"clinicImages/hyjwsfytnhiejslqwzrz","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682555072/clinicImages/hyjwsfytnhiejslqwzrz.jpg","_id":"6449c0c2749a91f51fe415ea"},{"public_id":"clinicImages/pjh9buhpxlnlf0rn47an","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682555073/clinicImages/pjh9buhpxlnlf0rn47an.jpg","_id":"6449c0c2749a91f51fe415eb"},{"public_id":"clinicImages/a5mfwev3refmutoqlv9k","url":"https://res.cloudinary.com/dlivgib8n/image/upload/v1682555074/clinicImages/a5mfwev3refmutoqlv9k.jpg","_id":"6449c0c2749a91f51fe415ec"}]
-/// about : "Consultant of Neurology at neuropsychiatry Department in Police Hospitals MD in neuropsychaitry medicine Masters degree of Neurology and Psychiatry Specialists in treatment of knee osteoarthritis without surgery by hyaluronic acid intra-articular injection and PRP "
-/// about_ar : "استشاري امراض المخ والاعصاب بقسم الطب النفسي العصبي بمستشفيات الشرطة دكتوراه طب الاعصاب ماجستير طب الاعصاب والطب النفسي متخصصون في علاج هشاشة العظام بدون جراحة عن طريق حقن حمض الهيالورونيك داخل المفصل و PRP"
-/// experience : "3"
-/// website : "https://www.facebook.com/dr.ahmed.rafeek/"
-/// waitingTime : "14"
+
 
 class Doctor {
   Doctor({
       PracticeLicense? practiceLicense, 
       Address? address, 
       Geolocation? geolocation, 
+      num? ratingAverage, 
       ProfilePicture? profilePicture, 
       String? name, 
       String? nameAr, 
       String? status, 
       num? phone, 
       String? id, 
-      String? specializeId, 
+      num? ratingsQuantity, 
+      SpecializeId? specializeId, 
       List<Img>? img, 
       String? about, 
       String? aboutAr, 
       String? experience, 
-      String? website, 
       String? waitingTime,}){
     _practiceLicense = practiceLicense;
     _address = address;
     _geolocation = geolocation;
+    _ratingAverage = ratingAverage;
     _profilePicture = profilePicture;
     _name = name;
     _nameAr = nameAr;
     _status = status;
     _phone = phone;
     _id = id;
+    _ratingsQuantity = ratingsQuantity;
     _specializeId = specializeId;
     _img = img;
     _about = about;
     _aboutAr = aboutAr;
     _experience = experience;
-    _website = website;
     _waitingTime = waitingTime;
 }
 
@@ -108,13 +95,15 @@ class Doctor {
     _practiceLicense = json['practiceLicense'] != null ? PracticeLicense.fromJson(json['practiceLicense']) : null;
     _address = json['address'] != null ? Address.fromJson(json['address']) : null;
     _geolocation = json['geolocation'] != null ? Geolocation.fromJson(json['geolocation']) : null;
+    _ratingAverage = json['ratingAverage'];
     _profilePicture = json['profilePicture'] != null ? ProfilePicture.fromJson(json['profilePicture']) : null;
     _name = json['name'];
     _nameAr = json['name_ar'];
     _status = json['status'];
     _phone = json['phone'];
     _id = json['id'];
-    _specializeId = json['specializeId'];
+    _ratingsQuantity = json['ratingsQuantity'];
+    _specializeId = json['specializeId'] != null ? SpecializeId.fromJson(json['specializeId']) : null;
     if (json['img'] != null) {
       _img = [];
       json['img'].forEach((v) {
@@ -124,42 +113,43 @@ class Doctor {
     _about = json['about'];
     _aboutAr = json['about_ar'];
     _experience = json['experience'];
-    _website = json['website'];
     _waitingTime = json['waitingTime'];
   }
   PracticeLicense? _practiceLicense;
   Address? _address;
   Geolocation? _geolocation;
+  num? _ratingAverage;
   ProfilePicture? _profilePicture;
   String? _name;
   String? _nameAr;
   String? _status;
   num? _phone;
   String? _id;
-  String? _specializeId;
+  num? _ratingsQuantity;
+  SpecializeId? _specializeId;
   List<Img>? _img;
   String? _about;
   String? _aboutAr;
   String? _experience;
-  String? _website;
   String? _waitingTime;
 
-  PracticeLicense get practiceLicense => _practiceLicense ?? practiceLicense;
-  Address get address => _address ?? address;
-  Geolocation get geolocation => _geolocation ?? geolocation;
-  ProfilePicture get profilePicture => _profilePicture ?? profilePicture;
-  String get name => _name ?? "name";
-  String get nameAr => _nameAr ?? "";
-  String get status => _status ?? "stat";
+  PracticeLicense get practiceLicense => _practiceLicense ?? PracticeLicense();
+  Address get address => _address ?? Address();
+  Geolocation get geolocation => _geolocation ?? Geolocation();
+  num get ratingAverage => _ratingAverage ?? 0;
+  ProfilePicture get profilePicture => _profilePicture ?? ProfilePicture();
+  String get name => _name ?? "";
+  String get nameAr => _nameAr ??"";
+  String get status => _status ?? "";
   num get phone => _phone ?? 0;
-  String get id => _id ?? '';
-  String get specializeId => _specializeId ?? "";
+  String get id => _id ?? "";
+  num get ratingsQuantity => _ratingsQuantity ?? 0;
+  SpecializeId get specializeId => _specializeId ?? SpecializeId();
   List<Img> get img => _img ?? [];
-  String get about => _about ?? "";
-  String get aboutAr => _aboutAr ?? "";
-  String get experience => _experience ?? "";
-  String get website => _website ?? "";
-  String get waitingTime => _waitingTime ?? "";
+  String get about => _about ??"";
+  String get aboutAr => _aboutAr??"";
+  String get experience => _experience??"";
+  String get waitingTime => _waitingTime??"";
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -172,6 +162,7 @@ class Doctor {
     if (_geolocation != null) {
       map['geolocation'] = _geolocation?.toJson();
     }
+    map['ratingAverage'] = _ratingAverage;
     if (_profilePicture != null) {
       map['profilePicture'] = _profilePicture?.toJson();
     }
@@ -180,23 +171,25 @@ class Doctor {
     map['status'] = _status;
     map['phone'] = _phone;
     map['id'] = _id;
-    map['specializeId'] = _specializeId;
+    map['ratingsQuantity'] = _ratingsQuantity;
+    if (_specializeId != null) {
+      map['specializeId'] = _specializeId?.toJson();
+    }
     if (_img != null) {
       map['img'] = _img?.map((v) => v.toJson()).toList();
     }
     map['about'] = _about;
     map['about_ar'] = _aboutAr;
     map['experience'] = _experience;
-    map['website'] = _website;
     map['waitingTime'] = _waitingTime;
     return map;
   }
 
 }
 
-/// public_id : "clinicImages/sfphp6xglc3jkx53mkja"
-/// url : "https://res.cloudinary.com/dlivgib8n/image/upload/v1682555071/clinicImages/sfphp6xglc3jkx53mkja.jpg"
-/// _id : "6449c0c2749a91f51fe415e8"
+/// public_id : "clinicImages/keh5d5lxkmgxs6qg3gpd"
+/// url : "https://res.cloudinary.com/dlivgib8n/image/upload/v1683628403/clinicImages/keh5d5lxkmgxs6qg3gpd.jpg"
+/// _id : "645a217874598ee11c1a5e9a"
 
 class Img {
   Img({
@@ -218,8 +211,8 @@ class Img {
   String? _id;
 
   String get publicId => _publicId ?? "";
-  String get url => _url ?? "";
-  String get id => _id ?? "";
+  String get url => _url ?? '';
+  String get id => _id ??"";
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -231,23 +224,64 @@ class Img {
 
 }
 
-/// url : "https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"
+
+class SpecializeId {
+  SpecializeId({
+      String? id, 
+      String? name, 
+      String? nameAr,}){
+    _id = id;
+    _name = name;
+    _nameAr = nameAr;
+}
+
+  SpecializeId.fromJson(dynamic json) {
+    _id = json['_id'];
+    _name = json['name'];
+    _nameAr = json['name_ar'];
+  }
+  String? _id;
+  String? _name;
+  String? _nameAr;
+
+  String get id => _id ?? "";
+  String get name => _name ?? "";
+  String get nameAr => _nameAr ?? "";
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['_id'] = _id;
+    map['name'] = _name;
+    map['name_ar'] = _nameAr;
+    return map;
+  }
+
+}
+
+/// public_id : "userImages/e8pnr5yggyzkxvv1uqtc"
+/// url : "https://res.cloudinary.com/dlivgib8n/image/upload/v1683628212/userImages/e8pnr5yggyzkxvv1uqtc.jpg"
 
 class ProfilePicture {
   ProfilePicture({
+      String? publicId, 
       String? url,}){
+    _publicId = publicId;
     _url = url;
 }
 
   ProfilePicture.fromJson(dynamic json) {
+    _publicId = json['public_id'];
     _url = json['url'];
   }
+  String? _publicId;
   String? _url;
 
+  String get publicId => _publicId ?? "";
   String get url => _url ?? "";
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+    map['public_id'] = _publicId;
     map['url'] = _url;
     return map;
   }
@@ -255,7 +289,7 @@ class ProfilePicture {
 }
 
 /// type : "Point"
-/// coordinates : [31.740758,30.287383]
+/// coordinates : [31.7,30.28]
 
 class Geolocation {
   Geolocation({
@@ -284,10 +318,10 @@ class Geolocation {
 
 }
 
-/// city : "10ofRamadan"
-/// city_ar : "العاشر من رمضان"
-/// placeNumber : "elshrqia 10ofRamadan street Ammar abn yas"
-/// placeNumber_ar : "محافظه الشرقيه العاشر من رمضان مجاوره الخامسه شارع عمار بن ياسر"
+/// city : "location"
+/// city_ar : "caior"
+/// placeNumber : "wgyp[te"
+/// placeNumber_ar : "12"
 
 class Address {
   Address({
@@ -328,23 +362,30 @@ class Address {
 
 }
 
-/// url : "https://res.cloudinary.com/dlivgib8n/image/upload/v1681133143/th_yjukuo.jpg"
+/// public_id : "doctorImages/a8oikdwnkny8wr33zpqy"
+/// url : "https://res.cloudinary.com/dlivgib8n/image/upload/v1683628258/doctorImages/a8oikdwnkny8wr33zpqy.jpg"
 
 class PracticeLicense {
   PracticeLicense({
+      String? publicId, 
       String? url,}){
+    _publicId = publicId;
     _url = url;
 }
 
   PracticeLicense.fromJson(dynamic json) {
+    _publicId = json['public_id'];
     _url = json['url'];
   }
+  String? _publicId;
   String? _url;
 
-  String get url => _url ?? "";
+  String? get publicId => _publicId;
+  String? get url => _url;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+    map['public_id'] = _publicId;
     map['url'] = _url;
     return map;
   }

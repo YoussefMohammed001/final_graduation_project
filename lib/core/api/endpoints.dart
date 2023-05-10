@@ -1,3 +1,4 @@
+
 class EndPoints {
   static const String baseUrl = 'https://healthapp-wyde.onrender.com/';
   static const String aiBaseUrl = 'https://prediction-pj3t.onrender.com/';
@@ -21,6 +22,10 @@ class EndPoints {
   static const String contactUs = "user/contact-us";
   static const String currentAppointment = "user/current-appointment";
   static const String predictHeart = "predictHeart";
+  static const String pending = "doctor/get-pending-appointment/";
+  static const String nwDoctor = "doctor/get-accept-appointment/";
+  static const String olDoctor = "doctor/get-previous-appointment/";
+  static const String updateImages = "doctor/updateImg/";
 
 
 }

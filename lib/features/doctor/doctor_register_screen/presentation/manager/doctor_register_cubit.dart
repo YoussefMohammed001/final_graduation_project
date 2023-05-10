@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:final_graduation_project/core/api/endpoints.dart';
@@ -7,6 +8,7 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.
 import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/features/doctor/doctor_register_screen/data/doctorRegisterModel.dart';
 import 'package:final_graduation_project/features/doctor/doctor_register_screen/data/specialized_model.dart';
+// ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 
 part 'doctor_register_state.dart';
@@ -46,6 +48,7 @@ class DoctorRegisterCubit extends Cubit<DoctorRegisterState> {
       safePrint(response);
       MyShared.putString(key: MySharedKeys.id ,value: doctorRegisterModel.doctorRegisterData.id);
       MyShared.putString(key: MySharedKeys.apiToken ,value: doctorRegisterModel.token);
+      MyShared.putString(key: MySharedKeys.patientImage ,value: doctorRegisterModel.doctorRegisterData.profilePicture.url);
       emit(DoctorRegisterSuccess(doctorRegisterModel.massage));
     } else{
       emit(DoctorRegisterFailure(doctorRegisterModel.massage));
@@ -74,8 +77,9 @@ class DoctorRegisterCubit extends Cubit<DoctorRegisterState> {
       SpecializedModel  specializedModel = SpecializedModel.fromJson(response!.data);
       safePrint(response);
       specializedData = specializedModel.data;
-      print(specializedModel.data);
+      safePrint(specializedModel.data);
       emit(DoctorRegisterGetSpecializationSuccess());
+    // ignore: empty_catches
     } catch(e){
 
     }

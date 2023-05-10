@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class DoctorAppointmentItems extends StatelessWidget {
-  const DoctorAppointmentItems({Key? key}) : super(key: key);
-
+  const DoctorAppointmentItems({Key? key, required this.name, required this.phone, required this.day, required this.date, required this.note}) : super(key: key);
+final String name;
+final String phone;
+final String note;
+final String day;
+final String date;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,12 +25,16 @@ class DoctorAppointmentItems extends StatelessWidget {
         children: [
 
           Text(
-            "Ahmed Ali",
+            name,
             style: TextStyle(fontSize: 15.sp,fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 1.h,),
           Text(
-            "01211829505",
+            phone,
+            style: TextStyle(fontSize: 15.sp),
+          ),
+          Text(
+            note,
             style: TextStyle(fontSize: 15.sp),
           ),
           SizedBox(height: 3.h,),
@@ -47,7 +55,7 @@ class DoctorAppointmentItems extends StatelessWidget {
                         width: 2.w,
                         assetName: "calender"),
                     SizedBox(width: 2.w,),
-                    Text("6 March 23",style: TextStyle(fontSize: 15.sp,color: AppColors.semiGrey),),
+                    Text(day,style: TextStyle(fontSize: 15.sp,color: AppColors.semiGrey),),
                   ],
                 ),
               ),
@@ -66,7 +74,7 @@ class DoctorAppointmentItems extends StatelessWidget {
                         width: 2.w,
                         assetName: "clock"),
                     SizedBox(width: 2.w,),
-                    Text("6:00 PM",style: TextStyle(fontSize: 15.sp,color: AppColors.semiGrey),),
+                    Text(date,style: TextStyle(fontSize: 15.sp,color: AppColors.semiGrey),),
                   ],
                 ),
               ),

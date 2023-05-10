@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
         pushReplacement(context, const DoctorOrPatientScreen());
         return;
       } if(MyShared.isLoggedIn() && MyShared.getBoolean(key: MySharedKeys.isDoctor) == false){
-        pushAndRemoveUntil(context, MainScreen());
+        pushAndRemoveUntil(context, const MainScreen());
       }
 
 
@@ -126,13 +126,12 @@ class _SplashScreenState extends State<SplashScreen> {
         listener: (context, state) {
           if (state is SplashSucsess) {
 
-
               if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == true){
-                if(state.pending == 'pending'){
-                  pushReplacement(context, const WaitingScreen());
+                if(state.pending == 'accept'){
+                  pushReplacement(context, const DoctorMainScreen());
                 }
-                if(state.pending != 'pending'){
-                  push(context, const DoctorMainScreen());
+                if(state.pending == 'pending'){
+                  push(context, const WaitingScreen());
                 }
               }
             }

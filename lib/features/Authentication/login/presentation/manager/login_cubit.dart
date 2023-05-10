@@ -45,8 +45,9 @@ class LoginCubit extends Cubit<LoginState> {
      if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == true){
        loginDoctorModel = LoginDoctorModel.fromJson(response!.data);
        if(loginDoctorModel.apiStatus == true){
-         saveDoctorData();
          img = loginDoctorModel.doctor.img;
+         safePrint(response);
+         await saveDoctorData();
          MyShared.putBoolean(key: MySharedKeys.isDoctor, value: true);
          emit(LoginSucsess(loginDoctorModel.message,loginDoctorModel.isDoctor));
        } else{
@@ -59,11 +60,10 @@ class LoginCubit extends Cubit<LoginState> {
    }catch(e){
      if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == true){
        emit(LoginFailure(loginDoctorModel.message));
+       safePrint("====>$e" );
      } else{
        emit(LoginFailure(loginRequestModel.message));
-
      }
-     safePrint("${response}e");
    }
 
   }
@@ -97,12 +97,22 @@ class LoginCubit extends Cubit<LoginState> {
     MyShared.putString(key: MySharedKeys.drAddressAR, value: loginDoctorModel.doctor.address.cityAr);
     MyShared.putString(key: MySharedKeys.drPlace, value: loginDoctorModel.doctor.address.placeNumber);
     MyShared.putString(key: MySharedKeys.drPlaceAr, value: loginDoctorModel.doctor.address.placeNumberAr);
-    MyShared.putString(key: MySharedKeys.clinicImage1, value: img[0].url);
-    MyShared.putString(key: MySharedKeys.clinicImage2, value: img[1].url);
+     MyShared.putString(key: MySharedKeys.clinicImage1, value: img[0].url);
+     MyShared.putString(key: MySharedKeys.clinicImage2, value: img[1].url);
     MyShared.putString(key: MySharedKeys.clinicImage3, value: img[2].url);
     MyShared.putString(key: MySharedKeys.clinicImage4, value: img[3].url);
     MyShared.putString(key: MySharedKeys.clinicImage5, value: img[4].url);
+    MyShared.putString(key: MySharedKeys.clinicImageId1, value: img[0].publicId);
+    MyShared.putString(key: MySharedKeys.clinicImageId2, value: img[1].publicId);
+    MyShared.putString(key: MySharedKeys.clinicImageId3, value: img[2].publicId);
+    MyShared.putString(key: MySharedKeys.clinicImageId4, value: img[3].publicId);
+    MyShared.putString(key: MySharedKeys.clinicImageId5, value: img[4].publicId);
+
+
+
+
 
   }
 
 }
+

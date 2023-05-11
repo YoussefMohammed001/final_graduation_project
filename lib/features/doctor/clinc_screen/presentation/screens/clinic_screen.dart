@@ -5,6 +5,7 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
+import 'package:final_graduation_project/features/doctor/add_working_hours/presentation/screens/working_hours_screen.dart';
 import 'package:final_graduation_project/features/doctor/clinc_screen/presentation/manager/pending_appointments_cubit.dart';
 import 'package:final_graduation_project/features/doctor/clinc_screen/presentation/widgets/clinic_data_item.dart';
 import 'package:final_graduation_project/features/doctor/clinc_screen/presentation/widgets/new_reservation_doctor_teim.dart';
@@ -58,7 +59,10 @@ class _ClinicScreenState extends State<ClinicScreen> {
                           child: ClinicDataItem(
                             icon: Icons.access_time_outlined,
                             text: 'Working Hours',
-                            onTap: () {},
+                            onTap: () {
+                              push(context, WorkingHoursScreen());
+
+                            },
                           )),
                       Expanded(
                           child: ClinicDataItem(

@@ -1,10 +1,14 @@
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
+import 'package:final_graduation_project/core/utils/pick_image_dialogue.dart';
+import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
+import 'package:final_graduation_project/features/doctor/add_working_hours/data/days_model.dart';
 import 'package:final_graduation_project/features/doctor/add_working_hours/data/post_working_hours_model.dart';
 import 'package:final_graduation_project/features/doctor/add_working_hours/presentation/widgets/day_item.dart';
 import 'package:final_graduation_project/features/doctor/add_working_hours/presentation/widgets/shift_item.dart';
+import 'package:final_graduation_project/features/doctor/add_working_hours/presentation/widgets/working_hours_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -20,23 +24,30 @@ class WorkingHoursScreen extends StatefulWidget {
 
 class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
   final cubit = AddWorkingHoursCubit();
-  bool status = false;
+  TextEditingController hoursStart = TextEditingController();
+  TextEditingController hoursEnd = TextEditingController();
+  TextEditingController minStart = TextEditingController();
+  TextEditingController minEnd = TextEditingController();
   List<Durations> durations = [];
-  List<Appointments> appointmnets = [];
+  List<Appointments> appointments = [];
+  List<DaysModel> days = [
+    DaysModel(day: 'Saturday', iD: 0),
+    DaysModel(day: 'Sunday', iD: 1),
+    DaysModel(day: 'Monday', iD: 2),
+    DaysModel(day: 'Tuesday', iD: 3),
+    DaysModel(day: 'Wednesday', iD: 4),
+    DaysModel(day: 'Thursday', iD: 5),
+    DaysModel(day: 'Friday', iD: 6),
+  ];
 
   @override
   void initState() {
+    minStart.text = "00";
+    hoursStart.text = "00";
+    hoursEnd.text = "00";
+    minEnd.text = "00";
     cubit.postWorkingHoursModel.doctorId;
-    durations.add(Durations(from: 8,to: 15));
-    durations.add(Durations(from: 15,to: 12));
-   
-    appointmnets.add(Appointments(dayNo: 5, durations: durations));
 
-  cubit.postWorkingHoursModel.appointments
-        .add(Appointments(dayNo: 4, durations: durations));
-cubit.postWorkingHours(id: MyShared.getString(key: MySharedKeys.id).toString(),
-    appointments:appointmnets);
-    // TODO: implement initState
     super.initState();
   }
 
@@ -66,33 +77,66 @@ cubit.postWorkingHours(id: MyShared.getString(key: MySharedKeys.id).toString(),
                               return Column(
                                 children: [
                                   DayItem(
-                                      day: 'Suterday',
+                                    day: days[index].day,
+                                    onTap: () {
+                                      durations.add(Durations(
+                                        from: 8,
+                                        to: 15,
+                                      ));
+
+                                      appointments.add(
+                                        Appointments(
+                                          dayNo: days[index].iD,
+                                          durations: durations,
+                                        ),
+                                      );
+                                      setState(() {});
+
+                                      // timeItem(
+                                      //   context,
+                                      //
+                                      //   onCameraPressed: () {},
+                                      //   onGalleryPressed: () {},
+                                      //   hours: hoursStart,
+                                      //   minutes: minStart, title: 'Start time',
+                                      // );
+                                    },
                                   ),
                                   Visibility(
                                     visible: status,
                                     child: ListView.builder(
-                                      shrinkWrap: true,
-                                      itemBuilder:
-                                          (BuildContext context, int index) {
-                                        return Shifttem();
-                                      },
-                                      itemCount: 2,
-                                    ),
+                                        shrinkWrap: true,
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          return Shifttem(
+                                            start: durations[index]
+                                                .from
+                                                .toString(),
+                                            end: durations[index]
+                                                .to
+                                                .toString(),
+                                          );
+                                        },
+                                        itemCount: durations.length),
                                   ),
                                 ],
                               );
                             },
-                            itemCount: 7,
+                            itemCount: days.length,
                           ),
                         )
                       ],
                     ),
                   ),
                 ),
-                AppButton(onPressed: () {
-
-
-                }, label: "label")
+                AppButton(
+                    onPressed: () {
+                      cubit.postWorkingHours(
+                        id: MyShared.getString(key: MySharedKeys.id).toString(),
+                        appointments: appointments,
+                      );
+                    },
+                    label: "label")
               ],
             ),
           );
@@ -101,8 +145,3 @@ cubit.postWorkingHours(id: MyShared.getString(key: MySharedKeys.id).toString(),
     );
   }
 }
-
-
-
-
-

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 class TextItem extends StatelessWidget {
   const TextItem({Key? key, required this.title}) : super(key: key);
   final String title;
@@ -18,5 +17,6 @@ class TextItem extends StatelessWidget {
       ),
       child: Text(title,style: TextStyle(letterSpacing: 2.sp, height: 0.2.h ),),
     );
+
   }
 }

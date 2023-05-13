@@ -82,6 +82,7 @@ class _profileDetailsScreenState extends State<profileDetailsScreen> {
             }
             if (state is ProfileDeleteSuccess) {
               pushAndRemoveUntil(context, const LoginScreen());
+              safePrint("a");
               showSuccess(state.sucsessMessage);
             }
 
@@ -409,6 +410,7 @@ class _profileDetailsScreenState extends State<profileDetailsScreen> {
                                               controller: password,
                                               isPassword: true,
                                               textInputAction:
+
                                                   TextInputAction.done,
                                               textInputType:
                                                   TextInputType.text),

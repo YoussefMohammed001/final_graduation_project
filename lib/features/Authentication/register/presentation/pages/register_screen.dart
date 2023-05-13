@@ -33,7 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   TextEditingController emailController = TextEditingController();
 
-  TextEditingController MobileController = TextEditingController();
+  TextEditingController mobileController = TextEditingController();
 
 
   final cubit = RegisterCubit();
@@ -55,8 +55,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: VerifyAccountScreen(),
           ));
           hideLoading();
-          showSuccess(state.sucssesMessage);
-          // Alerts.showErrorDialog(context: context, errorMessage: state.sucssesMessage);
+
         }
         if (state is PostRegisterFailureState) {
           hideLoading();
@@ -160,7 +159,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               },
                               textInputType: TextInputType.emailAddress,
                               textInputAction: TextInputAction.next,
-                              controller: MobileController,
+                              controller: mobileController,
                               hint: S().mobileNumber,
                               isPassword: false,
 
@@ -208,7 +207,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             SizedBox(height: 2.h,),
                             AppButton(
                               onPressed: () {
-                                int  phone = int.parse(MobileController.text);
+                                int  phone = int.parse(mobileController.text);
                                 if (formKey.currentState!.validate()) {
                                   cubit.userRegister(name: nameController.text, email: emailController.text
                                       , password: passwordController.text, confirmPassword: confirmPasswordController.text,

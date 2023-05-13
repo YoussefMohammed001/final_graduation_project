@@ -21,8 +21,6 @@ Future main() async {
   EasyLoading.init();
   safePrint(MyShared.getString(key: MySharedKeys.apiToken));
 
-
-
   runApp(const MyApp());
 }
 
@@ -45,7 +43,8 @@ class MyApp extends StatelessWidget {
                     useInheritedMediaQuery: true,
                     locale: Locale(MyShared.getCurrentLanguage()),
                     supportedLocales: S.delegate.supportedLocales,
-                    localizationsDelegates: const [
+                    localizationsDelegates:
+                    const [
                       S.delegate,
                       GlobalMaterialLocalizations.delegate,
                       GlobalCupertinoLocalizations.delegate,
@@ -53,9 +52,7 @@ class MyApp extends StatelessWidget {
                     ],
                     color: AppColors.primary,
                     builder: EasyLoading.init(),
-                    home:   const SplashScreen(),
-
-
+                    home: const SplashScreen(),
                   );
                 },
               );

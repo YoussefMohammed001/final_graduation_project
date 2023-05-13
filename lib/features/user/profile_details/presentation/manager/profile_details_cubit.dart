@@ -28,19 +28,14 @@ class ProfileDetailsCubit extends Cubit<ProfileDetailsState> {
     });
     try {
       deleteAccount = DeleteAccount.fromJson(response!.data);
-      if (deleteAccount.apiStatus == true) {
+
         hideLoading();
         safePrint(response);
-        emit(ProfileDeleteSuccess(deleteAccount.message));
+        emit(ProfileDeleteSuccess("Account deleted"));
         SharedPreferences preferences = await SharedPreferences.getInstance();
         MyShared.putBoolean(key: MySharedKeys.firstOpen, value: false);
         await preferences.clear();
-      } else {
-        hideLoading();
-        showError(deleteAccount.message);
-        emit(ProfileDeleteFailure(deleteAccount.message));
-        safePrint(response);
-      }
+
     } catch (e) {
       hideLoading();
       showError(e.toString());

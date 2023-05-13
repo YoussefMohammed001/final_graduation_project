@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class Shifttem extends StatelessWidget {
-  const Shifttem({Key? key}) : super(key: key);
-
+  const Shifttem({Key? key, required this.start, required this.end}) : super(key: key);
+final String start;
+final String end;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,7 +21,7 @@ class Shifttem extends StatelessWidget {
               Column(
                 children: [
                   Text("start time"),
-                  Text("8:00"),
+                  Text(start),
                 ],
               ),
               SizedBox(
@@ -37,7 +38,7 @@ class Shifttem extends StatelessWidget {
               Column(
                 children: [
                   Text("start time"),
-                  Text("8:00"),
+                  Text(end),
                 ],
               ),
             ],

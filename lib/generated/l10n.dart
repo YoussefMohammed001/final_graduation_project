@@ -740,10 +740,10 @@ class S {
     );
   }
 
-  /// `Current`
+  /// `Up Coming`
   String get ccurrent {
     return Intl.message(
-      'Current',
+      'Up Coming',
       name: 'ccurrent',
       desc: '',
       args: [],
@@ -1275,6 +1275,16 @@ class S {
     return Intl.message(
       'Fees',
       name: 'fees',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doctor`
+  String get doctor {
+    return Intl.message(
+      'Doctor',
+      name: 'doctor',
       desc: '',
       args: [],
     );

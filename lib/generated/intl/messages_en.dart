@@ -43,7 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bodyMassIndex":
             MessageLookupByLibrary.simpleMessage("body mass index"),
         "bookNow": MessageLookupByLibrary.simpleMessage("Book now"),
-        "ccurrent": MessageLookupByLibrary.simpleMessage("Current"),
+        "ccurrent": MessageLookupByLibrary.simpleMessage("Up Coming"),
         "changeLang": MessageLookupByLibrary.simpleMessage("Change Language"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change password"),
@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "doNotWorry": MessageLookupByLibrary.simpleMessage("Don\'t worry"),
         "doYouWantToLogOut":
             MessageLookupByLibrary.simpleMessage("Do you want to logOut?"),
+        "doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
         "dr": MessageLookupByLibrary.simpleMessage("Dr."),
         "editMyData": MessageLookupByLibrary.simpleMessage("Edit my data"),
         "electrocardioGraphic":

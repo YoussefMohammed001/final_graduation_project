@@ -25,6 +25,8 @@ Future main() async {
 }
 
 class MyApp extends StatelessWidget {
+
+
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -40,11 +42,11 @@ class MyApp extends StatelessWidget {
                   return MaterialApp(
                     key: ValueKey(MyShared.getCurrentLanguage()),
                     debugShowCheckedModeBanner: false,
+                    // ignore: deprecated_member_use
                     useInheritedMediaQuery: true,
                     locale: Locale(MyShared.getCurrentLanguage()),
                     supportedLocales: S.delegate.supportedLocales,
-                    localizationsDelegates:
-                    const [
+                    localizationsDelegates: const [
                       S.delegate,
                       GlobalMaterialLocalizations.delegate,
                       GlobalCupertinoLocalizations.delegate,

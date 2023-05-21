@@ -1,3 +1,4 @@
+import 'package:final_graduation_project/core/cubits/notifications/new_notifications_cubit.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
@@ -20,7 +21,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -28,20 +29,29 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController searchController = TextEditingController();
-
+final notify = NewNotificationsCubit();
   final cubit = HomeCubit();
   bool visible = false;
   @override
   void initState() {
     cubit.getHome();
+    notify.getNotifications();
+    safePrint(MyShared.getString(key: MySharedKeys.id));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return MultiBlocProvider(
+  providers: [
+    BlocProvider(
       create: (context) => cubit,
-      child: BlocConsumer<HomeCubit, HomeState>(
+),
+    BlocProvider(
+      create: (context) => notify,
+    ),
+  ],
+  child: BlocConsumer<HomeCubit, HomeState>(
         listener: (context, state) {
           if (state is HomeSuccess) {
             visible = !visible;
@@ -55,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 HomeAppBar(
                   userImage: MyShared.getString(key: MySharedKeys.patientImage),
                   searchController: searchController,
-                  user: MyShared.getString(key: MySharedKeys.username),
+                  user: MyShared.getString(key: MySharedKeys.username), notify: notify.notifications.length,
                 ),
                 Visibility(
                   visible: visible,
@@ -246,6 +256,6 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         },
       ),
-    );
+);
   }
 }

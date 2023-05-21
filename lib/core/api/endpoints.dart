@@ -1,7 +1,7 @@
 
 class EndPoints {
-  static const String baseUrl = 'https://healthapp-wyde.onrender.com/';
-  static const String aiBaseUrl = 'https://prediction-pj3t.onrender.com/';
+  static const String baseUrl = 'https://healthapp-bjug.onrender.com/';
+  static const String aiBaseUrl = 'https://prediction-pj3t.onr ender.com/';
   static const String language = 'languages/translation';
   static const String login = "user/login";
   static const String register = "user/register";
@@ -26,6 +26,9 @@ class EndPoints {
   static const String nwDoctor = "doctor/get-accept-appointment/";
   static const String olDoctor = "doctor/get-previous-appointment/";
   static const String updateImages = "doctor/updateImg/";
+  static const String addReview = "review/addReview";
+  static const String notifications = "user/all-notification";
+  static const String newNotifications = "user/notification/";
 
 
 }

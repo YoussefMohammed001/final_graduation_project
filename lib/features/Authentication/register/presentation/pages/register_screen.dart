@@ -50,7 +50,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           showLoading();
         }
         if (state is PostRegisterSuccessState) {
-          push(context, BlocProvider(
+          pushAndRemoveUntil(context, BlocProvider(
             create: (context) => VerifyCubit(),
             child: VerifyAccountScreen(),
           ));
@@ -179,7 +179,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 return null;
                               },
                               textInputType: TextInputType.visiblePassword,
-                              textInputAction: TextInputAction.done,
+                              textInputAction: TextInputAction.next,
                               controller: passwordController,
                               hint: S().password,
                               isPassword: true,

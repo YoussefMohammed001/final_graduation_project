@@ -54,8 +54,6 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
     super.initState();
   }
 
-
-
   File? _image;
   final pickedFile = ImagePicker();
 
@@ -65,11 +63,9 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
     if (pickedImage != null) {
       setState(() {
         _image = File(pickedImage.path);
-
       });
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -180,19 +176,20 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
                                                     ),
                                             ),
                                             InkWell(
-                                                onTap: () => dialogBuilder(context,() {
-                                                  uploadImage(ImageSource.camera);
-                                                  pop(context);
-                                                },
-                                                () {
-                                                  uploadImage(ImageSource.gallery);
-                                                  pop(context);
-
-                                                },
-
-                                                ),
+                                                onTap: () => dialogBuilder(
+                                                      context,
+                                                      () {
+                                                        uploadImage(
+                                                            ImageSource.camera);
+                                                        pop(context);
+                                                      },
+                                                      () {
+                                                        uploadImage(ImageSource
+                                                            .gallery);
+                                                        pop(context);
+                                                      },
+                                                    ),
                                                 child: Container(
-
                                                     child: const Icon(
                                                   Icons.linked_camera,
                                                   color: AppColors.primary,
@@ -274,7 +271,7 @@ class _RegisterScreenDoctorState extends State<RegisterScreenDoctor> {
                                         },
                                         textInputType:
                                             TextInputType.visiblePassword,
-                                        textInputAction: TextInputAction.done,
+                                        textInputAction: TextInputAction.next,
                                         controller: passwordController,
                                         hint: S().password,
                                         isPassword: true,

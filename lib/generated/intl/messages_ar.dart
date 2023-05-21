@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "doNotWorry": MessageLookupByLibrary.simpleMessage("لا تقلق"),
         "doYouWantToLogOut":
             MessageLookupByLibrary.simpleMessage("هل ترغب بالخروج؟"),
+        "doctor": MessageLookupByLibrary.simpleMessage("دكتور"),
         "dr": MessageLookupByLibrary.simpleMessage("د"),
         "editMyData":
             MessageLookupByLibrary.simpleMessage("تعديل البيانات الخاصة بي"),

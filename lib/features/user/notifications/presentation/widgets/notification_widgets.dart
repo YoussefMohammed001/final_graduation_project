@@ -11,7 +11,7 @@ final String time;
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10.sp,horizontal: 15.sp),
-      padding: EdgeInsets.all(12.sp),
+      padding: EdgeInsets.all(17.sp),
       decoration: BoxDecoration(
           color: Colors.grey[200],
 
@@ -19,12 +19,13 @@ final String time;
 
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title,style: TextStyle(fontSize: 16.sp,letterSpacing: 2.sp, height: 0.2.h ),),
+          Text(title,style: TextStyle(fontSize: 16.sp,letterSpacing: 2.sp, height: 0.2.h ,fontWeight: FontWeight.bold),),
           SizedBox(height: 1.h,),
           Row(children: [
-            const AppSVG(assetName: "clock_notify"),
-            SizedBox(width: 2.w,),
+            // const AppSVG(assetName: "clock_notify"),
+          //  SizedBox(width: 2.w,),
             Text(time,style: TextStyle(color: Colors.grey),),
           ],)
         ],

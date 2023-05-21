@@ -68,7 +68,7 @@
   "changePhoto": "chang photo",
   "result": "Result",
   "specializedDoctors": "Specialized Doctors",
-  "ccurrent": "Current",
+  "ccurrent": "Up Coming",
   "previous": "Previous",
   "thereAreNoReservationYet": "There are no reservation yet",
   "notifications": "Notifications",
@@ -121,8 +121,8 @@
   "time": "Time",
   "from": "From",
   "to": "To",
-  "fees": "Fees"
-
+  "fees": "Fees",
+  "doctor": "Doctor"
 
 
 }

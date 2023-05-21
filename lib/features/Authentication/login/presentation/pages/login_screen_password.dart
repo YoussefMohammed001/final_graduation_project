@@ -40,7 +40,7 @@ class LoginScreenPassword extends StatelessWidget {
               hideLoading();
               if (state.verified == true) {
                 showSuccess(state.sucsessMessage);
-                pushAndRemoveUntil(context, MainScreen());
+                pushAndRemoveUntil(context, const MainScreen());
               } else {
                 push(
                     context,
@@ -66,7 +66,7 @@ class LoginScreenPassword extends StatelessWidget {
               hideLoading();
               if (state.verified == true) {
                 showSuccess(state.sucsessMessage);
-                pushAndRemoveUntil(context, DoctorMainScreen());
+                pushAndRemoveUntil(context, const DoctorMainScreen());
               } else {
                 push(
                     context,

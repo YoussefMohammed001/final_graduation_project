@@ -51,7 +51,7 @@ class _ClinicScreenState extends State<ClinicScreen> {
                     userImage:
                     MyShared.getString(key: MySharedKeys.patientImage),
                     searchController: searchController,
-                    user: MyShared.getString(key: MySharedKeys.username),
+                    user: MyShared.getString(key: MySharedKeys.username), notify: 2,
                   ),
                   Row(
                     children: [

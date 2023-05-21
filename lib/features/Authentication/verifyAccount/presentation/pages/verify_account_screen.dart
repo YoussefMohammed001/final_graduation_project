@@ -36,10 +36,11 @@ class VerifyAccountScreen extends StatelessWidget {
 
             showSuccess(state.sucsessMessage);
             if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == true){
-              pushReplacement(context, const PostLicenceScreen());
+              pushAndRemoveUntil(context, const PostLicenceScreen());
             }
             if(MyShared.getBoolean(key: MySharedKeys.isDoctor) == false){
-              pushReplacement(context, const MainScreen());
+              pushAndRemoveUntil(context, const MainScreen());
+
             }
 
           }

@@ -2,6 +2,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:final_graduation_project/core/api/endpoints.dart';
 import 'package:final_graduation_project/core/api/my_dio.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
+import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/features/Authentication/register/data/models/User_register_model.dart';
 // ignore: depend_on_referenced_packages
@@ -32,6 +34,8 @@ class RegisterCubit extends Cubit<RegisterState> {
     if (userRegisterRequestModel.apiStatus == true) {
       safePrint("name>> ${userRegisterRequestModel.data.patient.name}");
       safePrint(response);
+      MyShared.putString(key: MySharedKeys.patientImage, value:userRegisterRequestModel.data.patient.profilePicture.url);
+
       emit(PostRegisterSuccessState(userRegisterRequestModel.massage));
     } else {
       emit(PostRegisterFailureState(userRegisterRequestModel.massage));

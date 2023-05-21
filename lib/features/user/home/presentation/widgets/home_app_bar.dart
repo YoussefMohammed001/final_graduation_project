@@ -19,12 +19,12 @@ class HomeAppBar extends StatefulWidget {
       {Key? key,
       required this.userImage,
       required this.searchController,
-      required this.user})
+      required this.user, required this.notify})
       : super(key: key);
   final TextEditingController searchController;
   final String userImage;
   final String user;
-
+  final int notify;
   @override
   State<HomeAppBar> createState() => _HomeAppBarState();
 }
@@ -111,13 +111,16 @@ class _HomeAppBarState extends State<HomeAppBar> {
                               height: 21.sp,
                               width: 21.sp,
                             ),
-                            CircleAvatar(
-                              radius: 11.sp,
-                              backgroundColor: Colors.yellow.shade800,
-                              child: Text(
-                                "3",
-                                style:
-                                    TextStyle(fontSize: 13.sp, color: Colors.white),
+                            Visibility(
+                              visible: widget.notify > 0 ,
+                              child: CircleAvatar(
+                                radius: 11.sp,
+                                backgroundColor: Colors.yellow.shade800,
+                                child: Text(
+                                  widget.notify.toString(),
+                                  style:
+                                      TextStyle(fontSize: 13.sp, color: Colors.white),
+                                ),
                               ),
                             ),
                           ],

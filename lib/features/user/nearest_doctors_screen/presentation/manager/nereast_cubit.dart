@@ -22,6 +22,7 @@ List<NearestData> nearestData = [];
       NearestModel  nearestModel = NearestModel.fromJson(response!.data);
       nearestData = nearestModel.nearestData;
       print(response);
+      hideLoading();
       emit(NereastSuccess());
       hideLoading();
     } catch(e){

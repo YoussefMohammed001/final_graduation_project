@@ -131,7 +131,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   pushReplacement(context, const DoctorMainScreen());
                 }
                 if(state.pending == 'pending'){
-                  push(context, const WaitingScreen());
+                  push(context, const DoctorMainScreen());
                 }
               }
             }

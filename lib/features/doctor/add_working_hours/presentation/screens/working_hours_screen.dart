@@ -1,7 +1,5 @@
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
-import 'package:final_graduation_project/core/utils/pick_image_dialogue.dart';
-import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
 import 'package:final_graduation_project/features/doctor/add_working_hours/data/days_model.dart';
@@ -92,14 +90,14 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
                                       );
                                       setState(() {});
 
-                                      // timeItem(
-                                      //   context,
-                                      //
-                                      //   onCameraPressed: () {},
-                                      //   onGalleryPressed: () {},
-                                      //   hours: hoursStart,
-                                      //   minutes: minStart, title: 'Start time',
-                                      // );
+                                      timeItem(
+                                        context,
+
+                                        onCameraPressed: () {},
+                                        onGalleryPressed: () {},
+                                        hours: hoursStart,
+                                        minutes: minStart, title: 'Start time',
+                                      );
                                     },
                                   ),
                                   Visibility(
@@ -131,6 +129,7 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
                 ),
                 AppButton(
                     onPressed: () {
+
                       cubit.postWorkingHours(
                         id: MyShared.getString(key: MySharedKeys.id).toString(),
                         appointments: appointments,

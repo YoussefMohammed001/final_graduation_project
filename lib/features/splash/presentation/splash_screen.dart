@@ -26,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
+
     super.initState();
 
     Future.delayed(const Duration(milliseconds: 3000)).then((value) {
@@ -107,7 +108,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           curve: Curves.bounceInOut,
                           opacity: buttonOpacity,
                           child: Text(
-                            "PHCP",
+                            "PCHC",
                             style: TextStyle(
                               fontSize: 35.sp,
                               color: AppColors.primary,
@@ -131,7 +132,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   pushReplacement(context, const DoctorMainScreen());
                 }
                 if(state.pending == 'pending'){
-                  push(context, const DoctorMainScreen());
+                  push(context, const WaitingScreen());
                 }
               }
             }

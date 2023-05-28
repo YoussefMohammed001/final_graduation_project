@@ -84,6 +84,8 @@ class _profileDetailsScreenState extends State<profileDetailsScreen> {
               pushAndRemoveUntil(context, const LoginScreen());
               safePrint("a");
               showSuccess(state.sucsessMessage);
+            } if(state is ProfileDeleteFailure){
+              showError(state.failureMessage);
             }
 
             if (state is UploadUserImageSuccess) {

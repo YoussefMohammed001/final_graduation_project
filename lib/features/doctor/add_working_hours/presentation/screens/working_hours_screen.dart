@@ -92,11 +92,15 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
 
                                       timeItem(
                                         context,
+                                        done: () {
 
-                                        onCameraPressed: () {},
-                                        onGalleryPressed: () {},
+                                        },
+                                        cancel: () {
+
+                                        },
                                         hours: hoursStart,
-                                        minutes: minStart, title: 'Start time',
+                                        minutes: minStart,
+                                        title: 'Start time',
                                       );
                                     },
                                   ),

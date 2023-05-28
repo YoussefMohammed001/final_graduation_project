@@ -3,7 +3,6 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
-import 'package:final_graduation_project/core/widgets/add_review_dialogue.dart';
 import 'package:final_graduation_project/features/user/appoinntment/data/patient_appointments_model.dart';
 import 'package:final_graduation_project/features/user/appoinntment/presentation/manager/patients_appointmetns_cubit.dart';
 import 'package:final_graduation_project/features/user/appoinntment/presentation/widgets/apppointment_app_bar.dart';
@@ -11,7 +10,6 @@ import 'package:final_graduation_project/features/user/appoinntment/presentation
 import 'package:final_graduation_project/features/user/appoinntment/presentation/widgets/switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class AppointmentScreen extends StatefulWidget {
   const AppointmentScreen({Key? key}) : super(key: key);
@@ -123,7 +121,6 @@ late double value;
                         return DoctorItem(
                           onTap: () {
                             pop(context);
-
                             cubit.addReview(
                               patientId: "64625caa35ee17a32b84c2c3",
                               doctorId: "643733944955aafd31f2061a",

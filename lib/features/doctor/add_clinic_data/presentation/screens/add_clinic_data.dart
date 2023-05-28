@@ -1,4 +1,6 @@
 
+import 'dart:async';
+
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
@@ -10,6 +12,7 @@ import 'package:final_graduation_project/features/doctor/add_clinic_data/present
 import 'package:final_graduation_project/features/doctor/add_clinic_data/presentation/screens/add_clinc_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -21,6 +24,22 @@ class AddClinicData extends StatefulWidget {
 }
 
 class _AddClinicDataState extends State<AddClinicData> {
+  final Completer<GoogleMapController> _controller = Completer<GoogleMapController>();
+
+  static const CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(37.42796133580664, -122.085749655962),
+    zoom: 14.4746,
+  );
+
+  static const CameraPosition _kLake = CameraPosition(
+      bearing: 192.8334901395799,
+      target: LatLng(37.43296265331129, -122.08832357078792),
+      tilt: 59.440717697143555,
+      zoom: 19.151926040649414);
+
+
+
+
   TextEditingController about = TextEditingController();
 
   TextEditingController nameAr = TextEditingController();

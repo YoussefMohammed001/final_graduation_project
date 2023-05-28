@@ -31,15 +31,17 @@ class ProfileDetailsCubit extends Cubit<ProfileDetailsState> {
 
         hideLoading();
         safePrint(response);
-        emit(ProfileDeleteSuccess("Account deleted"));
-        SharedPreferences preferences = await SharedPreferences.getInstance();
-        MyShared.putBoolean(key: MySharedKeys.firstOpen, value: false);
-        await preferences.clear();
-
+        if(deleteAccount.message == "password is incorrect"){
+          emit(ProfileDeleteFailure("incorrect password"));
+        }else{
+          emit(ProfileDeleteSuccess("Account deleted"));
+          SharedPreferences preferences = await SharedPreferences.getInstance();
+          MyShared.putBoolean(key: MySharedKeys.firstOpen, value: false);
+          await preferences.clear();
+        }
     } catch (e) {
       hideLoading();
       showError(e.toString());
-
       emit(ProfileDeleteFailure(deleteAccount.message));
       safePrint(response);
     }

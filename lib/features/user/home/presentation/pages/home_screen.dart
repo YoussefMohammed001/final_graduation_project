@@ -65,7 +65,8 @@ final notify = NewNotificationsCubit();
                 HomeAppBar(
                   userImage: MyShared.getString(key: MySharedKeys.patientImage),
                   searchController: searchController,
-                  user: MyShared.getString(key: MySharedKeys.username), notify: notify.notifications.length,
+                  user: MyShared.getString(key: MySharedKeys.username),
+                  notify: notify.notifications.length,
                 ),
                 Visibility(
                   visible: visible,
@@ -98,30 +99,30 @@ final notify = NewNotificationsCubit();
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
                                         children: [
-                                          PredictDiseases(
-                                            image:
-                                                'assets/images/h.jpg',
-                                            title: S().heartDiseases,
-                                            onTap: () {
-                                              push(context,
-                                                  HeartPredictionScreen());
-                                            },
+                                          Expanded(
+                                            child: PredictDiseases(
+                                              image:
+                                                  'assets/images/h.jpg',
+                                              title: S().heartDiseases,
+                                              onTap: () {
+                                                push(context,
+                                                    HeartPredictionScreen());
+                                              },
+                                            ),
                                           ),
-                                          PredictDiseases(
-                                            image:
-                                                'assets/images/d.jpg',
-                                            title: S().diabetes,
-                                            onTap: () {
-                                              push(context,
-                                                  DiabetesPredictionScreen());
-                                            },
+                                          Expanded(
+                                            child: PredictDiseases(
+                                              image:
+                                                  'assets/images/d.jpg',
+                                              title: S().diabetes,
+                                              onTap: () {
+                                                push(context,
+                                                    DiabetesPredictionScreen());
+                                              },
+                                            ),
                                           ),
                                         ],
                                       ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
                                           PredictDiseases(
                                             image:
                                                 'assets/images/s.jpg',
@@ -130,8 +131,18 @@ final notify = NewNotificationsCubit();
                                               push(context, SkinCancerScreen());
                                             },
                                           ),
-                                        ],
-                                      ),
+
+
+
+
+
+
+
+
+
+
+
+
                                       Container(
                                         margin: EdgeInsets.symmetric(
                                             vertical: 13.sp, horizontal: 12.sp),

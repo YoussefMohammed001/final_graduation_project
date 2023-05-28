@@ -49,6 +49,7 @@ class DoctorRegisterCubit extends Cubit<DoctorRegisterState> {
       MyShared.putString(key: MySharedKeys.id ,value: doctorRegisterModel.doctorRegisterData.id);
       MyShared.putString(key: MySharedKeys.apiToken ,value: doctorRegisterModel.token);
       MyShared.putString(key: MySharedKeys.patientImage ,value: doctorRegisterModel.doctorRegisterData.profilePicture.url);
+      MyShared.putString(key: MySharedKeys.username ,value: doctorRegisterModel.doctorRegisterData.name);
       emit(DoctorRegisterSuccess(doctorRegisterModel.massage));
     } else{
       emit(DoctorRegisterFailure(doctorRegisterModel.massage));

@@ -1,5 +1,6 @@
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
+import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
@@ -147,13 +148,16 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
                   ),
                 ),
                 AppButton(
+                  bgColor: AppColors.primary,
+                    margin: EdgeInsets.symmetric(vertical: 12.sp,horizontal: 15.sp),
+                    borderRadius: BorderRadius.circular(18.sp),
                     onPressed: () {
                       cubit.postWorkingHours(
                         id: MyShared.getString(key: MySharedKeys.id).toString(),
                         appointments: appointments.where((element) => element.enabled).toList(),
                       );
                     },
-                    label: "label")
+                    label: "Done")
               ],
             ),
           );

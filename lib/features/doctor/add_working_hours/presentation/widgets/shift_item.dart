@@ -42,7 +42,7 @@ class Shifttem extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Text("start time"),
+                  Text("end time"),
                   Text(end),
                 ],
               ),

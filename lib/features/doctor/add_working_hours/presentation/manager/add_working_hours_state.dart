@@ -4,3 +4,5 @@ part of 'add_working_hours_cubit.dart';
 abstract class AddWorkingHoursState {}
 
 class AddWorkingHoursInitial extends AddWorkingHoursState {}
+class AddWorkingHoursSuccess extends AddWorkingHoursState {}
+class AddWorkingHoursFailure extends AddWorkingHoursState {}

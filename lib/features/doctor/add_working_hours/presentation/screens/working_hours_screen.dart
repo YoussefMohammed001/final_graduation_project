@@ -150,7 +150,7 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
                     onPressed: () {
                       cubit.postWorkingHours(
                         id: MyShared.getString(key: MySharedKeys.id).toString(),
-                        appointments: appointments,
+                        appointments: appointments.where((element) => element.enabled).toList(),
                       );
                     },
                     label: "label")

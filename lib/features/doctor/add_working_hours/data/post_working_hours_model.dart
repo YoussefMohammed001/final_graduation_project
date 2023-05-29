@@ -58,13 +58,13 @@ class Appointments {
 
   Appointments.fromJson(dynamic json) {
     _dayNo = json['dayNo'];
-    _enabled = false;
     if (json['durations'] != null) {
       _durations = [];
       json['durations'].forEach((v) {
         _durations?.add(Durations.fromJson(v));
       });
     }
+    _enabled = durations.isNotEmpty;
   }
 
   num? _dayNo;

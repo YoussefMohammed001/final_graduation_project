@@ -1,5 +1,6 @@
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
+import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
 import 'package:final_graduation_project/features/doctor/add_working_hours/data/days_model.dart';
@@ -22,14 +23,9 @@ class WorkingHoursScreen extends StatefulWidget {
 
 class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
   final cubit = AddWorkingHoursCubit();
-  TextEditingController hoursStart = TextEditingController();
-  TextEditingController hoursEnd = TextEditingController();
-  TextEditingController minStart = TextEditingController();
-  TextEditingController minEnd = TextEditingController();
+
   List<Appointments> appointments = [
-    Appointments(
-      dayNo: 0,
-    ),
+    Appointments(dayNo: 0),
     Appointments(dayNo: 1),
     Appointments(dayNo: 2),
     Appointments(dayNo: 3),
@@ -50,13 +46,8 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
 
   @override
   void initState() {
-    minStart.text = "00";
-    hoursStart.text = "00";
-    hoursEnd.text = "00";
-    minEnd.text = "00";
-    cubit.postWorkingHoursModel.doctorId;
-
     super.initState();
+    cubit.postWorkingHoursModel.doctorId;
   }
 
   @override
@@ -87,21 +78,24 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
                                   DayItem(
                                     day: days[index].day,
                                     onTap: () {
-                                      appointments[index]
-                                          .durations
-                                          .add(Durations(
-                                            from: 8,
-                                            to: 15,
-                                          ));
-
                                       setState(() {});
 
                                       timeItem(
                                         context,
                                         done: () {},
-                                        cancel: () {},
-                                        hours: hoursStart,
-                                        minutes: minStart,
+                                        cancel: () {
+                                          pop(context);
+                                        },
+                                        fromTo: (num from, num to) {
+                                          pop(context);
+                                          appointments[index]
+                                              .durations
+                                              .add(Durations(
+                                                from: from,
+                                                to: to,
+                                              ));
+                                          setState(() {});
+                                        },
                                         title: 'Start time',
                                       );
                                     },
@@ -132,7 +126,8 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
                                             onTap: () {
                                               setState(() {
                                                 appointments[index]
-                                                    .durations.removeAt(durationIndex);
+                                                    .durations
+                                                    .removeAt(durationIndex);
                                               });
                                             },
                                           );

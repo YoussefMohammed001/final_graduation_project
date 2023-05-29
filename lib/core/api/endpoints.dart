@@ -1,6 +1,6 @@
 
 class EndPoints {
-  static const String baseUrl = 'https://healthapp-bjug.onrender.com/';
+  static const String baseUrl = 'https://project-git-main-safaa-mostafa.vercel.app/';
   static const String aiBaseUrl = 'https://prediction-pj3t.onr ender.com/';
   static const String language = 'languages/translation';
   static const String login = "user/login";

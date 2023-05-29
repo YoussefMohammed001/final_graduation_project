@@ -101,7 +101,7 @@ class _ConfirmedScreenState extends State<ConfirmedScreen> {
                   borderRadius: BorderRadius.circular(15.sp),
                   margin: EdgeInsets.symmetric(horizontal: 38.sp),
                   onPressed: () {
-                    pushReplacement(context,  MainScreen());
+                    pushAndRemoveUntil(context,  const MainScreen());
                   },
 
                   label: S().backToHome,),

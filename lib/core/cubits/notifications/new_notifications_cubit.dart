@@ -15,11 +15,12 @@ class NewNotificationsCubit extends Cubit<NewNotificationsState> {
 
 
   getNotifications() async {
-    var response = await AppDio.get(endPoint: EndPoints.newNotifications+MyShared
-        .getString(key: MySharedKeys.id));
+    var response = await AppDio.get(endPoint: EndPoints.newNotifications+MyShared.getString(key: MySharedKeys.id));
     GetNotificationsModel getNotificationsModel = GetNotificationsModel.fromJson(response!.data);
     notifications = getNotificationsModel.notifications;
-    safePrint(response);
+    safePrint(response.toString());
+
     emit(NewNotificationsSuccess());
   }
 }
+

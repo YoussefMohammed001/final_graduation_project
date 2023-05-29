@@ -1,7 +1,9 @@
 import 'package:final_graduation_project/core/shared_preferences/my_shared.dart';
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
+import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
+import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/search_text_field.dart';
@@ -19,19 +21,20 @@ class HomeAppBar extends StatefulWidget {
       {Key? key,
       required this.userImage,
       required this.searchController,
-      required this.user, required this.notify})
+      required this.user, required this.notify, required this.onNotify})
       : super(key: key);
   final TextEditingController searchController;
   final String userImage;
   final String user;
   final int notify;
+  final VoidCallback onNotify;
   @override
   State<HomeAppBar> createState() => _HomeAppBarState();
 }
 
 class _HomeAppBarState extends State<HomeAppBar> {
-  late double lat;
-  late double long;
+   double? lat;
+   double? long;
 
   String location = 'current location';
 
@@ -100,9 +103,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
                       ),
                       const Spacer(),
                       InkWell(
-                        onTap: (){
-                          push(context, const NotificationsScreen());
-                        },
+                        onTap: widget.onNotify,
                         child: Stack(
                           alignment: AlignmentDirectional.topEnd,
                           children: [
@@ -141,15 +142,16 @@ class _HomeAppBarState extends State<HomeAppBar> {
           child: Container(
             margin: EdgeInsets.only(left: 8.sp, right: 8.sp, top: 40.sp),
             child: InkWell(
-              onTap: (){
+              onTap: () async {
+                showLoading();
+                Position position = await _getCurrentLocation();
+                lat = position.latitude;
+                long = position.longitude;
+                safePrint(lat);
+                safePrint(long);
+                hideLoading();
+              push(context,  NearestDoctorScreen(lat: lat.toString(), lang: long.toString(),));
 
-                _getCurrentLocation().then((value) {
-                  push(context,  NearestDoctorScreen(lat: value.latitude.toString(), lang: value.longitude.toString(),));
-
-                  lat = value.latitude;
-
-                  long = value.longitude;
-                });
               },
 
               child: SearchTextFiled(

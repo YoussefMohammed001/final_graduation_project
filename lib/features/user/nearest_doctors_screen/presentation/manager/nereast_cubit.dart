@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:final_graduation_project/core/api/my_dio.dart';
 import 'package:final_graduation_project/core/utils/easy_loading.dart';
+import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/features/user/nearest_doctors_screen/data/nearest_model.dart';
 import 'package:meta/meta.dart';
 
@@ -26,6 +27,9 @@ List<NearestData> nearestData = [];
       emit(NereastSuccess());
       hideLoading();
     } catch(e){
+      hideLoading();
+      safePrint(e);
+      emit(NereastFailure());
 
     }
     // ignore: empty_catches

@@ -3,6 +3,7 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
+import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/features/user/appoinntment/data/patient_appointments_model.dart';
 import 'package:final_graduation_project/features/user/appoinntment/presentation/manager/patients_appointmetns_cubit.dart';
 import 'package:final_graduation_project/features/user/appoinntment/presentation/widgets/apppointment_app_bar.dart';
@@ -10,6 +11,7 @@ import 'package:final_graduation_project/features/user/appoinntment/presentation
 import 'package:final_graduation_project/features/user/appoinntment/presentation/widgets/switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AppointmentScreen extends StatefulWidget {
   const AppointmentScreen({Key? key}) : super(key: key);
@@ -65,12 +67,12 @@ late double value;
                 ),
 
 
-                Visibility(
+         Visibility(
                   visible: MyShared.getBoolean(
                         key: MySharedKeys.currentAppointment,
                       ) ==
                       true,
-                  child: Expanded(
+                  child: cubit.patientNewAppointments != null ? Expanded(
                     child: ListView.builder(
                       shrinkWrap: false,
                       itemBuilder: (BuildContext context, int index) {
@@ -102,17 +104,31 @@ late double value;
                       },
                       itemCount: cubit.patientNewAppointments.length,
                     ),
-                  ),
+                  ):
+           Column(
+           mainAxisAlignment: MainAxisAlignment
+           .center,
+           children: [
+             SizedBox(height: 27.h,),
+             const AppSVG(assetName: "empty"),
+             SizedBox(height: 1.h,),
+             const Text(
+               "You don't have notifications",
+               style: TextStyle(color: Colors.grey),
+             )
+           ],
+         ),
                 ),
 
 
 
 
-                Visibility(
+
+           Visibility(
                   visible: MyShared.getBoolean(
                           key: MySharedKeys.currentAppointment) ==
                       false,
-                  child: Expanded(
+                  child:  cubit.patientOldAppointments != null   ?  Expanded(
                     child: ListView.builder(
                       shrinkWrap: false,
                       itemBuilder: (BuildContext context, int index) {
@@ -122,8 +138,9 @@ late double value;
                           onTap: () {
                             pop(context);
                             cubit.addReview(
-                              patientId: "64625caa35ee17a32b84c2c3",
-                              doctorId: "643733944955aafd31f2061a",
+                              patientId: MyShared.getString(key: MySharedKeys.id),
+
+                              doctorId: patientAppointments.id,
                               rate: value.toString(),
                             );
                           },
@@ -149,10 +166,21 @@ late double value;
                       },
                       itemCount: cubit.patientOldAppointments.length,
                     ),
+                  ) :Column(
+                    mainAxisAlignment: MainAxisAlignment
+                        .center,
+                    children: [
+                      SizedBox(height: 27.h,),
+                      const AppSVG(assetName: "empty"),
+                      SizedBox(height: 1.h,),
+                      const Text(
+                        "You don't have notifications",
+                        style: TextStyle(color: Colors.grey),
+                      )
+                    ],
                   ),
-                ),
-              ],
-            ),
+           ),
+          ]),
           );
         },
       ),

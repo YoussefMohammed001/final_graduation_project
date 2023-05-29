@@ -3,11 +3,12 @@
 
 class PostWorkingHoursModel {
   PostWorkingHoursModel({
-      String? doctorId, 
-      List<Appointments>? appointments,}){
+    String? doctorId,
+    List<Appointments>? appointments,
+  }) {
     _doctorId = doctorId;
     _appointments = appointments;
-}
+  }
 
   PostWorkingHoursModel.fromJson(dynamic json) {
     _doctorId = json['doctorId'];
@@ -18,10 +19,12 @@ class PostWorkingHoursModel {
       });
     }
   }
+
   String? _doctorId;
   List<Appointments>? _appointments;
 
   String get doctorId => _doctorId ?? "";
+
   List<Appointments> get appointments => _appointments ?? [];
 
   Map<String, dynamic> toJson() {
@@ -44,15 +47,18 @@ class PostWorkingHoursModel {
 
 class Appointments {
   Appointments({
-      num? dayNo, 
-      List<Durations>? durations,
-  }){
+    num? dayNo,
+    bool? enabled,
+    List<Durations>? durations,
+  }) {
     _dayNo = dayNo;
-    _durations = durations;
-}
+    _enabled = enabled ?? false;
+    _durations = durations ?? [];
+  }
 
   Appointments.fromJson(dynamic json) {
     _dayNo = json['dayNo'];
+    _enabled = false;
     if (json['durations'] != null) {
       _durations = [];
       json['durations'].forEach((v) {
@@ -60,14 +66,23 @@ class Appointments {
       });
     }
   }
+
   num? _dayNo;
+  bool? _enabled;
   List<Durations>? _durations;
 
   set dayNo(num value) {
     _dayNo = value;
   }
 
+  bool get enabled => _enabled ?? false;
+
+  set enabled(bool value) {
+    _enabled = value;
+  }
+
   num get dayNo => _dayNo ?? 0;
+
   List<Durations> get durations => _durations ?? [];
 
   Map<String, dynamic> toJson() {
@@ -86,20 +101,23 @@ class Appointments {
 
 class Durations {
   Durations({
-      num? from, 
-      num? to,}){
+    num? from,
+    num? to,
+  }) {
     _from = from;
     _to = to;
-}
+  }
 
   Durations.fromJson(dynamic json) {
     _from = json['from'];
     _to = json['to'];
   }
+
   num? _from;
   num? _to;
 
   num get from => _from ?? 0;
+
   num get to => _to ?? 0;
 
   set from(num value) {

@@ -27,8 +27,9 @@ class ProfileCubit extends Cubit<ProfileState> {
       safePrint(response);
       emit(ProfileLogoutSucsess(logoutModel.message,));
       SharedPreferences preferences = await SharedPreferences.getInstance();
-      MyShared.putBoolean(key: MySharedKeys.firstOpen, value: false);
       await preferences.clear();
+      MyShared.putBoolean(key: MySharedKeys.firstOpen, value: false);
+  
     } else{
       emit(ProfileLogoutFailure(logoutModel.message));
       safePrint(response);

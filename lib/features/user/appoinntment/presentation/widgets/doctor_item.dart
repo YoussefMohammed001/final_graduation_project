@@ -119,124 +119,132 @@ class DoctorItem extends StatelessWidget {
               SizedBox(
                 width: 2.w,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AppSVG(
-                          color: AppColors.text,
-                          height: 2.h,
-                          width: 2.w,
-                          assetName: "ic_tabs_ic_account_active"),
-                      SizedBox(
-                        width: 0.5.w,
-                      ),
-                      Text(
-                        "Dr. $drName",
-                        style: TextStyle(fontSize: 15.sp),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AppSVG(
-                          color: AppColors.text,
-                          height: 2.h,
-                          width: 2.w,
-                          assetName: "vector"),
-                      SizedBox(
-                        width: 0.5.w,
-                      ),
-                      Text(
-                        location,
-                        style: TextStyle(fontSize: 15.sp),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AppSVG(
-                          height: 2.h, width: 2.w, assetName: "member_card_1"),
-                      SizedBox(
-                        width: 0.5.w,
-                      ),
-                      Text(
-                        specialization,
-                        style: TextStyle(fontSize: 15.sp),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 3.h,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(12.sp),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(11.sp),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppSVG(
+                            color: AppColors.text,
+                            height: 2.h,
+                            width: 2.w,
+                            assetName: "ic_tabs_ic_account_active"),
+                        SizedBox(
+                          width: 0.5.w,
                         ),
-                        child: Row(
-                          children: [
-                            AppSVG(
-                                color: AppColors.semiGrey,
-                                height: 2.h,
+                        Text(
+                          "Dr. $drName",
+                          style: TextStyle(fontSize: 15.sp,overflow: TextOverflow.ellipsis),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppSVG(
+                            color: AppColors.text,
+                            height: 2.h,
+                            width: 2.w,
+                            assetName: "vector"),
+
+                        Expanded(
+                          child: Text(
+                            location,
+                            maxLines: 2,
+
+                            style: TextStyle(fontSize: 15.sp,overflow: TextOverflow.ellipsis),
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppSVG(
+                            height: 2.h, width: 2.w, assetName: "member_card_1"),
+                        SizedBox(
+                          width: 0.5.w,
+                        ),
+                        Expanded(
+                          child: Text(
+                            specialization,
+                            style: TextStyle(fontSize: 15.sp,overflow: TextOverflow.ellipsis,
+                            ),
+                            maxLines: 2,
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 3.h,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(12.sp),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(11.sp),
+                          ),
+                          child: Row(
+                            children: [
+                              AppSVG(
+                                  color: AppColors.semiGrey,
+                                  height: 2.h,
+                                  width: 2.w,
+                                  assetName: "calender"),
+                              SizedBox(
                                 width: 2.w,
-                                assetName: "calender"),
-                            SizedBox(
-                              width: 2.w,
-                            ),
-                            Text(
-                              day,
-                              style: TextStyle(
-                                  fontSize: 15.sp, color: AppColors.semiGrey),
-                            ),
-                          ],
+                              ),
+                              Text(
+                                day,
+                                style: TextStyle(
+                                    fontSize: 15.sp, color: AppColors.semiGrey),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 3.w,
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(12.sp),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(11.sp),
+                        SizedBox(
+                          width: 3.w,
                         ),
-                        child: Row(
-                          children: [
-                            AppSVG(
-                                color: AppColors.semiGrey,
-                                height: 2.h,
+                        Container(
+                          padding: EdgeInsets.all(12.sp),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(11.sp),
+                          ),
+                          child: Row(
+                            children: [
+                              AppSVG(
+                                  color: AppColors.semiGrey,
+                                  height: 2.h,
+                                  width: 2.w,
+                                  assetName: "clock"),
+                              SizedBox(
                                 width: 2.w,
-                                assetName: "clock"),
-                            SizedBox(
-                              width: 2.w,
-                            ),
-                            Text(
-                              time,
-                              style: TextStyle(
-                                  fontSize: 15.sp, color: AppColors.semiGrey),
-                            ),
-                          ],
+                              ),
+                              Text(
+                                time,
+                                style: TextStyle(
+                                    fontSize: 15.sp, color: AppColors.semiGrey),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

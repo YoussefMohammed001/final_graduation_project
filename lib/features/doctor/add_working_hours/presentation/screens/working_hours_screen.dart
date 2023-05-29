@@ -26,8 +26,18 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
   TextEditingController hoursEnd = TextEditingController();
   TextEditingController minStart = TextEditingController();
   TextEditingController minEnd = TextEditingController();
-  List<Durations> durations = [];
-  List<Appointments> appointments = [];
+  List<Appointments> appointments = [
+    Appointments(
+      dayNo: 0,
+    ),
+    Appointments(dayNo: 1),
+    Appointments(dayNo: 2),
+    Appointments(dayNo: 3),
+    Appointments(dayNo: 4),
+    Appointments(dayNo: 5),
+    Appointments(dayNo: 6),
+  ];
+
   List<DaysModel> days = [
     DaysModel(day: 'Saturday', iD: 0),
     DaysModel(day: 'Sunday', iD: 1),
@@ -77,49 +87,59 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
                                   DayItem(
                                     day: days[index].day,
                                     onTap: () {
-                                      durations.add(Durations(
-                                        from: 8,
-                                        to: 15,
-                                      ));
+                                      appointments[index]
+                                          .durations
+                                          .add(Durations(
+                                            from: 8,
+                                            to: 15,
+                                          ));
 
-                                      appointments.add(
-                                        Appointments(
-                                          dayNo: days[index].iD,
-                                          durations: durations,
-                                        ),
-                                      );
                                       setState(() {});
 
                                       timeItem(
                                         context,
-                                        done: () {
-
-                                        },
-                                        cancel: () {
-
-                                        },
+                                        done: () {},
+                                        cancel: () {},
                                         hours: hoursStart,
                                         minutes: minStart,
                                         title: 'Start time',
                                       );
                                     },
+                                    status: appointments[index].enabled,
+                                    onToggle: (bool value) {
+                                      setState(() {
+                                        appointments[index].enabled = value;
+                                      });
+                                    },
                                   ),
                                   Visibility(
-                                    visible: status,
+                                    visible: appointments[index].enabled,
                                     child: ListView.builder(
+                                        physics:
+                                            const NeverScrollableScrollPhysics(),
                                         shrinkWrap: true,
-                                        itemBuilder:
-                                            (BuildContext context, int index) {
+                                        itemBuilder: (BuildContext context,
+                                            int durationIndex) {
                                           return Shifttem(
-                                            start: durations[index]
+                                            start: appointments[index]
+                                                .durations[durationIndex]
                                                 .from
                                                 .toString(),
-                                            end: durations[index]
+                                            end: appointments[index]
+                                                .durations[durationIndex]
                                                 .to
                                                 .toString(),
+                                            onTap: () {
+                                              setState(() {
+                                                appointments[index]
+                                                    .durations.removeAt(durationIndex);
+                                              });
+                                            },
                                           );
                                         },
-                                        itemCount: durations.length),
+                                        itemCount: appointments[index]
+                                            .durations
+                                            .length),
                                   ),
                                 ],
                               );
@@ -133,7 +153,6 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
                 ),
                 AppButton(
                     onPressed: () {
-
                       cubit.postWorkingHours(
                         id: MyShared.getString(key: MySharedKeys.id).toString(),
                         appointments: appointments,

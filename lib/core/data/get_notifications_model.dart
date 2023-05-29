@@ -36,6 +36,7 @@ GetNotificationsModel copyWith({  bool? apiStatus,
   List<Notifications> get notifications => _notifications ?? [];
   String get message => _message ?? "";
 
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['apiStatus'] = _apiStatus;
@@ -79,7 +80,7 @@ Notifications copyWith({  String? type,
 );
   String get type => _type ?? "";
   String get message => _message ?? "";
-  Data get data => _data ?? data;
+  Data get data => _data ?? Data();
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

@@ -68,7 +68,7 @@ class _ConfirmAppointmentScreenState extends State<ConfirmAppointmentScreen> {
       child: BlocListener<ChooseAppointmnetCubit, ChooseAppointmnetState>(
         listener: (context, state) {
           if (state is ChooseAppointmnetSuccess) {
-            push(
+            pushAndRemoveUntil(
                 context,
                 ConfirmedScreen(
                   from: widget.from,

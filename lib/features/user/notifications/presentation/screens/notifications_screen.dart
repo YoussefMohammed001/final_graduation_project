@@ -1,3 +1,5 @@
+import 'package:final_graduation_project/core/cubits/notifications/new_notifications_cubit.dart';
+import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/profile_app_bar.dart';
 import 'package:final_graduation_project/features/user/notifications/data/get_notification_data_model.dart';
@@ -17,8 +19,11 @@ class NotificationsScreen extends StatefulWidget {
 
 class _NotificationsScreenState extends State<NotificationsScreen> {
   final cubit = GetNotificationCubit();
+  final notify = NewNotificationsCubit();
+
   @override
   void initState() {
+    notify.getNotifications();
     cubit.getNotifications();
     // TODO: implement initState
     super.initState();
@@ -28,7 +33,9 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => cubit,
-      child: BlocBuilder<GetNotificationCubit, GetNotificationState>(
+      child: BlocConsumer<GetNotificationCubit, GetNotificationState>(
+        listener: (context, state) {
+        },
         builder: (context, state) {
           return Scaffold(
             body: Column(
@@ -38,7 +45,8 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                 ),
                 Expanded(
                   child: LayoutBuilder(
-                      builder: (context, constrains) => SingleChildScrollView(
+                      builder: (context, constrains) =>
+                          SingleChildScrollView(
                             child: ConstrainedBox(
                               constraints: BoxConstraints(
                                 minHeight: constrains.maxHeight,
@@ -49,42 +57,43 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
 
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    cubit.seenNotification.isNotEmpty
+                                    cubit.seenNotification != null
                                         ? Expanded(
-                                            child: SizedBox(
-                                              height: 25.h,
-                                              child: ListView.builder(
-                                                shrinkWrap: false,
-                                                itemBuilder:
-                                                    (BuildContext context,
-                                                        int index) {
-                                                  SeenNotification
-                                                      seenNotification =
-                                                      cubit.seenNotification[
-                                                          index];
-                                                  return NotificationItem(
-                                                    title:
-                                                        seenNotification.type,
-                                                    time: seenNotification
-                                                        .message,
-                                                  );
-                                                },
-                                                itemCount: cubit
-                                                    .seenNotification.length,
-                                              ),
-                                            ),
-                                          )
-                                        :  Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              const AppSVG(assetName: "empty"),
-                                              SizedBox(height: 1.h,),
-                                              const Text(
-                                                  "You don't have notifications",
-                                              style: TextStyle(color: Colors.grey),
-                                              )
-                                            ],
-                                          )
+                                      child: SizedBox(
+                                        height: 25.h,
+                                        child: ListView.builder(
+                                          shrinkWrap: false,
+                                          itemBuilder:
+                                              (BuildContext context,
+                                              int index) {
+                                            SeenNotification
+                                            seenNotification =
+                                            cubit.seenNotification[
+                                            index];
+                                            return NotificationItem(
+                                              title:
+                                              seenNotification.type,
+                                              time: seenNotification
+                                                  .message,
+                                            );
+                                          },
+                                          itemCount: cubit
+                                              .seenNotification.length,
+                                        ),
+                                      ),
+                                    )
+                                        : Column(
+                                      mainAxisAlignment: MainAxisAlignment
+                                          .center,
+                                      children: [
+                                        const AppSVG(assetName: "empty"),
+                                        SizedBox(height: 1.h,),
+                                        const Text(
+                                          "You don't have notifications",
+                                          style: TextStyle(color: Colors.grey),
+                                        )
+                                      ],
+                                    )
                                   ],
                                 ),
                               ),

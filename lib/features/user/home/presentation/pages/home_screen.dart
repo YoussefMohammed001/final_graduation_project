@@ -11,6 +11,7 @@ import 'package:final_graduation_project/features/user/home/presentation/widgets
 import 'package:final_graduation_project/core/widgets/latest_doctor_tem.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/predict_diseases_item.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/sepcialest_item.dart';
+import 'package:final_graduation_project/features/user/notifications/presentation/screens/notifications_screen.dart';
 import 'package:final_graduation_project/features/user/single_doctor/presentation/pages/single_doctor.dart';
 import 'package:final_graduation_project/features/user/skin_cancer_prediction/presentation/screens/skin_cancer_prediction_screen.dart';
 import 'package:final_graduation_project/features/user/specialist_doctors/presentation/screens/specialist_doctors.dart';
@@ -34,8 +35,8 @@ final notify = NewNotificationsCubit();
   bool visible = false;
   @override
   void initState() {
-    cubit.getHome();
     notify.getNotifications();
+    cubit.getHome();
     safePrint(MyShared.getString(key: MySharedKeys.id));
     super.initState();
   }
@@ -66,7 +67,11 @@ final notify = NewNotificationsCubit();
                   userImage: MyShared.getString(key: MySharedKeys.patientImage),
                   searchController: searchController,
                   user: MyShared.getString(key: MySharedKeys.username),
-                  notify: notify.notifications.length,
+                  notify: notify.notifications.length.toInt(), onNotify: () {
+                  push(context, const NotificationsScreen());
+                  notify.notifications.clear();
+
+                },
                 ),
                 Visibility(
                   visible: visible,

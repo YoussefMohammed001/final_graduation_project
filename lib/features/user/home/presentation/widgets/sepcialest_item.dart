@@ -22,7 +22,7 @@ class SpecialistItem extends StatelessWidget {
       width: 47.sp,
       padding: EdgeInsets.symmetric(
         horizontal: 15.sp,
-        vertical: 15.sp,
+        vertical: 10.sp,
       ),
       margin: EdgeInsets.symmetric(
         horizontal: 10.sp,
@@ -43,18 +43,20 @@ class SpecialistItem extends StatelessWidget {
 
             ),
             const Spacer(),
-            Text(
-              title,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: AppColors.text,
-                fontSize: 15.sp,
-                fontWeight: FontWeight.w500,
+            Expanded(
+              child: Text(
+                title,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: AppColors.text,
+                  fontSize: 15.sp,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-            SizedBox(height: 1.h,),
+            SizedBox(height: 0.5.h,),
             Text("$doctorsNumber ${S().doctor}",
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.grey, fontSize: 12.sp),

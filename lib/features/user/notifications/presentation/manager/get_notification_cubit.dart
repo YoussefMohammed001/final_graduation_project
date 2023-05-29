@@ -16,8 +16,9 @@ class GetNotificationCubit extends Cubit<GetNotificationState> {
   GetNotificationCubit() : super(GetNotificationInitial());
 
   List<SeenNotification> seenNotification = [];
-
+List data = [];
   getNotifications() async {
+
     showLoading();
     var response = await AppDio.post(
       endPoint: EndPoints.notifications,
@@ -32,7 +33,8 @@ class GetNotificationCubit extends Cubit<GetNotificationState> {
     seenNotification =
         getNotificationDataModel.seenNotificationData
             .seenNotification;
-    emit(GetNotificationSuccess());
+data = seenNotification;
+emit(GetNotificationSuccess());
     hideLoading();
     safePrint(response.data);
   }

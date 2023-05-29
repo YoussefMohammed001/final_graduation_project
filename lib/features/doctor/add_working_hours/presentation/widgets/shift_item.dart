@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class Shifttem extends StatelessWidget {
-  const Shifttem({Key? key, required this.start, required this.end}) : super(key: key);
-final String start;
-final String end;
+  const Shifttem({
+    Key? key,
+    required this.start,
+    required this.end, required this.onTap,
+  }) : super(key: key);
+  final String start;
+  final String end;
+  final VoidCallback onTap;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -30,7 +36,6 @@ final String end;
               VerticalDivider(
                 color: Colors.blue,
                 thickness: 4.w,
-
               ),
               SizedBox(
                 width: 2.w,
@@ -44,7 +49,13 @@ final String end;
             ],
           ),
         ),
-        Icon(Icons.close,color: Colors.blue,)
+        InkWell(
+          onTap:onTap ,
+          child: Icon(
+            Icons.close,
+            color: Colors.blue,
+          ),
+        )
       ],
     );
   }

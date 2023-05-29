@@ -55,20 +55,20 @@ Future timeItem(
                             textInputAction: TextInputAction.next,
                             textInputType: TextInputType.number),
                       ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: AppButton(
-                                onPressed: () {
 
 
-                                },
-                                label: "label"),
-                          ),
-                          const Text("cancel"),
-                        ],
-                      )
-
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: AppButton(
+                          margin: EdgeInsets.all(7.sp),
+                            onPressed: () {
+                            },
+                            label: "label"),
+                      ),
+                      const Text("cancel"),
                     ],
                   )
                 ],

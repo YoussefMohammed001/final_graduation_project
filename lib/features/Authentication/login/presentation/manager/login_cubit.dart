@@ -36,6 +36,11 @@ class LoginCubit extends Cubit<LoginState> {
          safePrint("name>> ${loginRequestModel.data.userData.profilePicture.url}");
          safePrint(response);
          saveUserData();
+         var respones = await AppDio.post(endPoint: "/user/addNotify/${MyShared.getString(key: MySharedKeys.id)}",data: {
+           "token":MyShared.getString(key: MySharedKeys.FirebaseToken),
+
+         });
+         safePrint("response==>$respones");
          emit(LoginSucsess(loginRequestModel.message,loginRequestModel.data.userData.isverified));
        } else{
          emit(LoginFailure(loginRequestModel.message));
@@ -49,6 +54,11 @@ class LoginCubit extends Cubit<LoginState> {
          safePrint(response);
          await saveDoctorData();
          MyShared.putBoolean(key: MySharedKeys.isDoctor, value: true);
+         var respones = await AppDio.post(endPoint: "/user/addNotify/${MyShared.getString(key: MySharedKeys.id)}",data: {
+           "token":MyShared.getString(key: MySharedKeys.FirebaseToken),
+
+         });
+         safePrint("response==>$respones");
          emit(LoginSucsess(loginDoctorModel.message,loginDoctorModel.isDoctor));
        } else{
          emit(LoginFailure(loginDoctorModel.message));

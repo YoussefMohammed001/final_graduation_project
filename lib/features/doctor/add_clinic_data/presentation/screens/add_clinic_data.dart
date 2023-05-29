@@ -6,12 +6,14 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/easy_loading.dart';
 import 'package:final_graduation_project/core/utils/navigators.dart';
+import 'package:final_graduation_project/core/utils/safe_print.dart';
 import 'package:final_graduation_project/core/widgets/app_button.dart';
 import 'package:final_graduation_project/core/widgets/app_text_field.dart';
 import 'package:final_graduation_project/features/doctor/add_clinic_data/presentation/manager/doctor_data_images_cubit.dart';
 import 'package:final_graduation_project/features/doctor/add_clinic_data/presentation/screens/add_clinc_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -24,21 +26,29 @@ class AddClinicData extends StatefulWidget {
 }
 
 class _AddClinicDataState extends State<AddClinicData> {
-  final Completer<GoogleMapController> _controller = Completer<GoogleMapController>();
+  late double lat;
+  late double long;
 
-  static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
-  );
+  String locationn = 'current location';
+  Future<Position> _getCurrentLocation()async {
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if(!serviceEnabled){
+      return Future.error("Location services is disabled");
+    }
+    LocationPermission  permission = await Geolocator.checkPermission();
+    if(permission == LocationPermission.denied){
+      permission = await Geolocator.requestPermission();
+      if(permission == LocationPermission.denied){
+        return Future.error("Location services is disabled");
+      }
+    }
+    if(permission == LocationPermission.deniedForever){
+      return Future.error("Location services is disabled");
+    }
 
-  static const CameraPosition _kLake = CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(37.43296265331129, -122.08832357078792),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
+    return await Geolocator.getCurrentPosition();
 
-
-
+  }
 
   TextEditingController about = TextEditingController();
 
@@ -46,9 +56,10 @@ class _AddClinicDataState extends State<AddClinicData> {
 
   TextEditingController aboutAr = TextEditingController();
 
-  TextEditingController city = TextEditingController();
+  TextEditingController location = TextEditingController();
 
   TextEditingController cityAr = TextEditingController();
+  TextEditingController city = TextEditingController();
 
   TextEditingController place = TextEditingController();
 
@@ -208,17 +219,28 @@ class _AddClinicDataState extends State<AddClinicData> {
                             SizedBox(
                               height: 2.h,
                             ),
-                            MyTextFormField(
-                                validators: (value){
-                                  if(value == null){
-                                    return "this field is required";
-                                  }
-                                },
-                                hint: "add Current location",
-                                controller: city,
-                                isPassword: false,
-                                textInputAction: TextInputAction.next,
-                                textInputType: TextInputType.text),
+                            InkWell(
+                              onTap: () async {
+                                showLoading();
+                                Position position = await _getCurrentLocation();
+                                location.text = "location added";
+                                lat = position.latitude;
+                                long = position.longitude;
+                             hideLoading();
+                              },
+                              child: MyTextFormField(
+                                enabled: false,
+                                  validators: (value){
+                                    if(value == null){
+                                      return "this field is required";
+                                    }
+                                  },
+                                  hint: "click to add Current location",
+                                  controller: location,
+                                  isPassword: false,
+                                  textInputAction: TextInputAction.next,
+                                  textInputType: TextInputType.text),
+                            ),
                             SizedBox(
                               height: 2.h,
                             ),
@@ -275,6 +297,7 @@ class _AddClinicDataState extends State<AddClinicData> {
                                       }
                                     },
                                     hint: "رقم المنبى",
+
                                     controller: placeAr,
                                     isPassword: false,
                                     textInputAction: TextInputAction.next,
@@ -282,26 +305,29 @@ class _AddClinicDataState extends State<AddClinicData> {
                             SizedBox(
                               height: 2.h,
                             ),
-                            SizedBox(
-                              height: 2.h,
-                            ),
+
                             AppButton(
                               onPressed: () {
+                                safePrint(lat);
+                                safePrint(long);
                            if(_formKey.currentState!.validate()){
-                             cubit.addDoctorDataa(
-                                 name: nameAr.text,
-                                 lat: "30.28",
-                                 lon: '31.7',
-                                 about: about.text,
-                                 aboutAR: aboutAr.text,
-                                 waitingTime: waitingTime.text,
-                                 cityAR: cityAr.text,
-                                 city: city.text,
-                                 placeNOAr:placeAr.text,
-                                 placeNO: place.text,
-                                 fees: fees.text,
-                                 experience: experince.text,
-                                 id: MyShared.getString(key: MySharedKeys.id));
+
+                          cubit.addDoctorDataa(
+                              name: nameAr.text,
+                              lat: lat.toString(),
+                              lon: long.toString(),
+                              about: about.text,
+                              aboutAR: aboutAr.text,
+                              waitingTime: waitingTime.text,
+                              cityAR: cityAr.text,
+                              city: city.text,
+                              placeNOAr:placeAr.text,
+                              placeNO: place.text,
+                              fees: fees.text,
+                              experience: experince.text,
+                              id: MyShared.getString(key: MySharedKeys.id));
+
+
                            }
                               },
                               margin: EdgeInsets.symmetric(horizontal: 0.sp),

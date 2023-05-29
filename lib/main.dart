@@ -7,6 +7,7 @@ import 'package:final_graduation_project/core/shared_preferences/my_shared.dart'
 import 'package:final_graduation_project/core/shared_preferences/my_shared_keys.dart';
 import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/safe_print.dart';
+import 'package:final_graduation_project/features/doctor/add_clinic_data/presentation/screens/add_clinic_data.dart';
 import 'package:final_graduation_project/features/splash/presentation/splash_screen.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -107,9 +108,6 @@ Future main() async {
 
 
 
-
-
-
   FirebaseMessaging.onBackgroundMessage(
     (RemoteMessage message) async {
       safePrint('Got a message whilst in the foreground!');
@@ -120,10 +118,13 @@ Future main() async {
   );
   safePrint(MyShared.getString(key: MySharedKeys.apiToken));
   safePrint("Firebase==========>${MyShared.getString(key: MySharedKeys.FirebaseToken)}");
-await AppDio.post(endPoint: "/user/addNotify/${MyShared.getString(key: MySharedKeys.id)}",data: {
-  "userToken":MyShared.getString(key: MySharedKeys.FirebaseToken),
+if(MyShared.getString(key: MySharedKeys.id).isNotEmpty){
+  var respones = await AppDio.post(endPoint: "/user/addNotify/${MyShared.getString(key: MySharedKeys.id)}",data: {
+    "token":MyShared.getString(key: MySharedKeys.FirebaseToken),
 
-});
+  });
+  safePrint("response==>$respones");
+}
   runApp(const MyApp());
 }
 
@@ -191,7 +192,7 @@ class MyApp extends StatelessWidget {
                     ],
                     color: AppColors.primary,
                     builder: EasyLoading.init(),
-                    home: const SplashScreen(),
+                    home:  SplashScreen(),
                   );
                 },
               );

@@ -13,6 +13,7 @@ import 'package:final_graduation_project/features/doctor/clinic_data/screens/cli
 import 'package:final_graduation_project/features/user/heart_rediction/presentation/screens/heart_rediction_screen.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/home_app_bar.dart';
 import 'package:final_graduation_project/features/user/home/presentation/widgets/predict_diseases_item.dart';
+import 'package:final_graduation_project/features/user/notifications/presentation/screens/notifications_screen.dart';
 import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -61,7 +62,10 @@ class _ClinicScreenState extends State<ClinicScreen> {
                   MyShared.getString(key: MySharedKeys.patientImage),
                   searchController: searchController,
                   user: MyShared.getString(key: MySharedKeys.username),
-                  notify: notify.notifications.length,
+                  notify: notify.notifications.length, onNotify: () {
+                  push(context, const NotificationsScreen());
+                  notify.notifications.clear();
+                },
                 ),
                 Row(
                   children: [

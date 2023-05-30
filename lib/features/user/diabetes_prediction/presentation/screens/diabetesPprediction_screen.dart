@@ -29,11 +29,9 @@ class DiabetesPredictionScreen extends StatelessWidget {
       push(
           context,
           PredictionResultScreen(
-              appBarTitle:
-              'Diabetes prediction result',
+              appBarTitle: S().diabetesPredictionResult,
               result: state.message,
-              description:
-           state.message == "You don't have Diabetes." ? "":  "your body doesn't make enough insulin or can't use it as well as it should. When there isn't enough insulin or cells stop responding to insulin, too much blood sugar stays in your bloodstream. Over time, that can cause serious health problems, such as heart disease, vision loss, and kidney disease."
+              id: '647210dd5ae42d35e118b104',
           ));
 
     }

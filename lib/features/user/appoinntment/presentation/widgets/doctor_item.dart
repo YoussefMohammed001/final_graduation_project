@@ -4,6 +4,7 @@ import 'package:final_graduation_project/core/styles/colors.dart';
 import 'package:final_graduation_project/core/utils/svg.dart';
 import 'package:final_graduation_project/core/widgets/add_review_dialogue.dart';
 import 'package:final_graduation_project/core/widgets/app_image.dart';
+import 'package:final_graduation_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -136,7 +137,7 @@ class DoctorItem extends StatelessWidget {
                           width: 0.5.w,
                         ),
                         Text(
-                          "Dr. $drName",
+                          "${S().dr} $drName",
                           style: TextStyle(fontSize: 15.sp,overflow: TextOverflow.ellipsis),
                         )
                       ],

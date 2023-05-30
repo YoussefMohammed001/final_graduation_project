@@ -29,7 +29,6 @@
  "diabetes": "السكري",
  "heartDiseases": "أمراض القلب",
  "specialists": "التخصصات",
-
  "viewAll": "اظهار الكل",
  "bestDoctors": "افضل اطباء",
  "home": "الرئيسيه",
@@ -124,7 +123,25 @@
  "from": "من",
  "to": "الي",
  "fees": "تكاليف الكشف",
- "doctor": "دكتور"
+ "doctor": "دكتور",
+ "accurate": "النتيجة ليست دقيقة",
+ "diabetesPredictionResult": "نتيجة التنبؤ بمرض السكري",
+ "heartPredictionResult": "نتيجة تنبؤ القلب",
+ "skinPredictionResult": "نتيجة التنبؤ بسرطان الجلد",
+ "required": "هذه الخانة مطلوبه",
+ "maximumheartrateachieved": "تحقيق أقصى معدل لضربات القلب",
+ "practicofangina": "ممارسة الذبحة",
+ "slope": "الميل",
+ "up":"أعلى",
+ "flat": "مستوي",
+ "down": "اسفل",
+ "oldPeak": "الاكتئاب الناجم عن ممارسة الرياضة بالنسبة للراحة",
+ "ca": "عدد الأوعية الرئيسية (0-3) الملونة بواسطة فلوروسوبي",
+ "normal": "طبيعي",
+ "fixeddefected": "انشقاق ثابت",
+ "reversibledefected": "انشقاق عكسي"
+
+
 
 
 

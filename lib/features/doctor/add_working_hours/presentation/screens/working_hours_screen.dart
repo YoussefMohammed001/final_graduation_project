@@ -9,6 +9,7 @@ import 'package:final_graduation_project/features/doctor/add_working_hours/data/
 import 'package:final_graduation_project/features/doctor/add_working_hours/presentation/widgets/day_item.dart';
 import 'package:final_graduation_project/features/doctor/add_working_hours/presentation/widgets/shift_item.dart';
 import 'package:final_graduation_project/features/doctor/add_working_hours/presentation/widgets/working_hours_dialog.dart';
+import 'package:final_graduation_project/features/doctor/doctor_main_screen/doctor_main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -55,7 +56,13 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => cubit,
-      child: BlocBuilder<AddWorkingHoursCubit, AddWorkingHoursState>(
+      child: BlocConsumer<AddWorkingHoursCubit, AddWorkingHoursState>(
+        listener: (context, state) {
+          if(state is AddWorkingHoursSuccess){
+            pushAndRemoveUntil(context, DoctorMainScreen());
+
+          }
+        },
         builder: (context, state) {
           return Scaffold(
             backgroundColor: Colors.grey[100],
@@ -92,9 +99,9 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
                                           appointments[index]
                                               .durations
                                               .add(Durations(
-                                                from: from,
-                                                to: to,
-                                              ));
+                                            from: from,
+                                            to: to,
+                                          ));
                                           setState(() {});
                                         },
                                         title: 'Start time',
@@ -111,7 +118,7 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
                                     visible: appointments[index].enabled,
                                     child: ListView.builder(
                                         physics:
-                                            const NeverScrollableScrollPhysics(),
+                                        const NeverScrollableScrollPhysics(),
                                         shrinkWrap: true,
                                         itemBuilder: (BuildContext context,
                                             int durationIndex) {
@@ -148,13 +155,15 @@ class _WorkingHoursScreenState extends State<WorkingHoursScreen> {
                   ),
                 ),
                 AppButton(
-                  bgColor: AppColors.primary,
-                    margin: EdgeInsets.symmetric(vertical: 12.sp,horizontal: 15.sp),
+                    bgColor: AppColors.primary,
+                    margin: EdgeInsets.symmetric(
+                        vertical: 12.sp, horizontal: 15.sp),
                     borderRadius: BorderRadius.circular(18.sp),
                     onPressed: () {
                       cubit.postWorkingHours(
                         id: MyShared.getString(key: MySharedKeys.id).toString(),
-                        appointments: appointments.where((element) => element.enabled).toList(),
+                        appointments: appointments.where((element) =>
+                        element.enabled).toList(),
                       );
                     },
                     label: "Done")

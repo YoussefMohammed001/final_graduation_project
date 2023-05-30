@@ -537,6 +537,7 @@ class _ClinicDataScreenState extends State<ClinicDataScreen> {
                                       height: 2.h,
                                     ),
                                     ClinicTextFormField(
+                                      minLines: 4,
                                       validators: (value) {
                                         if (value == null) {
                                           return "this field is required";

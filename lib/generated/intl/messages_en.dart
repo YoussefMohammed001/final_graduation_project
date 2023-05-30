@@ -25,6 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "aTypicalAngina":
             MessageLookupByLibrary.simpleMessage("ATypical angina"),
         "aboutUs": MessageLookupByLibrary.simpleMessage("About us"),
+        "accurate":
+            MessageLookupByLibrary.simpleMessage("The result is not accurate"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("already have account?"),
         "appointments": MessageLookupByLibrary.simpleMessage("Appointments"),
@@ -43,6 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "bodyMassIndex":
             MessageLookupByLibrary.simpleMessage("body mass index"),
         "bookNow": MessageLookupByLibrary.simpleMessage("Book now"),
+        "ca": MessageLookupByLibrary.simpleMessage(
+            "number of major vessels (0-3) colored by flourosopy"),
         "ccurrent": MessageLookupByLibrary.simpleMessage("Up Coming"),
         "changeLang": MessageLookupByLibrary.simpleMessage("Change Language"),
         "changePassword":
@@ -67,12 +71,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "diabetes": MessageLookupByLibrary.simpleMessage("Diabetes"),
         "diabetesPedigreeFunction":
             MessageLookupByLibrary.simpleMessage("Diabetes pedigree function"),
+        "diabetesPredictionResult":
+            MessageLookupByLibrary.simpleMessage("Diabetes prediction result"),
         "doNotHaveAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have account?"),
         "doNotWorry": MessageLookupByLibrary.simpleMessage("Don\'t worry"),
         "doYouWantToLogOut":
             MessageLookupByLibrary.simpleMessage("Do you want to logOut?"),
         "doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
+        "down": MessageLookupByLibrary.simpleMessage("down"),
         "dr": MessageLookupByLibrary.simpleMessage("Dr."),
         "editMyData": MessageLookupByLibrary.simpleMessage("Edit my data"),
         "electrocardioGraphic":
@@ -95,6 +102,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "faqs": MessageLookupByLibrary.simpleMessage("FAQS"),
         "fees": MessageLookupByLibrary.simpleMessage("Fees"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
+        "fixeddefected": MessageLookupByLibrary.simpleMessage("fixed defected"),
+        "flat": MessageLookupByLibrary.simpleMessage("flat"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("Forget password"),
         "forgetYourPass":
@@ -104,6 +113,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "from": MessageLookupByLibrary.simpleMessage("From"),
         "glucoseLevel": MessageLookupByLibrary.simpleMessage("glucose Level"),
         "heartDiseases": MessageLookupByLibrary.simpleMessage("Heart Diseases"),
+        "heartPredictionResult":
+            MessageLookupByLibrary.simpleMessage("Heart prediction result"),
         "hello": MessageLookupByLibrary.simpleMessage("Hello"),
         "higherThan120":
             MessageLookupByLibrary.simpleMessage("Higher than 120"),
@@ -126,6 +137,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "maleHint": MessageLookupByLibrary.simpleMessage("male"),
         "manageYourHealthAndHappyFuture": MessageLookupByLibrary.simpleMessage(
             "Manage your health and happy future"),
+        "maximumheartrateachieved":
+            MessageLookupByLibrary.simpleMessage("maximum heart rate achieved"),
         "mobileNumber": MessageLookupByLibrary.simpleMessage("Mobile Number"),
         "myAccount": MessageLookupByLibrary.simpleMessage("My account"),
         "newPass": MessageLookupByLibrary.simpleMessage("new password"),
@@ -133,10 +146,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "noStayHere": MessageLookupByLibrary.simpleMessage("No stat here"),
         "nonAnginalPain":
             MessageLookupByLibrary.simpleMessage("Non-anginal pain"),
+        "normal": MessageLookupByLibrary.simpleMessage("normal"),
         "note": MessageLookupByLibrary.simpleMessage("Note"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "numberOfPregnancies":
             MessageLookupByLibrary.simpleMessage("number of pregnancies"),
+        "oldPeak": MessageLookupByLibrary.simpleMessage(
+            "depression induced by exercise relative to rest"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "patientAgeInYears":
             MessageLookupByLibrary.simpleMessage("Patient age in years"),
@@ -147,13 +163,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseUseTheNewPasswordWhenLoggingIn":
             MessageLookupByLibrary.simpleMessage(
                 "Please use the new password when logging in"),
+        "practicofangina":
+            MessageLookupByLibrary.simpleMessage("The practice of angina"),
         "predict": MessageLookupByLibrary.simpleMessage("Predict"),
         "previous": MessageLookupByLibrary.simpleMessage("Previous"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "rePassword": MessageLookupByLibrary.simpleMessage("Re-password"),
+        "required": MessageLookupByLibrary.simpleMessage("required"),
         "reservationDone":
             MessageLookupByLibrary.simpleMessage("Reservation done"),
         "result": MessageLookupByLibrary.simpleMessage("Result"),
+        "reversibledefected":
+            MessageLookupByLibrary.simpleMessage("reversible defected"),
         "saveChanges": MessageLookupByLibrary.simpleMessage("Save changes"),
         "searchForNearestDoctor":
             MessageLookupByLibrary.simpleMessage("Search for nearest doctor"),
@@ -164,8 +185,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("signUp"),
         "signUpNow": MessageLookupByLibrary.simpleMessage("Sign up now"),
         "skinCancer": MessageLookupByLibrary.simpleMessage("Skin Cancer"),
+        "skinPredictionResult": MessageLookupByLibrary.simpleMessage(
+            "Skin cancer prediction result"),
         "skinThickness": MessageLookupByLibrary.simpleMessage("skin thickness"),
         "skip": MessageLookupByLibrary.simpleMessage("SKIP"),
+        "slope": MessageLookupByLibrary.simpleMessage("Slope"),
         "specialists": MessageLookupByLibrary.simpleMessage("Specialists"),
         "specialization":
             MessageLookupByLibrary.simpleMessage("Specialization"),
@@ -182,6 +206,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "tryAgainAfter":
             MessageLookupByLibrary.simpleMessage("Try again after"),
         "typicalAngina": MessageLookupByLibrary.simpleMessage("Typical angina"),
+        "up": MessageLookupByLibrary.simpleMessage("up"),
         "updateYourPassword":
             MessageLookupByLibrary.simpleMessage("Update your password"),
         "username": MessageLookupByLibrary.simpleMessage("Username"),

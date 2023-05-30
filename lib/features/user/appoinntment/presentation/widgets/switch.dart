@@ -21,7 +21,7 @@ class _SwitchAppointmentState extends State<SwitchAppointment> {
         borderRadius: BorderRadius.circular(15.sp),
         color: Colors.grey.shade200,
       ),
-      margin: EdgeInsets.symmetric(horizontal: 35.sp, vertical: 20.sp),
+      margin: EdgeInsets.symmetric(horizontal: 30.sp, vertical: 20.sp),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

@@ -122,7 +122,25 @@
   "from": "From",
   "to": "To",
   "fees": "Fees",
-  "doctor": "Doctor"
+  "doctor": "Doctor",
+  "accurate": "The result is not accurate",
+  "diabetesPredictionResult": "Diabetes prediction result",
+  "heartPredictionResult": "Heart prediction result",
+  "skinPredictionResult": "Skin cancer prediction result",
+  "required": "required",
+  "maximumheartrateachieved": "maximum heart rate achieved",
+  "practicofangina": "The practice of angina",
+  "slope": "Slope",
+  "up":"up",
+  "flat": "flat",
+  "down": "down",
+  "oldPeak": "depression induced by exercise relative to rest",
+  "ca": "number of major vessels (0-3) colored by flourosopy",
+  "normal": "normal",
+  "fixeddefected": "fixed defected",
+  "reversibledefected": "reversible defected"
+
+
 
 
 }

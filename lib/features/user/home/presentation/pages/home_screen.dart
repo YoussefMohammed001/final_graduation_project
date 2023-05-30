@@ -35,8 +35,8 @@ final notify = NewNotificationsCubit();
   bool visible = false;
   @override
   void initState() {
-    notify.getNotifications();
     cubit.getHome();
+    notify.getNotifications();
     safePrint(MyShared.getString(key: MySharedKeys.id));
     super.initState();
   }

@@ -137,12 +137,11 @@ class _SkinCancerScreenState extends State<SkinCancerScreen> {
                                       if (_formKey.currentState!.validate()) {
                                         push(
                                             context,
-                                            const PredictionResultScreen(
+                                              PredictionResultScreen(
                                               appBarTitle:
-                                                  'Skin Cancer prediction result',
+                                                 S().skinPredictionResult,
                                               result: 'Benign',
-                                              description:
-                                                  'description description  description description description description description description description description description description description description  description description description description description description',
+                                                   id: '6474acf61388e87cadbcca5c',
                                             ));
                                         safePrint(male.dropDownValue!.value
                                             .toString());

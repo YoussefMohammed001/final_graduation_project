@@ -4,7 +4,9 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 bool edit = false;
 // ignore: must_be_immutable
 class ClinicTextFormField extends StatefulWidget {
-   ClinicTextFormField({Key? key,  required this.hint,  this.isPassword = true,  this.enabled, this.validators, required this.controller, required this.textInputAction, required this.textInputType, required this.onTap}) : super(key: key);
+   ClinicTextFormField({Key? key,
+     this.minLines =1,
+     required this.hint,  this.isPassword = true,  this.enabled, this.validators, required this.controller, required this.textInputAction, required this.textInputType, required this.onTap}) : super(key: key);
   final String hint;
   final bool isPassword;
   final bool? enabled;
@@ -13,6 +15,7 @@ class ClinicTextFormField extends StatefulWidget {
   final TextInputAction textInputAction;
   final TextInputType textInputType;
   final VoidCallback onTap;
+  int? minLines;
   BorderRadius? borderRadius;
   EdgeInsetsGeometry? margin;
   EdgeInsetsGeometry? padding;
@@ -32,7 +35,8 @@ class _ClinicTextFormFieldState extends State<ClinicTextFormField> {
         alignment: AlignmentDirectional.topEnd,
         children: [
           TextFormField(
-
+            minLines: widget.minLines,
+            maxLines: 10,
             enabled: edit == true,
             validator: widget.validators,
 

@@ -21,6 +21,7 @@ class HeartPredictionCubit extends Cubit<HeartPredictionState> {
     required String restecg,
     required String thalach,
     required String exang,
+    required String oldpeak,
     required String slope,
     required String ca,
     required String thal,
@@ -28,22 +29,21 @@ class HeartPredictionCubit extends Cubit<HeartPredictionState> {
     showLoading();
     var response = await AIDio.post(endPoint: EndPoints.predictHeart,
         data: {
-          "age":"34",
-          "sex" :"0",
-          "cp" :"1",
-          "trestbps":"118",
-          "chol":"210",
-          "fbs" :"0",
-          "restecg" :"1",
-          "thalach" :"192",
-          "exang" :"0",
-          "oldpeak" :"0.7",
-          "slope":"2",
-          "ca" :"0",
-          "thal" :"2"
+          "age":age,
+          "sex" :sex,
+          "cp" :cp,
+          "trestbps":trestbps,
+          "chol":chol,
+          "fbs" :fbs,
+          "restecg" :restecg,
+          "thalach" :thalach,
+          "exang" :exang,
+          "oldpeak" :oldpeak,
+          "slope":slope,
+          "ca" :ca,
+          "thal" :thal
         });
     try{
-
       heartDiseaseModel = HeartDiseaseModel.fromJson(response!.data);
       if(heartDiseaseModel.apiStatus == 'true'){
         hideLoading();

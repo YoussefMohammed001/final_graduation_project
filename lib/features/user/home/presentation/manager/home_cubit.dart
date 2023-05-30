@@ -11,6 +11,7 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
 List<Specializes> specializes = [];
 List<Doctors> doctors = [];
+
   getHome() async {
     showLoading();
     var response = await AppDio.get(endPoint: "user/",);

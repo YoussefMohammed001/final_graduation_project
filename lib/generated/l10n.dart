@@ -1289,6 +1289,166 @@ class S {
       args: [],
     );
   }
+
+  /// `The result is not accurate`
+  String get accurate {
+    return Intl.message(
+      'The result is not accurate',
+      name: 'accurate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Diabetes prediction result`
+  String get diabetesPredictionResult {
+    return Intl.message(
+      'Diabetes prediction result',
+      name: 'diabetesPredictionResult',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Heart prediction result`
+  String get heartPredictionResult {
+    return Intl.message(
+      'Heart prediction result',
+      name: 'heartPredictionResult',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skin cancer prediction result`
+  String get skinPredictionResult {
+    return Intl.message(
+      'Skin cancer prediction result',
+      name: 'skinPredictionResult',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `required`
+  String get required {
+    return Intl.message(
+      'required',
+      name: 'required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `maximum heart rate achieved`
+  String get maximumheartrateachieved {
+    return Intl.message(
+      'maximum heart rate achieved',
+      name: 'maximumheartrateachieved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The practice of angina`
+  String get practicofangina {
+    return Intl.message(
+      'The practice of angina',
+      name: 'practicofangina',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Slope`
+  String get slope {
+    return Intl.message(
+      'Slope',
+      name: 'slope',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `up`
+  String get up {
+    return Intl.message(
+      'up',
+      name: 'up',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `flat`
+  String get flat {
+    return Intl.message(
+      'flat',
+      name: 'flat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `down`
+  String get down {
+    return Intl.message(
+      'down',
+      name: 'down',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `depression induced by exercise relative to rest`
+  String get oldPeak {
+    return Intl.message(
+      'depression induced by exercise relative to rest',
+      name: 'oldPeak',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `number of major vessels (0-3) colored by flourosopy`
+  String get ca {
+    return Intl.message(
+      'number of major vessels (0-3) colored by flourosopy',
+      name: 'ca',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `normal`
+  String get normal {
+    return Intl.message(
+      'normal',
+      name: 'normal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `fixed defected`
+  String get fixeddefected {
+    return Intl.message(
+      'fixed defected',
+      name: 'fixeddefected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `reversible defected`
+  String get reversibledefected {
+    return Intl.message(
+      'reversible defected',
+      name: 'reversibledefected',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

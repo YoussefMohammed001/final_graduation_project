@@ -26,6 +26,7 @@ class AddWorkingHoursCubit extends Cubit<AddWorkingHoursState> {
     );
      showSuccess("working hours added");
      safePrint(response.toString());
+     emit(AddWorkingHoursSuccess());
 
   }
 }

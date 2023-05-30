@@ -95,6 +95,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   saveDoctorData() async {
     MyShared.putString(key: MySharedKeys.username, value:loginDoctorModel.doctor.name);
+    MyShared.putString(key: MySharedKeys.specializeId, value:loginDoctorModel.doctor.specializeId.id);
     MyShared.putString(key:MySharedKeys.apiToken, value:loginDoctorModel.token);
     MyShared.putString(key: MySharedKeys.drNameAr, value: loginDoctorModel.doctor.nameAr);
     MyShared.putString(key: MySharedKeys.patientImage, value: loginDoctorModel.doctor.profilePicture.url);

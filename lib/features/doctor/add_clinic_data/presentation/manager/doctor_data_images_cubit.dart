@@ -125,6 +125,7 @@ List<UpdatedData> dataImages = [];
 
 
   updateClincImages({required String imgId,required String img}) async {
+    showLoading();
     var response = await AppDio.postFile(endPoint: EndPoints.updateImages+MyShared.getString(key: MySharedKeys.id),
     formData: FormData.fromMap({
       "imgId" : imgId,
@@ -135,8 +136,9 @@ List<UpdatedData> dataImages = [];
     updateDoctorImagesModel = UpdateDoctorImagesModel.fromJson(response!.data);
     dataImages = updateDoctorImagesModel.data;
     await updateImages();
+    emit(DoctorImagesSuccess());
+    hideLoading();
     safePrint(response.toString());
-
 
   }
   saveDoctorData() {

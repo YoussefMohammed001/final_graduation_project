@@ -57,11 +57,10 @@ class _profileDetailsScreenState extends State<profileDetailsScreen> {
     if (pickedImage != null) {
       setState(() {
         _image = File(pickedImage.path);
-        cubit.userUploadImage(
-            image: _image!.path.toString(),
-            id: MyShared.getString(key: MySharedKeys.id));
-        setState(() {
 
+        setState(() {
+          cubit.userUploadImage(
+            image: _image!.path.toString(),);
         });
       });
     }

@@ -94,12 +94,12 @@ class ProfileDetailsCubit extends Cubit<ProfileDetailsState> {
   UploadUserImageModel uploadUserImageModel = UploadUserImageModel();
   userUploadImage({
     required String image,
-    required String id,
+
   }) async {
     emit(ProfileDetailsLoading());
     safePrint("loading");
     var response = await AppDio.postFile(
-      endPoint: EndPoints.uploadUserImage + id,
+      endPoint: EndPoints.uploadUserImage,
       formData: FormData.fromMap({
         "img": await MultipartFile.fromFile(image),
       }),

@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "aTypicalAngina":
             MessageLookupByLibrary.simpleMessage("الذبحة الصدرية غير النمطية"),
         "aboutUs": MessageLookupByLibrary.simpleMessage("معلومات عنا"),
+        "accurate": MessageLookupByLibrary.simpleMessage("النتيجة ليست دقيقة"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل؟"),
         "appointments": MessageLookupByLibrary.simpleMessage("الحجوزات"),
@@ -45,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "bodyMassIndex":
             MessageLookupByLibrary.simpleMessage("مؤشر كتلة الجسم"),
         "bookNow": MessageLookupByLibrary.simpleMessage("احجز الآن"),
+        "ca": MessageLookupByLibrary.simpleMessage(
+            "عدد الأوعية الرئيسية (0-3) الملونة بواسطة فلوروسوبي"),
         "ccurrent": MessageLookupByLibrary.simpleMessage("الحجوزات الحالية"),
         "changeLang": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "changePassword":
@@ -67,12 +70,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "diabetes": MessageLookupByLibrary.simpleMessage("السكري"),
         "diabetesPedigreeFunction":
             MessageLookupByLibrary.simpleMessage("وظيفة نسب مرض السكري"),
+        "diabetesPredictionResult":
+            MessageLookupByLibrary.simpleMessage("نتيجة التنبؤ بمرض السكري"),
         "doNotHaveAccount":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "doNotWorry": MessageLookupByLibrary.simpleMessage("لا تقلق"),
         "doYouWantToLogOut":
             MessageLookupByLibrary.simpleMessage("هل ترغب بالخروج؟"),
         "doctor": MessageLookupByLibrary.simpleMessage("دكتور"),
+        "down": MessageLookupByLibrary.simpleMessage("اسفل"),
         "dr": MessageLookupByLibrary.simpleMessage("د"),
         "editMyData":
             MessageLookupByLibrary.simpleMessage("تعديل البيانات الخاصة بي"),
@@ -94,6 +100,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "faqs": MessageLookupByLibrary.simpleMessage("أسئلة متكرره"),
         "fees": MessageLookupByLibrary.simpleMessage("تكاليف الكشف"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
+        "fixeddefected": MessageLookupByLibrary.simpleMessage("انشقاق ثابت"),
+        "flat": MessageLookupByLibrary.simpleMessage("مستوي"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "forgetYourPass":
@@ -103,6 +111,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "from": MessageLookupByLibrary.simpleMessage("من"),
         "glucoseLevel": MessageLookupByLibrary.simpleMessage("مستوى الجلوكوز"),
         "heartDiseases": MessageLookupByLibrary.simpleMessage("أمراض القلب"),
+        "heartPredictionResult":
+            MessageLookupByLibrary.simpleMessage("نتيجة تنبؤ القلب"),
         "hello": MessageLookupByLibrary.simpleMessage("مرحبًا"),
         "higherThan120": MessageLookupByLibrary.simpleMessage("أعلى من 120"),
         "higherThan120Hint":
@@ -124,16 +134,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "maleHint": MessageLookupByLibrary.simpleMessage("ذكر"),
         "manageYourHealthAndHappyFuture":
             MessageLookupByLibrary.simpleMessage("إدارة صحتك ومستقبلك السعيد"),
+        "maximumheartrateachieved": MessageLookupByLibrary.simpleMessage(
+            "تحقيق أقصى معدل لضربات القلب"),
         "mobileNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "myAccount": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "newPass": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "noStayHere": MessageLookupByLibrary.simpleMessage("لا سابقى هنا"),
         "nonAnginalPain": MessageLookupByLibrary.simpleMessage("ألم غير زاوي"),
+        "normal": MessageLookupByLibrary.simpleMessage("طبيعي"),
         "note": MessageLookupByLibrary.simpleMessage("ملاحظتك"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "numberOfPregnancies":
             MessageLookupByLibrary.simpleMessage("عدد حالات الحمل"),
+        "oldPeak": MessageLookupByLibrary.simpleMessage(
+            "الاكتئاب الناجم عن ممارسة الرياضة بالنسبة للراحة"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "patientAgeInYears":
             MessageLookupByLibrary.simpleMessage("عمر المريض بالسنوات"),
@@ -144,12 +159,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseUseTheNewPasswordWhenLoggingIn":
             MessageLookupByLibrary.simpleMessage(
                 "الرجاء استخدام كلمة المرور الجديدة عند تسجيل الدخول"),
+        "practicofangina":
+            MessageLookupByLibrary.simpleMessage("ممارسة الذبحة"),
         "predict": MessageLookupByLibrary.simpleMessage("تنبؤ"),
         "previous": MessageLookupByLibrary.simpleMessage("الحجوزات الماضية"),
         "profile": MessageLookupByLibrary.simpleMessage("حسابي"),
         "rePassword": MessageLookupByLibrary.simpleMessage("إعادة كلمة المرور"),
+        "required": MessageLookupByLibrary.simpleMessage("هذه الخانة مطلوبه"),
         "reservationDone": MessageLookupByLibrary.simpleMessage("تم الحجز"),
         "result": MessageLookupByLibrary.simpleMessage("النتيجة"),
+        "reversibledefected":
+            MessageLookupByLibrary.simpleMessage("انشقاق عكسي"),
         "saveChanges": MessageLookupByLibrary.simpleMessage("تغير"),
         "searchForNearestDoctor":
             MessageLookupByLibrary.simpleMessage("ابحث عن أقرب طبيب"),
@@ -161,8 +181,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "signUpNow": MessageLookupByLibrary.simpleMessage("سجل الان"),
         "skinCancer": MessageLookupByLibrary.simpleMessage("سرطان الجلد"),
+        "skinPredictionResult":
+            MessageLookupByLibrary.simpleMessage("نتيجة التنبؤ بسرطان الجلد"),
         "skinThickness": MessageLookupByLibrary.simpleMessage("سماكة الجلد"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+        "slope": MessageLookupByLibrary.simpleMessage("الميل"),
         "specialists": MessageLookupByLibrary.simpleMessage("التخصصات"),
         "specialization": MessageLookupByLibrary.simpleMessage("التخصص"),
         "specializedDoctors":
@@ -179,6 +202,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("حاول مرة أخرى بعد"),
         "typicalAngina":
             MessageLookupByLibrary.simpleMessage("الذبحة الصدرية النموذجية"),
+        "up": MessageLookupByLibrary.simpleMessage("أعلى"),
         "updateYourPassword":
             MessageLookupByLibrary.simpleMessage("تحديث كلمة المرور الخاصة بك"),
         "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),

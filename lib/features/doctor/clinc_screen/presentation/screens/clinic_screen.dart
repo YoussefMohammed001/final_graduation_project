@@ -87,15 +87,49 @@ class _ClinicScreenState extends State<ClinicScreen> {
                         )),
                   ],
                 ),
-                PredictDiseases(
-                  image:
-                  'assets/images/h.jpg',
-                  title: S().heartDiseases,
-                  onTap: () {
-                    push(context,
-                        HeartPredictionScreen());
-                  },
+                Stack(
+                  children: [
+
+                    Visibility(
+                      visible: MyShared.getString(key: MySharedKeys.specializeId) == "643470f814649b678e0d25b6",
+                      child: PredictDiseases(
+                        image:
+                        'assets/images/h.jpg',
+                        title: S().heartDiseases,
+                        onTap: () {
+                          push(context,
+                              HeartPredictionScreen());
+                        },
+                      ),
+                    ),
+                    Visibility(
+                      visible: MyShared.getString(key: MySharedKeys.specializeId) == "647210dd5ae42d35e118b104",
+                      child: PredictDiseases(
+                        image:
+                        'assets/images/d.jpg',
+                        title: S().diabetes,
+                        onTap: () {
+                          push(context,
+                              HeartPredictionScreen());
+                        },
+                      ),
+                    ),
+                    Visibility(
+                      visible: MyShared.getString(key: MySharedKeys.specializeId) == "6474acf61388e87cadbcca5c",
+                      child: PredictDiseases(
+                        image:
+                        'assets/images/s.jpg',
+                        title: S().skinCancer,
+                        onTap: () {
+                          push(context,
+                              HeartPredictionScreen());
+                        },
+                      ),
+                    ),
+
+                  ],
                 ),
+
                 Container(
                   alignment: AlignmentDirectional.topStart,
                   margin: EdgeInsets.all(18.sp),
